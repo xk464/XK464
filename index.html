@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>流光溢彩3D立方体</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background: #000;
+  overflow: hidden;
+}
+.container {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  perspective: 1800px;
+  transform: translate(-50%, -50%);
+}
+.cube {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out;
+  /* 初始视角：上/前/右可见 */
+  transform: rotateX(35deg) rotateY(45deg);
+}
+.face {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border: 2px solid rgba(255,255,255,0.9);
+  background: linear-gradient(135deg, 
+    rgba(0,212,255,0.7) 0%, 
+    rgba(9,9,121,0.7) 50%, 
+    rgba(255,0,255,0.7) 100%);
+  box-shadow: 
+    0 0 25px rgba(0,212,255,0.8),
+    0 0 40px rgba(255,0,255,0.6),
+    inset 0 0 20px rgba(255,255,255,0.3);
+  backdrop-filter: blur(3px);
+  animation: glow 4s linear infinite;
+}
+/* 各面位置与渐变方向 */
+.front  { transform: translateZ(160px); background: linear-gradient(45deg, rgba(0,212,255,0.7), rgba(255,0,255,0.7)); }
+.back   { transform: rotateY(180deg) translateZ(160px); background: linear-gradient(135deg, rgba(255,0,255,0.7), rgba(0,212,255,0.7)); }
+.left   { transform: rotateY(-90deg) translateZ(160px); background: linear-gradient(90deg, rgba(0,212,255,0.7), rgba(255,0,255,0.7)); }
+.right  { transform: rotateY(90deg) translateZ(160px); background: linear-gradient(270deg, rgba(255,0,255,0.7), rgba(0,212,255,0.7)); }
+.top    { transform: rotateX(90deg) translateZ(160px); background: linear-gradient(0deg, rgba(0,212,255,0.7), rgba(255,0,255,0.7)); }
+.bottom { transform: rotateX(-90deg) translateZ(160px); background: linear-gradient(180deg, rgba(255,0,255,0.7), rgba(0,212,255,0.7)); }
+
+/* 流光动画 */
+@keyframes glow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="cube">
+    <div class="face front"></div>
+    <div class="face back"></div>
+    <div class="face left"></div>
+    <div class="face right"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+
+<script>
+const cube = document.querySelector('.cube');
+const { innerWidth, innerHeight } = window;
+const centerX = innerWidth / 2;
+const centerY = innerHeight / 2;
+
+// 鼠标移动控制旋转（从中心到边缘旋转三圈）
+document.addEventListener('mousemove', (e) => {
+  // 计算鼠标相对于中心的偏移量（-1 ~ 1）
+  const dx = (e.clientX - centerX) / centerX;
+  const dy = (e.clientY - centerY) / centerY;
+  
+  // 三圈 = 3 * 360° = 1080°
+  const rotateY = dx * 1080 + 45;   // 左右方向旋转三圈
+  const rotateX = -dy * 1080 + 35; // 上下方向旋转三圈
+  
+  cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
+
+// 移动端触摸支持
+document.addEventListener('touchmove', (e) => {
+  if (e.touches.length === 1) {
+    const touch = e.touches[0];
+    const dx = (touch.clientX - centerX) / centerX;
+    const dy = (touch.clientY - centerY) / centerY;
+    const rotateY = dx * 1080 + 45;
+    const rotateX = -dy * 1080 + 35;
+    cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    e.preventDefault();
+  }
+}, { passive: false });
+</script>
+</body>
+</html>
