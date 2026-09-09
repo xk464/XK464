@@ -243,11 +243,11 @@
                 <div class="download-card">
                     <div class="dl-icon">🖥</div>
                     <h3>Windows</h3>
-                    <p class="dl-size">约 23 MB · 需 Java 17+</p>
-                    <a href="https://github.com/xk464/1/raw/master/releases/EXE/DailyCheck.exe" class="btn btn-primary btn-block" download>
+                    <p class="dl-size">约 36 MB · 内置 JRE，免安装 Java</p>
+                    <a href="https://github.com/xk464/1/raw/master/releases/EXE/DailyCheck-Setup.exe" class="btn btn-primary btn-block" download>
                         下载 Windows 版
                     </a>
-                    <span class="dl-hint">双击 EXE 即可运行</span>
+                    <span class="dl-hint">双击安装包，自动解压并启动</span>
                 </div>
             </div>
             <p class="source-link">
@@ -301,27 +301,27 @@
                     <div class="guide-step">
                         <span class="step-num">1</span>
                         <div>
-                            <h4>安装 Java 17+</h4>
-                            <p>前往 <a href="https://adoptium.net/" target="_blank" rel="noopener">adoptium.net</a> 下载安装 JDK 17 或更高版本。</p>
+                            <h4>下载安装包</h4>
+                            <p>点击上方"下载 Windows 版"按钮，保存 <code>DailyCheck-Setup.exe</code> 到任意目录。安装包已内置 Java 运行环境，无需额外安装 Java。</p>
                         </div>
                     </div>
                     <div class="guide-step">
                         <span class="step-num">2</span>
                         <div>
-                            <h4>下载程序</h4>
-                            <p>点击上方"下载 Windows 版"按钮，将 EXE 文件保存到任意目录。</p>
+                            <h4>运行安装包</h4>
+                            <p>双击 <code>DailyCheck-Setup.exe</code>，在弹出的确认框中点击"是"，程序会自动解压到本地并启动。</p>
                         </div>
                     </div>
                     <div class="guide-step">
                         <span class="step-num">3</span>
                         <div>
-                            <h4>运行程序</h4>
-                            <p>双击 <code>DailyCheck.exe</code> 即可启动应用。</p>
+                            <h4>开始使用</h4>
+                            <p>应用启动后即可使用。后续可从解压目录 <code>%LOCALAPPDATA%\DailyCheck\DailyCheck.exe</code> 直接启动。</p>
                         </div>
                     </div>
                 </div>
                 <div class="guide-note">
-                    <strong>卸载方法：</strong>直接删除 EXE 文件即可。数据存储在 <code>%APPDATA%/dailycheck/</code>，删除该目录可清空数据。
+                    <strong>卸载方法：</strong>删除解压目录 <code>%LOCALAPPDATA%\DailyCheck\</code> 即可。数据存储在 <code>%APPDATA%\dailycheck\</code>，删除该目录可清空数据。
                 </div>
             </div>
         </div>
