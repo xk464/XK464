@@ -1,13 +1,355 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>xk464</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="每日打卡 - 一款专注学习、记账与习惯养成的跨平台应用，支持 Android 与 Windows。番茄钟计时、收支管理、月历周历饼图统计。">
+    <title>每日打卡 · DailyCheck</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="#home" class="logo">
+                <span class="logo-icon">✓</span>
+                <span class="logo-text">每日打卡</span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#features">功能</a>
+                <a href="#platforms">平台</a>
+                <a href="#screenshots">预览</a>
+                <a href="#download">下载</a>
+                <a href="#guide">安装指引</a>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="菜单">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 英雄区 -->
+    <section class="hero" id="home">
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <span class="badge">跨平台 · Android & Windows</span>
+                <h1>让每一天都<span class="gradient-text">有迹可循</span></h1>
+                <p class="hero-sub">打卡、学习计时、收支记账三合一。用数据看见坚持，用习惯成就更好的自己。</p>
+                <div class="hero-btns">
+                    <a href="#download" class="btn btn-primary">立即下载</a>
+                    <a href="#features" class="btn btn-ghost">了解功能</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong>5</strong>
+                        <span>核心模块</span>
+                    </div>
+                    <div class="stat">
+                        <strong>3</strong>
+                        <span>统计视图</span>
+                    </div>
+                    <div class="stat">
+                        <strong>2</strong>
+                        <span>操作系统</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="mock-header">
+                            <span class="mock-dot"></span>
+                            <span class="mock-title">打卡</span>
+                        </div>
+                        <div class="mock-hero-card">
+                            <span class="mock-streak">连续打卡 12 天</span>
+                            <div class="mock-bar"><div style="width:75%"></div></div>
+                            <span class="mock-meta">3 / 4</span>
+                        </div>
+                        <div class="mock-row">
+                            <div class="mock-chip study">📚 学习 45m</div>
+                            <div class="mock-chip expense">💰 支出 ¥25</div>
+                        </div>
+                        <div class="mock-task-list">
+                            <div class="mock-task done">✓ 完成算法练习</div>
+                            <div class="mock-task done">✓ 阅读 30 分钟</div>
+                            <div class="mock-task">○ 写日报</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider"></div>
+    </section>
+
+    <!-- 功能区 -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">核心功能</span>
+                <h2>一站式搞定每日三件事</h2>
+                <p>任务打卡 · 学习管理 · 收支记录，三大模块数据互通，目标触手可及。</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon icon-blue">☑</div>
+                    <h3>任务打卡</h3>
+                    <p>按日期添加任务，一键打卡，自动统计连续打卡天数与完成率。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-orange">⏱</div>
+                    <h3>学习计时</h3>
+                    <p>番茄钟模式计时，可设置目标时长，达成震动提醒，前台通知实时显示。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-green">💰</div>
+                    <h3>收支记账</h3>
+                    <p>收入支出分类记录，每日结余一目了然，可设置消费上限实时预警。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-purple">📊</div>
+                    <h3>多维统计</h3>
+                    <p>月历、周历、饼图三种视图自由切换，学习时长与支出占比可视化。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-pink">🎯</div>
+                    <h3>每日目标</h3>
+                    <p>设定每日学习目标与消费上限，进度条实时反馈，结余自动计算。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-cyan">⚡</div>
+                    <h3>快捷记录</h3>
+                    <p>打卡页集成学习与消费快捷入口，无需切换页面，一键记录当天数据。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 平台区 -->
+    <section class="section section-alt" id="platforms">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">多平台</span>
+                <h2>Android + Windows 双端覆盖</h2>
+                <p>手机随身携带，桌面高效办公，数据结构统一，体验一致。</p>
+            </div>
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <div class="platform-icon android">🤖</div>
+                    <h3>Android 版</h3>
+                    <p>基于 Room + Material Design 构建，支持前台通知计时与打卡提醒。最低 Android 7.0。</p>
+                    <ul class="platform-list">
+                        <li>番茄钟计时 + 通知栏实时显示</li>
+                        <li>每日学习目标与消费上限</li>
+                        <li>月历 / 周历 / 饼图统计</li>
+                        <li>本地数据持久化</li>
+                    </ul>
+                    <a href="#download" class="btn btn-primary btn-sm">下载 APK</a>
+                </div>
+                <div class="platform-card featured">
+                    <div class="platform-badge">桌面</div>
+                    <div class="platform-icon windows">🖥</div>
+                    <h3>Windows 版</h3>
+                    <p>基于 JavaFX 17 + SQLite 构建，自绘图表无第三方依赖，轻量启动快。</p>
+                    <ul class="platform-list">
+                        <li>左侧栏 5 Tab 导航</li>
+                        <li>自绘饼图与柱状图</li>
+                        <li>与 Android 同数据库 schema</li>
+                        <li>支持打包为 EXE 安装</li>
+                    </ul>
+                    <a href="#download" class="btn btn-primary btn-sm">下载程序</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 预览区 -->
+    <section class="section" id="screenshots">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">界面预览</span>
+                <h2>简洁现代，专注内容</h2>
+                <p>扁平化设计，渐变主题色，卡片化布局，让数据阅读更舒适。</p>
+            </div>
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <div class="preview-top">
+                        <span class="preview-tab active">打卡</span>
+                        <span class="preview-tab">学习</span>
+                        <span class="preview-tab">记账</span>
+                        <span class="preview-tab">统计</span>
+                        <span class="preview-tab">设置</span>
+                    </div>
+                    <div class="preview-body">
+                        <div class="pv-hero">
+                            <span>连续打卡 12 天</span>
+                            <div class="pv-bar"><div style="width:75%"></div></div>
+                        </div>
+                        <div class="pv-quick">
+                            <div class="pv-quick-item"><span>📚</span><small>今日 45 分钟</small></div>
+                            <div class="pv-quick-item"><span>💰</span><small>支出 ¥25</small></div>
+                        </div>
+                        <div class="pv-tasks">
+                            <div class="pv-task done">✓ 完成算法练习</div>
+                            <div class="pv-task done">✓ 阅读 30 分钟</div>
+                            <div class="pv-task">○ 写日报</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="preview-card">
+                    <div class="preview-top">
+                        <span class="preview-tab">统计</span>
+                        <span class="preview-chip">饼图</span>
+                    </div>
+                    <div class="preview-body">
+                        <div class="pv-summary">
+                            <div class="pv-stat"><strong>75%</strong><small>完成率</small></div>
+                            <div class="pv-stat"><strong>45m</strong><small>学习</small></div>
+                            <div class="pv-stat"><strong>¥-25</strong><small>结余</small></div>
+                        </div>
+                        <div class="pv-pie">
+                            <div class="pie-circle"></div>
+                            <div class="pv-legend">
+                                <span class="pv-legend-item"><i style="background:#5B6CFF"></i>数学 40%</span>
+                                <span class="pv-legend-item"><i style="background:#34C759"></i>英语 35%</span>
+                                <span class="pv-legend-item"><i style="background:#FF7A45"></i>编程 25%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载区 -->
+    <section class="section download-section" id="download">
+        <div class="container">
+            <div class="section-head light">
+                <span class="eyebrow light">立即获取</span>
+                <h2>开始你的每日打卡之旅</h2>
+                <p>选择你的平台，下载对应版本，免费使用，数据本地存储。</p>
+            </div>
+            <div class="download-grid">
+                <div class="download-card">
+                    <div class="dl-icon">🤖</div>
+                    <h3>Android APK</h3>
+                    <p class="dl-size">约 6.4 MB · Android 7.0+</p>
+                    <a href="https://github.com/xk464/1/raw/master/releases/APK/app-debug.apk" class="btn btn-primary btn-block" download>
+                        下载 Android 版
+                    </a>
+                    <span class="dl-hint">允许未知来源安装</span>
+                </div>
+                <div class="download-card">
+                    <div class="dl-icon">🖥</div>
+                    <h3>Windows</h3>
+                    <p class="dl-size">约 23 MB · 需 Java 17+</p>
+                    <a href="https://github.com/xk464/1/raw/master/releases/EXE/dailycheck-windows.jar" class="btn btn-primary btn-block" download>
+                        下载 Windows 版
+                    </a>
+                    <span class="dl-hint">双击或 java -jar 运行</span>
+                </div>
+            </div>
+            <p class="source-link">
+                📦 完整源码仓库：
+                <a href="https://github.com/xk464/1" target="_blank" rel="noopener">github.com/xk464/1</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- 安装指引 -->
+    <section class="section" id="guide">
+        <div class="container">
+            <div class="section-head">
+                <span class="eyebrow">安装指引</span>
+                <h2>三步完成安装</h2>
+            </div>
+            <div class="guide-tabs">
+                <button class="guide-tab active" data-tab="android">Android</button>
+                <button class="guide-tab" data-tab="windows">Windows</button>
+            </div>
+            <div class="guide-content active" id="guide-android">
+                <div class="guide-steps">
+                    <div class="guide-step">
+                        <span class="step-num">1</span>
+                        <div>
+                            <h4>下载 APK</h4>
+                            <p>点击上方"下载 Android 版"按钮，将 APK 文件保存到手机。</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="step-num">2</span>
+                        <div>
+                            <h4>允许安装</h4>
+                            <p>在文件管理器中点击 APK，若提示"未知来源"，前往设置允许安装。</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="step-num">3</span>
+                        <div>
+                            <h4>开始使用</h4>
+                            <p>安装完成后在桌面找到"每日打卡"图标，打开即可使用。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-note">
+                    <strong>卸载方法：</strong>长按桌面图标拖至"卸载"，或在设置 → 应用管理中卸载。卸载后数据自动清除。
+                </div>
+            </div>
+            <div class="guide-content" id="guide-windows">
+                <div class="guide-steps">
+                    <div class="guide-step">
+                        <span class="step-num">1</span>
+                        <div>
+                            <h4>安装 Java 17+</h4>
+                            <p>前往 <a href="https://adoptium.net/" target="_blank" rel="noopener">adoptium.net</a> 下载安装 JDK 17 或更高版本。</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="step-num">2</span>
+                        <div>
+                            <h4>下载程序</h4>
+                            <p>点击上方"下载 Windows 版"按钮，将 JAR 文件保存到任意目录。</p>
+                        </div>
+                    </div>
+                    <div class="guide-step">
+                        <span class="step-num">3</span>
+                        <div>
+                            <h4>运行程序</h4>
+                            <p>双击 JAR 文件运行，或在命令行执行 <code>java -jar dailycheck-windows.jar</code>。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-note">
+                    <strong>卸载方法：</strong>直接删除 JAR 文件即可。数据存储在 <code>%APPDATA%/dailycheck/</code>，删除该目录可清空数据。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-icon">✓</span>
+                <span class="logo-text">每日打卡</span>
+                <p>让每一天都有迹可循</p>
+            </div>
+            <div class="footer-links">
+                <a href="#features">功能</a>
+                <a href="#platforms">平台</a>
+                <a href="#download">下载</a>
+                <a href="#guide">安装指引</a>
+                <a href="https://github.com/xk464/1" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 每日打卡 DailyCheck. 本地数据存储，隐私安全。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
