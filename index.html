@@ -1,355 +1,333 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="每日打卡 - 一款专注学习、记账与习惯养成的跨平台应用，支持 Android 与 Windows。番茄钟计时、收支管理、月历周历饼图统计。">
-    <title>每日打卡 · DailyCheck</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111411">
+  <meta name="description" content="匠造与奥术：面向 Minecraft 1.20.1 Forge 的科技、魔法与田园整合包。227 个模组、6 章 79 个任务，简体中文开箱即用。">
+  <title>匠造与奥术 — Minecraft 1.20.1 整合包</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111411;
+      --panel: #191e19;
+      --panel-light: #202720;
+      --text: #f1eee3;
+      --muted: #a7aa9d;
+      --line: rgba(231, 225, 199, .14);
+      --gold: #e5bd74;
+      --green: #a6bb82;
+      --blue: #91b7ad;
+      --serif: Georgia, "Noto Serif SC", "Songti SC", serif;
+      --sans: "Inter", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 78% 10%, rgba(104, 130, 91, .12), transparent 30rem),
+        radial-gradient(ellipse at 12% 38%, rgba(181, 135, 72, .08), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+    .topbar {
+      position: sticky; z-index: 10; top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(17, 20, 17, .88);
+      backdrop-filter: blur(16px);
+    }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font-family: var(--serif); font-size: 19px; letter-spacing: .06em; }
+    .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(229,189,116,.6); color: var(--gold); transform: rotate(45deg); }
+    .brand-mark span { transform: rotate(-45deg); font-size: 17px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: var(--muted); font-size: 13px; text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { border: 1px solid rgba(229,189,116,.55); padding: 8px 14px; color: var(--gold) !important; }
+    .menu-toggle { display: none; border: 1px solid var(--line); background: transparent; color: var(--text); padding: 7px 10px; font: inherit; }
+
+    .hero { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 50px; min-height: 650px; padding: 82px 0 90px; overflow: hidden; }
+    .hero::after {
+      content: ""; position: absolute; right: 2%; top: 13%; width: min(37vw, 440px); aspect-ratio: 1;
+      border: 1px solid rgba(229,189,116,.18); border-radius: 50%;
+      box-shadow: 0 0 0 38px rgba(229,189,116,.025), 0 0 0 78px rgba(229,189,116,.02), inset 0 0 80px rgba(166,187,130,.08);
+      pointer-events: none;
+    }
+    .eyebrow { color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .23em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 680px; margin: 17px 0 19px; font-family: var(--serif); font-size: clamp(48px, 7vw, 82px); font-weight: 500; letter-spacing: .04em; line-height: 1.13; }
+    h1 span { display: block; color: var(--gold); }
+    .hero-copy { max-width: 560px; color: #c3c3b7; font-size: 16px; }
+    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 0 21px; border: 1px solid var(--gold); color: #181811; background: var(--gold); font-weight: 700; font-size: 13px; text-decoration: none; transition: transform .2s, background .2s; }
+    .button:hover { transform: translateY(-2px); background: #f0ce8c; }
+    .button.secondary { color: var(--text); background: transparent; border-color: var(--line); }
+    .button.secondary:hover { border-color: var(--gold); }
+    .hero-note { margin-top: 20px; color: #888d81; font-size: 12px; }
+    .sigil { position: relative; z-index: 1; display: grid; place-items: center; min-height: 390px; }
+    .sigil-ring { position: relative; display: grid; place-items: center; width: min(31vw, 360px); aspect-ratio: 1; border: 1px solid rgba(229,189,116,.45); border-radius: 50%; }
+    .sigil-ring::before, .sigil-ring::after { content: ""; position: absolute; inset: 19px; border: 1px solid rgba(166,187,130,.25); border-radius: 50%; transform: rotate(45deg) scaleX(.68); }
+    .sigil-ring::after { transform: rotate(-45deg) scaleX(.68); border-color: rgba(145,183,173,.25); }
+    .sigil-core { display: grid; place-items: center; width: 54%; aspect-ratio: 1; border: 1px solid rgba(229,189,116,.42); transform: rotate(45deg); background: linear-gradient(145deg, rgba(229,189,116,.08), rgba(166,187,130,.04)); }
+    .sigil-core span { transform: rotate(-45deg); font-size: clamp(55px, 8vw, 92px); color: var(--gold); text-shadow: 0 0 45px rgba(229,189,116,.35); }
+    .orbit-label { position: absolute; color: var(--muted); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+    .orbit-label.one { top: 7%; left: 40%; } .orbit-label.two { bottom: 15%; right: -7%; } .orbit-label.three { bottom: 18%; left: -6%; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .stat { padding: 25px 20px; border-right: 1px solid var(--line); }
+    .stat:first-child { padding-left: 0; } .stat:last-child { border: 0; }
+    .stat strong { display: block; color: var(--gold); font-family: var(--serif); font-size: 27px; font-weight: 500; line-height: 1.25; }
+    .stat span { color: var(--muted); font-size: 12px; }
+
+    section { padding: 100px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin-bottom: 38px; }
+    h2 { margin: 9px 0 0; font-family: var(--serif); font-size: clamp(32px, 4vw, 46px); font-weight: 500; letter-spacing: .025em; line-height: 1.25; }
+    .section-intro { max-width: 420px; margin: 0; color: var(--muted); font-size: 14px; }
+    .paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .path-card { position: relative; min-height: 282px; padding: 30px; border: 1px solid var(--line); background: linear-gradient(155deg, rgba(255,255,255,.035), transparent 68%), var(--panel); overflow: hidden; }
+    .path-card::after { content: attr(data-mark); position: absolute; right: 15px; bottom: -51px; color: rgba(229,189,116,.07); font-family: var(--serif); font-size: 180px; line-height: 1; }
+    .path-card:nth-child(2)::after { color: rgba(145,183,173,.07); }
+    .path-card:nth-child(3)::after { color: rgba(166,187,130,.07); }
+    .path-icon { display: grid; place-items: center; width: 42px; height: 42px; margin-bottom: 25px; border: 1px solid rgba(229,189,116,.35); color: var(--gold); font-size: 19px; }
+    .path-card:nth-child(2) .path-icon { border-color: rgba(145,183,173,.4); color: var(--blue); }
+    .path-card:nth-child(3) .path-icon { border-color: rgba(166,187,130,.4); color: var(--green); }
+    .path-card h3 { margin-bottom: 8px; font-family: var(--serif); font-size: 23px; font-weight: 500; }
+    .path-card p { position: relative; z-index: 1; margin-bottom: 17px; color: var(--muted); font-size: 13px; }
+    .tagline { position: relative; z-index: 1; color: #d3c599; font-size: 11px; letter-spacing: .06em; }
+
+    .features { background: linear-gradient(180deg, transparent, rgba(255,255,255,.018), transparent); }
+    .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+    .feature { display: flex; gap: 19px; min-height: 166px; padding: 27px; background: var(--bg); }
+    .feature-number { flex: 0 0 38px; color: var(--gold); font-family: var(--serif); font-size: 23px; }
+    .feature h3 { margin: 2px 0 7px; font-size: 16px; font-weight: 600; }
+    .feature p { margin: 0; color: var(--muted); font-size: 13px; }
+    .quest-band { display: grid; grid-template-columns: .7fr 1.3fr; align-items: center; gap: 50px; margin-top: 52px; padding: 35px 39px; border: 1px solid rgba(229,189,116,.25); background: linear-gradient(110deg, rgba(229,189,116,.075), rgba(166,187,130,.025)); }
+    .quest-count { color: var(--gold); font-family: var(--serif); font-size: 58px; line-height: 1; }
+    .quest-count small { display: block; margin-top: 10px; color: var(--muted); font-family: var(--sans); font-size: 11px; letter-spacing: .12em; }
+    .quest-band h3 { margin: 0 0 9px; font-family: var(--serif); font-size: 24px; font-weight: 500; }
+    .quest-band p { margin: 0; color: var(--muted); font-size: 13px; }
+    .chapter-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .chapter-list span { padding: 4px 8px; border: 1px solid var(--line); color: #c8c8bb; font-size: 10px; }
+
+    .install-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .install-card { padding: 29px; border: 1px solid var(--line); background: var(--panel); }
+    .step-label { color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .18em; }
+    .install-card h3 { margin: 9px 0 14px; font-family: var(--serif); font-size: 22px; font-weight: 500; }
+    .install-card p, .install-card li { color: var(--muted); font-size: 13px; }
+    .install-card ol { padding-left: 20px; margin: 0; }
+    .install-card li { padding: 4px 0 4px 4px; }
+    .requirements { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 16px; border: 1px solid var(--line); }
+    .requirement { padding: 19px; border-right: 1px solid var(--line); }
+    .requirement:last-child { border: 0; }
+    .requirement strong { display: block; color: var(--text); font-size: 13px; }
+    .requirement span { color: var(--muted); font-size: 11px; }
+    .download-note { display: flex; justify-content: space-between; align-items: center; gap: 25px; margin-top: 25px; padding: 23px 25px; border-left: 2px solid var(--gold); background: rgba(229,189,116,.055); }
+    .download-note p { margin: 0; color: #c5c5b9; font-size: 12px; }
+    .download-note a { flex: 0 0 auto; color: var(--gold); font-size: 12px; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .notice { margin: 12px 0 0; color: #85897e; font-size: 11px; }
+
+    .footer { padding: 37px 0; border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .footer p { margin: 0; color: #85897e; font-size: 11px; }
+    .footer a { color: var(--muted); text-decoration: none; font-size: 11px; }
+    .footer a:hover { color: var(--gold); }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 34px, 560px); }
+      .nav { min-height: 64px; }
+      .menu-toggle { display: block; }
+      .nav-links { position: absolute; display: none; top: 64px; left: 0; right: 0; padding: 17px 22px 22px; border-bottom: 1px solid var(--line); background: #151915; }
+      .nav-links.open { display: grid; gap: 13px; }
+      .nav-cta { justify-self: start; }
+      .hero { grid-template-columns: 1fr; gap: 6px; min-height: auto; padding: 76px 0 55px; }
+      .hero::after { top: 33%; right: -13%; width: 280px; }
+      .hero-copy { font-size: 14px; }
+      .sigil { min-height: 270px; }
+      .sigil-ring { width: 220px; }
+      .orbit-label.two { right: 1%; } .orbit-label.three { left: 1%; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stat { padding: 17px 10px; border-bottom: 1px solid var(--line); }
+      .stat:first-child { padding-left: 10px; }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(n+3) { border-bottom: 0; }
+      section { padding: 72px 0; }
+      .section-head { display: block; }
+      .section-intro { margin-top: 14px; }
+      .paths, .feature-grid, .install-grid { grid-template-columns: 1fr; }
+      .path-card { min-height: 240px; }
+      .feature { min-height: auto; padding: 22px; }
+      .quest-band { grid-template-columns: 1fr; gap: 22px; padding: 26px; }
+      .requirements { grid-template-columns: 1fr; }
+      .requirement { border-right: 0; border-bottom: 1px solid var(--line); }
+      .requirement:last-child { border-bottom: 0; }
+      .download-note, .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <header class="navbar" id="navbar">
-        <div class="container nav-inner">
-            <a href="#home" class="logo">
-                <span class="logo-icon">✓</span>
-                <span class="logo-text">每日打卡</span>
-            </a>
-            <nav class="nav-links" id="navLinks">
-                <a href="#features">功能</a>
-                <a href="#platforms">平台</a>
-                <a href="#screenshots">预览</a>
-                <a href="#download">下载</a>
-                <a href="#guide">安装指引</a>
-            </nav>
-            <button class="nav-toggle" id="navToggle" aria-label="菜单">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </header>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="主导航">
+      <a class="brand" href="#top"><span class="brand-mark"><span>✦</span></span>匠造与奥术</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">菜单</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#world">世界设定</a>
+        <a href="#features">整合特色</a>
+        <a href="#install">安装指南</a>
+        <a class="nav-cta" href="https://github.com/xk464/1/releases">下载与发布</a>
+      </div>
+    </nav>
+  </header>
 
-    <!-- 英雄区 -->
-    <section class="hero" id="home">
-        <div class="container hero-inner">
-            <div class="hero-text">
-                <span class="badge">跨平台 · Android & Windows</span>
-                <h1>让每一天都<span class="gradient-text">有迹可循</span></h1>
-                <p class="hero-sub">打卡、学习计时、收支记账三合一。用数据看见坚持，用习惯成就更好的自己。</p>
-                <div class="hero-btns">
-                    <a href="#download" class="btn btn-primary">立即下载</a>
-                    <a href="#features" class="btn btn-ghost">了解功能</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <strong>5</strong>
-                        <span>核心模块</span>
-                    </div>
-                    <div class="stat">
-                        <strong>3</strong>
-                        <span>统计视图</span>
-                    </div>
-                    <div class="stat">
-                        <strong>2</strong>
-                        <span>操作系统</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="mock-header">
-                            <span class="mock-dot"></span>
-                            <span class="mock-title">打卡</span>
-                        </div>
-                        <div class="mock-hero-card">
-                            <span class="mock-streak">连续打卡 12 天</span>
-                            <div class="mock-bar"><div style="width:75%"></div></div>
-                            <span class="mock-meta">3 / 4</span>
-                        </div>
-                        <div class="mock-row">
-                            <div class="mock-chip study">📚 学习 45m</div>
-                            <div class="mock-chip expense">💰 支出 ¥25</div>
-                        </div>
-                        <div class="mock-task-list">
-                            <div class="mock-task done">✓ 完成算法练习</div>
-                            <div class="mock-task done">✓ 阅读 30 分钟</div>
-                            <div class="mock-task">○ 写日报</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <main id="top">
+    <div class="wrap">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow">Minecraft · Forge 1.20.1 · v1.2.2</div>
+          <h1 id="hero-title">匠造<span>与奥术</span></h1>
+          <p class="hero-copy">从一把石斧开始，在机械轰鸣与奥术微光之间，亲手建起一座会呼吸的世界。科技、魔法、探索与田园生活，在这里彼此交织。</p>
+          <div class="hero-actions">
+            <a class="button" href="#install">开始你的旅程 <span aria-hidden="true">&nbsp;↗</span></a>
+            <a class="button secondary" href="#world">探索整合内容</a>
+          </div>
+          <p class="hero-note">为单人冒险与好友联机打造 · 简体中文开箱即用</p>
         </div>
-        <div class="wave-divider"></div>
+        <div class="sigil" aria-hidden="true">
+          <div class="sigil-ring">
+            <span class="orbit-label one">ARTIFICE</span>
+            <span class="orbit-label two">ARCANA</span>
+            <span class="orbit-label three">WILDERNESS</span>
+            <div class="sigil-core"><span>✧</span></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="stats" aria-label="整合包数据">
+        <div class="stat"><strong>227</strong><span>精选模组 · Forge 构建</span></div>
+        <div class="stat"><strong>6 章</strong><span>循序渐进的任务旅程</span></div>
+        <div class="stat"><strong>79 个</strong><span>任务与自动发放奖励</span></div>
+        <div class="stat"><strong>1.2.2</strong><span>当前整合包版本</span></div>
+      </div>
+    </div>
+
+    <section id="world">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">A WORLD OF MANY PATHS</div><h2>三条道路，一方天地</h2></div>
+          <p class="section-intro">不必在工业、魔法与田园之间做选择。按自己的节奏探索，让每条成长线都能与其他道路相互助力。</p>
+        </div>
+        <div class="paths">
+          <article class="path-card" data-mark="⚙">
+            <div class="path-icon" aria-hidden="true">⚙</div>
+            <h3>科技 · 从齿轮到星海</h3>
+            <p>以机械动力开启自动化，逐步迈向通用机械、沉浸工程与 AE2 数字化存储，建造属于自己的工业帝国。</p>
+            <div class="tagline">机械动力 · Mekanism · Applied Energistics 2</div>
+          </article>
+          <article class="path-card" data-mark="✧">
+            <div class="path-icon" aria-hidden="true">✧</div>
+            <h3>奥术 · 以知识改写世界</h3>
+            <p>研习新生魔艺与植物魔法，在法术、魔力与神秘遗物中寻找答案；强大的力量，也需要一场真正的冒险。</p>
+            <div class="tagline">Ars Nouveau · Botania · Blood Magic</div>
+          </article>
+          <article class="path-card" data-mark="❋">
+            <div class="path-icon" aria-hidden="true">❋</div>
+            <h3>探索 · 让生活也有诗意</h3>
+            <p>深入新维度与地下遗迹，邂逅奇异生物；回到家园，再用农场、厨房、家具和四季装点日常。</p>
+            <div class="tagline">冒险维度 · Farmer's Delight · 丰富建造</div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- 功能区 -->
-    <section class="section" id="features">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">核心功能</span>
-                <h2>一站式搞定每日三件事</h2>
-                <p>任务打卡 · 学习管理 · 收支记录，三大模块数据互通，目标触手可及。</p>
-            </div>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon icon-blue">☑</div>
-                    <h3>任务打卡</h3>
-                    <p>按日期添加任务，一键打卡，自动统计连续打卡天数与完成率。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon icon-orange">⏱</div>
-                    <h3>学习计时</h3>
-                    <p>番茄钟模式计时，可设置目标时长，达成震动提醒，前台通知实时显示。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon icon-green">💰</div>
-                    <h3>收支记账</h3>
-                    <p>收入支出分类记录，每日结余一目了然，可设置消费上限实时预警。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon icon-purple">📊</div>
-                    <h3>多维统计</h3>
-                    <p>月历、周历、饼图三种视图自由切换，学习时长与支出占比可视化。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon icon-pink">🎯</div>
-                    <h3>每日目标</h3>
-                    <p>设定每日学习目标与消费上限，进度条实时反馈，结余自动计算。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon icon-cyan">⚡</div>
-                    <h3>快捷记录</h3>
-                    <p>打卡页集成学习与消费快捷入口，无需切换页面，一键记录当天数据。</p>
-                </div>
-            </div>
+    <section class="features" id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">THOUGHTFULLY BUILT</div><h2>不止是模组的集合</h2></div>
+          <p class="section-intro">从第一次启动，到数百小时后的自动化工坊，细节都经过整理与校验，让冒险更连贯、游玩更舒心。</p>
         </div>
+        <div class="feature-grid">
+          <article class="feature"><div class="feature-number">01</div><div><h3>一条完整的成长任务线</h3><p>原版进度系统承载 6 章 79 个任务，涵盖生存、田园、机械、工业、奥术与探索。任务完成即发奖励，并提示下一步方向。</p></div></article>
+          <article class="feature"><div class="feature-number">02</div><div><h3>开箱即用的中文体验</h3><p>预设简体中文，内置 CFPA 社区汉化与 AE2 指南汉化，并包含汉化自动更新工具。</p></div></article>
+          <article class="feature"><div class="feature-number">03</div><div><h3>把繁琐留给机器</h3><p>潜行连锁挖矿、一键伐木、右键收获、背包整理与传送命令，让时间留给建造和探索。</p></div></article>
+          <article class="feature"><div class="feature-number">04</div><div><h3>Forge 版本与依赖逐项核对</h3><p>目标为 Minecraft 1.20.1 / Forge 47.4.10；整合过程检查加载器兼容与模组依赖，任务线以数据包形式加载。</p></div></article>
+        </div>
+        <div class="quest-band">
+          <div class="quest-count">79<small>QUESTS · 6 CHAPTERS</small></div>
+          <div>
+            <h3>从安家落户，到探索与征服</h3>
+            <p>循着章节自然成长，也可以随时转向喜欢的道路。按 <strong>L</strong> 打开游戏内「进度」界面查看任务。</p>
+            <div class="chapter-list"><span>安家落户</span><span>田园生活</span><span>机械动力</span><span>工业帝国</span><span>奥术之路</span><span>探索与征服</span></div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 平台区 -->
-    <section class="section section-alt" id="platforms">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">多平台</span>
-                <h2>Android + Windows 双端覆盖</h2>
-                <p>手机随身携带，桌面高效办公，数据结构统一，体验一致。</p>
-            </div>
-            <div class="platform-grid">
-                <div class="platform-card">
-                    <div class="platform-icon android">🤖</div>
-                    <h3>Android 版</h3>
-                    <p>基于 Room + Material Design 构建，支持前台通知计时与打卡提醒。最低 Android 7.0。</p>
-                    <ul class="platform-list">
-                        <li>番茄钟计时 + 通知栏实时显示</li>
-                        <li>每日学习目标与消费上限</li>
-                        <li>月历 / 周历 / 饼图统计</li>
-                        <li>本地数据持久化</li>
-                    </ul>
-                    <a href="#download" class="btn btn-primary btn-sm">下载 APK</a>
-                </div>
-                <div class="platform-card featured">
-                    <div class="platform-badge">桌面</div>
-                    <div class="platform-icon windows">🖥</div>
-                    <h3>Windows 版</h3>
-                    <p>基于 JavaFX 17 + SQLite 构建，自绘图表无第三方依赖，轻量启动快。</p>
-                    <ul class="platform-list">
-                        <li>左侧栏 5 Tab 导航</li>
-                        <li>自绘饼图与柱状图</li>
-                        <li>与 Android 同数据库 schema</li>
-                        <li>支持打包为 EXE 安装</li>
-                    </ul>
-                    <a href="#download" class="btn btn-primary btn-sm">下载程序</a>
-                </div>
-            </div>
+    <section id="install">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">YOUR ADVENTURE STARTS HERE</div><h2>安装与启程</h2></div>
+          <p class="section-intro">整合包采用 PCL2 可识别的 MultiMC 格式。导入后由启动器安装 Minecraft 与 Forge。</p>
         </div>
+        <div class="install-grid">
+          <article class="install-card">
+            <div class="step-label">01 — PREPARE</div>
+            <h3>启动前准备</h3>
+            <ol>
+              <li>使用支持导入整合包的 PCL2 启动器。</li>
+              <li>安装并选择 Java 17（Java 21 也可）。</li>
+              <li>为游戏分配 8–10 GB 内存；不建议超过 12 GB。</li>
+            </ol>
+          </article>
+          <article class="install-card">
+            <div class="step-label">02 — INSTALL</div>
+            <h3>导入并启动</h3>
+            <ol>
+              <li>将整合包 ZIP 拖入 PCL2 主窗口，或在「版本设置 → 安装整合包」中选择。</li>
+              <li>确认创建「匠造与奥术 1.20.1」实例。</li>
+              <li>首次启动会生成模组配置，加载约 3–6 分钟属于正常情况。</li>
+            </ol>
+          </article>
+        </div>
+        <div class="requirements" aria-label="运行要求">
+          <div class="requirement"><strong>游戏版本</strong><span>Minecraft 1.20.1</span></div>
+          <div class="requirement"><strong>模组加载器</strong><span>Forge 47.4.10</span></div>
+          <div class="requirement"><strong>建议内存</strong><span>8 GB 起 · 推荐 8–10 GB</span></div>
+        </div>
+        <div class="download-note">
+          <p><strong>关于整合包文件：</strong>整合包本体约 796 MB。为避免把超大二进制文件混入网页源码，本仓库页面不包含 ZIP 文件；请查看 GitHub 发布页获取包体。</p>
+          <a href="https://github.com/xk464/1/releases">前往 GitHub 发布页 ↗</a>
+        </div>
+        <p class="notice">如发布页暂时没有可用资源，说明整合包文件尚未上传。请勿从来源不明的第三方页面下载。</p>
+      </div>
     </section>
+  </main>
 
-    <!-- 预览区 -->
-    <section class="section" id="screenshots">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">界面预览</span>
-                <h2>简洁现代，专注内容</h2>
-                <p>扁平化设计，渐变主题色，卡片化布局，让数据阅读更舒适。</p>
-            </div>
-            <div class="preview-grid">
-                <div class="preview-card">
-                    <div class="preview-top">
-                        <span class="preview-tab active">打卡</span>
-                        <span class="preview-tab">学习</span>
-                        <span class="preview-tab">记账</span>
-                        <span class="preview-tab">统计</span>
-                        <span class="preview-tab">设置</span>
-                    </div>
-                    <div class="preview-body">
-                        <div class="pv-hero">
-                            <span>连续打卡 12 天</span>
-                            <div class="pv-bar"><div style="width:75%"></div></div>
-                        </div>
-                        <div class="pv-quick">
-                            <div class="pv-quick-item"><span>📚</span><small>今日 45 分钟</small></div>
-                            <div class="pv-quick-item"><span>💰</span><small>支出 ¥25</small></div>
-                        </div>
-                        <div class="pv-tasks">
-                            <div class="pv-task done">✓ 完成算法练习</div>
-                            <div class="pv-task done">✓ 阅读 30 分钟</div>
-                            <div class="pv-task">○ 写日报</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="preview-card">
-                    <div class="preview-top">
-                        <span class="preview-tab">统计</span>
-                        <span class="preview-chip">饼图</span>
-                    </div>
-                    <div class="preview-body">
-                        <div class="pv-summary">
-                            <div class="pv-stat"><strong>75%</strong><small>完成率</small></div>
-                            <div class="pv-stat"><strong>45m</strong><small>学习</small></div>
-                            <div class="pv-stat"><strong>¥-25</strong><small>结余</small></div>
-                        </div>
-                        <div class="pv-pie">
-                            <div class="pie-circle"></div>
-                            <div class="pv-legend">
-                                <span class="pv-legend-item"><i style="background:#5B6CFF"></i>数学 40%</span>
-                                <span class="pv-legend-item"><i style="background:#34C759"></i>英语 35%</span>
-                                <span class="pv-legend-item"><i style="background:#FF7A45"></i>编程 25%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 下载区 -->
-    <section class="section download-section" id="download">
-        <div class="container">
-            <div class="section-head light">
-                <span class="eyebrow light">立即获取</span>
-                <h2>开始你的每日打卡之旅</h2>
-                <p>选择你的平台，下载对应版本，免费使用，数据本地存储。</p>
-            </div>
-            <div class="download-grid">
-                <div class="download-card">
-                    <div class="dl-icon">🤖</div>
-                    <h3>Android APK</h3>
-                    <p class="dl-size">约 6.4 MB · Android 7.0+</p>
-                    <a href="https://github.com/xk464/1/raw/master/releases/APK/app-debug.apk" class="btn btn-primary btn-block" download>
-                        下载 Android 版
-                    </a>
-                    <span class="dl-hint">允许未知来源安装</span>
-                </div>
-                <div class="download-card">
-                    <div class="dl-icon">🖥</div>
-                    <h3>Windows</h3>
-                    <p class="dl-size">约 36 MB · 内置 JRE，免安装 Java</p>
-                    <a href="https://github.com/xk464/1/raw/master/releases/EXE/DailyCheck-Setup.exe" class="btn btn-primary btn-block" download>
-                        下载 Windows 版
-                    </a>
-                    <span class="dl-hint">双击安装包，自动解压并启动</span>
-                </div>
-            </div>
-            <p class="source-link">
-                📦 完整源码仓库：
-                <a href="https://github.com/xk464/1" target="_blank" rel="noopener">github.com/xk464/1</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- 安装指引 -->
-    <section class="section" id="guide">
-        <div class="container">
-            <div class="section-head">
-                <span class="eyebrow">安装指引</span>
-                <h2>三步完成安装</h2>
-            </div>
-            <div class="guide-tabs">
-                <button class="guide-tab active" data-tab="android">Android</button>
-                <button class="guide-tab" data-tab="windows">Windows</button>
-            </div>
-            <div class="guide-content active" id="guide-android">
-                <div class="guide-steps">
-                    <div class="guide-step">
-                        <span class="step-num">1</span>
-                        <div>
-                            <h4>下载 APK</h4>
-                            <p>点击上方"下载 Android 版"按钮，将 APK 文件保存到手机。</p>
-                        </div>
-                    </div>
-                    <div class="guide-step">
-                        <span class="step-num">2</span>
-                        <div>
-                            <h4>允许安装</h4>
-                            <p>在文件管理器中点击 APK，若提示"未知来源"，前往设置允许安装。</p>
-                        </div>
-                    </div>
-                    <div class="guide-step">
-                        <span class="step-num">3</span>
-                        <div>
-                            <h4>开始使用</h4>
-                            <p>安装完成后在桌面找到"每日打卡"图标，打开即可使用。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="guide-note">
-                    <strong>卸载方法：</strong>长按桌面图标拖至"卸载"，或在设置 → 应用管理中卸载。卸载后数据自动清除。
-                </div>
-            </div>
-            <div class="guide-content" id="guide-windows">
-                <div class="guide-steps">
-                    <div class="guide-step">
-                        <span class="step-num">1</span>
-                        <div>
-                            <h4>下载安装包</h4>
-                            <p>点击上方"下载 Windows 版"按钮，保存 <code>DailyCheck-Setup.exe</code> 到任意目录。安装包已内置 Java 运行环境，无需额外安装 Java。</p>
-                        </div>
-                    </div>
-                    <div class="guide-step">
-                        <span class="step-num">2</span>
-                        <div>
-                            <h4>运行安装包</h4>
-                            <p>双击 <code>DailyCheck-Setup.exe</code>，在弹出的确认框中点击"是"，程序会自动解压到本地并启动。</p>
-                        </div>
-                    </div>
-                    <div class="guide-step">
-                        <span class="step-num">3</span>
-                        <div>
-                            <h4>开始使用</h4>
-                            <p>应用启动后即可使用。后续可从解压目录 <code>%LOCALAPPDATA%\DailyCheck\DailyCheck.exe</code> 直接启动。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="guide-note">
-                    <strong>卸载方法：</strong>删除解压目录 <code>%LOCALAPPDATA%\DailyCheck\</code> 即可。数据存储在 <code>%APPDATA%\dailycheck\</code>，删除该目录可清空数据。
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer class="footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <span class="logo-icon">✓</span>
-                <span class="logo-text">每日打卡</span>
-                <p>让每一天都有迹可循</p>
-            </div>
-            <div class="footer-links">
-                <a href="#features">功能</a>
-                <a href="#platforms">平台</a>
-                <a href="#download">下载</a>
-                <a href="#guide">安装指引</a>
-                <a href="https://github.com/xk464/1" target="_blank" rel="noopener">GitHub</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2026 每日打卡 DailyCheck. 本地数据存储，隐私安全。</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p>匠造与奥术 · 为好奇心与创造力而造</p>
+      <p>Minecraft 及各模组版权归其各自作者所有。整合包非商业用途。</p>
+      <a href="https://github.com/xk464/1">GitHub 项目 ↗</a>
+    </div>
+  </footer>
+  <script>
+    const menuButton = document.querySelector(".menu-toggle");
+    const menu = document.querySelector("#nav-links");
+    menuButton.addEventListener("click", () => {
+      const isOpen = menu.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+    menu.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        menu.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
 </body>
 </html>
