@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111411">
-  <meta name="description" content="匠造与奥术：面向 Minecraft 1.20.1 Forge 的科技、魔法与田园整合包。227 个模组、6 章 79 个任务，简体中文开箱即用。">
-  <title>匠造与奥术 — Minecraft 1.20.1 整合包</title>
+  <meta name="description" content="匠造与奥术 Minecraft 1.20.1 Forge 整合包新手教程、精选模组介绍与 6 章 79 个任务攻略。">
+  <title>匠造与奥术 · 新手指南与模组图鉴</title>
   <style>
     :root {
       color-scheme: dark;
       --bg: #111411;
       --panel: #191e19;
-      --panel-light: #202720;
+      --panel2: #202720;
       --text: #f1eee3;
-      --muted: #a7aa9d;
+      --muted: #afb1a4;
       --line: rgba(231, 225, 199, .14);
       --gold: #e5bd74;
       --green: #a6bb82;
@@ -22,153 +22,117 @@
       --sans: "Inter", "Noto Sans SC", "Microsoft YaHei", sans-serif;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
     body {
       margin: 0;
-      background:
-        radial-gradient(ellipse at 78% 10%, rgba(104, 130, 91, .12), transparent 30rem),
-        radial-gradient(ellipse at 12% 38%, rgba(181, 135, 72, .08), transparent 28rem),
-        var(--bg);
+      background: radial-gradient(ellipse at 77% 8%, rgba(104,130,91,.12), transparent 31rem),
+        radial-gradient(ellipse at 10% 38%, rgba(181,135,72,.08), transparent 28rem), var(--bg);
       color: var(--text);
       font-family: var(--sans);
-      line-height: 1.7;
+      line-height: 1.75;
     }
     a { color: inherit; }
-    .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
-    .topbar {
-      position: sticky; z-index: 10; top: 0;
-      border-bottom: 1px solid var(--line);
-      background: rgba(17, 20, 17, .88);
-      backdrop-filter: blur(16px);
-    }
-    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font-family: var(--serif); font-size: 19px; letter-spacing: .06em; }
-    .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid rgba(229,189,116,.6); color: var(--gold); transform: rotate(45deg); }
-    .brand-mark span { transform: rotate(-45deg); font-size: 17px; }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a { color: var(--muted); font-size: 13px; text-decoration: none; transition: color .2s; }
+    .wrap { width: min(1120px, calc(100% - 44px)); margin: 0 auto; }
+    .topbar { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(17,20,17,.9); backdrop-filter: blur(16px); }
+    .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-family: var(--serif); font-size: 18px; letter-spacing: .06em; text-decoration: none; white-space: nowrap; }
+    .brand-mark { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid rgba(229,189,116,.6); color: var(--gold); transform: rotate(45deg); }
+    .brand-mark span { transform: rotate(-45deg); }
+    .nav-links { display: flex; align-items: center; gap: 21px; }
+    .nav-links a { color: var(--muted); font-size: 12px; text-decoration: none; }
     .nav-links a:hover { color: var(--gold); }
-    .nav-cta { border: 1px solid rgba(229,189,116,.55); padding: 8px 14px; color: var(--gold) !important; }
-    .menu-toggle { display: none; border: 1px solid var(--line); background: transparent; color: var(--text); padding: 7px 10px; font: inherit; }
-
-    .hero { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 50px; min-height: 650px; padding: 82px 0 90px; overflow: hidden; }
-    .hero::after {
-      content: ""; position: absolute; right: 2%; top: 13%; width: min(37vw, 440px); aspect-ratio: 1;
-      border: 1px solid rgba(229,189,116,.18); border-radius: 50%;
-      box-shadow: 0 0 0 38px rgba(229,189,116,.025), 0 0 0 78px rgba(229,189,116,.02), inset 0 0 80px rgba(166,187,130,.08);
-      pointer-events: none;
-    }
-    .eyebrow { color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .23em; text-transform: uppercase; }
+    .nav-links .nav-cta { border: 1px solid rgba(229,189,116,.55); padding: 7px 11px; color: var(--gold); }
+    .menu-toggle { display: none; border: 1px solid var(--line); padding: 6px 10px; background: transparent; color: var(--text); font: inherit; }
+    .hero { position: relative; display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 38px; min-height: 550px; padding: 75px 0 65px; overflow: hidden; }
+    .hero::after { content: ""; position: absolute; top: 15%; right: 3%; width: min(35vw, 390px); aspect-ratio: 1; border: 1px solid rgba(229,189,116,.18); border-radius: 50%; box-shadow: 0 0 0 35px rgba(229,189,116,.025), 0 0 0 75px rgba(229,189,116,.02); pointer-events: none; }
+    .eyebrow { color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
     h1, h2, h3, p { margin-top: 0; }
-    h1 { max-width: 680px; margin: 17px 0 19px; font-family: var(--serif); font-size: clamp(48px, 7vw, 82px); font-weight: 500; letter-spacing: .04em; line-height: 1.13; }
+    h1 { margin: 16px 0; font: 500 clamp(46px, 7vw, 78px)/1.13 var(--serif); letter-spacing: .04em; }
     h1 span { display: block; color: var(--gold); }
-    .hero-copy { max-width: 560px; color: #c3c3b7; font-size: 16px; }
-    .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
-    .button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 0 21px; border: 1px solid var(--gold); color: #181811; background: var(--gold); font-weight: 700; font-size: 13px; text-decoration: none; transition: transform .2s, background .2s; }
-    .button:hover { transform: translateY(-2px); background: #f0ce8c; }
-    .button.secondary { color: var(--text); background: transparent; border-color: var(--line); }
-    .button.secondary:hover { border-color: var(--gold); }
-    .hero-note { margin-top: 20px; color: #888d81; font-size: 12px; }
-    .sigil { position: relative; z-index: 1; display: grid; place-items: center; min-height: 390px; }
-    .sigil-ring { position: relative; display: grid; place-items: center; width: min(31vw, 360px); aspect-ratio: 1; border: 1px solid rgba(229,189,116,.45); border-radius: 50%; }
-    .sigil-ring::before, .sigil-ring::after { content: ""; position: absolute; inset: 19px; border: 1px solid rgba(166,187,130,.25); border-radius: 50%; transform: rotate(45deg) scaleX(.68); }
-    .sigil-ring::after { transform: rotate(-45deg) scaleX(.68); border-color: rgba(145,183,173,.25); }
-    .sigil-core { display: grid; place-items: center; width: 54%; aspect-ratio: 1; border: 1px solid rgba(229,189,116,.42); transform: rotate(45deg); background: linear-gradient(145deg, rgba(229,189,116,.08), rgba(166,187,130,.04)); }
-    .sigil-core span { transform: rotate(-45deg); font-size: clamp(55px, 8vw, 92px); color: var(--gold); text-shadow: 0 0 45px rgba(229,189,116,.35); }
-    .orbit-label { position: absolute; color: var(--muted); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
-    .orbit-label.one { top: 7%; left: 40%; } .orbit-label.two { bottom: 15%; right: -7%; } .orbit-label.three { bottom: 18%; left: -6%; }
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .stat { padding: 25px 20px; border-right: 1px solid var(--line); }
+    .hero-copy { max-width: 570px; color: #c3c3b7; font-size: 15px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 25px; }
+    .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; padding: 0 18px; border: 1px solid var(--gold); background: var(--gold); color: #181811; font-size: 12px; font-weight: 700; text-decoration: none; }
+    .button.secondary { border-color: var(--line); background: transparent; color: var(--text); }
+    .button:hover { filter: brightness(1.08); }
+    .hero-note { margin-top: 16px; color: #929587; font-size: 11px; }
+    .sigil { position: relative; z-index: 1; display: grid; min-height: 320px; place-items: center; }
+    .ring { display: grid; width: min(29vw, 320px); aspect-ratio: 1; place-items: center; border: 1px solid rgba(229,189,116,.45); border-radius: 50%; }
+    .diamond { display: grid; width: 52%; aspect-ratio: 1; place-items: center; transform: rotate(45deg); border: 1px solid rgba(229,189,116,.4); background: linear-gradient(145deg,rgba(229,189,116,.08),rgba(166,187,130,.04)); }
+    .diamond span { transform: rotate(-45deg); color: var(--gold); font-size: 76px; text-shadow: 0 0 40px rgba(229,189,116,.35); }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .stat { padding: 20px; border-right: 1px solid var(--line); }
     .stat:first-child { padding-left: 0; } .stat:last-child { border: 0; }
-    .stat strong { display: block; color: var(--gold); font-family: var(--serif); font-size: 27px; font-weight: 500; line-height: 1.25; }
-    .stat span { color: var(--muted); font-size: 12px; }
-
-    section { padding: 100px 0; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin-bottom: 38px; }
-    h2 { margin: 9px 0 0; font-family: var(--serif); font-size: clamp(32px, 4vw, 46px); font-weight: 500; letter-spacing: .025em; line-height: 1.25; }
-    .section-intro { max-width: 420px; margin: 0; color: var(--muted); font-size: 14px; }
-    .paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-    .path-card { position: relative; min-height: 282px; padding: 30px; border: 1px solid var(--line); background: linear-gradient(155deg, rgba(255,255,255,.035), transparent 68%), var(--panel); overflow: hidden; }
-    .path-card::after { content: attr(data-mark); position: absolute; right: 15px; bottom: -51px; color: rgba(229,189,116,.07); font-family: var(--serif); font-size: 180px; line-height: 1; }
-    .path-card:nth-child(2)::after { color: rgba(145,183,173,.07); }
-    .path-card:nth-child(3)::after { color: rgba(166,187,130,.07); }
-    .path-icon { display: grid; place-items: center; width: 42px; height: 42px; margin-bottom: 25px; border: 1px solid rgba(229,189,116,.35); color: var(--gold); font-size: 19px; }
-    .path-card:nth-child(2) .path-icon { border-color: rgba(145,183,173,.4); color: var(--blue); }
-    .path-card:nth-child(3) .path-icon { border-color: rgba(166,187,130,.4); color: var(--green); }
-    .path-card h3 { margin-bottom: 8px; font-family: var(--serif); font-size: 23px; font-weight: 500; }
-    .path-card p { position: relative; z-index: 1; margin-bottom: 17px; color: var(--muted); font-size: 13px; }
-    .tagline { position: relative; z-index: 1; color: #d3c599; font-size: 11px; letter-spacing: .06em; }
-
-    .features { background: linear-gradient(180deg, transparent, rgba(255,255,255,.018), transparent); }
-    .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
-    .feature { display: flex; gap: 19px; min-height: 166px; padding: 27px; background: var(--bg); }
-    .feature-number { flex: 0 0 38px; color: var(--gold); font-family: var(--serif); font-size: 23px; }
-    .feature h3 { margin: 2px 0 7px; font-size: 16px; font-weight: 600; }
-    .feature p { margin: 0; color: var(--muted); font-size: 13px; }
-    .quest-band { display: grid; grid-template-columns: .7fr 1.3fr; align-items: center; gap: 50px; margin-top: 52px; padding: 35px 39px; border: 1px solid rgba(229,189,116,.25); background: linear-gradient(110deg, rgba(229,189,116,.075), rgba(166,187,130,.025)); }
-    .quest-count { color: var(--gold); font-family: var(--serif); font-size: 58px; line-height: 1; }
-    .quest-count small { display: block; margin-top: 10px; color: var(--muted); font-family: var(--sans); font-size: 11px; letter-spacing: .12em; }
-    .quest-band h3 { margin: 0 0 9px; font-family: var(--serif); font-size: 24px; font-weight: 500; }
-    .quest-band p { margin: 0; color: var(--muted); font-size: 13px; }
-    .chapter-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
-    .chapter-list span { padding: 4px 8px; border: 1px solid var(--line); color: #c8c8bb; font-size: 10px; }
-
-    .install-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .install-card { padding: 29px; border: 1px solid var(--line); background: var(--panel); }
-    .step-label { color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .18em; }
-    .install-card h3 { margin: 9px 0 14px; font-family: var(--serif); font-size: 22px; font-weight: 500; }
-    .install-card p, .install-card li { color: var(--muted); font-size: 13px; }
-    .install-card ol { padding-left: 20px; margin: 0; }
-    .install-card li { padding: 4px 0 4px 4px; }
-    .requirements { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 16px; border: 1px solid var(--line); }
-    .requirement { padding: 19px; border-right: 1px solid var(--line); }
-    .requirement:last-child { border: 0; }
-    .requirement strong { display: block; color: var(--text); font-size: 13px; }
-    .requirement span { color: var(--muted); font-size: 11px; }
-    .download-note { display: flex; justify-content: space-between; align-items: center; gap: 25px; margin-top: 25px; padding: 23px 25px; border-left: 2px solid var(--gold); background: rgba(229,189,116,.055); }
-    .download-note p { margin: 0; color: #c5c5b9; font-size: 12px; }
-    .download-note a { flex: 0 0 auto; color: var(--gold); font-size: 12px; text-decoration-thickness: 1px; text-underline-offset: 4px; }
-    .notice { margin: 12px 0 0; color: #85897e; font-size: 11px; }
-
-    .footer { padding: 37px 0; border-top: 1px solid var(--line); }
-    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-    .footer p { margin: 0; color: #85897e; font-size: 11px; }
-    .footer a { color: var(--muted); text-decoration: none; font-size: 11px; }
-    .footer a:hover { color: var(--gold); }
-    @media (max-width: 760px) {
-      .wrap { width: min(100% - 34px, 560px); }
-      .nav { min-height: 64px; }
+    .stat strong { display: block; color: var(--gold); font: 500 25px/1.3 var(--serif); }
+    .stat span { color: var(--muted); font-size: 11px; }
+    section { padding: 78px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 30px; }
+    h2 { margin: 8px 0 0; font: 500 clamp(30px,4vw,42px)/1.3 var(--serif); }
+    .intro { max-width: 420px; margin: 0; color: var(--muted); font-size: 13px; }
+    .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+    .step, .mod-card, .chapter, .tip-card { border: 1px solid var(--line); background: linear-gradient(150deg,rgba(255,255,255,.025),transparent 65%),var(--panel); }
+    .step { min-height: 204px; padding: 22px; }
+    .step-no { color: var(--gold); font: 500 23px var(--serif); }
+    .step h3, .mod-card h3, .chapter h3, .tip-card h3 { margin: 8px 0; font-size: 15px; font-weight: 600; }
+    .step p, .mod-card p, .chapter p, .tip-card p { margin: 0; color: var(--muted); font-size: 12px; }
+    .callout { margin-top: 17px; padding: 16px 19px; border-left: 2px solid var(--gold); background: rgba(229,189,116,.055); color: #c8c6b8; font-size: 12px; }
+    .callout strong { color: var(--gold); }
+    .quick-start { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 13px; }
+    .tip-card { padding: 20px 22px; }
+    .tip-card h3 { color: var(--text); }
+    code { padding: 2px 5px; border: 1px solid var(--line); background: rgba(255,255,255,.04); color: #ead5a8; font: 12px Consolas,monospace; }
+    .mod-tabs { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
+    .mod-tabs a { padding: 6px 10px; border: 1px solid var(--line); color: var(--muted); font-size: 11px; text-decoration: none; }
+    .mod-tabs a:hover { border-color: var(--gold); color: var(--gold); }
+    .mod-group { margin-top: 26px; }
+    .mod-group h3 { margin-bottom: 12px; color: var(--gold); font: 500 21px var(--serif); }
+    .mod-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 11px; }
+    .mod-card { min-height: 141px; padding: 17px; }
+    .mod-card h4 { margin: 0 0 6px; font-size: 13px; }
+    .mod-card p { font-size: 11px; }
+    .quest-intro { display: grid; grid-template-columns: .55fr 1.45fr; gap: 22px; margin-bottom: 18px; padding: 25px; border: 1px solid rgba(229,189,116,.25); background: linear-gradient(110deg,rgba(229,189,116,.075),rgba(166,187,130,.025)); }
+    .quest-count { color: var(--gold); font: 500 54px/1 var(--serif); }
+    .quest-count small { display: block; margin-top: 8px; color: var(--muted); font: 10px var(--sans); letter-spacing: .14em; }
+    .quest-intro h3 { margin: 0 0 7px; font: 500 21px var(--serif); }
+    .quest-intro p { margin: 0; color: var(--muted); font-size: 12px; }
+    .chapter-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 11px; }
+    .chapter { min-height: 150px; padding: 18px; }
+    .chapter small { color: var(--gold); font-size: 10px; letter-spacing: .08em; }
+    .chapter h3 { font-family: var(--serif); font-size: 18px; }
+    .chapter p { font-size: 11px; }
+    .footer { padding: 28px 0; border-top: 1px solid var(--line); color: #909286; font-size: 10px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 14px; }
+    .footer p { margin: 0; }
+    .footer a { color: var(--muted); text-decoration: none; }
+    @media (max-width: 800px) {
+      .wrap { width: min(100% - 34px,600px); }
       .menu-toggle { display: block; }
-      .nav-links { position: absolute; display: none; top: 64px; left: 0; right: 0; padding: 17px 22px 22px; border-bottom: 1px solid var(--line); background: #151915; }
-      .nav-links.open { display: grid; gap: 13px; }
-      .nav-cta { justify-self: start; }
-      .hero { grid-template-columns: 1fr; gap: 6px; min-height: auto; padding: 76px 0 55px; }
-      .hero::after { top: 33%; right: -13%; width: 280px; }
-      .hero-copy { font-size: 14px; }
-      .sigil { min-height: 270px; }
-      .sigil-ring { width: 220px; }
-      .orbit-label.two { right: 1%; } .orbit-label.three { left: 1%; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
-      .stat { padding: 17px 10px; border-bottom: 1px solid var(--line); }
-      .stat:first-child { padding-left: 10px; }
-      .stat:nth-child(2) { border-right: 0; }
+      .nav-links { position: absolute; top: 64px; left: 0; right: 0; display: none; padding: 15px 22px 20px; border-bottom: 1px solid var(--line); background: #151915; }
+      .nav-links.open { display: grid; gap: 12px; }
+      .nav-links .nav-cta { justify-self: start; }
+      .hero { grid-template-columns: 1fr; gap: 0; min-height: 0; padding: 64px 0 45px; }
+      .hero::after { top: 30%; right: -17%; width: 250px; }
+      .sigil { min-height: 235px; }
+      .ring { width: 210px; }
+      .diamond span { font-size: 60px; }
+      .stats { grid-template-columns: repeat(2,1fr); }
+      .stat { padding: 15px 9px; border-bottom: 1px solid var(--line); }
+      .stat:first-child { padding-left: 9px; } .stat:nth-child(2) { border-right: 0; }
       .stat:nth-child(n+3) { border-bottom: 0; }
-      section { padding: 72px 0; }
+      section { padding: 61px 0; }
       .section-head { display: block; }
-      .section-intro { margin-top: 14px; }
-      .paths, .feature-grid, .install-grid { grid-template-columns: 1fr; }
-      .path-card { min-height: 240px; }
-      .feature { min-height: auto; padding: 22px; }
-      .quest-band { grid-template-columns: 1fr; gap: 22px; padding: 26px; }
-      .requirements { grid-template-columns: 1fr; }
-      .requirement { border-right: 0; border-bottom: 1px solid var(--line); }
-      .requirement:last-child { border-bottom: 0; }
-      .download-note, .footer-inner { align-items: flex-start; flex-direction: column; }
+      .intro { margin-top: 12px; }
+      .steps { grid-template-columns: repeat(2,1fr); }
+      .step { min-height: 180px; padding: 17px; }
+      .mod-grid { grid-template-columns: repeat(2,1fr); }
+      .chapter-grid { grid-template-columns: repeat(2,1fr); }
+      .quest-intro { grid-template-columns: 1fr; gap: 17px; }
+      .footer-inner { flex-direction: column; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    @media (max-width: 430px) {
+      .steps, .quick-start, .mod-grid, .chapter-grid { grid-template-columns: 1fr; }
+      .step { min-height: auto; }
     }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
@@ -177,144 +141,137 @@
       <a class="brand" href="#top"><span class="brand-mark"><span>✦</span></span>匠造与奥术</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">菜单</button>
       <div class="nav-links" id="nav-links">
-        <a href="#world">世界设定</a>
-        <a href="#features">整合特色</a>
-        <a href="#install">安装指南</a>
+        <a href="#starter">新手教程</a><a href="#mods">模组介绍</a><a href="#quests">任务线</a><a href="#tips">实用技巧</a>
         <a class="nav-cta" href="https://github.com/xk464/XK464/raw/refs/heads/main/%E5%8C%A0%E9%80%A0%E4%B8%8E%E5%A5%A5%E6%9C%AF-1.20.1-Forge-v1.2.2.zip">下载整合包</a>
       </div>
     </nav>
   </header>
-
   <main id="top">
     <div class="wrap">
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero">
         <div>
-          <div class="eyebrow">Minecraft · Forge 1.20.1 · v1.2.2</div>
-          <h1 id="hero-title">匠造<span>与奥术</span></h1>
-          <p class="hero-copy">从一把石斧开始，在机械轰鸣与奥术微光之间，亲手建起一座会呼吸的世界。科技、魔法、探索与田园生活，在这里彼此交织。</p>
-          <div class="hero-actions">
-            <a class="button" href="#install">开始你的旅程 <span aria-hidden="true">&nbsp;↗</span></a>
-            <a class="button secondary" href="#world">探索整合内容</a>
-          </div>
-          <p class="hero-note">为单人冒险与好友联机打造 · 简体中文开箱即用</p>
+          <div class="eyebrow">MINECRAFT 1.20.1 · FORGE 47.4.10 · V1.2.2</div>
+          <h1>匠造<span>与奥术</span></h1>
+          <p class="hero-copy">欢迎来到一场从石斧开始的漫长冒险。这里有机械动力的齿轮工坊、新生魔艺的法术、等待探索的遗迹，也有一座可以慢慢经营的家园。本页带你安装整合包、认识核心模组，并读懂 6 章任务线。</p>
+          <div class="actions"><a class="button" href="https://github.com/xk464/XK464/raw/refs/heads/main/%E5%8C%A0%E9%80%A0%E4%B8%8E%E5%A5%A5%E6%9C%AF-1.20.1-Forge-v1.2.2.zip">下载整合包 ZIP ↗</a><a class="button secondary" href="#starter">从新手教程开始</a></div>
+          <p class="hero-note">227 个模组 · 简体中文预设 · 6 章 79 个任务</p>
         </div>
-        <div class="sigil" aria-hidden="true">
-          <div class="sigil-ring">
-            <span class="orbit-label one">ARTIFICE</span>
-            <span class="orbit-label two">ARCANA</span>
-            <span class="orbit-label three">WILDERNESS</span>
-            <div class="sigil-core"><span>✧</span></div>
-          </div>
-        </div>
+        <div class="sigil" aria-hidden="true"><div class="ring"><div class="diamond"><span>✧</span></div></div></div>
       </section>
-
-      <div class="stats" aria-label="整合包数据">
-        <div class="stat"><strong>227</strong><span>精选模组 · Forge 构建</span></div>
-        <div class="stat"><strong>6 章</strong><span>循序渐进的任务旅程</span></div>
-        <div class="stat"><strong>79 个</strong><span>任务与自动发放奖励</span></div>
-        <div class="stat"><strong>1.2.2</strong><span>当前整合包版本</span></div>
+      <div class="stats">
+        <div class="stat"><strong>227</strong><span>精选模组</span></div><div class="stat"><strong>6 章</strong><span>循序渐进的成长任务</span></div>
+        <div class="stat"><strong>79 个</strong><span>带奖励的任务</span></div><div class="stat"><strong>8–10 GB</strong><span>建议分配内存</span></div>
       </div>
     </div>
 
-    <section id="world">
+    <section id="starter">
       <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow">A WORLD OF MANY PATHS</div><h2>三条道路，一方天地</h2></div>
-          <p class="section-intro">不必在工业、魔法与田园之间做选择。按自己的节奏探索，让每条成长线都能与其他道路相互助力。</p>
+        <div class="section-head"><div><div class="eyebrow">FIRST STEPS</div><h2>新手教程：从下载到第一天</h2></div><p class="intro">整合包采用 PCL2 可识别的 MultiMC 格式。模组和配置已经打包好，导入后启动器会安装游戏本体与 Forge。</p></div>
+        <div class="steps">
+          <article class="step"><div class="step-no">01</div><h3>准备环境</h3><p>准备支持导入整合包的 PCL2。选择 Java 17（Java 21 也可），给游戏分配 8192–10240 MB 内存。</p></article>
+          <article class="step"><div class="step-no">02</div><h3>导入 ZIP</h3><p>把下载的 ZIP 拖到 PCL2 主窗口，或在「版本设置 → 安装整合包」中选择文件，确认实例名后导入。</p></article>
+          <article class="step"><div class="step-no">03</div><h3>首次启动</h3><p>第一次会生成模组配置。加载 3–6 分钟可能是正常的，请耐心等待；不建议在加载期间反复强制关闭。</p></article>
+          <article class="step"><div class="step-no">04</div><h3>创建新世界</h3><p>建议先创建新世界体验预设配置。进入游戏按 L 打开进度界面，从「安家落户」开始做任务。</p></article>
         </div>
-        <div class="paths">
-          <article class="path-card" data-mark="⚙">
-            <div class="path-icon" aria-hidden="true">⚙</div>
-            <h3>科技 · 从齿轮到星海</h3>
-            <p>以机械动力开启自动化，逐步迈向通用机械、沉浸工程与 AE2 数字化存储，建造属于自己的工业帝国。</p>
-            <div class="tagline">机械动力 · Mekanism · Applied Energistics 2</div>
-          </article>
-          <article class="path-card" data-mark="✧">
-            <div class="path-icon" aria-hidden="true">✧</div>
-            <h3>奥术 · 以知识改写世界</h3>
-            <p>研习新生魔艺与植物魔法，在法术、魔力与神秘遗物中寻找答案；强大的力量，也需要一场真正的冒险。</p>
-            <div class="tagline">Ars Nouveau · Botania · Blood Magic</div>
-          </article>
-          <article class="path-card" data-mark="❋">
-            <div class="path-icon" aria-hidden="true">❋</div>
-            <h3>探索 · 让生活也有诗意</h3>
-            <p>深入新维度与地下遗迹，邂逅奇异生物；回到家园，再用农场、厨房、家具和四季装点日常。</p>
-            <div class="tagline">冒险维度 · Farmer's Delight · 丰富建造</div>
-          </article>
+        <div class="callout"><strong>运行配置：</strong>Minecraft 1.20.1 / Forge 47.4.10 / Java 17 优先 / 内存建议 8–10 GB。8 GB 以下更容易在模组加载时遇到内存不足；分配超过 12 GB 也未必更流畅。</div>
+        <div class="quick-start">
+          <article class="tip-card"><h3>开局先做什么？</h3><p>先收集木材、石材和基础食物，按 <code>L</code> 查看任务提示；制作农夫乐事的刀与灶台，尽早准备更好的食物。之后做背包和储物抽屉安置物资，再放床、设置家并探索周边。</p></article>
+          <article class="tip-card"><h3>怎样查配方和方块信息？</h3><p>打开物品栏或 JEI 列表，鼠标悬停物品后按 <code>R</code> 查看配方、按 <code>U</code> 查看用途。对准方块时 Jade 会显示名称和额外信息；按 <code>M</code> / <code>B</code> 查看小地图 / 世界地图。</p></article>
+          <article class="tip-card"><h3>矿脉、树木与作物</h3><p>按住潜行键（默认 Shift）挖矿石可触发连锁挖矿；用斧头砍树干可整树伐倒；对成熟作物右键收获并补种。连锁挖矿默认最多连锁 32 个方块，留意工具耐久。</p></article>
+          <article class="tip-card"><h3>回家与联机传送</h3><p>使用 <code>/sethome 名称</code> 设置家，<code>/home 名称</code> 回家，<code>/homes</code> 列出家；<code>/back</code> 返回死亡点或上次传送前的位置。联机可用 <code>/tpa 玩家</code> 请求传送，对方用 <code>/tpay</code> 接受、<code>/tpan</code> 拒绝。权限取决于服务器设置。</p></article>
         </div>
+        <div class="callout"><strong>小提示：</strong>大规模探索前可了解包内 Chunky 区块预生成模组，并查看游戏内命令帮助。低配显卡先关闭光影或选择 MakeUp - Ultra Fast；Complementary Reimagined 画质更丰富。降低模拟距离通常比单纯降低视距更能改善卡顿。</div>
       </div>
     </section>
 
-    <section class="features" id="features">
+    <section id="mods">
       <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow">THOUGHTFULLY BUILT</div><h2>不止是模组的集合</h2></div>
-          <p class="section-intro">从第一次启动，到数百小时后的自动化工坊，细节都经过整理与校验，让冒险更连贯、游玩更舒心。</p>
-        </div>
-        <div class="feature-grid">
-          <article class="feature"><div class="feature-number">01</div><div><h3>一条完整的成长任务线</h3><p>原版进度系统承载 6 章 79 个任务，涵盖生存、田园、机械、工业、奥术与探索。任务完成即发奖励，并提示下一步方向。</p></div></article>
-          <article class="feature"><div class="feature-number">02</div><div><h3>开箱即用的中文体验</h3><p>预设简体中文，内置 CFPA 社区汉化与 AE2 指南汉化，并包含汉化自动更新工具。</p></div></article>
-          <article class="feature"><div class="feature-number">03</div><div><h3>把繁琐留给机器</h3><p>潜行连锁挖矿、一键伐木、右键收获、背包整理与传送命令，让时间留给建造和探索。</p></div></article>
-          <article class="feature"><div class="feature-number">04</div><div><h3>Forge 版本与依赖逐项核对</h3><p>目标为 Minecraft 1.20.1 / Forge 47.4.10；整合过程检查加载器兼容与模组依赖，任务线以数据包形式加载。</p></div></article>
-        </div>
-        <div class="quest-band">
-          <div class="quest-count">79<small>QUESTS · 6 CHAPTERS</small></div>
-          <div>
-            <h3>从安家落户，到探索与征服</h3>
-            <p>循着章节自然成长，也可以随时转向喜欢的道路。按 <strong>L</strong> 打开游戏内「进度」界面查看任务。</p>
-            <div class="chapter-list"><span>安家落户</span><span>田园生活</span><span>机械动力</span><span>工业帝国</span><span>奥术之路</span><span>探索与征服</span></div>
-          </div>
-        </div>
+        <div class="section-head"><div><div class="eyebrow">MOD GUIDE</div><h2>模组介绍：先认识这些伙伴</h2></div><p class="intro">整合包包含 227 个模组。下面按玩法介绍代表性模组；部分模组需要先制作对应物品或阅读游戏内指南。</p></div>
+        <nav class="mod-tabs" aria-label="模组分类"><a href="#mod-tech">科技工业</a><a href="#mod-magic">魔法冒险</a><a href="#mod-life">生活建造</a><a href="#mod-qol">操作与体验</a><a href="#mod-performance">性能与画面</a></nav>
+        <div class="mod-group" id="mod-tech"><h3>01 · 科技工业：亲手搭建自动化</h3><div class="mod-grid">
+          <article class="mod-card"><h4>Create · 机械动力</h4><p>以转轴、齿轮和传动带构建可见的机械系统。适合做物品搬运、加工产线和富有创造性的工厂，是推荐的科技起点。</p></article>
+          <article class="mod-card"><h4>Mekanism · 通用机械</h4><p>发展电力、机器与矿石处理链，适合中后期提高资源利用率。先从基础机器和供电开始，再逐步扩展处理流程。</p></article>
+          <article class="mod-card"><h4>Applied Energistics 2 · AE2</h4><p>搭建数字化物品存储与自动合成网络。初学者可先理解频道、存储与供电，再循序扩展自动合成。</p></article>
+          <article class="mod-card"><h4>Immersive Engineering · 沉浸工程</h4><p>以大型多方块机器和工业风设备丰富生产线，适合喜欢实体工厂与沉浸式建造的玩家。</p></article>
+          <article class="mod-card"><h4>Thermal 系列 · 热力科技</h4><p>提供机器、能源和资源处理等科技内容，可作为 Create 与大型工业线之间的补充选择。</p></article>
+          <article class="mod-card"><h4>Sophisticated Storage · 精致存储</h4><p>提供升级型存储容器，帮助整理大量材料；搭配背包和储物抽屉，逐步建立清晰的仓储区。</p></article>
+        </div></div>
+        <div class="mod-group" id="mod-magic"><h3>02 · 魔法与冒险：另一种成长方式</h3><div class="mod-grid">
+          <article class="mod-card"><h4>Ars Nouveau · 新生魔艺</h4><p>收集魔源、学习法术并组合施法效果，还能探索自动施法。想玩魔法，可以从法术书和基础法术开始。</p></article>
+          <article class="mod-card"><h4>Botania · 植物魔法</h4><p>围绕植物、花朵与魔力展开的魔法模组，可把资源生产、装置和自动化结合起来。</p></article>
+          <article class="mod-card"><h4>Blood Magic · 血魔法</h4><p>以仪式和生命资源为主题的进阶魔法路线。建议先熟悉基础生存，再按指南逐步学习。</p></article>
+          <article class="mod-card"><h4>Blue Skies · 蔚蓝天空</h4><p>开启新的维度冒险与探索路线；准备好装备、食物和地图，再踏上远行。注意：本整合包包含蔚蓝天空，不包含 The Aether 天境。</p></article>
+          <article class="mod-card"><h4>Apotheosis · 神化</h4><p>扩展附魔、装备词缀与战利品成长，让探索和战斗获得更多装备构筑空间。</p></article>
+          <article class="mod-card"><h4>YUNG's Better 系列</h4><p>翻新多种原版结构与地下地点，让熟悉的世界生成更多值得探索的空间。</p></article>
+        </div></div>
+        <div class="mod-group" id="mod-life"><h3>03 · 田园与建造：把基地变成家</h3><div class="mod-grid">
+          <article class="mod-card"><h4>Farmer's Delight · 农夫乐事</h4><p>加入烹饪、厨房器具和丰富食物。初期制作刀具与灶台，准备多样食物支持长途冒险。</p></article>
+          <article class="mod-card"><h4>Waystones · 传送石碑</h4><p>发现或建造传送点，减少基地与已探索地点之间的往返时间。</p></article>
+          <article class="mod-card"><h4>Macaw's 系列</h4><p>补充家具、门窗、桥梁等建筑部件，让基地、农庄和工厂更有自己的风格。</p></article>
+          <article class="mod-card"><h4>Storage Drawers · 储物抽屉</h4><p>适合按物品类型收纳大量常用材料；将抽屉集中摆放，能快速看清库存。</p></article>
+          <article class="mod-card"><h4>我们的生物群系 / 静谧四季</h4><p>探索 Oh The Biomes We've Gone 带来的群系与自然景观，感受 Serene Seasons 的季节变化。</p></article>
+          <article class="mod-card"><h4>Supplementaries / Quark</h4><p>扩展方块、装饰和实用细节，给日常建造与生存流程增加更多选择。</p></article>
+        </div></div>
+        <div class="mod-group" id="mod-qol"><h3>04 · 操作便利：让信息和整理更顺手</h3><div class="mod-grid">
+          <article class="mod-card"><h4>JEI · 物品与配方查询</h4><p>打开物品栏后搜索物品；按 R 看配方、按 U 看用途。找不到合成路线时，先从 JEI 查起。</p></article>
+          <article class="mod-card"><h4>Jade · 方块信息</h4><p>将准星对准方块或生物，查看名称及额外信息。遇到陌生机器时先看提示，再打开对应指南。</p></article>
+          <article class="mod-card"><h4>Inventory Profiles Next</h4><p>在背包与容器界面使用整理功能，支持排序和锁格等操作。不要把重要物品误放进丢弃位置。</p></article>
+          <article class="mod-card"><h4>Vein Mining · 连锁挖矿</h4><p>默认按住潜行挖矿触发，未附魔时可连锁最多 32 个方块；留意工具耐久与掉落物容量。</p></article>
+          <article class="mod-card"><h4>Tree Harvester / RightClickHarvest</h4><p>用斧头伐树、右键采收成熟作物，减少重复操作。采集前确认背包有足够空间。</p></article>
+          <article class="mod-card"><h4>Xaero's Minimap / World Map</h4><p>使用 M 打开小地图、B 打开世界地图，标记基地和重要地点，降低探索迷路的概率。</p></article>
+          <article class="mod-card"><h4>Simple Warp TPA Home Back</h4><p>提供 home、back、warp 与玩家传送相关命令。多人服务器上具体权限由服务器规则决定。</p></article>
+          <article class="mod-card"><h4>IMBlocker / Controlling</h4><p>IMBlocker 改善 Windows 输入法与游戏按键冲突；Controlling 可搜索按键绑定，方便排查快捷键冲突。</p></article>
+          <article class="mod-card"><h4>Keep Inventory Always</h4><p>整合包预设新世界死亡保留物品。想恢复死亡掉落规则，可在当前世界使用 <code>/gamerule keepInventory false</code>。</p></article>
+        </div></div>
+        <div class="mod-group" id="mod-performance"><h3>05 · 性能与画面：按机器情况选择</h3><div class="mod-grid">
+          <article class="mod-card"><h4>Embeddium + Oculus</h4><p>分别提供渲染优化与光影支持。若遇到画面异常或帧率低，先关闭光影排查。</p></article>
+          <article class="mod-card"><h4>ModernFix / FerriteCore</h4><p>改善加载、内存占用等方面的体验；大型模组包首次启动仍需要耐心等待。</p></article>
+          <article class="mod-card"><h4>Chunky / Entity Culling</h4><p>Chunky 可用于区块预生成；Entity Culling 减少不可见实体的渲染负担。</p></article>
+          <article class="mod-card"><h4>MakeUp - Ultra Fast</h4><p>偏向较低配置的光影选择。核显或帧率有限时，可先尝试它或直接关闭光影。</p></article>
+          <article class="mod-card"><h4>Complementary Reimagined</h4><p>画面效果更丰富，性能压力也更高。确认基础游玩流畅后再开启。</p></article>
+          <article class="mod-card"><h4>崩溃助手 / Crash Assistant</h4><p>发生崩溃时协助查看问题信息。记录错误提示与日志，有助于定位加载器、内存或模组问题。</p></article>
+        </div></div>
       </div>
     </section>
 
-    <section id="install">
+    <section id="quests">
       <div class="wrap">
-        <div class="section-head">
-          <div><div class="eyebrow">YOUR ADVENTURE STARTS HERE</div><h2>安装与启程</h2></div>
-          <p class="section-intro">整合包采用 PCL2 可识别的 MultiMC 格式。导入后由启动器安装 Minecraft 与 Forge。</p>
+        <div class="section-head"><div><div class="eyebrow">QUEST JOURNEY</div><h2>任务线介绍：六章带你走过整段旅程</h2></div><p class="intro">任务使用原版「进度」界面呈现，无需另装任务书模组。章节入口会自动显示，想做哪条线都可以。</p></div>
+        <div class="quest-intro"><div class="quest-count">79<small>QUESTS · 6 CHAPTERS</small></div><div><h3>按 L 打开「进度」界面</h3><p>每章由一串有前后关系的目标组成。完成任务时奖励自动发放，不用另点领取；任务描述也会给出下一步提示。主线只是引导，不会阻止你自由探索或提前发展其他路线。</p></div></div>
+        <div class="chapter-grid">
+          <article class="chapter"><small>CHAPTER 01 · 10 TASKS</small><h3>安家落户</h3><p>从木头、石器逐步发展到铁器、钻石与附魔，再准备背包、储物抽屉和传送石碑，建立稳定的生存基地。</p></article>
+          <article class="chapter"><small>CHAPTER 02 · 11 TASKS</small><h3>田园生活</h3><p>从农夫乐事的刀具、砧板与锅具开始，认识厨房、食物加工和更舒适的家居生活。</p></article>
+          <article class="chapter"><small>CHAPTER 03 · 17 TASKS</small><h3>机械动力</h3><p>从安山合金和基础传动起步，学习水车、风车与黄铜工艺，逐步迈向精密构件和铁路。</p></article>
+          <article class="chapter"><small>CHAPTER 04 · 18 TASKS</small><h3>工业帝国</h3><p>探索通用机械矿石处理与沉浸工程，再发展 AE2 数字化存储，把生产、供电与物流连接起来。</p></article>
+          <article class="chapter"><small>CHAPTER 05 · 15 TASKS</small><h3>奥术之路</h3><p>学习新生魔艺的法术体系与植物魔法的魔力体系，在科技之外建立自己的魔法道路。</p></article>
+          <article class="chapter"><small>CHAPTER 06 · 8 TASKS</small><h3>探索与征服</h3><p>挑战下界、末地与强敌，探索远古城市；为远行备好装备、食物与回家的路线。</p></article>
         </div>
-        <div class="install-grid">
-          <article class="install-card">
-            <div class="step-label">01 — PREPARE</div>
-            <h3>启动前准备</h3>
-            <ol>
-              <li>使用支持导入整合包的 PCL2 启动器。</li>
-              <li>安装并选择 Java 17（Java 21 也可）。</li>
-              <li>为游戏分配 8–10 GB 内存；不建议超过 12 GB。</li>
-            </ol>
-          </article>
-          <article class="install-card">
-            <div class="step-label">02 — INSTALL</div>
-            <h3>导入并启动</h3>
-            <ol>
-              <li>将整合包 ZIP 拖入 PCL2 主窗口，或在「版本设置 → 安装整合包」中选择。</li>
-              <li>确认创建「匠造与奥术 1.20.1」实例。</li>
-              <li>首次启动会生成模组配置，加载约 3–6 分钟属于正常情况。</li>
-            </ol>
-          </article>
+        <div class="callout"><strong>奖励说明：</strong>奖励会在完成瞬间自动发放，包含物品或经验；例如铁器时代会奖励后续冒险所需物资，击败末影龙的任务也准备了阶段性奖励。若不确定下一步，打开任务描述查看提示。</div>
+      </div>
+    </section>
+
+    <section id="tips">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">FIELD NOTES</div><h2>出发前记住这些</h2></div><p class="intro">快捷键可能与其他模组或玩家设置冲突；可在选项的按键设置中搜索模组名称并自行调整。</p></div>
+        <div class="quick-start">
+          <article class="tip-card"><h3>常用按键速查</h3><p><code>L</code> 任务与进度；<code>R</code>/<code>U</code> 查询配方/用途；<code>Ctrl+O</code> 切换 JEI 列表；<code>Ctrl+F</code> 搜索按键；<code>Z</code> 缩放；<code>M</code>/<code>B</code> 地图；<code>K</code> 饰品栏；<code>Tab</code> Jade 信息。</p></article>
+          <article class="tip-card"><h3>命令快捷键要自己设置</h3><p>CommandKeys 支持把命令绑定为宏，但整合包没有预设具体按键。可在模组配置界面自行创建，先检查游戏已有按键，避免覆盖重要操作。</p></article>
+          <article class="tip-card"><h3>老版本升级建议</h3><p>若曾导入过旧版，建议在 PCL2 删除旧的「匠造与奥术 1.20.1」实例，再导入 v1.2.2 ZIP。重要存档先备份；不要在旧实例里混装另一加载器的模组。</p></article>
+          <article class="tip-card"><h3>仍然崩溃怎么办？</h3><p>先确认 Java 17、内存分配和 Forge 版本；关闭光影后再启动，并查看崩溃助手或日志中的首个错误。不要同时升级多个模组，以免难以定位问题。</p></article>
         </div>
-        <div class="requirements" aria-label="运行要求">
-          <div class="requirement"><strong>游戏版本</strong><span>Minecraft 1.20.1</span></div>
-          <div class="requirement"><strong>模组加载器</strong><span>Forge 47.4.10</span></div>
-          <div class="requirement"><strong>建议内存</strong><span>8 GB 起 · 推荐 8–10 GB</span></div>
-        </div>
-        <div class="download-note">
-          <p><strong>整合包 v1.2.2：</strong>Minecraft 1.20.1 · Forge 47.4.10 · 约 796 MB。文件托管在 GitHub 仓库的大文件存储中。</p>
-          <a href="https://github.com/xk464/XK464/raw/refs/heads/main/%E5%8C%A0%E9%80%A0%E4%B8%8E%E5%A5%A5%E6%9C%AF-1.20.1-Forge-v1.2.2.zip">下载整合包 ZIP ↗</a>
-        </div>
-        <p class="notice">文件约 796 MB，下载可能需要一些时间。请仅从此 GitHub 仓库获取整合包。</p>
+        <div class="callout"><strong>版权与兼容：</strong>Minecraft 与各模组版权归原作者所有。整合包用于非商业分享；模组兼容性以 Forge 1.20.1 构建为准，不要将 NeoForge/Fabric 版本直接放入本包。</div>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">DOWNLOAD · V1.2.2</div><h2>准备好开始冒险了吗？</h2></div><p class="intro">下载整合包后，按上方新手教程导入 PCL2。包体约 796 MB，首次启动还需下载 Minecraft 与 Forge。</p></div>
+        <a class="button" href="https://github.com/xk464/XK464/raw/refs/heads/main/%E5%8C%A0%E9%80%A0%E4%B8%8E%E5%A5%A5%E6%9C%AF-1.20.1-Forge-v1.2.2.zip">下载匠造与奥术 v1.2.2 ↗</a>
+        <p class="hero-note">Minecraft 1.20.1 · Forge 47.4.10 · Java 17 推荐 · 内存 8–10 GB</p>
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <p>匠造与奥术 · 为好奇心与创造力而造</p>
-      <p>Minecraft 及各模组版权归其各自作者所有。整合包非商业用途。</p>
-      <a href="https://github.com/xk464/XK464">GitHub 项目 ↗</a>
-    </div>
-  </footer>
+  <footer class="footer"><div class="wrap footer-inner"><p>匠造与奥术 · 新手教程与模组指南</p><p>模组名称与商标归各自作者所有 · 非商业用途</p><a href="https://github.com/xk464/XK464">GitHub 项目 ↗</a></div></footer>
   <script>
     const menuButton = document.querySelector(".menu-toggle");
     const menu = document.querySelector("#nav-links");
