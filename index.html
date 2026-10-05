@@ -99,6 +99,25 @@
     .chapter small { color: var(--gold); font-size: 10px; letter-spacing: .08em; }
     .chapter h3 { font-family: var(--serif); font-size: 18px; }
     .chapter p { font-size: 11px; }
+    .route-heading { margin: 30px 0 13px; color: var(--gold); font: 500 22px var(--serif); }
+    .quest-details { display: grid; gap: 9px; }
+    .quest-detail { border: 1px solid var(--line); background: var(--panel); }
+    .quest-detail summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 18px; cursor: pointer; list-style: none; }
+    .quest-detail summary::-webkit-details-marker { display: none; }
+    .quest-detail summary::after { content: "+"; color: var(--gold); font-size: 20px; }
+    .quest-detail[open] summary::after { content: "−"; }
+    .quest-detail summary strong { font-size: 13px; }
+    .quest-detail summary span { margin-left: 8px; color: var(--muted); font-size: 11px; }
+    .quest-detail-body { padding: 0 18px 17px; }
+    .quest-detail-body > p { margin: 0 0 10px; color: var(--muted); font-size: 11px; }
+    .objective-list { display: grid; grid-template-columns: repeat(2,1fr); gap: 7px 22px; margin: 0; padding: 0; list-style: none; counter-reset: objectives; }
+    .objective-list li { position: relative; min-height: 28px; padding: 4px 0 4px 29px; border-bottom: 1px solid rgba(231,225,199,.07); color: #d4d1c4; font-size: 11px; counter-increment: objectives; }
+    .objective-list li::before { content: counter(objectives,decimal-leading-zero); position: absolute; left: 0; color: var(--gold); font: 11px Consolas,monospace; }
+    .objective-list li em { color: var(--muted); font-style: normal; }
+    .reward-notes { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; margin-top: 14px; }
+    .reward-notes div { padding: 11px; border: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+    .reward-notes strong { display: block; margin-bottom: 4px; color: var(--text); font-size: 11px; }
+    .verification-note { margin-top: 13px; padding: 13px 15px; border-left: 2px solid var(--blue); background: rgba(145,183,173,.055); color: #c4cec8; font-size: 11px; }
     .footer { padding: 28px 0; border-top: 1px solid var(--line); color: #909286; font-size: 10px; }
     .footer-inner { display: flex; justify-content: space-between; gap: 14px; }
     .footer p { margin: 0; }
@@ -246,6 +265,133 @@
           <article class="chapter"><small>CHAPTER 05 · 15 TASKS</small><h3>奥术之路</h3><p>学习新生魔艺的法术体系与植物魔法的魔力体系，在科技之外建立自己的魔法道路。</p></article>
           <article class="chapter"><small>CHAPTER 06 · 8 TASKS</small><h3>探索与征服</h3><p>挑战下界、末地与强敌，探索远古城市；为远行备好装备、食物与回家的路线。</p></article>
         </div>
+        <h3 class="route-heading">按任务数据整理的逐章目标</h3>
+        <div class="quest-details">
+          <details class="quest-detail">
+            <summary><div><strong>第一章 · 安家落户</strong><span>10 项 · 生存、装备与基地</span></div></summary>
+            <div class="quest-detail-body">
+              <p>按顺序推进。目标以任务图标和描述为准；铁锭与原木任务需要持有指定数量。</p>
+              <ol class="objective-list">
+                <li>木头起步 <em>— 持有 16 个橡木原木</em></li><li>石器时代 <em>— 做出石镐</em></li>
+                <li>生火 <em>— 做出熔炉</em></li><li>铁器时代 <em>— 持有 8 个铁锭</em></li>
+                <li>安全第一 <em>— 做出盾牌</em></li><li>装得下 <em>— 做出精致背包</em></li>
+                <li>收纳大师 <em>— 做出橡木储物抽屉</em></li><li>钻石！ <em>— 获得钻石</em></li>
+                <li>附魔入门 <em>— 做出附魔台</em></li><li>传送网络 <em>— 获得传送石碑</em></li>
+              </ol>
+              <div class="reward-notes">
+                <div><strong>石器与熔炉</strong>送出照明火把、煤和经验，帮助建立安全营地。</div>
+                <div><strong>铁器与钻石</strong>奖励铁镐、面包和钻石镐，推进下一阶段采矿。</div>
+                <div><strong>附魔与传送</strong>奖励经验瓶、书架、石砖和返回卷轴。</div>
+              </div>
+            </div>
+          </details>
+          <details class="quest-detail">
+            <summary><div><strong>第二章 · 田园生活</strong><span>11 项 · 农夫乐事与厨房</span></div></summary>
+            <div class="quest-detail-body">
+              <p>先做刀具与加工台，再种植食材、完成料理，最后扩展厨房。任务数据通过物品栏中的目标物品判定。</p>
+              <ol class="objective-list">
+                <li>一把好刀 <em>— 燧石刀</em></li><li>砧板 <em>— 切菜板</em></li>
+                <li>下厨 <em>— 烹饪锅</em></li><li>麦浪 <em>— 持有 64 个小麦</em></li>
+                <li>番茄红了 <em>— 番茄</em></li><li>卷心菜 <em>— 卷心菜</em></li>
+                <li>肥沃土壤 <em>— 肥沃土壤</em></li><li>好好吃一顿 <em>— 培根煎蛋</em></li>
+                <li>灶台 <em>— 灶台</em></li><li>傻瓜式厨房 <em>— 料理台</em></li>
+                <li>冰箱 <em>— 冰箱</em></li>
+              </ol>
+              <div class="reward-notes">
+                <div><strong>农耕补给</strong>种子与骨粉帮助扩建菜园。</div>
+                <div><strong>料理阶段</strong>面包和熟牛肉补充远行食物。</div>
+                <div><strong>厨房阶段</strong>任务奖励铁锭与经验，继续升级设施。</div>
+              </div>
+            </div>
+          </details>
+          <details class="quest-detail">
+            <summary><div><strong>第三章 · 机械动力</strong><span>17 项 · 从手摇动力到铁路</span></div></summary>
+            <div class="quest-detail-body">
+              <p>这一章从基础材料与动力传递开始，依次制作加工设备、黄铜与精密构件，最后接触大容量仓储和铁路。</p>
+              <ol class="objective-list">
+                <li>安山合金 <em>— 持有 16 个</em></li><li>手摇曲柄 <em>— 制作基础动力源</em></li>
+                <li>传动 <em>— 制作传动轴</em></li><li>齿轮 <em>— 制作小齿轮</em></li>
+                <li>第一台动力 <em>— 水车</em></li><li>风力 <em>— 风车轴承</em></li>
+                <li>压床 <em>— 动力压床</em></li><li>石磨 <em>— 石磨</em></li>
+                <li>鼓风机 <em>— 封装风扇</em></li><li>动力锯 <em>— 机械锯</em></li>
+                <li>动力钻头 <em>— 机械钻头</em></li><li>粉碎轮 <em>— 粉碎轮</em></li>
+                <li>黄铜时代 <em>— 持有 8 个黄铜锭</em></li><li>电子管 <em>— 电子管</em></li>
+                <li>精密构件 <em>— 精密构件</em></li><li>物品保险库 <em>— 物品保险库</em></li>
+                <li>铁路时代 <em>— 铁路模组的列车员口哨</em></li>
+              </ol>
+              <div class="verification-note">实作建议：先搭能转动的水车/风车，再将动力轴接到压床、石磨或风扇；用 JEI 查每台设备的配方，用 Create 的使用说明理解转速与连接。任务检查对应物品，不会替你验证整条机器是否已正确连线。</div>
+              <div class="reward-notes">
+                <div><strong>基础机器</strong>逐步返还铁锭与安山合金，补足扩建材料。</div>
+                <div><strong>黄铜与精密构件</strong>是中期里程碑，奖励黄铜锭与经验。</div>
+                <div><strong>铁路时代</strong>奖励 64 条铁轨、32 个铁锭和经验。</div>
+              </div>
+            </div>
+          </details>
+          <details class="quest-detail">
+            <summary><div><strong>第四章 · 工业帝国</strong><span>18 项 · 通用机械、沉浸工程与 ME 存储</span></div></summary>
+            <div class="quest-detail-body">
+              <p>这条线覆盖锇与钢、首批电力机器、沉浸工程多方块设备，再发展 AE2；最后也包含精致存储控制器作为另一条数字仓储路线。</p>
+              <ol class="objective-list">
+                <li>锇 <em>— 持有 8 个锇锭</em></li><li>炼钢 <em>— 持有 4 个钢锭</em></li>
+                <li>冶金灌注机 <em>— 制作核心机器</em></li><li>富集仓 <em>— 制作矿物处理设备</em></li>
+                <li>控制电路 <em>— 基础控制电路</em></li><li>发电 <em>— 热力发电机</em></li>
+                <li>热力机械 <em>— 红石炉</em></li><li>工程师之锤 <em>— 沉浸工程工具</em></li>
+                <li>焦炉 <em>— 沉浸工程焦炉</em></li><li>高炉 <em>— 沉浸工程高炉</em></li>
+                <li>赛特斯石英 <em>— 持有 8 个水晶</em></li><li>充能器 <em>— AE2 充能器</em></li>
+                <li>压印器 <em>— AE2 Inscriber</em></li><li>三种处理器 <em>— 任务要求工程处理器</em></li>
+                <li>ME 驱动器 <em>— 安装存储元件的设备</em></li><li>ME 合成终端 <em>— 连接后的仓库界面</em></li>
+                <li>数字化存储 <em>— 1K 物品存储元件</em></li><li>精致存储 <em>— Refined Storage 控制器</em></li>
+              </ol>
+              <div class="verification-note">分线建议：先用任务线认识材料与机器，再按说明书完成实际电力连接。AE2 节点的具体通电、频道和网络结构并非 advancement 判据；制作出任务物品只代表阶段达成，不等于网络已经可用。</div>
+              <div class="reward-notes">
+                <div><strong>通用机械阶段</strong>提供铁锭与经验补给。</div>
+                <div><strong>沉浸工程阶段</strong>高炉里程碑奖励钢锭。</div>
+                <div><strong>ME 阶段</strong>处理器、驱动器、终端与存储元件任务提供铁锭。</div>
+              </div>
+            </div>
+          </details>
+          <details class="quest-detail">
+            <summary><div><strong>第五章 · 奥术之路</strong><span>15 项 · 新生魔艺与植物魔法并行</span></div></summary>
+            <div class="quest-detail-body">
+              <p>先展开 Ars Nouveau 的法术、魔源与灌注设备，再学习 Botania 的花、魔力发射和魔力钢。两个体系并行，不要求二选一。</p>
+              <ol class="objective-list">
+                <li>新手法术书 <em>— Novice Spell Book</em></li><li>法杖 <em>— Ars Nouveau Wand</em></li>
+                <li>魔源宝石 <em>— 持有 8 个魔源宝石</em></li><li>灌注室 <em>— Imbuement Chamber</em></li>
+                <li>附魔装置 <em>— Enchanting Apparatus</em></li><li>奥术核心 <em>— Arcane Core</em></li>
+                <li>魔源罐 <em>— Source Jar</em></li><li>法师之花 <em>— Magebloom</em></li>
+                <li>学徒法术书 <em>— Apprentice Spell Book</em></li><li>植物魔法 <em>— 白雏菊</em></li>
+                <li>魔力池 <em>— 存储魔力</em></li><li>魔力发射器 <em>— 传递魔力</em></li>
+                <li>火之花 <em>— Endoflame</em></li><li>魔力钢 <em>— Manasteel 锭</em></li>
+                <li>泰拉钢 <em>— Terrasteel 锭</em></li>
+              </ol>
+              <div class="verification-note">实作建议：按各模组指南布置灌注台、魔源容器和法术设备；Botania 则先建立花朵产能、魔力发射器与魔力池，再推进魔力钢和泰拉钢。任务只核对目标物品在物品栏中出现。</div>
+              <div class="reward-notes">
+                <div><strong>法术入门</strong>新手书、法杖和宝石任务补充魔源宝石。</div>
+                <div><strong>两系基础</strong>奖励骨粉、煤炭、石砖和铁锭。</div>
+                <div><strong>泰拉钢挑战</strong>奖励 2 颗钻石与经验。</div>
+              </div>
+            </div>
+          </details>
+          <details class="quest-detail">
+            <summary><div><strong>第六章 · 探索与征服</strong><span>8 项 · 下界、末地与终局挑战</span></div></summary>
+            <div class="quest-detail-body">
+              <p>出发前准备护甲、盾牌、食物、远程武器与返程方案。维度任务记录实际进入维度，击杀任务记录玩家击败目标。</p>
+              <ol class="objective-list">
+                <li>前往下界 <em>— 进入下界维度</em></li><li>烈焰棒 <em>— 持有 2 根烈焰棒</em></li>
+                <li>末影珍珠 <em>— 持有末影珍珠</em></li><li>抵达末地 <em>— 进入末地维度</em></li>
+                <li>终结末影龙 <em>— 击败末影龙</em></li><li>凋灵 <em>— 召唤并击败凋灵</em></li>
+                <li>下界合金 <em>— 制作下界合金锭</em></li><li>远古城市 <em>— 获得回响碎片</em></li>
+              </ol>
+              <div class="verification-note">按 advancement 数据，末影龙与凋灵必须由玩家击杀才会触发；「远古城市」这一项实际检查回响碎片进入物品栏，并不直接检测玩家是否走进远古城市。为完成挑战建议仍按任务描述探索对应地点。</div>
+              <div class="reward-notes">
+                <div><strong>下界阶段</strong>奖励黑曜石、金锭与经验。</div>
+                <div><strong>末地阶段</strong>抵达后奖励金苹果；击败末影龙奖励鞘翅和龙息。</div>
+                <div><strong>终局挑战</strong>凋灵奖励下界之星；下界合金和回响碎片任务奖励钻石等资源。</div>
+              </div>
+            </div>
+          </details>
+        </div>
+        <div class="verification-note"><strong>任务是怎样判定的？</strong>每章入口随玩家首次进入世界自动授予，因此六个章节页签会出现；每章内部按前置进度串成路线。代码中的物品类目标由 inventory_changed 条件检查指定物品（部分要求 8、16 或 64 个）；维度目标在跨入下界/末地时触发；Boss 目标通过玩家击杀事件触发。每个任务连接单独的奖励函数，完成后直接执行 give / xp 指令发奖励。</div>
         <div class="callout"><strong>奖励说明：</strong>奖励会在完成瞬间自动发放，包含物品或经验；例如铁器时代会奖励后续冒险所需物资，击败末影龙的任务也准备了阶段性奖励。若不确定下一步，打开任务描述查看提示。</div>
       </div>
     </section>
