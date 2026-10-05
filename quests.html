@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>匠造与奥术 · 任务线全流程</title>
+<style>
+  :root { --bg:#0f1310; --panel:#171d18; --panel2:#1e2620; --text:#eef0e6; --muted:#a8ada0; --line:rgba(230,224,198,.14); --gold:#e5bd74; --green:#a6bb82; --red:#d98b6a; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; line-height:1.7; }
+  .wrap { width:min(1500px,calc(100% - 40px)); margin:0 auto; padding:36px 0 80px; }
+  h1 { font-size:clamp(26px,3.4vw,40px); margin:0 0 6px; letter-spacing:.02em; }
+  h1 span { color:var(--gold); }
+  .lead { color:var(--muted); margin:0 0 10px; }
+  .legend { display:flex; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:14px; margin:14px 0 26px; }
+  .legend b { color:var(--text); }
+  .dot { display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--green); margin-right:6px; }
+  .dot.gold { background:var(--gold); } .dot.red { background:var(--red); }
+  .grid { display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); align-items:start; }
+  .branch { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 18px 8px; }
+  .branch h3 { margin:0; font-size:17px; display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+  .branch h3 span { font-size:12px; color:var(--muted); font-weight:400; white-space:nowrap; }
+  .branch .sub { margin:2px 0 14px; color:var(--muted); font-size:13px; }
+  .chain { list-style:none; margin:0; padding:0; position:relative; }
+  .q { display:flex; gap:11px; padding:8px 0 8px 0; position:relative; }
+  .q + .q::before { content:""; position:absolute; left:13px; top:-6px; height:14px; width:1px; background:var(--line); }
+  .q .n { flex:0 0 27px; height:27px; border-radius:50%; display:grid; place-items:center; font-size:12px; background:var(--panel2); border:1px solid var(--line); color:var(--muted); }
+  .q.goal .n { border-color:var(--gold); color:var(--gold); }
+  .q.challenge .n { border-color:var(--red); color:var(--red); }
+  .q b { display:block; font-size:15px; font-weight:600; }
+  .q small { display:block; color:var(--muted); font-size:12.5px; }
+  .q em { display:block; color:var(--green); font-size:12px; font-style:normal; margin-top:2px; }
+  .q.goal b::after { content:" ◆"; color:var(--gold); font-size:11px; }
+  .q.challenge b::after { content:" ★"; color:var(--red); font-size:11px; }
+  .foot { margin-top:34px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); padding-top:16px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>匠造与奥术 · <span>任务线全流程</span></h1>
+  <p class="lead"><a href="index.html" style="color:var(--gold);text-decoration:none">← 返回首页</a> ｜ Minecraft 1.20.1 / Forge 47.4.10 ｜ 游戏内按 <code>L</code> 打开 ｜ <b>1 个页签 · 12 条支线 · 139 个任务</b></p>
+  <p class="lead">全部任务都在<strong>同一个页签</strong>下。每条支线从页签根部独立展开，<strong>支线之间互不挡路</strong>。</p>
+  <div class="legend">
+    <span><i class="dot"></i><b>普通任务</b></span>
+    <span><i class="dot gold"></i><b>里程碑</b> 重要节点，界面上图标更大</span>
+    <span><i class="dot red"></i><b>挑战</b> 最难的节点</span>
+    <span>数字 = 该支线内的顺序，也是前置关系</span>
+  </div>
+  <div class="grid">
+    <section class="branch">
+      <h3>安家落户<span>14 个任务</span></h3>
+      <p class="sub">生存基础：从一棵树到传送网络</p>
+      <ol class="chain">
+        <li class="q"><span class="n">1</span><div><b>木头起步</b><small>持有 minecraft:oak_log ×16</small><em>奖励：minecraft:apple 4、minecraft:torch 8、经验 3 points</em></div></li>
+        <li class="q"><span class="n">2</span><div><b>工作台</b><small>持有 minecraft:crafting_table</small><em>奖励：minecraft:oak_planks 16、经验 3 points</em></div></li>
+        <li class="q"><span class="n">3</span><div><b>石器时代</b><small>持有 minecraft:stone_pickaxe</small><em>奖励：minecraft:coal 16、minecraft:torch 16、经验 5 points</em></div></li>
+        <li class="q"><span class="n">4</span><div><b>生火</b><small>持有 minecraft:furnace</small><em>奖励：minecraft:coal 8、经验 5 points</em></div></li>
+        <li class="q goal"><span class="n">5</span><div><b>铁器时代</b><small>持有 minecraft:iron_ingot ×8</small><em>奖励：minecraft:iron_pickaxe、minecraft:bread 4、经验 10 points</em></div></li>
+        <li class="q"><span class="n">6</span><div><b>安全第一</b><small>持有 minecraft:shield</small><em>奖励：minecraft:iron_ingot 4、经验 6 points</em></div></li>
+        <li class="q"><span class="n">7</span><div><b>铁甲护身</b><small>持有 minecraft:iron_chestplate</small><em>奖励：minecraft:iron_ingot 8、经验 8 points</em></div></li>
+        <li class="q"><span class="n">8</span><div><b>背包与收纳</b><small>持有 sophisticatedbackpacks:backpack</small><em>奖励：storagedrawers:oak_full_drawers_1 2、minecraft:iron_ingot 8、经验 8 points</em></div></li>
+        <li class="q"><span class="n">9</span><div><b>收纳大师</b><small>持有 storagedrawers:oak_full_drawers_1</small><em>奖励：minecraft:iron_ingot 8、经验 6 points</em></div></li>
+        <li class="q goal"><span class="n">10</span><div><b>钻石！</b><small>持有 minecraft:diamond</small><em>奖励：minecraft:diamond_pickaxe、经验 12 points</em></div></li>
+        <li class="q"><span class="n">11</span><div><b>黑曜石</b><small>持有 minecraft:obsidian</small><em>奖励：minecraft:diamond 2、经验 10 points</em></div></li>
+        <li class="q"><span class="n">12</span><div><b>附魔入门</b><small>持有 minecraft:enchanting_table</small><em>奖励：minecraft:bookshelf 4、minecraft:lapis_lazuli 16、经验 15 points</em></div></li>
+        <li class="q"><span class="n">13</span><div><b>铁砧与修复</b><small>持有 minecraft:anvil</small><em>奖励：minecraft:iron_block 2、经验 12 points</em></div></li>
+        <li class="q goal"><span class="n">14</span><div><b>传送网络</b><small>持有 waystones:waystone</small><em>奖励：minecraft:stone_bricks 32、waystones:return_scroll 2、经验 15 points</em></div></li>
+      </ol>
+    </section>
+    <section class="branch">
+      <h3>田园生活<span>14 个任务</span></h3>
+      <p class="sub">农夫乐事与厨房</p>
+      <ol class="chain">
+        <li class="q"><span class="n">1</span><div><b>一把好刀</b><small>持有 farmersdelight:flint_knife</small><em>奖励：minecraft:wheat_seeds 8、经验 3 points</em></div></li>
+        <li class="q"><span class="n">2</span><div><b>砧板</b><small>持有 farmersdelight:cutting_board</small><em>奖励：farmersdelight:flint_knife、经验 4 points</em></div></li>
+        <li class="q"><span class="n">3</span><div><b>下厨</b><small>持有 farmersdelight:cooking_pot</small><em>奖励：minecraft:bowl 4、经验 6 points</em></div></li>
+        <li class="q"><span class="n">4</span><div><b>麦浪</b><small>持有 minecraft:wheat ×64</small><em>奖励：minecraft:bread 8、minecraft:bone_meal 8、经验 8 points</em></div></li>
+        <li class="q"><span class="n">5</span><div><b>番茄红了</b><small>持有 farmersdelight:tomato</small><em>奖励：minecraft:bone_meal 8、经验 5 points</em></div></li>
+        <li class="q"><span class="n">6</span><div><b>卷心菜</b><small>持有 farmersdelight:cabbage</small><em>奖励：minecraft:bone_meal 8、经验 5 points</em></div></li>
+        <li class="q"><span class="n">7</span><div><b>稻田</b><small>持有 farmersdelight:rice</small><em>奖励：minecraft:bone_meal 8、经验 5 points</em></div></li>
+        <li class="q"><span class="n">8</span><div><b>肥沃土壤</b><small>持有 farmersdelight:rich_soil</small><em>奖励：minecraft:bone_meal 16、经验 8 points</em></div></li>
+        <li class="q"><span class="n">9</span><div><b>煎锅</b><small>持有 farmersdelight:skillet</small><em>奖励：minecraft:iron_ingot 4、经验 8 points</em></div></li>
+        <li class="q"><span class="n">10</span><div><b>灶台</b><small>持有 farmersdelight:stove</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
+        <li class="q goal"><span class="n">11</span><div><b>傻瓜式厨房</b><small>持有 cookingforblockheads:cooking_table</small><em>奖励：cookingforblockheads:fridge、minecraft:iron_ingot 8、经验 12 points</em></div></li>
+        <li class="q"><span class="n">12</span><div><b>冰箱</b><small>持有 cookingforblockheads:fridge</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
+        <li class="q"><span class="n">13</span><div><b>养蜂</b><small>持有 minecraft:beehive</small><em>奖励：minecraft:honey_bottle 4、经验 10 points</em></div></li>
+        <li class="q"><span class="n">14</span><div><b>做个蛋糕</b><small>持有 minecraft:cake</small><em>奖励：minecraft:sugar 16、经验 12 points</em></div></li>
+      </ol>
+    </section>
+    <section class="branch">
+      <h3>机械动力<span>22 个任务</span></h3>
+      <p class="sub">从手摇动力到铁路</p>
+      <ol class="chain">
+        <li class="q"><span class="n">1</span><div><b>安山合金</b><small>持有 create:andesite_alloy ×16</small><em>奖励：minecraft:iron_nugget 16、经验 5 points</em></div></li>
+        <li class="q"><span class="n">2</span><div><b>传动轴</b><small>持有 create:shaft</small><em>奖励：create:andesite_alloy 8、经验 4 points</em></div></li>
+        <li class="q"><span class="n">3</span><div><b>齿轮</b><small>持有 create:cogwheel</small><em>奖励：create:shaft 8、create:andesite_alloy 8、经验 6 points</em></div></li>
+        <li class="q"><span class="n">4</span><div><b>大齿轮</b><small>持有 create:large_cogwheel</small><em>奖励：create:andesite_alloy 16、经验 6 points</em></div></li>
+        <li class="q"><span class="n">5</span><div><b>传动带</b><small>持有 create:belt_connector</small><em>奖励：create:andesite_alloy 8、经验 6 points</em></div></li>
+        <li class="q"><span class="n">6</span><div><b>手摇曲柄</b><small>持有 create:hand_crank</small><em>奖励：create:andesite_alloy 8、经验 6 points</em></div></li>
+        <li class="q goal"><span class="n">7</span><div><b>第一台动力</b><small>持有 create:water_wheel</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
+        <li class="q"><span class="n">8</span><div><b>风力</b><small>持有 create:windmill_bearing</small><em>奖励：minecraft:iron_ingot 16、经验 12 points</em></div></li>
+        <li class="q"><span class="n">9</span><div><b>压床</b><small>持有 create:mechanical_press</small><em>奖励：create:millstone、minecraft:iron_block 2、经验 10 points</em></div></li>
+        <li class="q"><span class="n">10</span><div><b>动力搅拌</b><small>持有 create:mechanical_mixer</small><em>奖励：create:andesite_alloy 16、经验 10 points</em></div></li>
+        <li class="q"><span class="n">11</span><div><b>动力锯</b><small>持有 create:mechanical_saw</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
+        <li class="q"><span class="n">12</span><div><b>动力钻头</b><small>持有 create:mechanical_drill</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
+        <li class="q"><span class="n">13</span><div><b>鼓风机</b><small>持有 create:encased_fan</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
+        <li class="q"><span class="n">14</span><div><b>石磨</b><small>持有 create:millstone</small><em>奖励：minecraft:wheat 16、经验 8 points</em></div></li>
+        <li class="q goal"><span class="n">15</span><div><b>粉碎轮</b><small>持有 create:crushing_wheel</small><em>奖励：minecraft:iron_ingot 16、经验 15 points</em></div></li>
+        <li class="q goal"><span class="n">16</span><div><b>黄铜时代</b><small>持有 create:brass_ingot ×8</small><em>奖励：create:brass_ingot 8、create:encased_fan、经验 15 points</em></div></li>
+        <li class="q"><span class="n">17</span><div><b>电子管</b><small>持有 create:electron_tube</small><em>奖励：create:brass_ingot 8、经验 12 points</em></div></li>
+        <li class="q goal"><span class="n">18</span><div><b>精密构件</b><small>持有 create:precision_mechanism</small><em>奖励：create:electron_tube 4、create:brass_ingot 8、经验 20 points</em></div></li>
+        <li class="q"><span class="n">19</span><div><b>物品保险库</b><small>持有 create:item_vault</small><em>奖励：create:brass_ingot 8、经验 15 points</em></div></li>
+        <li class="q"><span class="n">20</span><div><b>蓝图与蓝图台</b><small>持有 create:schematic_table</small><em>奖励：create:empty_schematic 2、经验 12 points</em></div></li>
+        <li class="q"><span class="n">21</span><div><b>铺设铁轨</b><small>持有 create:track ×64</small><em>奖励：minecraft:iron_ingot 32、经验 15 points</em></div></li>
+        <li class="q challenge"><span class="n">22</span><div><b>铁路时代</b><small>持有 railways:conductor_whistle</small><em>奖励：create:track 64、minecraft:iron_ingot 32、经验 25 points</em></div></li>
+      </ol>
+    </section>
+    <section class="branch">
+      <h3>工业帝国<span>22 个任务</span></h3>
+      <p class="sub">通用机械 · 沉浸工程 · AE2</p>
+      <ol class="chain">
+        <li class="q"><span class="n">1</span><div><b>锇</b><small>持有 mekanism:ingot_osmium ×8</small><em>奖励：minecraft:iron_ingot 8、经验 5 points</em></div></li>
+        <li class="q"><span class="n">2</span><div><b>炼钢</b><small>持有 mekanism:ingot_steel ×4</small><em>奖励：minecraft:iron_ingot 16、经验 8 points</em></div></li>
+        <li class="q goal"><span class="n">3</span><div><b>冶金灌注机</b><small>持有 mekanism:metallurgic_infuser</small><em>奖励：mekanism:enrichment_chamber、minecraft:iron_ingot 8、经验 12 points</em></div></li>
+        <li class="q"><span class="n">4</span><div><b>富集仓</b><small>持有 mekanism:enrichment_chamber</small><em>奖励：minecraft:iron_ingot 16、经验 10 points</em></div></li>
+        <li class="q"><span class="n">5</span><div><b>控制电路</b><small>持有 mekanism:basic_control_circuit</small><em>奖励：minecraft:iron_ingot 16、经验 10 points</em></div></li>
+        <li class="q goal"><span class="n">6</span><div><b>发电</b><small>持有 mekanismgenerators:heat_generator</small><em>奖励：thermal:machine_furnace、minecraft:iron_ingot 16、经验 12 points</em></div></li>
+        <li class="q"><span class="n">7</span><div><b>热力机械</b><small>持有 thermal:machine_furnace</small><em>奖励：minecraft:iron_ingot 16、经验 10 points</em></div></li>
+        <li class="q"><span class="n">8</span><div><b>工程师之锤</b><small>持有 immersiveengineering:hammer</small><em>奖励：immersiveengineering:ingot_steel 4、经验 8 points</em></div></li>
+        <li class="q"><span class="n">9</span><div><b>焦炉</b><small>持有 immersiveengineering:coke_oven</small><em>奖励：minecraft:coal 32、经验 12 points</em></div></li>
+        <li class="q"><span class="n">10</span><div><b>高炉</b><small>持有 immersiveengineering:blast_furnace</small><em>奖励：immersiveengineering:ingot_steel 8、经验 15 points</em></div></li>
+        <li class="q"><span class="n">11</span><div><b>赛特斯石英</b><small>持有 ae2:certus_quartz_crystal ×8</small><em>奖励：ae2:certus_quartz_crystal 8、经验 8 points</em></div></li>
+        <li class="q"><span class="n">12</span><div><b>充能器</b><small>持有 ae2:charger</small><em>奖励：ae2:certus_quartz_crystal 8、经验 10 points</em></div></li>
+        <li class="q"><span class="n">13</span><div><b>压印器</b><small>持有 ae2:inscriber</small><em>奖励：ae2:printed_silicon 4、经验 12 points</em></div></li>
+        <li class="q"><span class="n">14</span><div><b>硅与印模</b><small>持有 ae2:printed_silicon</small><em>奖励：minecraft:iron_ingot 16、经验 10 points</em></div></li>
+        <li class="q"><span class="n">15</span><div><b>逻辑处理器</b><small>持有 ae2:logic_processor</small><em>奖励：ae2:printed_logic_processor 4、经验 12 points</em></div></li>
+        <li class="q"><span class="n">16</span><div><b>运算处理器</b><small>持有 ae2:calculation_processor</small><em>奖励：ae2:printed_calculation_processor 4、经验 12 points</em></div></li>
+        <li class="q goal"><span class="n">17</span><div><b>工程处理器</b><small>持有 ae2:engineering_processor</small><em>奖励：ae2:printed_engineering_processor 4、经验 15 points</em></div></li>
+        <li class="q"><span class="n">18</span><div><b>ME 驱动器</b><small>持有 ae2:drive</small><em>奖励：ae2:item_storage_cell_1k 2、经验 15 points</em></div></li>
+        <li class="q"><span class="n">19</span><div><b>存储元件</b><small>持有 ae2:item_storage_cell_1k</small><em>奖励：ae2:item_storage_cell_4k、经验 15 points</em></div></li>
+        <li class="q"><span class="n">20</span><div><b>样板供应器</b><small>持有 ae2:pattern_provider</small><em>奖励：ae2:engineering_processor 4、经验 20 points</em></div></li>
+        <li class="q challenge"><span class="n">21</span><div><b>ME 合成终端</b><small>持有 ae2:crafting_terminal</small><em>奖励：ae2:drive、ae2:item_storage_cell_1k 2、minecraft:iron_ingot 16、经验 25 points</em></div></li>
+        <li class="q challenge"><span class="n">22</span><div><b>自动合成</b><small>持有 ae2:crafting_accelerator</small><em>奖励：ae2:engineering_processor 8、minecraft:diamond 4、经验 30 points</em></div></li>
+      </ol>
+    </section>
+    <section class="branch">
+      <h3>新生魔艺<span>14 个任务</span></h3>
+      <p class="sub">法术 · 魔源 · 灌注</p>
+      <ol class="chain">
+        <li class="q"><span class="n">1</span><div><b>新手法术书</b><small>持有 ars_nouveau:novice_spell_book</small><em>奖励：ars_nouveau:wand、ars_nouveau:source_gem 2、经验 8 points</em></div></li>
+        <li class="q"><span class="n">2</span><div><b>法杖</b><small>持有 ars_nouveau:wand</small><em>奖励：ars_nouveau:source_gem 4、经验 6 points</em></div></li>
+        <li class="q"><span class="n">3</span><div><b>魔源宝石</b><small>持有 ars_nouveau:source_gem ×8</small><em>奖励：minecraft:amethyst_shard 8、经验 8 points</em></div></li>
+        <li class="q"><span class="n">4</span><div><b>灌注室</b><small>持有 ars_nouveau:imbuement_chamber</small><em>奖励：ars_nouveau:source_jar 2、经验 10 points</em></div></li>
+        <li class="q goal"><span class="n">5</span><div><b>附魔装置</b><small>持有 ars_nouveau:enchanting_apparatus</small><em>奖励：ars_nouveau:imbuement_chamber、minecraft:gold_ingot 16、经验 15 points</em></div></li>
+        <li class="q"><span class="n">6</span><div><b>奥术核心</b><small>持有 ars_nouveau:arcane_core</small><em>奖励：ars_nouveau:source_gem 4、经验 12 points</em></div></li>
+        <li class="q"><span class="n">7</span><div><b>魔源罐</b><small>持有 ars_nouveau:source_jar</small><em>奖励：ars_nouveau:source_gem 4、经验 8 points</em></div></li>
+        <li class="q"><span class="n">8</span><div><b>法师之花</b><small>持有 ars_nouveau:magebloom</small><em>奖励：minecraft:bone_meal 16、经验 10 points</em></div></li>
+        <li class="q"><span class="n">9</span><div><b>法师布</b><small>持有 ars_nouveau:magebloom_fiber</small><em>奖励：ars_nouveau:magebloom 8、经验 10 points</em></div></li>
+        <li class="q challenge"><span class="n">10</span><div><b>学徒法术书</b><small>持有 ars_nouveau:apprentice_spell_book</small><em>奖励：ars_nouveau:arcane_core、ars_nouveau:source_gem 8、经验 20 points</em></div></li>
+        <li class="q"><span class="n">11</span><div><b>德律格米</b><small>持有 ars_nouveau:drygmy_shard</small><em>奖励：ars_nouveau:source_gem 8、经验 18 points</em></div></li>
+        <li class="q"><span class="n">12</span><div><b>星斑克</b><small>持有 ars_nouveau:starbuncle_shards</small><em>奖励：ars_nouveau:source_gem 8、经验 18 points</em></div></li>
+        <li class="q"><span class="n">13</span><div><b>法术弓</b><small>持有 ars_nouveau:spell_bow</small><em>奖励：minecraft:bow、ars_nouveau:source_gem 8、经验 18 points</em></div></li>
+        <li class="q"><span class="n">14</span><div><b>附魔师之剑</b><small>持有 ars_nouveau:enchanters_sword</small><em>奖励：ars_nouveau:source_gem 8、minecraft:diamond 2、经验 20 points</em></div></li>
+      </ol>
+    </section>
+    <section class="branch">
+      <h3>植物魔法<span>12 个任务</span></h3>
+      <p class="sub">用花做资源农场</p>
+      <ol class="chain">
+        <li class="q"><span class="n">1</span><div><b>白雏菊</b><small>持有 botania:pure_daisy</small><em>奖励：minecraft:white_dye 8、经验 8 points</em></div></li>
+        <li class="q"><span class="n">2</span><div><b>树枝魔杖</b><small>持有 botania:twig_wand</small><em>奖励：minecraft:stick 16、经验 8 points</em></div></li>
+        <li class="q goal"><span class="n">3</span><div><b>魔力池</b><small>持有 botania:mana_pool</small><em>奖励：botania:mana_spreader 2、经验 12 points</em></div></li>
+        <li class="q"><span class="n">4</span><div><b>魔力发射器</b><small>持有 botania:mana_spreader</small><em>奖励：minecraft:gold_ingot 16、经验 10 points</em></div></li>
+        <li class="q"><span class="n">5</span><div><b>火之花</b><small>持有 botania:endoflame</small><em>奖励：botania:mana_pool、经验 12 points</em></div></li>
+        <li class="q"><span class="n">6</span><div><b>水绣球</b><small>持有 botania:hydroangeas</small><em>奖励：botania:mana_spreader、经验 10 points</em></div></li>
+        <li class="q"><span class="n">7</span><div><b>魔力钢</b><small>持有 botania:manasteel_ingot</small><em>奖励：botania:manasteel_ingot 4、经验 15 points</em></div></li>
+        <li class="q"><span class="n">8</span><div><b>魔力钻石</b><small>持有 botania:mana_diamond</small><em>奖励：minecraft:diamond 2、经验 15 points</em></div></li>
+        <li class="q"><span class="n">9</span><div><b>魔力珍珠</b><small>持有 botania:mana_pearl</small><em>奖励：minecraft:ender_pearl 4、经验 15 points</em></div></li>
+        <li class="q challenge"><span class="n">10</span><div><b>泰拉钢</b><small>持有 botania:terrasteel_ingot</small><em>奖励：botania:mana_pool、botania:mana_spreader 2、botania:endoflame 2、minecraft:diamond 2、经验 30 points</em></div></li>
+        <li class="q challenge"><span class="n">11</span><div><b>精灵之门</b><small>持有 botania:alfheim_portal</small><em>奖励：botania:terrasteel_ingot 2、经验 25 points</em></div></li>
+        <li class="q challenge"><span class="n">12</span><div><b>精灵钢</b><small>持有 botania:elementium_ingot</small><em>奖励：botania:terrasteel_ingot、经验 25 points</em></div></li>
+      </ol>
+    </section>
+    <section class="branch">
+      <h3>探索与征服<span>12 个任务</span></h3>
+      <p class="sub">下界 · 末地 · 远古城市</p>
+      <ol class="chain">
+        <li class="q goal"><span class="n">1</span><div><b>前往下界</b><small>进入 minecraft:the_nether</small><em>奖励：minecraft:obsidian 10、经验 10 points</em></div></li>
+        <li class="q"><span class="n">2</span><div><b>下界要塞</b><small>持有 minecraft:nether_bricks</small><em>奖励：minecraft:blaze_rod 2、经验 12 points</em></div></li>
+        <li class="q"><span class="n">3</span><div><b>烈焰棒</b><small>持有 minecraft:blaze_rod ×2</small><em>奖励：minecraft:gold_ingot 8、经验 12 points</em></div></li>
+        <li class="q"><span class="n">4</span><div><b>末影珍珠</b><small>持有 minecraft:ender_pearl</small><em>奖励：minecraft:ender_pearl 4、经验 10 points</em></div></li>
+        <li class="q"><span class="n">5</span><div><b>末影之眼</b><small>持有 minecraft:ender_eye</small><em>奖励：minecraft:ender_pearl 8、经验 12 points</em></div></li>
+        <li class="q goal"><span class="n">6</span><div><b>抵达末地</b><small>进入 minecraft:the_end</small><em>奖励：minecraft:golden_apple 2、minecraft:ender_pearl 8、经验 15 points</em></div></li>
+        <li class="q challenge"><span class="n">7</span><div><b>终结末影龙</b><small>击败 minecraft:ender_dragon</small><em>奖励：minecraft:elytra、minecraft:dragon_breath 4、经验 50 points</em></div></li>
+        <li class="q"><span class="n">8</span><div><b>潜影盒</b><small>持有 minecraft:shulker_box</small><em>奖励：minecraft:shulker_shell 2、经验 20 points</em></div></li>
+        <li class="q"><span class="n">9</span><div><b>末地城</b><small>持有 minecraft:purpur_block</small><em>奖励：minecraft:ender_pearl 8、经验 20 points</em></div></li>
+        <li class="q goal"><span class="n">10</span><div><b>远古城市</b><small>持有 minecraft:echo_shard</small><em>奖励：minecraft:diamond 4、minecraft:netherite_scrap 2、经验 30 points</em></div></li>
+        <li class="q goal"><span class="n">11</span><div><b>下界合金</b><small>持有 minecraft:netherite_ingot</small><em>奖励：minecraft:diamond 4、经验 25 points</em></div></li>
+        <li class="q challenge"><span class="n">12</span><div><b>信标</b><small>持有 minecraft:beacon</small><em>奖励：minecraft:netherite_ingot、经验 30 points</em></div></li>
+      </ol>
+    </section>
+    <section class="branch">
+      <h3>变异怪物<span>5 个任务</span></h3>
+      <p class="sub">Boss 线 · 第一段</p>
+      <ol class="chain">
+        <li class="q"><span class="n">1</span><div><b>变异开始</b><small>击败 mutantmonsters:mutant_zombie</small><em>奖励：minecraft:golden_apple 2、经验 20 points</em></div></li>
+        <li class="q"><span class="n">2</span><div><b>苦力怕突变体</b><small>击败 mutantmonsters:mutant_creeper</small><em>奖励：minecraft:gunpowder 16、经验 25 points</em></div></li>
+        <li class="q"><span class="n">3</span><div><b>骷髅突变体</b><small>击败 mutantmonsters:mutant_skeleton</small><em>奖励：minecraft:bone 16、minecraft:arrow 32、经验 25 points</em></div></li>
+        <li class="q goal"><span class="n">4</span><div><b>末影人突变体</b><small>击败 mutantmonsters:mutant_enderman</small><em>奖励：minecraft:ender_pearl 8、minecraft:enchanted_golden_apple、经验 40 points</em></div></li>
+        <li class="q"><span class="n">5</span><div><b>巨人之锤</b><small>持有 mutantmonsters:hulk_hammer</small><em>奖励：minecraft:iron_block 8、经验 30 points</em></div></li>
+      </ol>
+    </section>
+    <section class="branch">
+      <h3>大地与深海<span>6 个任务</span></h3>
+      <p class="sub">Boss 线 · 第二段</p>
+      <ol class="chain">
+        <li class="q"><span class="n">1</span><div><b>钢铁守护者</b><small>击败 mowziesmobs:ferrous_wroughtnaut</small><em>奖励：minecraft:iron_block 8、经验 35 points</em></div></li>
+        <li class="q"><span class="n">2</span><div><b>霜冻巨兽</b><small>击败 mowziesmobs:frostmaw</small><em>奖励：minecraft:blue_ice 16、minecraft:diamond 3、经验 40 points</em></div></li>
+        <li class="q"><span class="n">3</span><div><b>太阳鸟·乌姆武提</b><small>击败 mowziesmobs:umvuthi</small><em>奖励：minecraft:gold_block 4、经验 40 points</em></div></li>
+        <li class="q"><span class="n">4</span><div><b>霜冻雪怪·斯科尔</b><small>击败 block_factorys_bosses:yeti</small><em>奖励：minecraft:blue_ice 16、经验 40 points</em></div></li>
+        <li class="q"><span class="n">5</span><div><b>深渊巨口</b><small>击败 aquamirae:maw</small><em>奖励：minecraft:prismarine_shard 16、经验 35 points</em></div></li>
+        <li class="q goal"><span class="n">6</span><div><b>船长科妮莉亚</b><small>击败 aquamirae:captain_cornelia</small><em>奖励：minecraft:heart_of_the_sea、minecraft:nautilus_shell 4、经验 50 points</em></div></li>
+      </ol>
+    </section>
+    <section class="branch">
+      <h3>魂系试炼<span>5 个任务</span></h3>
+      <p class="sub">Boss 线 · 第三段</p>
+      <ol class="chain">
+        <li class="q goal"><span class="n">1</span><div><b>赫尔瓦，冥界骑士</b><small>击败 block_factorys_bosses:underworld_knight</small><em>奖励：minecraft:netherite_scrap 2、minecraft:enchanted_golden_apple 2、经验 60 points</em></div></li>
+        <li class="q challenge"><span class="n">2</span><div><b>阿什洛德，炼狱飞龙</b><small>击败 block_factorys_bosses:infernal_dragon</small><em>奖励：minecraft:netherite_ingot、minecraft:dragon_breath 8、经验 70 points</em></div></li>
+        <li class="q challenge"><span class="n">3</span><div><b>斯洛克，巨型沙虫</b><small>击败 block_factorys_bosses:sandworm</small><em>奖励：minecraft:netherite_ingot、minecraft:golden_apple 8、经验 70 points</em></div></li>
+        <li class="q challenge"><span class="n">4</span><div><b>先驱者</b><small>击败 cataclysm:the_harbinger</small><em>奖励：minecraft:netherite_scrap 3、经验 70 points</em></div></li>
+        <li class="q challenge"><span class="n">5</span><div><b>下界合金巨兽</b><small>击败 cataclysm:netherite_monstrosity</small><em>奖励：minecraft:netherite_ingot、经验 80 points</em></div></li>
+      </ol>
+    </section>
+    <section class="branch">
+      <h3>灾变首领<span>8 个任务</span></h3>
+      <p class="sub">Boss 线 · 第四段</p>
+      <ol class="chain">
+        <li class="q challenge"><span class="n">1</span><div><b>末影守卫</b><small>击败 cataclysm:ender_guardian</small><em>奖励：minecraft:netherite_scrap 4、minecraft:ender_pearl 16、经验 80 points</em></div></li>
+        <li class="q challenge"><span class="n">2</span><div><b>焰魔</b><small>击败 cataclysm:ignis</small><em>奖励：minecraft:netherite_ingot、minecraft:blaze_rod 16、经验 90 points</em></div></li>
+        <li class="q challenge"><span class="n">3</span><div><b>咒翼灵骸</b><small>击败 cataclysm:maledictus</small><em>奖励：minecraft:netherite_ingot、经验 90 points</em></div></li>
+        <li class="q challenge"><span class="n">4</span><div><b>远古遗魂</b><small>击败 cataclysm:ancient_remnant</small><em>奖励：minecraft:netherite_ingot、minecraft:gold_block 4、经验 95 points</em></div></li>
+        <li class="q challenge"><span class="n">5</span><div><b>暝煌龙</b><small>击败 alexscaves:luxtructosaurus</small><em>奖励：minecraft:netherite_ingot 2、minecraft:diamond 8、经验 100 points</em></div></li>
+        <li class="q challenge"><span class="n">6</span><div><b>撼地斯拉</b><small>击败 alexscaves:tremorzilla</small><em>奖励：minecraft:netherite_ingot 2、经验 100 points</em></div></li>
+        <li class="q challenge"><span class="n">7</span><div><b>死者之王</b><small>击败 irons_spellbooks:dead_king</small><em>奖励：minecraft:netherite_ingot 2、ars_nouveau:source_gem 16、经验 110 points</em></div></li>
+        <li class="q challenge"><span class="n">8</span><div><b>幽咽蛛王</b><small>击败 blue_skies:arachnarch</small><em>奖励：minecraft:netherite_ingot、经验 90 points</em></div></li>
+      </ol>
+    </section>
+    <section class="branch">
+      <h3>终极挑战<span>5 个任务</span></h3>
+      <p class="sub">Boss 线 · 终章</p>
+      <ol class="chain">
+        <li class="q challenge"><span class="n">1</span><div><b>远古守卫者</b><small>击败 minecraft:elder_guardian</small><em>奖励：minecraft:sponge 8、经验 60 points</em></div></li>
+        <li class="q challenge"><span class="n">2</span><div><b>潜行者</b><small>击败 deeperdarker:stalker</small><em>奖励：minecraft:netherite_ingot、经验 100 points</em></div></li>
+        <li class="q challenge"><span class="n">3</span><div><b>噬命者</b><small>击败 born_in_chaos_v1:lifestealer</small><em>奖励：minecraft:netherite_ingot、minecraft:golden_apple 8、经验 100 points</em></div></li>
+        <li class="q challenge"><span class="n">4</span><div><b>凋灵（强化后）</b><small>击败 minecraft:wither</small><em>奖励：minecraft:nether_star、minecraft:netherite_ingot 2、经验 120 points</em></div></li>
+        <li class="q challenge"><span class="n">5</span><div><b>终章 · 利维坦</b><small>击败 cataclysm:the_leviathan</small><em>奖励：minecraft:netherite_ingot 3、minecraft:enchanted_golden_apple 4、minecraft:nether_star、经验 200 points</em></div></li>
+      </ol>
+    </section>
+  </div>
+  <p class="foot">本页由脚本从实际打包的任务数据反向生成，与游戏内内容完全一致。共 139 个任务。<br>整合包与本站由 <strong>大肥鱼(deepseek)</strong>制作 ｜ <a href="index.html" style="color:var(--gold)">返回首页</a></p>
+</div>
+</body>
+</html>
