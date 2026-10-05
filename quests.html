@@ -3,263 +3,1243 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>匠造与奥术 · 任务线全流程</title>
+<title>匠造与奥术 · 任务线思维导图</title>
 <style>
-  :root { --bg:#0f1310; --panel:#171d18; --panel2:#1e2620; --text:#eef0e6; --muted:#a8ada0; --line:rgba(230,224,198,.14); --gold:#e5bd74; --green:#a6bb82; --red:#d98b6a; }
-  * { box-sizing: border-box; }
-  body { margin:0; background:var(--bg); color:var(--text); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; line-height:1.7; }
-  .wrap { width:min(1500px,calc(100% - 40px)); margin:0 auto; padding:36px 0 80px; }
-  h1 { font-size:clamp(26px,3.4vw,40px); margin:0 0 6px; letter-spacing:.02em; }
+  :root { --bg:#0e120f; --panel:#161d18; --text:#eef0e6; --muted:#a3a89b; --line:rgba(230,224,198,.14); --gold:#e5bd74; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; }
+  header { padding:28px 24px 10px; max-width:1400px; margin:0 auto; }
+  h1 { margin:0 0 6px; font-size:clamp(22px,3vw,32px); }
   h1 span { color:var(--gold); }
-  .lead { color:var(--muted); margin:0 0 10px; }
-  .legend { display:flex; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:14px; margin:14px 0 26px; }
-  .legend b { color:var(--text); }
-  .dot { display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--green); margin-right:6px; }
-  .dot.gold { background:var(--gold); } .dot.red { background:var(--red); }
-  .grid { display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); align-items:start; }
-  .branch { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 18px 8px; }
-  .branch h3 { margin:0; font-size:17px; display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
-  .branch h3 span { font-size:12px; color:var(--muted); font-weight:400; white-space:nowrap; }
-  .branch .sub { margin:2px 0 14px; color:var(--muted); font-size:13px; }
-  .chain { list-style:none; margin:0; padding:0; position:relative; }
-  .q { display:flex; gap:11px; padding:8px 0 8px 0; position:relative; }
-  .q + .q::before { content:""; position:absolute; left:13px; top:-6px; height:14px; width:1px; background:var(--line); }
-  .q .n { flex:0 0 27px; height:27px; border-radius:50%; display:grid; place-items:center; font-size:12px; background:var(--panel2); border:1px solid var(--line); color:var(--muted); }
-  .q.goal .n { border-color:var(--gold); color:var(--gold); }
-  .q.challenge .n { border-color:var(--red); color:var(--red); }
-  .q b { display:block; font-size:15px; font-weight:600; }
-  .q small { display:block; color:var(--muted); font-size:12.5px; }
-  .q em { display:block; color:var(--green); font-size:12px; font-style:normal; margin-top:2px; }
-  .q.goal b::after { content:" ◆"; color:var(--gold); font-size:11px; }
-  .q.challenge b::after { content:" ★"; color:var(--red); font-size:11px; }
-  .foot { margin-top:34px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); padding-top:16px; }
+  .lead { color:var(--muted); margin:0 0 4px; font-size:14px; }
+  .lead a { color:var(--gold); }
+  .legend { list-style:none; display:flex; flex-wrap:wrap; gap:10px 22px; padding:14px 24px 6px; margin:0 auto; max-width:1400px; }
+  .legend li { display:flex; align-items:baseline; gap:8px; font-size:13px; }
+  .legend i { width:10px; height:10px; border-radius:3px; display:inline-block; }
+  .legend b { font-weight:600; }
+  .legend span { color:var(--muted); }
+  .legend small { color:#6f766c; }
+  .hint { color:var(--muted); font-size:12.5px; padding:6px 24px 0; max-width:1400px; margin:0 auto; }
+  .canvas-wrap { overflow:auto; border:1px solid var(--line); border-radius:14px; margin:14px 24px 40px; background:
+      radial-gradient(circle at 20% 0%, rgba(229,189,116,.06), transparent 40%),
+      radial-gradient(circle at 80% 100%, rgba(126,200,227,.05), transparent 40%), var(--panel); }
+  .canvas { position:relative; }
+  svg.wires { position:absolute; inset:0; pointer-events:none; }
+  .qnode { position:absolute; width:196px; padding:7px 10px; border-radius:9px; border:1px solid var(--line);
+    background:rgba(10,14,11,.72); text-decoration:none; color:inherit; border-left:3px solid var(--c); transition:.15s; }
+  .qnode:hover { background:rgba(229,189,116,.1); transform:translateY(-1px); }
+  .qnode b { display:block; font-size:13.5px; font-weight:600; line-height:1.35; }
+  .qnode small { display:block; color:var(--muted); font-size:11px; line-height:1.3; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .qnode em { display:block; color:#8fd9a8; font-style:normal; font-size:10.5px; }
+  footer { max-width:1400px; margin:0 auto; padding:0 24px 50px; color:var(--muted); font-size:13px; }
+  footer a { color:var(--gold); }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <h1>匠造与奥术 · <span>任务线全流程</span></h1>
-  <p class="lead"><a href="index.html" style="color:var(--gold);text-decoration:none">← 返回首页</a> ｜ Minecraft 1.20.1 / Forge 47.4.10 ｜ 游戏内按 <code>L</code> 打开 ｜ <b>1 个页签 · 12 条支线 · 139 个任务</b></p>
-  <p class="lead">全部任务都在<strong>同一个页签</strong>下。每条支线从页签根部独立展开，<strong>支线之间互不挡路</strong>。</p>
-  <div class="legend">
-    <span><i class="dot"></i><b>普通任务</b></span>
-    <span><i class="dot gold"></i><b>里程碑</b> 重要节点，界面上图标更大</span>
-    <span><i class="dot red"></i><b>挑战</b> 最难的节点</span>
-    <span>数字 = 该支线内的顺序，也是前置关系</span>
+<header>
+  <h1>匠造与奥术 · <span>任务线思维导图</span></h1>
+  <p class="lead"><a href="index.html">← 返回首页</a> ｜ 游戏内按 <code>U</code> 打开任务书 ｜ <b>196 个任务</b>：一条前期主线 + 10 条支线</p>
+  <p class="lead">主线的每个节点都可能长出支线 —— 下面这张图就是游戏里那棵树的完整形状。</p>
+</header>
+<ul class="legend">
+      <li><i style="background:#e5bd74"></i><b>前期主线</b><span>18 个</span><small>从徒手打木头到传送网络，跟着走不会迷路</small></li>
+      <li><i style="background:#a6bb82"></i><b>田园生活</b><span>16 个</span><small>农夫乐事与厨房</small></li>
+      <li><i style="background:#e5bd74"></i><b>机械动力</b><span>22 个</span><small>从水车到铁路</small></li>
+      <li><i style="background:#91b7ad"></i><b>工业帝国</b><span>22 个</span><small>通用机械 · 沉浸工程 · AE2</small></li>
+      <li><i style="background:#d98b6a"></i><b>红石工程</b><span>22 个</span><small>红石线缆与逻辑门</small></li>
+      <li><i style="background:#b8a6d9"></i><b>蓝图与建造</b><span>14 个</span><small>建造魔杖与蓝图加农炮</small></li>
+      <li><i style="background:#7ec8e3"></i><b>奥术 · 新生魔艺</b><span>16 个</span><small>法术 · 魔源 · 灌注</small></li>
+      <li><i style="background:#8fd9a8"></i><b>奥术 · 植物魔法</b><span>14 个</span><small>用花做资源农场</small></li>
+      <li><i style="background:#c9b458"></i><b>收纳与物流</b><span>10 个</span><small>把仓库理清楚</small></li>
+      <li><i style="background:#8ba3c7"></i><b>探索与征服</b><span>15 个</span><small>下界 · 末地 · 远古城市</small></li>
+      <li><i style="background:#d96a6a"></i><b>强者之路</b><span>27 个</span><small>27 场 Boss 战</small></li>
+</ul>
+<p class="hint">提示：整张图可以左右拖动查看。悬停任务看副标题，点击跳转到该任务的方块。</p>
+<div class="canvas-wrap">
+  <div class="canvas" style="width:2852px;height:2902px">
+    <svg class="wires" width="2852" height="2902">
+      <path d="M236 856 C950 856 950 856 1664 856" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 856 C1762 856 1762 922 1664 922" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 922 C1762 922 1762 988 1664 988" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 988 C1762 988 1762 1054 1664 1054" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1054 C1762 1054 1762 1120 1664 1120" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1120 C1762 1120 1762 1186 1664 1186" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1186 C1762 1186 1762 1252 1664 1252" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1252 C1762 1252 1762 1318 1664 1318" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1318 C1762 1318 1762 1384 1664 1384" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1384 C1762 1384 1762 1450 1664 1450" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1450 C1762 1450 1762 1516 1664 1516" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1516 C1762 1516 1762 1582 1664 1582" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1582 C1762 1582 1762 1648 1664 1648" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1648 C1762 1648 1762 1714 1664 1714" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1714 C1762 1714 1762 1780 1664 1780" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1860 1780 C1762 1780 1762 1846 1664 1846" stroke="#7ec8e3" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 592 C834 592 834 592 1432 592" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 592 C1530 592 1530 658 1432 658" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 658 C1530 658 1530 724 1432 724" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 724 C1530 724 1530 790 1432 790" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 790 C1530 790 1530 856 1432 856" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 856 C1530 856 1530 922 1432 922" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 922 C1530 922 1530 988 1432 988" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 988 C1530 988 1530 1054 1432 1054" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 1054 C1530 1054 1530 1120 1432 1120" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 1120 C1530 1120 1530 1186 1432 1186" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 1186 C1530 1186 1530 1252 1432 1252" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 1252 C1530 1252 1530 1318 1432 1318" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 1318 C1530 1318 1530 1384 1432 1384" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1628 1384 C1530 1384 1530 1450 1432 1450" stroke="#b8a6d9" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 856 C1066 856 1066 856 1896 856" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 856 C1994 856 1994 922 1896 922" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 922 C1994 922 1994 988 1896 988" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 988 C1994 988 1994 1054 1896 1054" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 1054 C1994 1054 1994 1120 1896 1120" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 1120 C1994 1120 1994 1186 1896 1186" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 1186 C1994 1186 1994 1252 1896 1252" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 1252 C1994 1252 1994 1318 1896 1318" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 1318 C1994 1318 1994 1384 1896 1384" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 1384 C1994 1384 1994 1450 1896 1450" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 1450 C1994 1450 1994 1516 1896 1516" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 1516 C1994 1516 1994 1582 1896 1582" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 1582 C1994 1582 1994 1648 1896 1648" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2092 1648 C1994 1648 1994 1714 1896 1714" stroke="#8fd9a8" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 394 C486 394 486 394 736 394" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 394 C834 394 834 460 736 460" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 460 C834 460 834 526 736 526" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 526 C834 526 834 592 736 592" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 592 C834 592 834 658 736 658" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 658 C834 658 834 724 736 724" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 724 C834 724 834 790 736 790" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 790 C834 790 834 856 736 856" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 856 C834 856 834 922 736 922" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 922 C834 922 834 988 736 988" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 988 C834 988 834 1054 736 1054" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 1054 C834 1054 834 1120 736 1120" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 1120 C834 1120 834 1186 736 1186" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 1186 C834 1186 834 1252 736 1252" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 1252 C834 1252 834 1318 736 1318" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 1318 C834 1318 834 1384 736 1384" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 1384 C834 1384 834 1450 736 1450" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 1450 C834 1450 834 1516 736 1516" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 1516 C834 1516 834 1582 736 1582" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 1582 C834 1582 834 1648 736 1648" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 1648 C834 1648 834 1714 736 1714" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M932 1714 C834 1714 834 1780 736 1780" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 922 C1298 922 1298 922 2360 922" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 922 C2458 922 2458 988 2360 988" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 988 C2458 988 2458 1054 2360 1054" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1054 C2458 1054 2458 1120 2360 1120" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1120 C2458 1120 2458 1186 2360 1186" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1186 C2458 1186 2458 1252 2360 1252" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1252 C2458 1252 2458 1318 2360 1318" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1318 C2458 1318 2458 1384 2360 1384" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1384 C2458 1384 2458 1450 2360 1450" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1450 C2458 1450 2458 1516 2360 1516" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1516 C2458 1516 2458 1582 2360 1582" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1582 C2458 1582 2458 1648 2360 1648" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1648 C2458 1648 2458 1714 2360 1714" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1714 C2458 1714 2458 1780 2360 1780" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2556 1780 C2458 1780 2458 1846 2360 1846" stroke="#8ba3c7" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 328 C370 328 370 328 504 328" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 328 C602 328 602 394 504 394" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 394 C602 394 602 460 504 460" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 460 C602 460 602 526 504 526" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 526 C602 526 602 592 504 592" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 592 C602 592 602 658 504 658" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 658 C602 658 602 724 504 724" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 724 C602 724 602 790 504 790" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 790 C602 790 602 856 504 856" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 856 C602 856 602 922 504 922" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 922 C602 922 602 988 504 988" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 988 C602 988 602 1054 504 1054" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 1054 C602 1054 602 1120 504 1120" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 1120 C602 1120 602 1186 504 1186" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 1186 C602 1186 602 1252 504 1252" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M700 1252 C602 1252 602 1318 504 1318" stroke="#a6bb82" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 790 C602 790 602 790 968 790" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 790 C1066 790 1066 856 968 856" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 856 C1066 856 1066 922 968 922" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 922 C1066 922 1066 988 968 988" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 988 C1066 988 1066 1054 968 1054" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1054 C1066 1054 1066 1120 968 1120" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1120 C1066 1120 1066 1186 968 1186" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1186 C1066 1186 1066 1252 968 1252" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1252 C1066 1252 1066 1318 968 1318" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1318 C1066 1318 1066 1384 968 1384" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1384 C1066 1384 1066 1450 968 1450" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1450 C1066 1450 1066 1516 968 1516" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1516 C1066 1516 1066 1582 968 1582" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1582 C1066 1582 1066 1648 968 1648" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1648 C1066 1648 1066 1714 968 1714" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1714 C1066 1714 1066 1780 968 1780" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1780 C1066 1780 1066 1846 968 1846" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1846 C1066 1846 1066 1912 968 1912" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1912 C1066 1912 1066 1978 968 1978" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 1978 C1066 1978 1066 2044 968 2044" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 2044 C1066 2044 1066 2110 968 2110" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1164 2110 C1066 2110 1066 2176 968 2176" stroke="#91b7ad" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 394 C718 394 718 394 1200 394" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 394 C1298 394 1298 460 1200 460" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 460 C1298 460 1298 526 1200 526" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 526 C1298 526 1298 592 1200 592" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 592 C1298 592 1298 658 1200 658" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 658 C1298 658 1298 724 1200 724" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 724 C1298 724 1298 790 1200 790" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 790 C1298 790 1298 856 1200 856" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 856 C1298 856 1298 922 1200 922" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 922 C1298 922 1298 988 1200 988" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 988 C1298 988 1298 1054 1200 1054" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 1054 C1298 1054 1298 1120 1200 1120" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 1120 C1298 1120 1298 1186 1200 1186" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 1186 C1298 1186 1298 1252 1200 1252" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 1252 C1298 1252 1298 1318 1200 1318" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 1318 C1298 1318 1298 1384 1200 1384" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 1384 C1298 1384 1298 1450 1200 1450" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 1450 C1298 1450 1298 1516 1200 1516" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 1516 C1298 1516 1298 1582 1200 1582" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 1582 C1298 1582 1298 1648 1200 1648" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 1648 C1298 1648 1298 1714 1200 1714" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M1396 1714 C1298 1714 1298 1780 1200 1780" stroke="#d98b6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 724 C1182 724 1182 724 2128 724" stroke="#c9b458" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2324 724 C2226 724 2226 790 2128 790" stroke="#c9b458" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2324 790 C2226 790 2226 856 2128 856" stroke="#c9b458" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2324 856 C2226 856 2226 922 2128 922" stroke="#c9b458" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2324 922 C2226 922 2226 988 2128 988" stroke="#c9b458" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2324 988 C2226 988 2226 1054 2128 1054" stroke="#c9b458" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2324 1054 C2226 1054 2226 1120 2128 1120" stroke="#c9b458" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2324 1120 C2226 1120 2226 1186 2128 1186" stroke="#c9b458" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2324 1186 C2226 1186 2226 1252 2128 1252" stroke="#c9b458" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2324 1252 C2226 1252 2226 1318 2128 1318" stroke="#c9b458" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 64 C138 64 138 130 40 130" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 130 C138 130 138 196 40 196" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 196 C138 196 138 262 40 262" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 262 C138 262 138 328 40 328" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 328 C138 328 138 394 40 394" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 394 C138 394 138 460 40 460" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 460 C138 460 138 526 40 526" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 526 C138 526 138 592 40 592" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 592 C138 592 138 658 40 658" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 658 C138 658 138 724 40 724" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 724 C138 724 138 790 40 790" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 790 C138 790 138 856 40 856" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 856 C138 856 138 922 40 922" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 922 C138 922 138 988 40 988" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 988 C138 988 138 1054 40 1054" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 1054 C138 1054 138 1120 40 1120" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 1120 C138 1120 138 1186 40 1186" stroke="#e5bd74" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M236 1120 C1414 1120 1414 1120 2592 1120" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1120 C2690 1120 2690 1186 2592 1186" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1186 C2690 1186 2690 1252 2592 1252" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1252 C2690 1252 2690 1318 2592 1318" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1318 C2690 1318 2690 1384 2592 1384" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1384 C2690 1384 2690 1450 2592 1450" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1450 C2690 1450 2690 1516 2592 1516" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1516 C2690 1516 2690 1582 2592 1582" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1582 C2690 1582 2690 1648 2592 1648" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1648 C2690 1648 2690 1714 2592 1714" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1714 C2690 1714 2690 1780 2592 1780" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1780 C2690 1780 2690 1846 2592 1846" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1846 C2690 1846 2690 1912 2592 1912" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1912 C2690 1912 2690 1978 2592 1978" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 1978 C2690 1978 2690 2044 2592 2044" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2044 C2690 2044 2690 2110 2592 2110" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2110 C2690 2110 2690 2176 2592 2176" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2176 C2690 2176 2690 2242 2592 2242" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2242 C2690 2242 2690 2308 2592 2308" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2308 C2690 2308 2690 2374 2592 2374" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2374 C2690 2374 2690 2440 2592 2440" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2440 C2690 2440 2690 2506 2592 2506" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2506 C2690 2506 2690 2572 2592 2572" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2572 C2690 2572 2690 2638 2592 2638" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2638 C2690 2638 2690 2704 2592 2704" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2704 C2690 2704 2690 2770 2592 2770" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+      <path d="M2788 2770 C2690 2770 2690 2836 2592 2836" stroke="#d96a6a" stroke-opacity=".55" stroke-width="1.6" fill="none"/>
+    </svg>
+
+    <a class="qnode" href="#a01" id="a01" style="left:1664px;top:832px;--c:#7ec8e3" title="拿着它就能施法">
+      <b>新手法术书</b>
+      <small>拿着它就能施法</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#a02" id="a02" style="left:1664px;top:898px;--c:#7ec8e3" title="施法与灌注的工具">
+      <b>法杖</b>
+      <small>施法与灌注的工具</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a03" id="a03" style="left:1664px;top:964px;--c:#7ec8e3" title="魔法的电">
+      <b>魔源宝石</b>
+      <small>魔法的电</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a04" id="a04" style="left:1664px;top:1030px;--c:#7ec8e3" title="把魔源灌进物品">
+      <b>灌注室</b>
+      <small>把魔源灌进物品</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a05" id="a05" style="left:1664px;top:1096px;--c:#7ec8e3" title="最重要的合成台">
+      <b>附魔装置</b>
+      <small>最重要的合成台</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a06" id="a06" style="left:1664px;top:1162px;--c:#7ec8e3" title="高级结构的组件">
+      <b>奥术核心</b>
+      <small>高级结构的组件</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a07" id="a07" style="left:1664px;top:1228px;--c:#7ec8e3" title="就近存魔源">
+      <b>魔源罐</b>
+      <small>就近存魔源</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a08" id="a08" style="left:1664px;top:1294px;--c:#7ec8e3" title="自然产出魔源">
+      <b>法师之花</b>
+      <small>自然产出魔源</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a09" id="a09" style="left:1664px;top:1360px;--c:#7ec8e3" title="魔法护甲的原料">
+      <b>法师布</b>
+      <small>魔法护甲的原料</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a10" id="a10" style="left:1664px;top:1426px;--c:#7ec8e3" title="把法术装进弓里">
+      <b>法术弓</b>
+      <small>把法术装进弓里</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a11" id="a11" style="left:1664px;top:1492px;--c:#7ec8e3" title="魔法近战的答案">
+      <b>附魔师之剑</b>
+      <small>魔法近战的答案</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a12" id="a12" style="left:1664px;top:1558px;--c:#7ec8e3" title="自动捡东西送回箱子">
+      <b>星斑克</b>
+      <small>自动捡东西送回箱子</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a13" id="a13" style="left:1664px;top:1624px;--c:#7ec8e3" title="自动收集生物掉落">
+      <b>德律格米</b>
+      <small>自动收集生物掉落</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a14" id="a14" style="left:1664px;top:1690px;--c:#7ec8e3" title="二阶法术">
+      <b>学徒法术书</b>
+      <small>二阶法术</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#a15" id="a15" style="left:1664px;top:1756px;--c:#7ec8e3" title="魔法护甲全套">
+      <b>法师铠甲</b>
+      <small>魔法护甲全套</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#a16" id="a16" style="left:1664px;top:1822px;--c:#7ec8e3" title="法术体系全部掌握">
+      <b>大法师</b>
+      <small>法术体系全部掌握</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#b01" id="b01" style="left:1432px;top:568px;--c:#b8a6d9" title="一次放 9 个方块">
+      <b>石制建造魔杖</b>
+      <small>一次放 9 个方块</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b02" id="b02" style="left:1432px;top:634px;--c:#b8a6d9" title="用魔杖铺一面墙">
+      <b>石砖墙</b>
+      <small>用魔杖铺一面墙</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b03" id="b03" style="left:1432px;top:700px;--c:#b8a6d9" title="透光的建筑">
+      <b>玻璃幕墙</b>
+      <small>透光的建筑</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b04" id="b04" style="left:1432px;top:766px;--c:#b8a6d9" title="混凝土或陶瓦都行">
+      <b>建筑方块</b>
+      <small>混凝土或陶瓦都行</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b05" id="b05" style="left:1432px;top:832px;--c:#b8a6d9" title="一次 27 个方块，可升级">
+      <b>铁制建造魔杖</b>
+      <small>一次 27 个方块，可升级</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b06" id="b06" style="left:1432px;top:898px;--c:#b8a6d9" title="一次 128 个">
+      <b>钻石建造魔杖</b>
+      <small>一次 128 个</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b07" id="b07" style="left:1432px;top:964px;--c:#b8a6d9" title="在空中凭空放方块">
+      <b>建造核心 · 天使</b>
+      <small>在空中凭空放方块</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b08" id="b08" style="left:1432px;top:1030px;--c:#b8a6d9" title="快速拆一大片">
+      <b>建造核心 · 破坏</b>
+      <small>快速拆一大片</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b09" id="b09" style="left:1432px;top:1096px;--c:#b8a6d9" title="给魔杖装升级核心">
+      <b>魔杖核心</b>
+      <small>给魔杖装升级核心</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b10" id="b10" style="left:1432px;top:1162px;--c:#b8a6d9" title="机械动力的图纸系统">
+      <b>蓝图台</b>
+      <small>机械动力的图纸系统</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b11" id="b11" style="left:1432px;top:1228px;--c:#b8a6d9" title="把建筑存成图纸">
+      <b>蓝图与笔</b>
+      <small>把建筑存成图纸</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b12" id="b12" style="left:1432px;top:1294px;--c:#b8a6d9" title="让机器替你盖房子">
+      <b>蓝图加农炮</b>
+      <small>让机器替你盖房子</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#b13" id="b13" style="left:1432px;top:1360px;--c:#b8a6d9" title="一次 1024 个方块，永不磨损">
+      <b>无限建造魔杖</b>
+      <small>一次 1024 个方块，永不磨损</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#b14" id="b14" style="left:1432px;top:1426px;--c:#b8a6d9" title="从石杖到无限杖，全部收入囊中">
+      <b>建筑大师</b>
+      <small>从石杖到无限杖，全部收入囊中</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#bo01" id="bo01" style="left:1896px;top:832px;--c:#8fd9a8" title="用花瓣换纯净材料">
+      <b>白雏菊</b>
+      <small>用花瓣换纯净材料</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo02" id="bo02" style="left:1896px;top:898px;--c:#8fd9a8" title="把魔力从花里取出来">
+      <b>树枝魔杖</b>
+      <small>把魔力从花里取出来</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo03" id="bo03" style="left:1896px;top:964px;--c:#8fd9a8" title="植物魔法的电池">
+      <b>魔力池</b>
+      <small>植物魔法的电池</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo04" id="bo04" style="left:1896px;top:1030px;--c:#8fd9a8" title="把魔力送到需要的地方">
+      <b>魔力发射器</b>
+      <small>把魔力送到需要的地方</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo05" id="bo05" style="left:1896px;top:1096px;--c:#8fd9a8" title="烧燃料产魔力">
+      <b>火之花</b>
+      <small>烧燃料产魔力</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo06" id="bo06" style="left:1896px;top:1162px;--c:#8fd9a8" title="被动产能，不用管">
+      <b>水绣球</b>
+      <small>被动产能，不用管</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo07" id="bo07" style="left:1896px;top:1228px;--c:#8fd9a8" title="装备的原料">
+      <b>魔力钢</b>
+      <small>装备的原料</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo08" id="bo08" style="left:1896px;top:1294px;--c:#8fd9a8" title="自动修复耐久">
+      <b>魔力钻石</b>
+      <small>自动修复耐久</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo09" id="bo09" style="left:1896px;top:1360px;--c:#8fd9a8" title="传送与合成的关键">
+      <b>魔力珍珠</b>
+      <small>传送与合成的关键</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo10" id="bo10" style="left:1896px;top:1426px;--c:#8fd9a8" title="植物魔法的中期分水岭">
+      <b>泰拉钢</b>
+      <small>植物魔法的中期分水岭</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#bo11" id="bo11" style="left:1896px;top:1492px;--c:#8fd9a8" title="通往精灵世界">
+      <b>精灵之门</b>
+      <small>通往精灵世界</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo12" id="bo12" style="left:1896px;top:1558px;--c:#8fd9a8" title="精灵世界的材料">
+      <b>精灵钢</b>
+      <small>精灵世界的材料</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo13" id="bo13" style="left:1896px;top:1624px;--c:#8fd9a8" title="泰拉钢全套">
+      <b>泰拉装备</b>
+      <small>泰拉钢全套</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#bo14" id="bo14" style="left:1896px;top:1690px;--c:#8fd9a8" title="从一朵雏菊到精灵世界">
+      <b>花之大师</b>
+      <small>从一朵雏菊到精灵世界</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#c01" id="c01" style="left:736px;top:370px;--c:#e5bd74" title="机械动力的基础材料">
+      <b>安山合金</b>
+      <small>机械动力的基础材料</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c02" id="c02" style="left:736px;top:436px;--c:#e5bd74" title="旋转力靠它传递">
+      <b>传动轴</b>
+      <small>旋转力靠它传递</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c03" id="c03" style="left:736px;top:502px;--c:#e5bd74" title="改转速、换方向">
+      <b>齿轮</b>
+      <small>改转速、换方向</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c04" id="c04" style="left:736px;top:568px;--c:#e5bd74" title="大小搭配就能变速">
+      <b>大齿轮</b>
+      <small>大小搭配就能变速</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c05" id="c05" style="left:736px;top:634px;--c:#e5bd74" title="传动力也能运物品">
+      <b>传动带</b>
+      <small>传动力也能运物品</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c06" id="c06" style="left:736px;top:700px;--c:#e5bd74" title="没有动力源时的应急手段">
+      <b>手摇曲柄</b>
+      <small>没有动力源时的应急手段</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c07" id="c07" style="left:736px;top:766px;--c:#e5bd74" title="水车，占地小随处可搭">
+      <b>第一台动力</b>
+      <small>水车，占地小随处可搭</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c08" id="c08" style="left:736px;top:832px;--c:#e5bd74" title="风车动力足，占地大">
+      <b>风力</b>
+      <small>风车动力足，占地大</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c09" id="c09" style="left:736px;top:898px;--c:#e5bd74" title="加工金属板材">
+      <b>压床</b>
+      <small>加工金属板材</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c10" id="c10" style="left:736px;top:964px;--c:#e5bd74" title="做合金和面团">
+      <b>动力搅拌</b>
+      <small>做合金和面团</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c11" id="c11" style="left:736px;top:1030px;--c:#e5bd74" title="批量处理木材">
+      <b>动力锯</b>
+      <small>批量处理木材</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c12" id="c12" style="left:736px;top:1096px;--c:#e5bd74" title="自动采矿">
+      <b>动力钻头</b>
+      <small>自动采矿</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c13" id="c13" style="left:736px;top:1162px;--c:#e5bd74" title="配岩浆或水就能批量加工">
+      <b>鼓风机</b>
+      <small>配岩浆或水就能批量加工</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c14" id="c14" style="left:736px;top:1228px;--c:#e5bd74" title="最早的加工设备">
+      <b>石磨</b>
+      <small>最早的加工设备</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c15" id="c15" style="left:736px;top:1294px;--c:#e5bd74" title="矿石打成粉末，产量翻倍">
+      <b>粉碎轮</b>
+      <small>矿石打成粉末，产量翻倍</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c16" id="c16" style="left:736px;top:1360px;--c:#e5bd74" title="中期的分水岭">
+      <b>黄铜时代</b>
+      <small>中期的分水岭</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c17" id="c17" style="left:736px;top:1426px;--c:#e5bd74" title="黄铜机器的必需零件">
+      <b>电子管</b>
+      <small>黄铜机器的必需零件</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c18" id="c18" style="left:736px;top:1492px;--c:#e5bd74" title="通往一切高级机器">
+      <b>精密构件</b>
+      <small>通往一切高级机器</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c19" id="c19" style="left:736px;top:1558px;--c:#e5bd74" title="大容量仓储">
+      <b>物品保险库</b>
+      <small>大容量仓储</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c20" id="c20" style="left:736px;top:1624px;--c:#e5bd74" title="64 段铁轨">
+      <b>铺设铁轨</b>
+      <small>64 段铁轨</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#c21" id="c21" style="left:736px;top:1690px;--c:#e5bd74" title="蒸汽与铁轨">
+      <b>铁路时代</b>
+      <small>蒸汽与铁轨</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#c22" id="c22" style="left:736px;top:1756px;--c:#e5bd74" title="从水车到火车，整条线走完">
+      <b>机械帝国</b>
+      <small>从水车到火车，整条线走完</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e01" id="e01" style="left:2360px;top:898px;--c:#8ba3c7" title="造个传送门">
+      <b>前往下界</b>
+      <small>造个传送门</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e02" id="e02" style="left:2360px;top:964px;--c:#8ba3c7" title="烈焰人刷怪笼">
+      <b>下界要塞</b>
+      <small>烈焰人刷怪笼</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e03" id="e03" style="left:2360px;top:1030px;--c:#8ba3c7" title="酿造与末地的关键">
+      <b>烈焰棒</b>
+      <small>酿造与末地的关键</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e04" id="e04" style="left:2360px;top:1096px;--c:#8ba3c7" title="下界合金的原料">
+      <b>远古残骸</b>
+      <small>下界合金的原料</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e05" id="e05" style="left:2360px;top:1162px;--c:#8ba3c7" title="装备的最终形态">
+      <b>下界合金</b>
+      <small>装备的最终形态</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e06" id="e06" style="left:2360px;top:1228px;--c:#8ba3c7" title="注意别盯着末影人看">
+      <b>末影珍珠</b>
+      <small>注意别盯着末影人看</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e07" id="e07" style="left:2360px;top:1294px;--c:#8ba3c7" title="用来找要塞">
+      <b>末影之眼</b>
+      <small>用来找要塞</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e08" id="e08" style="left:2360px;top:1360px;--c:#8ba3c7" title="走进末地传送门">
+      <b>抵达末地</b>
+      <small>走进末地传送门</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e09" id="e09" style="left:2360px;top:1426px;--c:#8ba3c7" title="击败末影龙">
+      <b>终结末影龙</b>
+      <small>击败末影龙</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#e10" id="e10" style="left:2360px;top:1492px;--c:#8ba3c7" title="鞘翅与潜影贝">
+      <b>末地城</b>
+      <small>鞘翅与潜影贝</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e11" id="e11" style="left:2360px;top:1558px;--c:#8ba3c7" title="范围增益">
+      <b>信标</b>
+      <small>范围增益</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e12" id="e12" style="left:2360px;top:1624px;--c:#8ba3c7" title="深暗之域的回响碎片">
+      <b>远古城市</b>
+      <small>深暗之域的回响碎片</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e13" id="e13" style="left:2360px;top:1690px;--c:#8ba3c7" title="打赢它，或者跑掉">
+      <b>直面监守者</b>
+      <small>打赢它，或者跑掉</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#e14" id="e14" style="left:2360px;top:1756px;--c:#8ba3c7" title="远古守卫者">
+      <b>海底神殿</b>
+      <small>远古守卫者</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#e15" id="e15" style="left:2360px;top:1822px;--c:#8ba3c7" title="下界、末地、深暗全走一遍">
+      <b>世界尽头</b>
+      <small>下界、末地、深暗全走一遍</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f01" id="f01" style="left:504px;top:304px;--c:#a6bb82" title="燧石刀">
+      <b>一把好刀</b>
+      <small>燧石刀</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f02" id="f02" style="left:504px;top:370px;--c:#a6bb82" title="把食材切成更多份">
+      <b>砧板</b>
+      <small>把食材切成更多份</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f03" id="f03" style="left:504px;top:436px;--c:#a6bb82" title="架锅开火">
+      <b>下厨</b>
+      <small>架锅开火</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f04" id="f04" style="left:504px;top:502px;--c:#a6bb82" title="收 64 个小麦">
+      <b>麦浪</b>
+      <small>收 64 个小麦</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#f05" id="f05" style="left:504px;top:568px;--c:#a6bb82" title="农夫乐事的新作物">
+      <b>番茄红了</b>
+      <small>农夫乐事的新作物</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f06" id="f06" style="left:504px;top:634px;--c:#a6bb82" title="另一种主粮">
+      <b>卷心菜</b>
+      <small>另一种主粮</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f07" id="f07" style="left:504px;top:700px;--c:#a6bb82" title="水稻">
+      <b>稻田</b>
+      <small>水稻</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f08" id="f08" style="left:504px;top:766px;--c:#a6bb82" title="做炖菜的料">
+      <b>洋葱与胡萝卜</b>
+      <small>做炖菜的料</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f09" id="f09" style="left:504px;top:832px;--c:#a6bb82" title="不用水不用光的农田">
+      <b>肥沃土壤</b>
+      <small>不用水不用光的农田</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f10" id="f10" style="left:504px;top:898px;--c:#a6bb82" title="能打能炒">
+      <b>煎锅</b>
+      <small>能打能炒</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f11" id="f11" style="left:504px;top:964px;--c:#a6bb82" title="同时烧多口锅">
+      <b>灶台</b>
+      <small>同时烧多口锅</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f12" id="f12" style="left:504px;top:1030px;--c:#a6bb82" title="材料在附近箱子里就能做菜">
+      <b>傻瓜式厨房</b>
+      <small>材料在附近箱子里就能做菜</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#f13" id="f13" style="left:504px;top:1096px;--c:#a6bb82" title="给厨房加储物格">
+      <b>冰箱</b>
+      <small>给厨房加储物格</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f14" id="f14" style="left:504px;top:1162px;--c:#a6bb82" title="蜂蜜能解毒">
+      <b>养蜂</b>
+      <small>蜂蜜能解毒</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f15" id="f15" style="left:504px;top:1228px;--c:#a6bb82" title="犒劳自己">
+      <b>做个蛋糕</b>
+      <small>犒劳自己</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#f16" id="f16" style="left:504px;top:1294px;--c:#a6bb82" title="农场、厨房、蜂箱都齐了">
+      <b>田园大成</b>
+      <small>农场、厨房、蜂箱都齐了</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i01" id="i01" style="left:968px;top:766px;--c:#91b7ad" title="通用机械的基础金属">
+      <b>锇</b>
+      <small>通用机械的基础金属</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i02" id="i02" style="left:968px;top:832px;--c:#91b7ad" title="钢锭是骨架材料">
+      <b>炼钢</b>
+      <small>钢锭是骨架材料</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i03" id="i03" style="left:968px;top:898px;--c:#91b7ad" title="第一台核心机器">
+      <b>冶金灌注机</b>
+      <small>第一台核心机器</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i04" id="i04" style="left:968px;top:964px;--c:#91b7ad" title="矿石产出翻倍">
+      <b>富集仓</b>
+      <small>矿石产出翻倍</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i05" id="i05" style="left:968px;top:1030px;--c:#91b7ad" title="所有机器的中间件">
+      <b>控制电路</b>
+      <small>所有机器的中间件</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i06" id="i06" style="left:968px;top:1096px;--c:#91b7ad" title="热力发电机">
+      <b>发电</b>
+      <small>热力发电机</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i07" id="i07" style="left:968px;top:1162px;--c:#91b7ad" title="矿石处理链的补充">
+      <b>热力机械</b>
+      <small>矿石处理链的补充</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i08" id="i08" style="left:968px;top:1228px;--c:#91b7ad" title="沉浸工程的起点">
+      <b>工程师之锤</b>
+      <small>沉浸工程的起点</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i09" id="i09" style="left:968px;top:1294px;--c:#91b7ad" title="烧出焦炭">
+      <b>焦炉</b>
+      <small>烧出焦炭</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i10" id="i10" style="left:968px;top:1360px;--c:#91b7ad" title="出钢，也是多方块的入门">
+      <b>高炉</b>
+      <small>出钢，也是多方块的入门</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i11" id="i11" style="left:968px;top:1426px;--c:#91b7ad" title="AE2 从这种水晶开始">
+      <b>赛特斯石英</b>
+      <small>AE2 从这种水晶开始</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i12" id="i12" style="left:968px;top:1492px;--c:#91b7ad" title="给水晶充能">
+      <b>充能器</b>
+      <small>给水晶充能</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i13" id="i13" style="left:968px;top:1558px;--c:#91b7ad" title="把电路图案压到硅片上">
+      <b>压印器</b>
+      <small>把电路图案压到硅片上</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i14" id="i14" style="left:968px;top:1624px;--c:#91b7ad" title="所有处理器的底子">
+      <b>硅片</b>
+      <small>所有处理器的底子</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i15" id="i15" style="left:968px;top:1690px;--c:#91b7ad" title="三种处理器之一">
+      <b>逻辑处理器</b>
+      <small>三种处理器之一</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i16" id="i16" style="left:968px;top:1756px;--c:#91b7ad" title="之三">
+      <b>运算处理器</b>
+      <small>之三</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i17" id="i17" style="left:968px;top:1822px;--c:#91b7ad" title="高级机器的门票">
+      <b>工程处理器</b>
+      <small>高级机器的门票</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i18" id="i18" style="left:968px;top:1888px;--c:#91b7ad" title="插进存储元件就有数字仓库">
+      <b>ME 驱动器</b>
+      <small>插进存储元件就有数字仓库</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i19" id="i19" style="left:968px;top:1954px;--c:#91b7ad" title="一格装 1024 种物品">
+      <b>存储元件</b>
+      <small>一格装 1024 种物品</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i20" id="i20" style="left:968px;top:2020px;--c:#91b7ad" title="自动合成的关键">
+      <b>样板供应器</b>
+      <small>自动合成的关键</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#i21" id="i21" style="left:968px;top:2086px;--c:#91b7ad" title="一个界面看遍整个仓库">
+      <b>ME 合成终端</b>
+      <small>一个界面看遍整个仓库</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#i22" id="i22" style="left:968px;top:2152px;--c:#91b7ad" title="让 ME 网络替你干活">
+      <b>自动合成</b>
+      <small>让 ME 网络替你干活</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r01" id="r01" style="left:1200px;top:370px;--c:#d98b6a" title="一切红石电路的开始">
+      <b>红石粉</b>
+      <small>一切红石电路的开始</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r02" id="r02" style="left:1200px;top:436px;--c:#d98b6a" title="最基础的信号源">
+      <b>红石火把</b>
+      <small>最基础的信号源</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r03" id="r03" style="left:1200px;top:502px;--c:#d98b6a" title="手动开关">
+      <b>拉杆与按钮</b>
+      <small>手动开关</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r04" id="r04" style="left:1200px;top:568px;--c:#d98b6a" title="踩上去就触发">
+      <b>压力板</b>
+      <small>踩上去就触发</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r05" id="r05" style="left:1200px;top:634px;--c:#d98b6a" title="延长信号、加延迟">
+      <b>红石中继器</b>
+      <small>延长信号、加延迟</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r06" id="r06" style="left:1200px;top:700px;--c:#d98b6a" title="读容器、做减法">
+      <b>红石比较器</b>
+      <small>读容器、做减法</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r07" id="r07" style="left:1200px;top:766px;--c:#d98b6a" title="能亮的方块">
+      <b>红石灯</b>
+      <small>能亮的方块</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r08" id="r08" style="left:1200px;top:832px;--c:#d98b6a" title="推动方块">
+      <b>活塞</b>
+      <small>推动方块</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r09" id="r09" style="left:1200px;top:898px;--c:#d98b6a" title="推出去还能拉回来">
+      <b>粘性活塞</b>
+      <small>推出去还能拉回来</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r10" id="r10" style="left:1200px;top:964px;--c:#d98b6a" title="侦测方块变化">
+      <b>观察者</b>
+      <small>侦测方块变化</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r11" id="r11" style="left:1200px;top:1030px;--c:#d98b6a" title="自动化的手">
+      <b>发射器与投掷器</b>
+      <small>自动化的手</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r12" id="r12" style="left:1200px;top:1096px;--c:#d98b6a" title="自动搬运物品">
+      <b>漏斗</b>
+      <small>自动搬运物品</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r13" id="r13" style="left:1200px;top:1162px;--c:#d98b6a" title="动力铁轨加速">
+      <b>矿车与铁轨</b>
+      <small>动力铁轨加速</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r14" id="r14" style="left:1200px;top:1228px;--c:#d98b6a" title="投射物触发">
+      <b>标靶方块</b>
+      <small>投射物触发</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r15" id="r15" style="left:1200px;top:1294px;--c:#d98b6a" title="陷阱与检测">
+      <b>绊线钩</b>
+      <small>陷阱与检测</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r16" id="r16" style="left:1200px;top:1360px;--c:#d98b6a" title="白天黑夜自动切换">
+      <b>日光探测器</b>
+      <small>白天黑夜自动切换</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r17" id="r17" style="left:1200px;top:1426px;--c:#d98b6a" title="Project Red 的线缆，能爬墙">
+      <b>红石线缆</b>
+      <small>Project Red 的线缆，能爬墙</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r18" id="r18" style="left:1200px;top:1492px;--c:#d98b6a" title="Project Red 的基础材料">
+      <b>红合金锭</b>
+      <small>Project Red 的基础材料</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r19" id="r19" style="left:1200px;top:1558px;--c:#d98b6a" title="与、或、非，用电路实现">
+      <b>逻辑门</b>
+      <small>与、或、非，用电路实现</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r20" id="r20" style="left:1200px;top:1624px;--c:#d98b6a" title="多路复用，复杂逻辑的核心">
+      <b>数据选择器</b>
+      <small>多路复用，复杂逻辑的核心</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r21" id="r21" style="left:1200px;top:1690px;--c:#d98b6a" title="聆听幽匿方块的声音">
+      <b>监听器</b>
+      <small>聆听幽匿方块的声音</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#r22" id="r22" style="left:1200px;top:1756px;--c:#d98b6a" title="从火把到集成电路，全走一遍">
+      <b>红石大师</b>
+      <small>从火把到集成电路，全走一遍</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#s01" id="s01" style="left:2128px;top:700px;--c:#c9b458" title="一格装海量同类物品">
+      <b>储物抽屉</b>
+      <small>一格装海量同类物品</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#s02" id="s02" style="left:2128px;top:766px;--c:#c9b458" title="扩容与压缩">
+      <b>抽屉升级</b>
+      <small>扩容与压缩</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#s03" id="s03" style="left:2128px;top:832px;--c:#c9b458" title="比木箱大">
+      <b>铁箱子</b>
+      <small>比木箱大</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#s04" id="s04" style="left:2128px;top:898px;--c:#c9b458" title="移动仓库">
+      <b>潜影盒</b>
+      <small>移动仓库</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#s05" id="s05" style="left:2128px;top:964px;--c:#c9b458" title="升级版容器">
+      <b>精致存储</b>
+      <small>升级版容器</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#s06" id="s06" style="left:2128px;top:1030px;--c:#c9b458" title="自动搬运">
+      <b>漏斗流水线</b>
+      <small>自动搬运</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#s07" id="s07" style="left:2128px;top:1096px;--c:#c9b458" title="每种矿物一个抽屉">
+      <b>分类仓库</b>
+      <small>每种矿物一个抽屉</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#s08" id="s08" style="left:2128px;top:1162px;--c:#c9b458" title="随身仓库">
+      <b>末影箱</b>
+      <small>随身仓库</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#s09" id="s09" style="left:2128px;top:1228px;--c:#c9b458" title="用 Create 传动带运物品">
+      <b>物流之始</b>
+      <small>用 Create 传动带运物品</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#s10" id="s10" style="left:2128px;top:1294px;--c:#c9b458" title="仓库彻底分好类">
+      <b>井井有条</b>
+      <small>仓库彻底分好类</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t01" id="t01" style="left:40px;top:40px;--c:#e5bd74" title="打 16 个原木">
+      <b>徒手起步</b>
+      <small>打 16 个原木</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#t02" id="t02" style="left:40px;top:106px;--c:#e5bd74" title="合成时代的开始">
+      <b>工作台</b>
+      <small>合成时代的开始</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t03" id="t03" style="left:40px;top:172px;--c:#e5bd74" title="木镐与木斧">
+      <b>木制工具</b>
+      <small>木镐与木斧</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t04" id="t04" style="left:40px;top:238px;--c:#e5bd74" title="石镐能挖铁矿了">
+      <b>石器时代</b>
+      <small>石镐能挖铁矿了</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#t05" id="t05" style="left:40px;top:304px;--c:#e5bd74" title="八块圆石围一个熔炉">
+      <b>生火</b>
+      <small>八块圆石围一个熔炉</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t06" id="t06" style="left:40px;top:370px;--c:#e5bd74" title="攒 8 个铁锭">
+      <b>铁器时代</b>
+      <small>攒 8 个铁锭</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#t07" id="t07" style="left:40px;top:436px;--c:#e5bd74" title="盾牌能挡下大部分正面伤害">
+      <b>安全第一</b>
+      <small>盾牌能挡下大部分正面伤害</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t08" id="t08" style="left:40px;top:502px;--c:#e5bd74" title="穿着它再下矿">
+      <b>铁甲护身</b>
+      <small>穿着它再下矿</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t09" id="t09" style="left:40px;top:568px;--c:#e5bd74" title="做张床，跳过夜晚">
+      <b>过夜</b>
+      <small>做张床，跳过夜晚</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t10" id="t10" style="left:40px;top:634px;--c:#e5bd74" title="16 个熟牛肉">
+      <b>储粮</b>
+      <small>16 个熟牛肉</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t11" id="t11" style="left:40px;top:700px;--c:#e5bd74" title="出门采矿不用来回跑">
+      <b>背包与收纳</b>
+      <small>出门采矿不用来回跑</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#t12" id="t12" style="left:40px;top:766px;--c:#e5bd74" title="挖到第一颗钻石">
+      <b>钻石！</b>
+      <small>挖到第一颗钻石</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t13" id="t13" style="left:40px;top:832px;--c:#e5bd74" title="附魔台 + 书架">
+      <b>附魔入门</b>
+      <small>附魔台 + 书架</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#t14" id="t14" style="left:40px;top:898px;--c:#e5bd74" title="合并附魔、修复耐久">
+      <b>铁砧与修复</b>
+      <small>合并附魔、修复耐久</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t15" id="t15" style="left:40px;top:964px;--c:#e5bd74" title="水浇岩浆">
+      <b>黑曜石</b>
+      <small>水浇岩浆</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t16" id="t16" style="left:40px;top:1030px;--c:#e5bd74" title="常去的地方都放一个">
+      <b>传送网络</b>
+      <small>常去的地方都放一个</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#t17" id="t17" style="left:40px;top:1096px;--c:#e5bd74" title="按 U 打开，右键任务书也行">
+      <b>认出任务书</b>
+      <small>按 U 打开，右键任务书也行</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#t18" id="t18" style="left:40px;top:1162px;--c:#e5bd74" title="基地、装备、食物、交通都齐了">
+      <b>扎下根来</b>
+      <small>基地、装备、食物、交通都齐了</small>
+      <em>奖励 2</em>
+    </a>
+    <a class="qnode" href="#z01" id="z01" style="left:2592px;top:1096px;--c:#d96a6a" title="僵尸突变体">
+      <b>变异开始</b>
+      <small>僵尸突变体</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z02" id="z02" style="left:2592px;top:1162px;--c:#d96a6a" title="炸得又远又疼">
+      <b>苦力怕突变体</b>
+      <small>炸得又远又疼</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z03" id="z03" style="left:2592px;top:1228px;--c:#d96a6a" title="会拆成骨头再拼回来">
+      <b>骷髅突变体</b>
+      <small>会拆成骨头再拼回来</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z04" id="z04" style="left:2592px;top:1294px;--c:#d96a6a" title="会分裂出克隆体">
+      <b>末影人突变体</b>
+      <small>会分裂出克隆体</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z05" id="z05" style="left:2592px;top:1360px;--c:#d96a6a" title="矿井深处的钢铁巨像">
+      <b>钢铁守护者</b>
+      <small>矿井深处的钢铁巨像</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z06" id="z06" style="left:2592px;top:1426px;--c:#d96a6a" title="会把你按在地上">
+      <b>霜冻巨兽</b>
+      <small>会把你按在地上</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z07" id="z07" style="left:2592px;top:1492px;--c:#d96a6a" title="会召唤族人群殴你">
+      <b>太阳鸟</b>
+      <small>会召唤族人群殴你</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z08" id="z08" style="left:2592px;top:1558px;--c:#d96a6a" title="Bosses'Rise 的雪原 Boss">
+      <b>霜冻雪怪</b>
+      <small>Bosses'Rise 的雪原 Boss</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z09" id="z09" style="left:2592px;top:1624px;--c:#d96a6a" title="沉船墓场的海怪">
+      <b>深渊巨口</b>
+      <small>沉船墓场的海怪</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z10" id="z10" style="left:2592px;top:1690px;--c:#d96a6a" title="亡灵船长">
+      <b>船长科妮莉亚</b>
+      <small>亡灵船长</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z11" id="z11" style="left:2592px;top:1756px;--c:#d96a6a" title="Bosses'Rise 的第一场硬仗">
+      <b>赫尔瓦，冥界骑士</b>
+      <small>Bosses'Rise 的第一场硬仗</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z12" id="z12" style="left:2592px;top:1822px;--c:#d96a6a" title="火球带范围灼烧">
+      <b>阿什洛德，炼狱飞龙</b>
+      <small>火球带范围灼烧</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z13" id="z13" style="left:2592px;top:1888px;--c:#d96a6a" title="从地底突然窜出">
+      <b>斯洛克，巨型沙虫</b>
+      <small>从地底突然窜出</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z14" id="z14" style="left:2592px;top:1954px;--c:#d96a6a" title="亡灵法师首领">
+      <b>先驱者</b>
+      <small>亡灵法师首领</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z15" id="z15" style="left:2592px;top:2020px;--c:#d96a6a" title="正面硬刚不划算">
+      <b>下界合金巨兽</b>
+      <small>正面硬刚不划算</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z16" id="z16" style="left:2592px;top:2086px;--c:#d96a6a" title="灾变的第一位 Boss">
+      <b>末影守卫</b>
+      <small>灾变的第一位 Boss</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z17" id="z17" style="left:2592px;top:2152px;--c:#d96a6a" title="近战与火焰两个阶段">
+      <b>焰魔</b>
+      <small>近战与火焰两个阶段</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z18" id="z18" style="left:2592px;top:2218px;--c:#d96a6a" title="骑亡灵马的法师">
+      <b>咒翼灵骸</b>
+      <small>骑亡灵马的法师</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z19" id="z19" style="left:2592px;top:2284px;--c:#d96a6a" title="会掀起沙暴">
+      <b>远古遗魂</b>
+      <small>会掀起沙暴</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z20" id="z20" style="left:2592px;top:2350px;--c:#d96a6a" title="Alex's Caves 的顶级掠食者">
+      <b>暝煌龙</b>
+      <small>Alex's Caves 的顶级掠食者</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z21" id="z21" style="left:2592px;top:2416px;--c:#d96a6a" title="会喷核弹的巨型恐龙">
+      <b>撼地斯拉</b>
+      <small>会喷核弹的巨型恐龙</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z22" id="z22" style="left:2592px;top:2482px;--c:#d96a6a" title="魔法线的期末考">
+      <b>死者之王</b>
+      <small>魔法线的期末考</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z23" id="z23" style="left:2592px;top:2548px;--c:#d96a6a" title="永夜之地的巨蛛">
+      <b>幽咽蛛王</b>
+      <small>永夜之地的巨蛛</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z24" id="z24" style="left:2592px;top:2614px;--c:#d96a6a" title="会追着你穿墙">
+      <b>潜行者</b>
+      <small>会追着你穿墙</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z25" id="z25" style="left:2592px;top:2680px;--c:#d96a6a" title="混沌降生的恐怖存在">
+      <b>噬命者</b>
+      <small>混沌降生的恐怖存在</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z26" id="z26" style="left:2592px;top:2746px;--c:#d96a6a" title="每杀一次它都会更强">
+      <b>凋灵（强化后）</b>
+      <small>每杀一次它都会更强</small>
+      <em>奖励 1</em>
+    </a>
+    <a class="qnode" href="#z27" id="z27" style="left:2592px;top:2812px;--c:#d96a6a" title="水外无敌，必须水下作战">
+      <b>终章 · 利维坦</b>
+      <small>水外无敌，必须水下作战</small>
+      <em>奖励 2</em>
+    </a>
   </div>
-  <div class="grid">
-    <section class="branch">
-      <h3>安家落户<span>14 个任务</span></h3>
-      <p class="sub">生存基础：从一棵树到传送网络</p>
-      <ol class="chain">
-        <li class="q"><span class="n">1</span><div><b>木头起步</b><small>持有 minecraft:oak_log ×16</small><em>奖励：minecraft:apple 4、minecraft:torch 8、经验 3 points</em></div></li>
-        <li class="q"><span class="n">2</span><div><b>工作台</b><small>持有 minecraft:crafting_table</small><em>奖励：minecraft:oak_planks 16、经验 3 points</em></div></li>
-        <li class="q"><span class="n">3</span><div><b>石器时代</b><small>持有 minecraft:stone_pickaxe</small><em>奖励：minecraft:coal 16、minecraft:torch 16、经验 5 points</em></div></li>
-        <li class="q"><span class="n">4</span><div><b>生火</b><small>持有 minecraft:furnace</small><em>奖励：minecraft:coal 8、经验 5 points</em></div></li>
-        <li class="q goal"><span class="n">5</span><div><b>铁器时代</b><small>持有 minecraft:iron_ingot ×8</small><em>奖励：minecraft:iron_pickaxe、minecraft:bread 4、经验 10 points</em></div></li>
-        <li class="q"><span class="n">6</span><div><b>安全第一</b><small>持有 minecraft:shield</small><em>奖励：minecraft:iron_ingot 4、经验 6 points</em></div></li>
-        <li class="q"><span class="n">7</span><div><b>铁甲护身</b><small>持有 minecraft:iron_chestplate</small><em>奖励：minecraft:iron_ingot 8、经验 8 points</em></div></li>
-        <li class="q"><span class="n">8</span><div><b>背包与收纳</b><small>持有 sophisticatedbackpacks:backpack</small><em>奖励：storagedrawers:oak_full_drawers_1 2、minecraft:iron_ingot 8、经验 8 points</em></div></li>
-        <li class="q"><span class="n">9</span><div><b>收纳大师</b><small>持有 storagedrawers:oak_full_drawers_1</small><em>奖励：minecraft:iron_ingot 8、经验 6 points</em></div></li>
-        <li class="q goal"><span class="n">10</span><div><b>钻石！</b><small>持有 minecraft:diamond</small><em>奖励：minecraft:diamond_pickaxe、经验 12 points</em></div></li>
-        <li class="q"><span class="n">11</span><div><b>黑曜石</b><small>持有 minecraft:obsidian</small><em>奖励：minecraft:diamond 2、经验 10 points</em></div></li>
-        <li class="q"><span class="n">12</span><div><b>附魔入门</b><small>持有 minecraft:enchanting_table</small><em>奖励：minecraft:bookshelf 4、minecraft:lapis_lazuli 16、经验 15 points</em></div></li>
-        <li class="q"><span class="n">13</span><div><b>铁砧与修复</b><small>持有 minecraft:anvil</small><em>奖励：minecraft:iron_block 2、经验 12 points</em></div></li>
-        <li class="q goal"><span class="n">14</span><div><b>传送网络</b><small>持有 waystones:waystone</small><em>奖励：minecraft:stone_bricks 32、waystones:return_scroll 2、经验 15 points</em></div></li>
-      </ol>
-    </section>
-    <section class="branch">
-      <h3>田园生活<span>14 个任务</span></h3>
-      <p class="sub">农夫乐事与厨房</p>
-      <ol class="chain">
-        <li class="q"><span class="n">1</span><div><b>一把好刀</b><small>持有 farmersdelight:flint_knife</small><em>奖励：minecraft:wheat_seeds 8、经验 3 points</em></div></li>
-        <li class="q"><span class="n">2</span><div><b>砧板</b><small>持有 farmersdelight:cutting_board</small><em>奖励：farmersdelight:flint_knife、经验 4 points</em></div></li>
-        <li class="q"><span class="n">3</span><div><b>下厨</b><small>持有 farmersdelight:cooking_pot</small><em>奖励：minecraft:bowl 4、经验 6 points</em></div></li>
-        <li class="q"><span class="n">4</span><div><b>麦浪</b><small>持有 minecraft:wheat ×64</small><em>奖励：minecraft:bread 8、minecraft:bone_meal 8、经验 8 points</em></div></li>
-        <li class="q"><span class="n">5</span><div><b>番茄红了</b><small>持有 farmersdelight:tomato</small><em>奖励：minecraft:bone_meal 8、经验 5 points</em></div></li>
-        <li class="q"><span class="n">6</span><div><b>卷心菜</b><small>持有 farmersdelight:cabbage</small><em>奖励：minecraft:bone_meal 8、经验 5 points</em></div></li>
-        <li class="q"><span class="n">7</span><div><b>稻田</b><small>持有 farmersdelight:rice</small><em>奖励：minecraft:bone_meal 8、经验 5 points</em></div></li>
-        <li class="q"><span class="n">8</span><div><b>肥沃土壤</b><small>持有 farmersdelight:rich_soil</small><em>奖励：minecraft:bone_meal 16、经验 8 points</em></div></li>
-        <li class="q"><span class="n">9</span><div><b>煎锅</b><small>持有 farmersdelight:skillet</small><em>奖励：minecraft:iron_ingot 4、经验 8 points</em></div></li>
-        <li class="q"><span class="n">10</span><div><b>灶台</b><small>持有 farmersdelight:stove</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
-        <li class="q goal"><span class="n">11</span><div><b>傻瓜式厨房</b><small>持有 cookingforblockheads:cooking_table</small><em>奖励：cookingforblockheads:fridge、minecraft:iron_ingot 8、经验 12 points</em></div></li>
-        <li class="q"><span class="n">12</span><div><b>冰箱</b><small>持有 cookingforblockheads:fridge</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
-        <li class="q"><span class="n">13</span><div><b>养蜂</b><small>持有 minecraft:beehive</small><em>奖励：minecraft:honey_bottle 4、经验 10 points</em></div></li>
-        <li class="q"><span class="n">14</span><div><b>做个蛋糕</b><small>持有 minecraft:cake</small><em>奖励：minecraft:sugar 16、经验 12 points</em></div></li>
-      </ol>
-    </section>
-    <section class="branch">
-      <h3>机械动力<span>22 个任务</span></h3>
-      <p class="sub">从手摇动力到铁路</p>
-      <ol class="chain">
-        <li class="q"><span class="n">1</span><div><b>安山合金</b><small>持有 create:andesite_alloy ×16</small><em>奖励：minecraft:iron_nugget 16、经验 5 points</em></div></li>
-        <li class="q"><span class="n">2</span><div><b>传动轴</b><small>持有 create:shaft</small><em>奖励：create:andesite_alloy 8、经验 4 points</em></div></li>
-        <li class="q"><span class="n">3</span><div><b>齿轮</b><small>持有 create:cogwheel</small><em>奖励：create:shaft 8、create:andesite_alloy 8、经验 6 points</em></div></li>
-        <li class="q"><span class="n">4</span><div><b>大齿轮</b><small>持有 create:large_cogwheel</small><em>奖励：create:andesite_alloy 16、经验 6 points</em></div></li>
-        <li class="q"><span class="n">5</span><div><b>传动带</b><small>持有 create:belt_connector</small><em>奖励：create:andesite_alloy 8、经验 6 points</em></div></li>
-        <li class="q"><span class="n">6</span><div><b>手摇曲柄</b><small>持有 create:hand_crank</small><em>奖励：create:andesite_alloy 8、经验 6 points</em></div></li>
-        <li class="q goal"><span class="n">7</span><div><b>第一台动力</b><small>持有 create:water_wheel</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
-        <li class="q"><span class="n">8</span><div><b>风力</b><small>持有 create:windmill_bearing</small><em>奖励：minecraft:iron_ingot 16、经验 12 points</em></div></li>
-        <li class="q"><span class="n">9</span><div><b>压床</b><small>持有 create:mechanical_press</small><em>奖励：create:millstone、minecraft:iron_block 2、经验 10 points</em></div></li>
-        <li class="q"><span class="n">10</span><div><b>动力搅拌</b><small>持有 create:mechanical_mixer</small><em>奖励：create:andesite_alloy 16、经验 10 points</em></div></li>
-        <li class="q"><span class="n">11</span><div><b>动力锯</b><small>持有 create:mechanical_saw</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
-        <li class="q"><span class="n">12</span><div><b>动力钻头</b><small>持有 create:mechanical_drill</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
-        <li class="q"><span class="n">13</span><div><b>鼓风机</b><small>持有 create:encased_fan</small><em>奖励：minecraft:iron_ingot 8、经验 10 points</em></div></li>
-        <li class="q"><span class="n">14</span><div><b>石磨</b><small>持有 create:millstone</small><em>奖励：minecraft:wheat 16、经验 8 points</em></div></li>
-        <li class="q goal"><span class="n">15</span><div><b>粉碎轮</b><small>持有 create:crushing_wheel</small><em>奖励：minecraft:iron_ingot 16、经验 15 points</em></div></li>
-        <li class="q goal"><span class="n">16</span><div><b>黄铜时代</b><small>持有 create:brass_ingot ×8</small><em>奖励：create:brass_ingot 8、create:encased_fan、经验 15 points</em></div></li>
-        <li class="q"><span class="n">17</span><div><b>电子管</b><small>持有 create:electron_tube</small><em>奖励：create:brass_ingot 8、经验 12 points</em></div></li>
-        <li class="q goal"><span class="n">18</span><div><b>精密构件</b><small>持有 create:precision_mechanism</small><em>奖励：create:electron_tube 4、create:brass_ingot 8、经验 20 points</em></div></li>
-        <li class="q"><span class="n">19</span><div><b>物品保险库</b><small>持有 create:item_vault</small><em>奖励：create:brass_ingot 8、经验 15 points</em></div></li>
-        <li class="q"><span class="n">20</span><div><b>蓝图与蓝图台</b><small>持有 create:schematic_table</small><em>奖励：create:empty_schematic 2、经验 12 points</em></div></li>
-        <li class="q"><span class="n">21</span><div><b>铺设铁轨</b><small>持有 create:track ×64</small><em>奖励：minecraft:iron_ingot 32、经验 15 points</em></div></li>
-        <li class="q challenge"><span class="n">22</span><div><b>铁路时代</b><small>持有 railways:conductor_whistle</small><em>奖励：create:track 64、minecraft:iron_ingot 32、经验 25 points</em></div></li>
-      </ol>
-    </section>
-    <section class="branch">
-      <h3>工业帝国<span>22 个任务</span></h3>
-      <p class="sub">通用机械 · 沉浸工程 · AE2</p>
-      <ol class="chain">
-        <li class="q"><span class="n">1</span><div><b>锇</b><small>持有 mekanism:ingot_osmium ×8</small><em>奖励：minecraft:iron_ingot 8、经验 5 points</em></div></li>
-        <li class="q"><span class="n">2</span><div><b>炼钢</b><small>持有 mekanism:ingot_steel ×4</small><em>奖励：minecraft:iron_ingot 16、经验 8 points</em></div></li>
-        <li class="q goal"><span class="n">3</span><div><b>冶金灌注机</b><small>持有 mekanism:metallurgic_infuser</small><em>奖励：mekanism:enrichment_chamber、minecraft:iron_ingot 8、经验 12 points</em></div></li>
-        <li class="q"><span class="n">4</span><div><b>富集仓</b><small>持有 mekanism:enrichment_chamber</small><em>奖励：minecraft:iron_ingot 16、经验 10 points</em></div></li>
-        <li class="q"><span class="n">5</span><div><b>控制电路</b><small>持有 mekanism:basic_control_circuit</small><em>奖励：minecraft:iron_ingot 16、经验 10 points</em></div></li>
-        <li class="q goal"><span class="n">6</span><div><b>发电</b><small>持有 mekanismgenerators:heat_generator</small><em>奖励：thermal:machine_furnace、minecraft:iron_ingot 16、经验 12 points</em></div></li>
-        <li class="q"><span class="n">7</span><div><b>热力机械</b><small>持有 thermal:machine_furnace</small><em>奖励：minecraft:iron_ingot 16、经验 10 points</em></div></li>
-        <li class="q"><span class="n">8</span><div><b>工程师之锤</b><small>持有 immersiveengineering:hammer</small><em>奖励：immersiveengineering:ingot_steel 4、经验 8 points</em></div></li>
-        <li class="q"><span class="n">9</span><div><b>焦炉</b><small>持有 immersiveengineering:coke_oven</small><em>奖励：minecraft:coal 32、经验 12 points</em></div></li>
-        <li class="q"><span class="n">10</span><div><b>高炉</b><small>持有 immersiveengineering:blast_furnace</small><em>奖励：immersiveengineering:ingot_steel 8、经验 15 points</em></div></li>
-        <li class="q"><span class="n">11</span><div><b>赛特斯石英</b><small>持有 ae2:certus_quartz_crystal ×8</small><em>奖励：ae2:certus_quartz_crystal 8、经验 8 points</em></div></li>
-        <li class="q"><span class="n">12</span><div><b>充能器</b><small>持有 ae2:charger</small><em>奖励：ae2:certus_quartz_crystal 8、经验 10 points</em></div></li>
-        <li class="q"><span class="n">13</span><div><b>压印器</b><small>持有 ae2:inscriber</small><em>奖励：ae2:printed_silicon 4、经验 12 points</em></div></li>
-        <li class="q"><span class="n">14</span><div><b>硅与印模</b><small>持有 ae2:printed_silicon</small><em>奖励：minecraft:iron_ingot 16、经验 10 points</em></div></li>
-        <li class="q"><span class="n">15</span><div><b>逻辑处理器</b><small>持有 ae2:logic_processor</small><em>奖励：ae2:printed_logic_processor 4、经验 12 points</em></div></li>
-        <li class="q"><span class="n">16</span><div><b>运算处理器</b><small>持有 ae2:calculation_processor</small><em>奖励：ae2:printed_calculation_processor 4、经验 12 points</em></div></li>
-        <li class="q goal"><span class="n">17</span><div><b>工程处理器</b><small>持有 ae2:engineering_processor</small><em>奖励：ae2:printed_engineering_processor 4、经验 15 points</em></div></li>
-        <li class="q"><span class="n">18</span><div><b>ME 驱动器</b><small>持有 ae2:drive</small><em>奖励：ae2:item_storage_cell_1k 2、经验 15 points</em></div></li>
-        <li class="q"><span class="n">19</span><div><b>存储元件</b><small>持有 ae2:item_storage_cell_1k</small><em>奖励：ae2:item_storage_cell_4k、经验 15 points</em></div></li>
-        <li class="q"><span class="n">20</span><div><b>样板供应器</b><small>持有 ae2:pattern_provider</small><em>奖励：ae2:engineering_processor 4、经验 20 points</em></div></li>
-        <li class="q challenge"><span class="n">21</span><div><b>ME 合成终端</b><small>持有 ae2:crafting_terminal</small><em>奖励：ae2:drive、ae2:item_storage_cell_1k 2、minecraft:iron_ingot 16、经验 25 points</em></div></li>
-        <li class="q challenge"><span class="n">22</span><div><b>自动合成</b><small>持有 ae2:crafting_accelerator</small><em>奖励：ae2:engineering_processor 8、minecraft:diamond 4、经验 30 points</em></div></li>
-      </ol>
-    </section>
-    <section class="branch">
-      <h3>新生魔艺<span>14 个任务</span></h3>
-      <p class="sub">法术 · 魔源 · 灌注</p>
-      <ol class="chain">
-        <li class="q"><span class="n">1</span><div><b>新手法术书</b><small>持有 ars_nouveau:novice_spell_book</small><em>奖励：ars_nouveau:wand、ars_nouveau:source_gem 2、经验 8 points</em></div></li>
-        <li class="q"><span class="n">2</span><div><b>法杖</b><small>持有 ars_nouveau:wand</small><em>奖励：ars_nouveau:source_gem 4、经验 6 points</em></div></li>
-        <li class="q"><span class="n">3</span><div><b>魔源宝石</b><small>持有 ars_nouveau:source_gem ×8</small><em>奖励：minecraft:amethyst_shard 8、经验 8 points</em></div></li>
-        <li class="q"><span class="n">4</span><div><b>灌注室</b><small>持有 ars_nouveau:imbuement_chamber</small><em>奖励：ars_nouveau:source_jar 2、经验 10 points</em></div></li>
-        <li class="q goal"><span class="n">5</span><div><b>附魔装置</b><small>持有 ars_nouveau:enchanting_apparatus</small><em>奖励：ars_nouveau:imbuement_chamber、minecraft:gold_ingot 16、经验 15 points</em></div></li>
-        <li class="q"><span class="n">6</span><div><b>奥术核心</b><small>持有 ars_nouveau:arcane_core</small><em>奖励：ars_nouveau:source_gem 4、经验 12 points</em></div></li>
-        <li class="q"><span class="n">7</span><div><b>魔源罐</b><small>持有 ars_nouveau:source_jar</small><em>奖励：ars_nouveau:source_gem 4、经验 8 points</em></div></li>
-        <li class="q"><span class="n">8</span><div><b>法师之花</b><small>持有 ars_nouveau:magebloom</small><em>奖励：minecraft:bone_meal 16、经验 10 points</em></div></li>
-        <li class="q"><span class="n">9</span><div><b>法师布</b><small>持有 ars_nouveau:magebloom_fiber</small><em>奖励：ars_nouveau:magebloom 8、经验 10 points</em></div></li>
-        <li class="q challenge"><span class="n">10</span><div><b>学徒法术书</b><small>持有 ars_nouveau:apprentice_spell_book</small><em>奖励：ars_nouveau:arcane_core、ars_nouveau:source_gem 8、经验 20 points</em></div></li>
-        <li class="q"><span class="n">11</span><div><b>德律格米</b><small>持有 ars_nouveau:drygmy_shard</small><em>奖励：ars_nouveau:source_gem 8、经验 18 points</em></div></li>
-        <li class="q"><span class="n">12</span><div><b>星斑克</b><small>持有 ars_nouveau:starbuncle_shards</small><em>奖励：ars_nouveau:source_gem 8、经验 18 points</em></div></li>
-        <li class="q"><span class="n">13</span><div><b>法术弓</b><small>持有 ars_nouveau:spell_bow</small><em>奖励：minecraft:bow、ars_nouveau:source_gem 8、经验 18 points</em></div></li>
-        <li class="q"><span class="n">14</span><div><b>附魔师之剑</b><small>持有 ars_nouveau:enchanters_sword</small><em>奖励：ars_nouveau:source_gem 8、minecraft:diamond 2、经验 20 points</em></div></li>
-      </ol>
-    </section>
-    <section class="branch">
-      <h3>植物魔法<span>12 个任务</span></h3>
-      <p class="sub">用花做资源农场</p>
-      <ol class="chain">
-        <li class="q"><span class="n">1</span><div><b>白雏菊</b><small>持有 botania:pure_daisy</small><em>奖励：minecraft:white_dye 8、经验 8 points</em></div></li>
-        <li class="q"><span class="n">2</span><div><b>树枝魔杖</b><small>持有 botania:twig_wand</small><em>奖励：minecraft:stick 16、经验 8 points</em></div></li>
-        <li class="q goal"><span class="n">3</span><div><b>魔力池</b><small>持有 botania:mana_pool</small><em>奖励：botania:mana_spreader 2、经验 12 points</em></div></li>
-        <li class="q"><span class="n">4</span><div><b>魔力发射器</b><small>持有 botania:mana_spreader</small><em>奖励：minecraft:gold_ingot 16、经验 10 points</em></div></li>
-        <li class="q"><span class="n">5</span><div><b>火之花</b><small>持有 botania:endoflame</small><em>奖励：botania:mana_pool、经验 12 points</em></div></li>
-        <li class="q"><span class="n">6</span><div><b>水绣球</b><small>持有 botania:hydroangeas</small><em>奖励：botania:mana_spreader、经验 10 points</em></div></li>
-        <li class="q"><span class="n">7</span><div><b>魔力钢</b><small>持有 botania:manasteel_ingot</small><em>奖励：botania:manasteel_ingot 4、经验 15 points</em></div></li>
-        <li class="q"><span class="n">8</span><div><b>魔力钻石</b><small>持有 botania:mana_diamond</small><em>奖励：minecraft:diamond 2、经验 15 points</em></div></li>
-        <li class="q"><span class="n">9</span><div><b>魔力珍珠</b><small>持有 botania:mana_pearl</small><em>奖励：minecraft:ender_pearl 4、经验 15 points</em></div></li>
-        <li class="q challenge"><span class="n">10</span><div><b>泰拉钢</b><small>持有 botania:terrasteel_ingot</small><em>奖励：botania:mana_pool、botania:mana_spreader 2、botania:endoflame 2、minecraft:diamond 2、经验 30 points</em></div></li>
-        <li class="q challenge"><span class="n">11</span><div><b>精灵之门</b><small>持有 botania:alfheim_portal</small><em>奖励：botania:terrasteel_ingot 2、经验 25 points</em></div></li>
-        <li class="q challenge"><span class="n">12</span><div><b>精灵钢</b><small>持有 botania:elementium_ingot</small><em>奖励：botania:terrasteel_ingot、经验 25 points</em></div></li>
-      </ol>
-    </section>
-    <section class="branch">
-      <h3>探索与征服<span>12 个任务</span></h3>
-      <p class="sub">下界 · 末地 · 远古城市</p>
-      <ol class="chain">
-        <li class="q goal"><span class="n">1</span><div><b>前往下界</b><small>进入 minecraft:the_nether</small><em>奖励：minecraft:obsidian 10、经验 10 points</em></div></li>
-        <li class="q"><span class="n">2</span><div><b>下界要塞</b><small>持有 minecraft:nether_bricks</small><em>奖励：minecraft:blaze_rod 2、经验 12 points</em></div></li>
-        <li class="q"><span class="n">3</span><div><b>烈焰棒</b><small>持有 minecraft:blaze_rod ×2</small><em>奖励：minecraft:gold_ingot 8、经验 12 points</em></div></li>
-        <li class="q"><span class="n">4</span><div><b>末影珍珠</b><small>持有 minecraft:ender_pearl</small><em>奖励：minecraft:ender_pearl 4、经验 10 points</em></div></li>
-        <li class="q"><span class="n">5</span><div><b>末影之眼</b><small>持有 minecraft:ender_eye</small><em>奖励：minecraft:ender_pearl 8、经验 12 points</em></div></li>
-        <li class="q goal"><span class="n">6</span><div><b>抵达末地</b><small>进入 minecraft:the_end</small><em>奖励：minecraft:golden_apple 2、minecraft:ender_pearl 8、经验 15 points</em></div></li>
-        <li class="q challenge"><span class="n">7</span><div><b>终结末影龙</b><small>击败 minecraft:ender_dragon</small><em>奖励：minecraft:elytra、minecraft:dragon_breath 4、经验 50 points</em></div></li>
-        <li class="q"><span class="n">8</span><div><b>潜影盒</b><small>持有 minecraft:shulker_box</small><em>奖励：minecraft:shulker_shell 2、经验 20 points</em></div></li>
-        <li class="q"><span class="n">9</span><div><b>末地城</b><small>持有 minecraft:purpur_block</small><em>奖励：minecraft:ender_pearl 8、经验 20 points</em></div></li>
-        <li class="q goal"><span class="n">10</span><div><b>远古城市</b><small>持有 minecraft:echo_shard</small><em>奖励：minecraft:diamond 4、minecraft:netherite_scrap 2、经验 30 points</em></div></li>
-        <li class="q goal"><span class="n">11</span><div><b>下界合金</b><small>持有 minecraft:netherite_ingot</small><em>奖励：minecraft:diamond 4、经验 25 points</em></div></li>
-        <li class="q challenge"><span class="n">12</span><div><b>信标</b><small>持有 minecraft:beacon</small><em>奖励：minecraft:netherite_ingot、经验 30 points</em></div></li>
-      </ol>
-    </section>
-    <section class="branch">
-      <h3>变异怪物<span>5 个任务</span></h3>
-      <p class="sub">Boss 线 · 第一段</p>
-      <ol class="chain">
-        <li class="q"><span class="n">1</span><div><b>变异开始</b><small>击败 mutantmonsters:mutant_zombie</small><em>奖励：minecraft:golden_apple 2、经验 20 points</em></div></li>
-        <li class="q"><span class="n">2</span><div><b>苦力怕突变体</b><small>击败 mutantmonsters:mutant_creeper</small><em>奖励：minecraft:gunpowder 16、经验 25 points</em></div></li>
-        <li class="q"><span class="n">3</span><div><b>骷髅突变体</b><small>击败 mutantmonsters:mutant_skeleton</small><em>奖励：minecraft:bone 16、minecraft:arrow 32、经验 25 points</em></div></li>
-        <li class="q goal"><span class="n">4</span><div><b>末影人突变体</b><small>击败 mutantmonsters:mutant_enderman</small><em>奖励：minecraft:ender_pearl 8、minecraft:enchanted_golden_apple、经验 40 points</em></div></li>
-        <li class="q"><span class="n">5</span><div><b>巨人之锤</b><small>持有 mutantmonsters:hulk_hammer</small><em>奖励：minecraft:iron_block 8、经验 30 points</em></div></li>
-      </ol>
-    </section>
-    <section class="branch">
-      <h3>大地与深海<span>6 个任务</span></h3>
-      <p class="sub">Boss 线 · 第二段</p>
-      <ol class="chain">
-        <li class="q"><span class="n">1</span><div><b>钢铁守护者</b><small>击败 mowziesmobs:ferrous_wroughtnaut</small><em>奖励：minecraft:iron_block 8、经验 35 points</em></div></li>
-        <li class="q"><span class="n">2</span><div><b>霜冻巨兽</b><small>击败 mowziesmobs:frostmaw</small><em>奖励：minecraft:blue_ice 16、minecraft:diamond 3、经验 40 points</em></div></li>
-        <li class="q"><span class="n">3</span><div><b>太阳鸟·乌姆武提</b><small>击败 mowziesmobs:umvuthi</small><em>奖励：minecraft:gold_block 4、经验 40 points</em></div></li>
-        <li class="q"><span class="n">4</span><div><b>霜冻雪怪·斯科尔</b><small>击败 block_factorys_bosses:yeti</small><em>奖励：minecraft:blue_ice 16、经验 40 points</em></div></li>
-        <li class="q"><span class="n">5</span><div><b>深渊巨口</b><small>击败 aquamirae:maw</small><em>奖励：minecraft:prismarine_shard 16、经验 35 points</em></div></li>
-        <li class="q goal"><span class="n">6</span><div><b>船长科妮莉亚</b><small>击败 aquamirae:captain_cornelia</small><em>奖励：minecraft:heart_of_the_sea、minecraft:nautilus_shell 4、经验 50 points</em></div></li>
-      </ol>
-    </section>
-    <section class="branch">
-      <h3>魂系试炼<span>5 个任务</span></h3>
-      <p class="sub">Boss 线 · 第三段</p>
-      <ol class="chain">
-        <li class="q goal"><span class="n">1</span><div><b>赫尔瓦，冥界骑士</b><small>击败 block_factorys_bosses:underworld_knight</small><em>奖励：minecraft:netherite_scrap 2、minecraft:enchanted_golden_apple 2、经验 60 points</em></div></li>
-        <li class="q challenge"><span class="n">2</span><div><b>阿什洛德，炼狱飞龙</b><small>击败 block_factorys_bosses:infernal_dragon</small><em>奖励：minecraft:netherite_ingot、minecraft:dragon_breath 8、经验 70 points</em></div></li>
-        <li class="q challenge"><span class="n">3</span><div><b>斯洛克，巨型沙虫</b><small>击败 block_factorys_bosses:sandworm</small><em>奖励：minecraft:netherite_ingot、minecraft:golden_apple 8、经验 70 points</em></div></li>
-        <li class="q challenge"><span class="n">4</span><div><b>先驱者</b><small>击败 cataclysm:the_harbinger</small><em>奖励：minecraft:netherite_scrap 3、经验 70 points</em></div></li>
-        <li class="q challenge"><span class="n">5</span><div><b>下界合金巨兽</b><small>击败 cataclysm:netherite_monstrosity</small><em>奖励：minecraft:netherite_ingot、经验 80 points</em></div></li>
-      </ol>
-    </section>
-    <section class="branch">
-      <h3>灾变首领<span>8 个任务</span></h3>
-      <p class="sub">Boss 线 · 第四段</p>
-      <ol class="chain">
-        <li class="q challenge"><span class="n">1</span><div><b>末影守卫</b><small>击败 cataclysm:ender_guardian</small><em>奖励：minecraft:netherite_scrap 4、minecraft:ender_pearl 16、经验 80 points</em></div></li>
-        <li class="q challenge"><span class="n">2</span><div><b>焰魔</b><small>击败 cataclysm:ignis</small><em>奖励：minecraft:netherite_ingot、minecraft:blaze_rod 16、经验 90 points</em></div></li>
-        <li class="q challenge"><span class="n">3</span><div><b>咒翼灵骸</b><small>击败 cataclysm:maledictus</small><em>奖励：minecraft:netherite_ingot、经验 90 points</em></div></li>
-        <li class="q challenge"><span class="n">4</span><div><b>远古遗魂</b><small>击败 cataclysm:ancient_remnant</small><em>奖励：minecraft:netherite_ingot、minecraft:gold_block 4、经验 95 points</em></div></li>
-        <li class="q challenge"><span class="n">5</span><div><b>暝煌龙</b><small>击败 alexscaves:luxtructosaurus</small><em>奖励：minecraft:netherite_ingot 2、minecraft:diamond 8、经验 100 points</em></div></li>
-        <li class="q challenge"><span class="n">6</span><div><b>撼地斯拉</b><small>击败 alexscaves:tremorzilla</small><em>奖励：minecraft:netherite_ingot 2、经验 100 points</em></div></li>
-        <li class="q challenge"><span class="n">7</span><div><b>死者之王</b><small>击败 irons_spellbooks:dead_king</small><em>奖励：minecraft:netherite_ingot 2、ars_nouveau:source_gem 16、经验 110 points</em></div></li>
-        <li class="q challenge"><span class="n">8</span><div><b>幽咽蛛王</b><small>击败 blue_skies:arachnarch</small><em>奖励：minecraft:netherite_ingot、经验 90 points</em></div></li>
-      </ol>
-    </section>
-    <section class="branch">
-      <h3>终极挑战<span>5 个任务</span></h3>
-      <p class="sub">Boss 线 · 终章</p>
-      <ol class="chain">
-        <li class="q challenge"><span class="n">1</span><div><b>远古守卫者</b><small>击败 minecraft:elder_guardian</small><em>奖励：minecraft:sponge 8、经验 60 points</em></div></li>
-        <li class="q challenge"><span class="n">2</span><div><b>潜行者</b><small>击败 deeperdarker:stalker</small><em>奖励：minecraft:netherite_ingot、经验 100 points</em></div></li>
-        <li class="q challenge"><span class="n">3</span><div><b>噬命者</b><small>击败 born_in_chaos_v1:lifestealer</small><em>奖励：minecraft:netherite_ingot、minecraft:golden_apple 8、经验 100 points</em></div></li>
-        <li class="q challenge"><span class="n">4</span><div><b>凋灵（强化后）</b><small>击败 minecraft:wither</small><em>奖励：minecraft:nether_star、minecraft:netherite_ingot 2、经验 120 points</em></div></li>
-        <li class="q challenge"><span class="n">5</span><div><b>终章 · 利维坦</b><small>击败 cataclysm:the_leviathan</small><em>奖励：minecraft:netherite_ingot 3、minecraft:enchanted_golden_apple 4、minecraft:nether_star、经验 200 points</em></div></li>
-      </ol>
-    </section>
-  </div>
-  <p class="foot">本页由脚本从实际打包的任务数据反向生成，与游戏内内容完全一致。共 139 个任务。<br>整合包与本站由 <strong>大肥鱼(deepseek)</strong>制作 ｜ <a href="index.html" style="color:var(--gold)">返回首页</a></p>
 </div>
+<footer>
+  由脚本从游戏内任务数据（<code>config/heracles/</code>）反向生成，与包里完全一致。<br>
+  整合包与本站由 <strong>大肥鱼(deepseek)</strong>制作 ｜ <a href="index.html">返回首页</a>
+</footer>
 </body>
 </html>
