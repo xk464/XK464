@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0f14">
+<title>工业帝国（2/3） · 匠造与奥术任务线</title>
+<style>
+:root{--bg:#0b0f14;--a:#7fb6c9;--b:#c9d1d9;--ink:#f1eee3;--muted:#a9aca0;--faint:#6d7167;--line:rgba(231,225,199,.14);
+--serif:Georgia,"Noto Serif SC","Songti SC",serif;--sans:"Inter","Noto Sans SC","Microsoft YaHei",sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;overflow-x:hidden;
+  text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 50% at 18% 6%, rgba(127,182,201,.28), transparent 60%),
+             radial-gradient(ellipse 60% 46% at 88% 84%, rgba(201,209,217,.10), transparent 60%)}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.9;background-image:linear-gradient(rgba(127,182,201,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(127,182,201,.055) 1px, transparent 1px)}
+.wrap{position:relative;z-index:1;width:min(1180px,calc(100% - 40px));margin:0 auto}
+header.top{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);
+  background:color-mix(in srgb,var(--bg) 87%,transparent);backdrop-filter:blur(14px)}
+.top-in{width:min(1180px,calc(100% - 40px));margin:0 auto;min-height:62px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:15px;text-decoration:none;color:inherit;white-space:nowrap}
+.brand i{width:10px;height:10px;border-radius:3px;background:var(--a);display:inline-block;box-shadow:0 0 13px var(--a)}
+.brand b{color:var(--a)}
+.spacer{flex:1}
+.chip{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px;white-space:nowrap}
+.hero{padding:44px 0 22px}
+.eyebrow{font-size:12px;letter-spacing:.22em;color:var(--a);text-transform:uppercase;font-weight:600}
+.hero h1{font-family:var(--serif);font-size:clamp(26px,4vw,44px);margin:9px 0 7px;line-height:1.16}
+.hero h1 em{font-style:normal;color:var(--a)}
+.hero .sub{color:var(--b);font-size:14.5px;margin:0 0 9px;letter-spacing:.05em}
+.hero p.lead{color:var(--muted);max-width:64ch;margin:0;font-size:14px}
+/* 进度条 */
+.bar{margin-top:20px;height:5px;border-radius:99px;background:color-mix(in srgb,var(--a) 14%,transparent);overflow:hidden;
+  border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--b));border-radius:99px;
+  box-shadow:0 0 18px var(--a)}
+.barmeta{display:flex;justify-content:space-between;font-size:11.5px;color:var(--faint);margin-top:6px}
+/* ★ 横行排列的任务卡 */
+.flow{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 0;counter-reset:q}
+.flow .card{counter-increment:q;position:relative;flex:1 1 214px;max-width:100%;min-height:126px;
+  border:1px solid var(--line);border-radius:13px;padding:14px 16px 13px;
+  background:color-mix(in srgb,var(--bg) 72%,#ffffff 5%);transition:transform .18s,border-color .18s,background .18s}
+.flow .card:hover{transform:translateY(-4px);border-color:var(--a);background:color-mix(in srgb,var(--bg) 62%,var(--a) 10%)}
+.flow .card::before{content:counter(q,decimal-leading-zero);font-family:var(--serif);font-size:13px;color:var(--a);opacity:.9;letter-spacing:.08em}
+.flow .card h3{margin:5px 0 0;font-size:15px;font-weight:600;line-height:1.35}
+.flow .card .sub{color:var(--b);font-size:11.5px;margin:2px 0 0;letter-spacing:.04em}
+.flow .card .cond{margin-top:8px;font-size:11.5px;color:var(--muted);word-break:break-all}
+.flow .card .rw{margin-top:5px;font-size:11.5px;color:var(--b);opacity:.85;word-break:break-all}
+/* 箭头连接（仅视觉） */
+.flow .card:not(:last-child)::after{content:"›";position:absolute;right:-9px;top:50%;transform:translateY(-50%);
+  color:var(--a);opacity:.35;font-size:17px;pointer-events:none}
+nav.pager{display:flex;gap:11px;align-items:stretch;margin:38px 0 0;flex-wrap:wrap}
+nav.pager a{flex:1 1 200px;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:13px;
+  padding:12px 17px;background:color-mix(in srgb,var(--bg) 74%,#ffffff 4%);transition:.16s}
+nav.pager a:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
+nav.pager a small{display:block;font-size:11px;color:var(--faint);letter-spacing:.1em}
+nav.pager a b{display:block;font-size:14.5px;font-weight:600}
+nav.pager a.home{flex:0 0 auto;min-width:112px;text-align:center}
+nav.pager a.home b{color:var(--a);font-size:13.5px}
+nav.pager a.dis{opacity:.32;pointer-events:none}
+h2.sec{font-family:var(--serif);font-size:19px;margin:36px 0 3px;display:flex;align-items:baseline;gap:11px}
+h2.sec span{font-size:12px;color:var(--faint);font-weight:400;font-family:var(--sans)}
+.grid{display:grid;gap:9px;grid-template-columns:repeat(auto-fill,minmax(206px,1fr));margin-top:13px}
+.grid a{text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:11px;padding:10px 13px;
+  background:color-mix(in srgb,var(--bg) 74%,#ffffff 4%);transition:.16s;display:block}
+.grid a:hover{border-color:var(--a);transform:translateY(-2px)}
+.grid a b{display:block;font-size:13.5px}
+.grid a span{font-size:11.5px;color:var(--faint)}
+.grid a.cur{border-color:var(--a);background:color-mix(in srgb,var(--a) 14%,transparent)}
+.grid a.cur b{color:var(--a)}
+footer{border-top:1px solid var(--line);margin-top:42px;padding:24px 0 66px;color:var(--faint);font-size:12.5px}
+footer a{color:var(--a);text-decoration:none}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="../index.html"><i></i>匠造与奥术 · <b>任务线</b></a>
+  <div class="spacer"></div>
+  <span class="chip">第 04 章 · 2/3 页</span>
+  <span class="chip">游戏内按 <b>-</b></span>
+</div></header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Chapter 04 · 通用机械 · 沉浸工程 · AE2</div>
+    <h1><em>工业帝国</em> <span style="font-size:.55em;color:var(--faint)">第 2 / 3 页</span></h1>
+    <p class="sub">通用机械 · 沉浸工程 · AE2</p>
+    <p class="lead">规模化：矿石翻倍、电力驱动、把整座仓库压进一个终端。</p>
+    <div class="bar"><i style="width:91%"></i></div>
+    <div class="barmeta"><span>本章共 22 个任务</span><span>本页 11 – 20</span></div>
+  </section>
+
+  <h2 class="sec">任务流程 <span>横向排列 · 从左到右依次推进</span></h2>
+  <div class="flow">
+    <div class="card">
+      <h3>赛特斯石英</h3>
+      <div class="sub">AE2 从这种水晶开始</div>
+      <div class="cond">收集 ae2:certus_quartz_crystal ×8</div>
+      <div class="rw">奖励：ae2:certus_quartz_crystal ×8</div>
+    </div>
+    <div class="card">
+      <h3>充能器</h3>
+      <div class="sub">给水晶充能</div>
+      <div class="cond">收集 ae2:charger</div>
+      <div class="rw">奖励：ae2:certus_quartz_crystal ×8</div>
+    </div>
+    <div class="card">
+      <h3>压印器</h3>
+      <div class="sub">把电路图案压到硅片上</div>
+      <div class="cond">收集 ae2:inscriber</div>
+      <div class="rw">奖励：ae2:printed_silicon ×4</div>
+    </div>
+    <div class="card">
+      <h3>硅片</h3>
+      <div class="sub">所有处理器的底子</div>
+      <div class="cond">收集 ae2:printed_silicon</div>
+      <div class="rw">奖励：minecraft:iron_ingot ×16</div>
+    </div>
+    <div class="card">
+      <h3>逻辑处理器</h3>
+      <div class="sub">三种处理器之一</div>
+      <div class="cond">收集 ae2:logic_processor</div>
+      <div class="rw">奖励：ae2:printed_logic_processor ×4</div>
+    </div>
+    <div class="card">
+      <h3>运算处理器</h3>
+      <div class="sub">之三</div>
+      <div class="cond">收集 ae2:calculation_processor</div>
+      <div class="rw">奖励：ae2:printed_calculation_processor ×4</div>
+    </div>
+    <div class="card">
+      <h3>工程处理器</h3>
+      <div class="sub">高级机器的门票</div>
+      <div class="cond">收集 ae2:engineering_processor</div>
+      <div class="rw">奖励：ae2:printed_engineering_processor ×4</div>
+    </div>
+    <div class="card">
+      <h3>ME 驱动器</h3>
+      <div class="sub">插进存储元件就有数字仓库</div>
+      <div class="cond">收集 ae2:drive</div>
+      <div class="rw">奖励：ae2:item_storage_cell_1k ×2</div>
+    </div>
+    <div class="card">
+      <h3>存储元件</h3>
+      <div class="sub">一格装 1024 种物品</div>
+      <div class="cond">收集 ae2:item_storage_cell_1k</div>
+      <div class="rw">奖励：ae2:item_storage_cell_4k</div>
+    </div>
+    <div class="card">
+      <h3>样板供应器</h3>
+      <div class="sub">自动合成的关键</div>
+      <div class="cond">收集 ae2:pattern_provider</div>
+      <div class="rw">奖励：ae2:engineering_processor ×4</div>
+    </div>
+  </div>
+
+  <h2 class="sec">本页位置 <span>同一章的其它分页</span></h2>
+  <div class="grid">
+    <a href="04-工业帝国-1.html"><b>工业帝国 1/3</b><span>任务 1 – 10</span></a>
+    <a href="04-工业帝国-2.html" class="cur"><b>工业帝国 2/3</b><span>任务 11 – 20</span></a>
+    <a href="04-工业帝国-3.html"><b>工业帝国 3/3</b><span>任务 21 – 22</span></a>
+  </div>
+
+  <h2 class="sec">全部章节 <span>共 10 章 22 页</span></h2>
+  <div class="grid">
+    <a href="01-安家落户-1.html"><b>01 安家落户</b><span>前期主线 · 18 个任务</span></a>
+    <a href="02-田园生活-1.html"><b>02 田园生活</b><span>农夫乐事与厨房 · 16 个任务</span></a>
+    <a href="03-机械动力-1.html"><b>03 机械动力</b><span>从水车到铁路 · 22 个任务</span></a>
+    <a href="04-工业帝国-1.html" class="cur"><b>04 工业帝国</b><span>通用机械 · 沉浸工程 · AE2 · 22 个任务</span></a>
+    <a href="05-蓝图与建造-1.html"><b>05 蓝图与建造</b><span>建造魔杖与蓝图加农炮 · 14 个任务</span></a>
+    <a href="06-奥术·新生魔艺-1.html"><b>06 奥术·新生魔艺</b><span>法术 · 魔源 · 灌注 · 16 个任务</span></a>
+    <a href="07-奥术·植物魔法-1.html"><b>07 奥术·植物魔法</b><span>用花做资源农场 · 14 个任务</span></a>
+    <a href="08-收纳与物流.html"><b>08 收纳与物流</b><span>把仓库理清楚 · 10 个任务</span></a>
+    <a href="09-探索与征服-1.html"><b>09 探索与征服</b><span>下界 · 末地 · 远古城市 · 15 个任务</span></a>
+    <a href="10-强者之路-1.html"><b>10 强者之路</b><span>27 场 Boss 战 · 27 个任务</span></a>
+  </div>
+
+  <nav class="pager">
+    <a href="04-工业帝国-1.html"><small>← 上一页</small><b>工业帝国 1/3</b></a>
+    <a class="home" href="../index.html"><small>HOME</small><b>返回首页</b></a>
+    <a href="04-工业帝国-3.html"><small>下一页 →</small><b>工业帝国 3/3</b></a>
+  </nav>
+</div>
+
+<footer><div class="wrap">
+  任务数据由脚本从整合包内的 <code>config/heracles/</code> 反向生成，与游戏里完全一致。<br>
+  整合包与本站由 <strong>大肥鱼(deepseek)</strong>制作 ｜ <a href="../index.html">← 返回首页</a> ｜ <a href="../工具/任务线思维导图.html">任务线思维导图</a> ｜ <a href="../工具/键位总表.html">键位总表</a>
+</div></footer>
+</body>
+</html>
