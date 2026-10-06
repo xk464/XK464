@@ -7,6 +7,7 @@
   <meta name="description" content="匠造与奥术 Minecraft 1.20.1 Forge 整合包新手教程、精选模组介绍与 任务书 183 个任务 · 思维导图。由 大肥鱼(deepseek)制作。">
   <title>匠造与奥术 · 新手指南与模组图鉴</title>
   <style>
+    /* ===== 主题变量 ===== */
     :root {
       color-scheme: dark;
       --bg: #111411;
@@ -20,29 +21,107 @@
       --blue: #91b7ad;
       --serif: Georgia, "Noto Serif SC", "Songti SC", serif;
       --sans: "Inter", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      --shadow-soft: 0 18px 40px rgba(12, 14, 12, 0.35);
+      --shadow-card: 0 12px 28px rgba(10, 12, 10, 0.18);
     }
+
+    /* ===== 基础样式 ===== */
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 85px; }
     body {
+      position: relative;
       margin: 0;
-      background: radial-gradient(ellipse at 77% 8%, rgba(104,130,91,.12), transparent 31rem),
-        radial-gradient(ellipse at 10% 38%, rgba(181,135,72,.08), transparent 28rem), var(--bg);
+      overflow-x: hidden;
+      background: var(--bg);
       color: var(--text);
       font-family: var(--sans);
       line-height: 1.75;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: -18% -10% auto auto;
+      width: 42rem;
+      height: 42rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(163, 216, 155, 0.22), rgba(163, 216, 155, 0) 62%);
+      filter: blur(72px);
+      pointer-events: none;
+      z-index: 0;
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    body::after {
+      inset: auto auto -10% -8%;
+      width: 38rem;
+      height: 38rem;
+      background: radial-gradient(circle, rgba(229, 189, 116, 0.18), rgba(229, 189, 116, 0) 62%);
+      animation-duration: 22s;
+    }
+    .sky-layer,
+    .scanlines,
+    .glow-orb,
+    .particle-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .particle-canvas { width: 100%; height: 100%; opacity: .82; }
+    .sky-layer {
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.85), transparent 60%),
+        radial-gradient(1.5px 1.5px at 70% 20%, rgba(255,255,255,.75), transparent 60%),
+        radial-gradient(1.8px 1.8px at 80% 60%, rgba(255,255,255,.7), transparent 60%),
+        radial-gradient(1.5px 1.5px at 35% 80%, rgba(255,255,255,.8), transparent 60%),
+        radial-gradient(2px 2px at 55% 45%, rgba(255,255,255,.8), transparent 60%);
+      background-size: 240px 240px;
+      opacity: .75;
+      animation: twinkle 16s linear infinite alternate;
+    }
+    .scanlines {
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.04),
+        rgba(255,255,255,.04) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+      mix-blend-mode: screen;
+      opacity: .35;
+    }
+    .glow-orb {
+      background:
+        radial-gradient(circle at 20% 25%, rgba(255,255,255,.12), transparent 24%),
+        radial-gradient(circle at 68% 40%, rgba(142,217,255,.10), transparent 28%),
+        radial-gradient(circle at 52% 75%, rgba(241,198,88,.12), transparent 30%);
+      filter: blur(18px);
+      animation: drift 20s ease-in-out infinite alternate;
     }
     a { color: inherit; }
     .wrap { width: min(1120px, calc(100% - 44px)); margin: 0 auto; }
-    .topbar { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(17,20,17,.9); backdrop-filter: blur(16px); }
+    header, main, footer { position: relative; z-index: 1; }
+
+    /* ===== 顶部导航 ===== */
+    .topbar { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(17,20,17,.88); backdrop-filter: blur(16px); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18); }
     .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .brand { display: flex; align-items: center; gap: 11px; font-family: var(--serif); font-size: 18px; letter-spacing: .06em; text-decoration: none; white-space: nowrap; }
-    .brand-mark { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid rgba(229,189,116,.6); color: var(--gold); transform: rotate(45deg); }
+    .brand-mark { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid rgba(229,189,116,.6); color: var(--gold); transform: rotate(45deg); box-shadow: 0 0 18px rgba(229,189,116,.12); }
     .brand-mark span { transform: rotate(-45deg); }
     .nav-links { display: flex; align-items: center; gap: 21px; }
-    .nav-links a { color: var(--muted); font-size: 12px; text-decoration: none; }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-links .nav-cta { border: 1px solid rgba(229,189,116,.55); padding: 7px 11px; color: var(--gold); }
-    .menu-toggle { display: none; border: 1px solid var(--line); padding: 6px 10px; background: transparent; color: var(--text); font: inherit; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 12px;
+      text-decoration: none;
+      transition: color .2s ease, transform .2s ease;
+    }
+    .nav-links a:hover { color: var(--gold); transform: translateY(-1px); }
+    .nav-links .nav-cta { border: 1px solid rgba(229,189,116,.55); padding: 7px 11px; color: var(--gold); border-radius: 999px; }
+    .menu-toggle { display: none; border: 1px solid var(--line); padding: 6px 10px; background: transparent; color: var(--text); font: inherit; border-radius: 999px; }
+
+    /* ===== 首页 Hero ===== */
     .hero { position: relative; display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 38px; min-height: 550px; padding: 75px 0 65px; overflow: hidden; }
     .hero::after { content: ""; position: absolute; top: 15%; right: 3%; width: min(35vw, 390px); aspect-ratio: 1; border: 1px solid rgba(229,189,116,.18); border-radius: 50%; box-shadow: 0 0 0 35px rgba(229,189,116,.025), 0 0 0 75px rgba(229,189,116,.02); pointer-events: none; }
     .eyebrow { color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
@@ -51,13 +130,28 @@
     h1 span { display: block; color: var(--gold); }
     .hero-copy { max-width: 570px; color: #c3c3b7; font-size: 15px; }
     .actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 25px; }
-    .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; padding: 0 18px; border: 1px solid var(--gold); background: var(--gold); color: #181811; font-size: 12px; font-weight: 700; text-decoration: none; }
-    .button.secondary { border-color: var(--line); background: transparent; color: var(--text); }
-    .button:hover { filter: brightness(1.08); }
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border: 1px solid var(--gold);
+      background: linear-gradient(135deg, #f0d49d, var(--gold));
+      color: #181811;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 999px;
+      box-shadow: 0 12px 22px rgba(229,189,116,.18);
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    .button.secondary { border-color: var(--line); background: transparent; color: var(--text); box-shadow: none; }
+    .button:hover { filter: brightness(1.08); transform: translateY(-1px); }
     .hero-note { margin-top: 16px; color: #929587; font-size: 11px; }
     .sigil { position: relative; z-index: 1; display: grid; min-height: 320px; place-items: center; }
-    .ring { display: grid; width: min(29vw, 320px); aspect-ratio: 1; place-items: center; border: 1px solid rgba(229,189,116,.45); border-radius: 50%; }
-    .diamond { display: grid; width: 52%; aspect-ratio: 1; place-items: center; transform: rotate(45deg); border: 1px solid rgba(229,189,116,.4); background: linear-gradient(145deg,rgba(229,189,116,.08),rgba(166,187,130,.04)); }
+    .ring { display: grid; width: min(29vw, 320px); aspect-ratio: 1; place-items: center; border: 1px solid rgba(229,189,116,.45); border-radius: 50%; box-shadow: inset 0 0 30px rgba(229,189,116,.06), 0 0 28px rgba(229,189,116,.08); animation: float 8s ease-in-out infinite; }
+    .diamond { display: grid; width: 52%; aspect-ratio: 1; place-items: center; transform: rotate(45deg); border: 1px solid rgba(229,189,116,.4); background: linear-gradient(145deg,rgba(229,189,116,.08),rgba(166,187,130,.04)); animation: pulse 4s ease-in-out infinite; }
     .diamond span { transform: rotate(-45deg); color: var(--gold); font-size: 76px; text-shadow: 0 0 40px rgba(229,189,116,.35); }
     .stats { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .stat { padding: 20px; border-right: 1px solid var(--line); }
@@ -69,8 +163,9 @@
     h2 { margin: 8px 0 0; font: 500 clamp(30px,4vw,42px)/1.3 var(--serif); }
     .intro { max-width: 420px; margin: 0; color: var(--muted); font-size: 13px; }
     .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
-    .step, .mod-card, .chapter, .tip-card { border: 1px solid var(--line); background: linear-gradient(150deg,rgba(255,255,255,.025),transparent 65%),var(--panel); }
-    .step { min-height: 204px; padding: 22px; }
+    .step, .mod-card, .chapter, .tip-card { border: 1px solid var(--line); background: linear-gradient(150deg,rgba(255,255,255,.025),transparent 65%),var(--panel); box-shadow: var(--shadow-card); }
+    .step { min-height: 204px; padding: 22px; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; animation: riseIn .7s ease both; }
+    .step:hover, .mod-card:hover, .chapter:hover, .tip-card:hover { transform: translateY(-2px); border-color: rgba(229,189,116,.35); box-shadow: 0 18px 30px rgba(12, 16, 12, 0.22); }
     .step-no { color: var(--gold); font: 500 23px var(--serif); }
     .step h3, .mod-card h3, .chapter h3, .tip-card h3 { margin: 8px 0; font-size: 15px; font-weight: 600; }
     .step p, .mod-card p, .chapter p, .tip-card p { margin: 0; color: var(--muted); font-size: 12px; }
@@ -118,6 +213,11 @@
     .reward-notes div { padding: 11px; border: 1px solid var(--line); color: var(--muted); font-size: 10px; }
     .reward-notes strong { display: block; margin-bottom: 4px; color: var(--text); font-size: 11px; }
     .verification-note { margin-top: 13px; padding: 13px 15px; border-left: 2px solid var(--blue); background: rgba(145,183,173,.055); color: #c4cec8; font-size: 11px; }
+    @keyframes drift { 0% { transform: translate3d(0, 0, 0) scale(1); } 100% { transform: translate3d(6%, -8%, 0) scale(1.12); } }
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
+    @keyframes pulse { 0%, 100% { transform: rotate(45deg) scale(1); box-shadow: 0 0 0 rgba(229,189,116,0); } 50% { transform: rotate(45deg) scale(1.06); box-shadow: 0 0 28px rgba(229,189,116,0.2); } }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes twinkle { 0% { opacity: .35; transform: scale(1); } 50% { opacity: .9; } 100% { opacity: .6; transform: scale(1.08); } }
     .footer { padding: 28px 0; border-top: 1px solid var(--line); color: #909286; font-size: 10px; }
     .footer-inner { display: flex; justify-content: space-between; gap: 14px; }
     .footer p { margin: 0; }
@@ -151,10 +251,27 @@
       .steps, .quick-start, .mod-grid, .chapter-grid { grid-template-columns: 1fr; }
       .step { min-height: auto; }
     }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
   </style>
+
+<style>
+/* drift-polish */
+.section-head h2{background:linear-gradient(100deg,var(--text) 30%,var(--gold) 78%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.chapter,.mod-card,.tip-card,.stat{backdrop-filter:blur(8px)}
+.mod-card:hover,.tip-card:hover,.chapter:hover{transform:translateY(-4px);border-color:var(--gold)!important;
+  box-shadow:var(--shadow-soft)}
+.brand-mark{box-shadow:0 0 22px rgba(229,189,116,.35)}
+</style>
 </head>
 <body>
+  <div class="sky-layer" aria-hidden="true"></div>
+  <div class="glow-orb" aria-hidden="true"></div>
+  <canvas class="particle-canvas" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
   <header class="topbar">
     <nav class="nav wrap" aria-label="主导航">
       <a class="brand" href="#top"><span class="brand-mark"><span>✦</span></span>匠造与奥术</a>
@@ -167,6 +284,7 @@
   </header>
   <main id="top">
     <div class="wrap">
+      <!-- Hero 区域：展示游戏介绍与 CTA -->
       <section class="hero">
         <div>
           <div class="eyebrow">MINECRAFT 1.20.1 · FORGE 47.4.10 · V1.10.0</div>
@@ -184,6 +302,7 @@
       </div>
     </div>
 
+    <!-- 新手教程：包含安装、配置与首次启动说明 -->
     <section id="starter">
       <div class="wrap">
         <div class="section-head"><div><div class="eyebrow">FIRST STEPS</div><h2>新手教程：从下载到第一天</h2></div><p class="intro">整合包采用 PCL2 可识别的 MultiMC 格式。模组和配置已经打包好，导入后启动器会安装游戏本体与 Forge。</p></div>
@@ -205,6 +324,7 @@
       </div>
     </section>
 
+    <!-- 模组图鉴：按类别讲解代表模组与玩法 -->
     <section id="mods">
       <div class="wrap">
         <div class="section-head"><div><div class="eyebrow">MOD GUIDE</div><h2>模组介绍：先认识这些伙伴</h2></div><p class="intro">整合包包含 246 个模组。下面按玩法介绍代表性模组；部分模组需要先制作对应物品或阅读游戏内指南。</p></div>
@@ -267,9 +387,35 @@
       </div>
     </section>
 
+    <!-- 任务书概览：展示结构、奖励与关键注意事项 -->
     <section id="quests">
       <div class="wrap">
-        <div class="section-head"><div><div class="eyebrow">QUEST BOOK</div><h2>任务书：一条主线，长出十条支线</h2></div><p class="intro">v1.7.0 起换成真正的任务书模组 <strong>Odyssey Quests / Heracles</strong>：按 <code>-</code> 打开（或右键任务书），不再占用原版进度界面。</p></div>
+        <div class="section-head">
+<div class="chapter-links">
+  <a href="chapter-01-home.html"><span class="no">01</span><b>安家落户</b><small>前期主线 · 18 个任务</small></a>
+  <a href="chapter-02-farm.html"><span class="no">02</span><b>田园生活</b><small>农夫乐事与厨房 · 16</small></a>
+  <a href="chapter-03-create.html"><span class="no">03</span><b>机械动力</b><small>从水车到铁路 · 22</small></a>
+  <a href="chapter-04-industry.html"><span class="no">04</span><b>工业帝国</b><small>通用机械 · 沉浸工程 · AE2 · 22</small></a>
+  <a href="chapter-05-build.html"><span class="no">05</span><b>蓝图与建造</b><small>建造魔杖与蓝图加农炮 · 14</small></a>
+  <a href="chapter-06-ars.html"><span class="no">06</span><b>奥术 · 新生魔艺</b><small>法术 · 魔源 · 灌注 · 16</small></a>
+  <a href="chapter-07-botania.html"><span class="no">07</span><b>奥术 · 植物魔法</b><small>用花做资源农场 · 14</small></a>
+  <a href="chapter-08-storage.html"><span class="no">08</span><b>收纳与物流</b><small>把仓库理清楚 · 10</small></a>
+  <a href="chapter-09-explore.html"><span class="no">09</span><b>探索与征服</b><small>下界 · 末地 · 远古城市 · 15</small></a>
+  <a href="chapter-10-boss.html"><span class="no">10</span><b>强者之路</b><small>27 场 Boss 战</small></a>
+</div>
+<style>
+.chapter-links{display:grid;gap:11px;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));margin:16px 0 20px}
+.chapter-links a{position:relative;display:block;text-decoration:none;color:inherit;border:1px solid var(--line);
+  border-radius:13px;padding:14px 16px 13px;background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.01));
+  transition:transform .18s,border-color .18s,background .18s;overflow:hidden}
+.chapter-links a::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);opacity:.5;transition:opacity .18s}
+.chapter-links a:hover{transform:translateY(-3px);border-color:var(--gold);background:linear-gradient(160deg,rgba(229,189,116,.10),rgba(229,189,116,.02))}
+.chapter-links a:hover::after{opacity:1}
+.chapter-links .no{font-family:var(--serif);font-size:12px;color:var(--gold);opacity:.85;letter-spacing:.14em}
+.chapter-links b{display:block;font-size:15px;margin:2px 0 1px}
+.chapter-links small{color:var(--muted);font-size:12px}
+</style>
+<div><div class="eyebrow">QUEST BOOK</div><h2>任务书：一条主线，长出十条支线</h2></div><p class="intro">v1.7.0 起换成真正的任务书模组 <strong>Odyssey Quests / Heracles</strong>：按 <code>-</code> 打开（或右键任务书），不再占用原版进度界面。</p></div>
         <div class="chapters">
           <article class="chapter"><small>183 QUESTS · 1 TRUNK + 9 BRANCHES + COMMANDS</small><h3>一棵树</h3><p><strong>前期主线 18 个</strong>竖着往下走，从徒手打木头一路到传送网络；<strong>9 条支线</strong>从主线的不同高度分叉出去，各自一列向下延伸，支线之间互不挡路。</p></article>
         </div>
@@ -308,6 +454,7 @@
       </div>
     </section>
 
+    <!-- 实用技巧：常见问题、联机与按键速查 -->
     <section id="tips">
       <div class="wrap">
         <div class="section-head"><div><div class="eyebrow">FIELD NOTES</div><h2>出发前记住这些</h2></div><p class="intro">快捷键可能与其他模组或玩家设置冲突；可在选项的按键设置中搜索模组名称并自行调整。</p></div>
@@ -332,18 +479,130 @@
   </main>
   <footer class="footer"><div class="wrap footer-inner"><p>匠造与奥术 · 新手教程与模组指南 · <strong>由 大肥鱼(deepseek)制作</strong></p><p>整合包制作归 大肥鱼(deepseek) · 模组名称与商标归各自作者所有 · 非商业用途</p><a href="https://github.com/xk464/XK464">GitHub 项目 ↗</a></div></footer>
   <script>
+    // 移动端菜单交互：展开/收起导航并同步 ARIA 状态。
     const menuButton = document.querySelector(".menu-toggle");
     const menu = document.querySelector("#nav-links");
-    menuButton.addEventListener("click", () => {
-      const isOpen = menu.classList.toggle("open");
-      menuButton.setAttribute("aria-expanded", String(isOpen));
-    });
-    menu.addEventListener("click", (event) => {
-      if (event.target.closest("a")) {
-        menu.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
+
+    if (menuButton && menu) {
+      menuButton.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      menu.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+          menu.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    // Canvas 星尘：用少量带尾迹的粒子营造斜向流动的星尘雨。
+    const particleCanvas = document.querySelector(".particle-canvas");
+    const particleContext = particleCanvas?.getContext("2d");
+
+    if (particleCanvas && particleContext) {
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const particles = [];
+      let width = 0;
+      let height = 0;
+      let animationFrame = 0;
+      let lastFrame = 0;
+      const frameInterval = 1000 / 30;
+
+      function resizeParticleCanvas() {
+        const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        particleCanvas.width = Math.round(width * pixelRatio);
+        particleCanvas.height = Math.round(height * pixelRatio);
+        particleContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+        const particleCount = Math.min(110, Math.max(42, Math.round(width / 12)));
+
+        particles.length = 0;
+        for (let index = 0; index < particleCount; index += 1) {
+          particles.push(createParticle(Math.random() * width, Math.random() * height));
+        }
+        drawParticles();
       }
-    });
+
+      function createParticle(x, y) {
+        const radius = Math.random() * 1.5 + 0.45;
+        const speed = Math.random() * 0.75 + 0.25;
+        return {
+          x,
+          y,
+          radius,
+          speed,
+          tail: Math.random() * 22 + 8,
+          alpha: Math.random() * 0.55 + 0.2,
+          hue: Math.random() > 0.78 ? 42 : 155
+        };
+      }
+
+      function drawParticles() {
+        particleContext.clearRect(0, 0, width, height);
+        particleContext.save();
+        particleContext.globalCompositeOperation = "lighter";
+
+        for (const particle of particles) {
+          const color = `hsla(${particle.hue}, 72%, 78%, ${particle.alpha})`;
+          const trail = particleContext.createLinearGradient(
+            particle.x,
+            particle.y - particle.tail,
+            particle.x + particle.tail * 0.34,
+            particle.y
+          );
+          trail.addColorStop(0, "rgba(210, 230, 220, 0)");
+          trail.addColorStop(1, color);
+          particleContext.strokeStyle = trail;
+          particleContext.lineWidth = particle.radius;
+          particleContext.beginPath();
+          particleContext.moveTo(particle.x, particle.y - particle.tail);
+          particleContext.lineTo(particle.x + particle.tail * 0.34, particle.y);
+          particleContext.stroke();
+
+          particleContext.shadowBlur = 12;
+          particleContext.shadowColor = color;
+          particleContext.fillStyle = color;
+          particleContext.beginPath();
+          particleContext.arc(particle.x + particle.tail * 0.34, particle.y, particle.radius, 0, Math.PI * 2);
+          particleContext.fill();
+
+          if (!reducedMotion.matches) {
+            particle.x += particle.speed * 0.42;
+            particle.y += particle.speed * 1.8;
+            if (particle.y - particle.tail > height || particle.x > width + 30) {
+              Object.assign(particle, createParticle(Math.random() * (width + 50) - 50, -particle.tail));
+            }
+          }
+        }
+
+        particleContext.restore();
+      }
+
+      function animateParticles(timestamp) {
+        if (timestamp - lastFrame >= frameInterval) {
+          drawParticles();
+          lastFrame = timestamp;
+        }
+        animationFrame = window.requestAnimationFrame(animateParticles);
+      }
+
+      function startParticleAnimation() {
+        window.cancelAnimationFrame(animationFrame);
+        drawParticles();
+        if (!reducedMotion.matches && !document.hidden) {
+          animationFrame = window.requestAnimationFrame(animateParticles);
+        }
+      }
+
+      resizeParticleCanvas();
+      startParticleAnimation();
+      window.addEventListener("resize", resizeParticleCanvas, { passive: true });
+      document.addEventListener("visibilitychange", startParticleAnimation);
+      reducedMotion.addEventListener("change", startParticleAnimation);
+    }
   </script>
 </body>
 </html>

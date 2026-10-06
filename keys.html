@@ -77,6 +77,33 @@ table.kb td.dim{color:var(--faint)}
 .search:focus{outline:none;border-color:var(--gold)}
 .count{color:var(--faint);font-size:12.5px}
 </style>
+
+<style>
+/* keycap — 键帽美学：暗色打字机 + 网格底纹 + 荧光描边 */
+body{
+  background:
+    repeating-linear-gradient(0deg, rgba(226,219,190,.022) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(90deg, rgba(226,219,190,.022) 0 1px, transparent 1px 46px),
+    radial-gradient(ellipse 80% 55% at 50% -8%, rgba(220,181,106,.10), transparent 62%),
+    linear-gradient(180deg,#0a0d0b,#0d100e 55%,#0a0d0b)!important;
+  background-attachment:fixed!important}
+h1{font-family:ui-monospace,"Cascadia Code",Consolas,var(--serif)!important;letter-spacing:.01em}
+h1 em{color:var(--gold);text-shadow:0 0 26px rgba(220,181,106,.45)}
+h2.sec{border-bottom:1px dashed rgba(226,219,190,.16);padding-bottom:9px}
+h2.sec::before{content:"$";color:var(--gold);opacity:.55;font-family:ui-monospace,monospace;margin-right:9px}
+kbd{position:relative;font-family:ui-monospace,"Cascadia Code",Consolas,monospace!important;
+  background:linear-gradient(180deg,#262c24,#161b15)!important;
+  border:1px solid rgba(226,219,190,.24)!important;border-bottom-width:3px!important;
+  box-shadow:0 2px 0 rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.10),0 0 16px rgba(220,181,106,.10)!important;
+  color:var(--gold2)!important;letter-spacing:.04em;transition:transform .1s,box-shadow .1s}
+kbd:hover{transform:translateY(1px);box-shadow:0 1px 0 rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.10),0 0 22px rgba(220,181,106,.28)!important}
+.kbd-card{border-left:3px solid var(--gold)!important;background:linear-gradient(180deg,rgba(22,28,21,.72),rgba(12,16,12,.72))!important;
+  transition:transform .16s,border-color .16s}
+.kbd-card:hover{transform:translateX(4px);border-left-color:var(--gold2)!important}
+table.kb tr:hover td{background:rgba(220,181,106,.07)!important}
+table.kb td.mod{font-family:ui-monospace,monospace;font-size:12.5px}
+.search{font-family:ui-monospace,monospace!important;border-left:3px solid var(--gold)!important}
+</style>
 </head>
 <body>
 <header class="top"><div class="top-in">
