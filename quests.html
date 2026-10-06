@@ -4,972 +4,238 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b0e0c">
-<title>匠造与奥术 · 任务科技树</title>
+<title>匠造与奥术 · 任务线思维导图</title>
 <style>
-:root{--bg:#0b0e0c;--bg2:#10140f;--ink:#eef1e6;--muted:#9aa392;--faint:#6b7364;--line:rgba(226,219,190,.13);
---gold:#dcb56a;--gold2:#f0d79b;--green:#9dbb79;--serif:"Noto Serif SC","Songti SC",Georgia,serif;--sans:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;color:var(--ink);font-family:var(--sans);line-height:1.75;
-background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(220,181,106,.09),transparent 60%),
-radial-gradient(ellipse 60% 40% at 90% 15%,rgba(127,182,201,.06),transparent 55%),
-radial-gradient(ellipse 70% 50% at 5% 80%,rgba(157,187,121,.05),transparent 60%),
-linear-gradient(180deg,var(--bg2),var(--bg) 40%);background-attachment:fixed}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
-background-image:radial-gradient(circle at 1px 1px,#fff 1px,transparent 0);background-size:4px 4px}
-header.top{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(11,14,12,.82);border-bottom:1px solid var(--line)}
-.top-in{max-width:1400px;margin:0 auto;padding:14px 26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
-border-radius:999px;padding:6px 15px 6px 11px;font-size:13.5px;transition:.18s}
+:root{
+  --bg:#0b0e0c;--bg2:#10140f;--ink:#eef1e6;--muted:#98a08f;--faint:#69715f;
+  --line:rgba(226,219,190,.13);--gold:#dcb56a;--gold2:#f0d79b;
+  --serif:"Noto Serif SC","Songti SC",Georgia,serif;
+  --sans:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--sans);
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%,rgba(220,181,106,.10),transparent 62%),
+    radial-gradient(ellipse 55% 40% at 92% 40%,rgba(127,182,201,.06),transparent 60%),
+    radial-gradient(ellipse 55% 40% at 6% 75%,rgba(157,187,121,.05),transparent 60%),
+    linear-gradient(180deg,var(--bg2),var(--bg) 45%);
+  background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;
+  background-image:radial-gradient(circle at 1px 1px,#fff 1px,transparent 0);background-size:4px 4px}
+header.top{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);
+  background:rgba(11,14,12,.84);border-bottom:1px solid var(--line)}
+.top-in{max-width:1600px;margin:0 auto;padding:13px 26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);
+  border:1px solid var(--line);border-radius:999px;padding:6px 15px 6px 11px;font-size:13.5px;transition:.18s}
 .back:hover{border-color:var(--gold);color:var(--gold2);background:rgba(220,181,106,.08)}
 .brand{font-family:var(--serif);font-size:16px;letter-spacing:.05em}.brand b{color:var(--gold)}
-.spacer{flex:1}.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
-main{max-width:1400px;margin:0 auto;padding:30px 26px 90px;position:relative;z-index:1}
-h1{font-family:var(--serif);font-size:clamp(24px,3.4vw,38px);margin:0 0 8px}
+.spacer{flex:1}
+button.tool{font-family:var(--sans);font-size:13px;color:var(--ink);background:rgba(220,181,106,.08);
+  border:1px solid rgba(220,181,106,.3);border-radius:999px;padding:6px 15px;cursor:pointer;transition:.18s}
+button.tool:hover{background:rgba(220,181,106,.18);color:var(--gold2)}
+main{max-width:1600px;margin:0 auto;padding:26px 26px 80px;position:relative;z-index:1}
+h1{font-family:var(--serif);font-size:clamp(23px,3.2vw,36px);margin:0 0 7px}
 h1 em{font-style:normal;color:var(--gold)}
-.lead{color:var(--muted);margin:0 0 6px;font-size:14.5px}
-.stats{display:flex;gap:26px;flex-wrap:wrap;margin:20px 0 8px}
-.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--gold2);line-height:1.2}
+.lead{color:var(--muted);margin:0 0 5px;font-size:14.5px}
+.stats{display:flex;gap:26px;flex-wrap:wrap;margin:18px 0 4px}
+.stat b{display:block;font-family:var(--serif);font-size:25px;color:var(--gold2);line-height:1.2}
 .stat span{font-size:12.5px;color:var(--muted)}
-.legend{display:flex;flex-wrap:wrap;gap:9px 18px;margin:18px 0 14px;font-size:13px}
-.legend i{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:7px;vertical-align:middle}
-.hint{color:var(--faint);font-size:12.5px;margin:8px 0 16px}
-.tree-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;margin-top:8px;position:relative;
-background:radial-gradient(ellipse 60% 40% at 12% 0%,rgba(220,181,106,.07),transparent 60%),
-radial-gradient(ellipse 50% 40% at 85% 90%,rgba(127,182,201,.06),transparent 60%),
-linear-gradient(180deg,rgba(21,26,20,.96),rgba(13,17,13,.96));box-shadow:0 20px 60px rgba(0,0,0,.45) inset}
-.tree{position:relative}svg.wires{position:absolute;inset:0;pointer-events:none}
-.wire{fill:none;stroke-width:1.7;stroke-opacity:.34;transition:.2s}
-.node{position:absolute;width:196px;padding:8px 12px 9px;border-radius:11px;text-decoration:none;color:inherit;
-border:1px solid var(--line);border-left:3px solid var(--c);background:rgba(11,14,11,.86);transition:.16s;z-index:2}
-.node:hover{transform:translateY(-2px);background:rgba(28,34,26,.96);box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:9}
-.node.trunk{background:rgba(24,25,17,.9)}
-.node b{display:block;font-size:13.5px;font-weight:600;line-height:1.35}
-.node small{display:block;color:var(--muted);font-size:11px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.node .tip{display:none;position:absolute;left:0;top:calc(100% + 7px);min-width:250px;max-width:330px;padding:11px 13px;
-border:1px solid var(--line);border-radius:10px;background:rgba(9,12,9,.98);font-size:12px;z-index:40;box-shadow:0 14px 40px rgba(0,0,0,.6)}
-.node:hover .tip{display:block}
-.node .tip em{display:block;color:var(--c);font-style:normal;font-size:11px;margin-bottom:5px}
-.node .tip i{display:block;color:var(--muted);font-style:normal}
-.node .tip u{display:block;color:var(--green);text-decoration:none;margin-top:5px;padding-top:5px;border-top:1px solid var(--line)}
-.node.dim{opacity:.2}.node.hot{box-shadow:0 0 0 1px var(--c),0 8px 26px rgba(0,0,0,.5)}
-footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 26px 60px;color:var(--faint);font-size:13px;max-width:1400px;margin:40px auto 0}
+.hint{color:var(--faint);font-size:12.5px;margin:14px 0 12px}
+#mapWrap{overflow:auto;border:1px solid var(--line);border-radius:18px;margin-top:6px;
+  background:
+    radial-gradient(ellipse 40% 55% at 50% 50%,rgba(220,181,106,.05),transparent 70%),
+    linear-gradient(180deg,rgba(20,25,19,.96),rgba(12,16,12,.97));
+  box-shadow:0 24px 70px rgba(0,0,0,.5) inset}
+#map{position:relative}
+svg.wires{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.wire{fill:none;stroke-width:2;stroke-opacity:.42;transition:stroke-opacity .18s,stroke-width .18s}
+.wire.hot{stroke-opacity:.95;stroke-width:3}
+
+.n{position:absolute;display:flex;align-items:center;gap:8px;border-radius:11px;cursor:default;
+  border:1px solid var(--line);background:rgba(13,17,13,.9);transition:transform .16s,box-shadow .16s,background .16s}
+/* 中心主题 */
+.n.root{background:linear-gradient(135deg,#3a2f18,#241d10);border:1px solid rgba(220,181,106,.6);
+  color:var(--gold2);font-family:var(--serif);box-shadow:0 0 0 6px rgba(220,181,106,.07),0 14px 40px rgba(0,0,0,.55);z-index:6}
+.n.root b{font-size:19px;letter-spacing:.06em}
+.n.root small{color:rgba(240,215,155,.7)}
+/* 一级分支 */
+.n.branch{cursor:pointer;border:none;color:#0c0f0c;font-weight:600;z-index:5;
+  box-shadow:0 8px 26px rgba(0,0,0,.45)}
+.n.branch b{font-size:14.5px}
+.n.branch .cnt{font-size:11.5px;opacity:.75;font-weight:400}
+.n.branch .tri{font-size:10px;opacity:.8;margin-left:2px}
+/* 叶子 */
+.n.leaf{box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.n.leaf b{font-size:13px;font-weight:500;line-height:1.3}
+.n.leaf .ix{flex:0 0 18px;height:18px;border-radius:50%;display:grid;place-items:center;
+  font-size:10.5px;background:rgba(255,255,255,.07);color:var(--muted);border:1px solid var(--line)}
+.n.leaf .bd{min-width:0}
+.n.leaf small{display:block;color:var(--faint);font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.n:hover{background:rgba(34,41,31,.96);transform:translateY(-1px);z-index:20;
+  box-shadow:0 10px 30px rgba(0,0,0,.55)}
+.n.dim{opacity:.2}
+.tip{display:none;position:absolute;left:0;top:calc(100% + 6px);min-width:250px;max-width:340px;
+  padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:rgba(9,12,9,.99);
+  font-size:12px;z-index:60;box-shadow:0 16px 44px rgba(0,0,0,.7)}
+.n:hover .tip{display:block}
+.tip i{display:block;color:var(--muted);font-style:normal}
+.tip u{display:block;color:#9dbb79;text-decoration:none;margin-top:5px;padding-top:5px;border-top:1px solid var(--line)}
+
+/* 命令页 */
+.cmdbox{margin-top:26px;border:1px solid var(--line);border-radius:16px;padding:18px 20px;
+  background:linear-gradient(180deg,rgba(24,30,23,.7),rgba(14,18,14,.7))}
+.cmdbox h3{margin:0 0 4px;font-family:var(--serif);font-size:18px}
+.cmdbox p.sub{margin:0 0 14px;color:var(--muted);font-size:13px}
+.cmdgrid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.cmd{border:1px solid var(--line);border-radius:11px;padding:10px 13px;background:rgba(11,14,11,.7)}
+.cmd b{display:block;font-size:14px}
+.cmd small{display:block;color:var(--muted);font-size:11.5px}
+.cmd code{display:inline-block;margin-top:5px;font-size:11.5px;color:var(--gold2);
+  background:rgba(220,181,106,.1);border:1px solid rgba(220,181,106,.25);border-radius:6px;padding:1px 7px}
+footer{border-top:1px solid var(--line);margin-top:36px;padding:22px 26px 60px;color:var(--faint);
+  font-size:13px;max-width:1600px;margin-left:auto;margin-right:auto}
 footer a{color:var(--gold);text-decoration:none}
 </style>
 </head>
 <body>
 <header class="top"><div class="top-in">
   <a class="back" href="index.html">← 返回首页</a>
-  <div class="brand">匠造与奥术 · <b>任务科技树</b></div>
+  <div class="brand">匠造与奥术 · <b>任务线思维导图</b></div>
   <div class="spacer"></div>
-  <span class="tag">游戏内按 <b>L</b> 打开</span>
+  <button class="tool" id="expand">全部展开</button>
+  <button class="tool" id="collapse">全部收起</button>
+  <span class="tool" style="cursor:default">游戏内按 <b>L</b> 打开</span>
 </div></header>
 <main>
-<h1>任务线 <em>科技树</em></h1>
-<p class="lead">一条前期主线，向下长出 9 条支线。悬停任意节点看它的判据与奖励。</p>
+<h1>任务线 <em>思维导图</em></h1>
+<p class="lead">中心是整合包，向外 <b>10</b> 条支线，每条支线下面是它的任务链。</p>
 <div class="stats">
-  <div class="stat"><b>174</b><span>个任务</span></div>
-  <div class="stat"><b>9</b><span>条支线</span></div>
-  <div class="stat"><b>173</b><span>条前置关系</span></div>
-  <div class="stat"><b>183</b><span>含命令快捷页</span></div>
+  <div class="stat"><b>183</b><span>个任务</span></div>
+  <div class="stat"><b>10</b><span>条支线</span></div>
+  <div class="stat"><b>9</b><span>个命令按钮</span></div>
+  <div class="stat"><b>1</b><span>个主线（最上）</span></div>
 </div>
-<div class="legend">
-<span><i style="background:#dcb56a"></i>前期主线<span style="color:var(--faint)"> 18</span></span>
-  <span><i style="background:#9dbb79"></i>田园生活<span style="color:var(--faint)"> 16</span></span>
-  <span><i style="background:#e0a851"></i>机械动力<span style="color:var(--faint)"> 22</span></span>
-  <span><i style="background:#7fb6c9"></i>工业帝国<span style="color:var(--faint)"> 22</span></span>
-  <span><i style="background:#b39ddb"></i>蓝图与建造<span style="color:var(--faint)"> 28</span></span>
-  <span><i style="background:#7ec8e3"></i>新生魔艺<span style="color:var(--faint)"> 16</span></span>
-  <span><i style="background:#8fd9a8"></i>植物魔法<span style="color:var(--faint)"> 0</span></span>
-  <span><i style="background:#c9b458"></i>收纳与物流<span style="color:var(--faint)"> 10</span></span>
-  <span><i style="background:#8ba3c7"></i>探索与征服<span style="color:var(--faint)"> 15</span></span>
-  <span><i style="background:#d96a6a"></i>强者之路<span style="color:var(--faint)"> 27</span></span>
-</div>
-<p class="hint">操作：整张图可拖动查看；鼠标移到节点上会高亮它所在的那条支线，其余淡出。</p>
-<div class="tree-wrap">
-  <div class="tree" style="width:4946px;height:5340px">
-    <svg class="wires" width="4946" height="5340">
-      <path class="wire" data-b="a01" d="M248 1564 C1440 1564 1440 1564 2632 1564" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a02" d="M2828 1564 C2730 1564 2730 1688 2632 1688" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a03" d="M2828 1688 C2730 1688 2730 1812 2632 1812" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a04" d="M2828 1812 C2730 1812 2730 1936 2632 1936" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a05" d="M2828 1936 C2730 1936 2730 2060 2632 2060" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a06" d="M2828 2060 C2730 2060 2730 2184 2632 2184" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a07" d="M2828 2184 C2730 2184 2730 2308 2632 2308" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a08" d="M2828 2308 C2730 2308 2730 2432 2632 2432" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a09" d="M2828 2432 C2730 2432 2730 2556 2632 2556" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a10" d="M2828 2556 C2730 2556 2730 2680 2632 2680" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a11" d="M2828 2680 C2730 2680 2730 2804 2632 2804" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a12" d="M2828 2804 C2730 2804 2730 2928 2632 2928" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a13" d="M2828 2928 C2730 2928 2730 3052 2632 3052" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a14" d="M2828 3052 C2730 3052 2730 3176 2632 3176" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a15" d="M2828 3176 C2730 3176 2730 3300 2632 3300" stroke="#7ec8e3"/>
-      <path class="wire" data-b="a16" d="M2828 3300 C2730 3300 2730 3424 2632 3424" stroke="#7ec8e3"/>
-      <path class="wire" data-b="b01" d="M248 1068 C1182 1068 1182 1068 2116 1068" stroke="#b39ddb"/>
-      <path class="wire" data-b="b02" d="M2312 1068 C2214 1068 2214 1192 2116 1192" stroke="#b39ddb"/>
-      <path class="wire" data-b="b03" d="M2312 1192 C2214 1192 2214 1316 2116 1316" stroke="#b39ddb"/>
-      <path class="wire" data-b="b04" d="M2312 1316 C2214 1316 2214 1440 2116 1440" stroke="#b39ddb"/>
-      <path class="wire" data-b="b05" d="M2312 1440 C2214 1440 2214 1564 2116 1564" stroke="#b39ddb"/>
-      <path class="wire" data-b="b06" d="M2312 1564 C2214 1564 2214 1688 2116 1688" stroke="#b39ddb"/>
-      <path class="wire" data-b="b07" d="M2312 1688 C2214 1688 2214 1812 2116 1812" stroke="#b39ddb"/>
-      <path class="wire" data-b="b08" d="M2312 1812 C2214 1812 2214 1936 2116 1936" stroke="#b39ddb"/>
-      <path class="wire" data-b="b09" d="M2312 1936 C2214 1936 2214 2060 2116 2060" stroke="#b39ddb"/>
-      <path class="wire" data-b="b10" d="M2312 2060 C2214 2060 2214 2184 2116 2184" stroke="#b39ddb"/>
-      <path class="wire" data-b="b11" d="M2312 2184 C2214 2184 2214 2308 2116 2308" stroke="#b39ddb"/>
-      <path class="wire" data-b="b12" d="M2312 2308 C2214 2308 2214 2432 2116 2432" stroke="#b39ddb"/>
-      <path class="wire" data-b="b13" d="M2312 2432 C2214 2432 2214 2556 2116 2556" stroke="#b39ddb"/>
-      <path class="wire" data-b="b14" d="M2312 2556 C2214 2556 2214 2680 2116 2680" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo01" d="M248 1564 C1698 1564 1698 1564 3148 1564" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo02" d="M3344 1564 C3246 1564 3246 1688 3148 1688" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo03" d="M3344 1688 C3246 1688 3246 1812 3148 1812" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo04" d="M3344 1812 C3246 1812 3246 1936 3148 1936" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo05" d="M3344 1936 C3246 1936 3246 2060 3148 2060" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo06" d="M3344 2060 C3246 2060 3246 2184 3148 2184" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo07" d="M3344 2184 C3246 2184 3246 2308 3148 2308" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo08" d="M3344 2308 C3246 2308 3246 2432 3148 2432" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo09" d="M3344 2432 C3246 2432 3246 2556 3148 2556" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo10" d="M3344 2556 C3246 2556 3246 2680 3148 2680" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo11" d="M3344 2680 C3246 2680 3246 2804 3148 2804" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo12" d="M3344 2804 C3246 2804 3246 2928 3148 2928" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo13" d="M3344 2928 C3246 2928 3246 3052 3148 3052" stroke="#b39ddb"/>
-      <path class="wire" data-b="bo14" d="M3344 3052 C3246 3052 3246 3176 3148 3176" stroke="#b39ddb"/>
-      <path class="wire" data-b="c01" d="M248 696 C666 696 666 696 1084 696" stroke="#e0a851"/>
-      <path class="wire" data-b="c02" d="M1280 696 C1182 696 1182 820 1084 820" stroke="#e0a851"/>
-      <path class="wire" data-b="c03" d="M1280 820 C1182 820 1182 944 1084 944" stroke="#e0a851"/>
-      <path class="wire" data-b="c04" d="M1280 944 C1182 944 1182 1068 1084 1068" stroke="#e0a851"/>
-      <path class="wire" data-b="c05" d="M1280 1068 C1182 1068 1182 1192 1084 1192" stroke="#e0a851"/>
-      <path class="wire" data-b="c06" d="M1280 1192 C1182 1192 1182 1316 1084 1316" stroke="#e0a851"/>
-      <path class="wire" data-b="c07" d="M1280 1316 C1182 1316 1182 1440 1084 1440" stroke="#e0a851"/>
-      <path class="wire" data-b="c08" d="M1280 1440 C1182 1440 1182 1564 1084 1564" stroke="#e0a851"/>
-      <path class="wire" data-b="c09" d="M1280 1564 C1182 1564 1182 1688 1084 1688" stroke="#e0a851"/>
-      <path class="wire" data-b="c10" d="M1280 1688 C1182 1688 1182 1812 1084 1812" stroke="#e0a851"/>
-      <path class="wire" data-b="c11" d="M1280 1812 C1182 1812 1182 1936 1084 1936" stroke="#e0a851"/>
-      <path class="wire" data-b="c12" d="M1280 1936 C1182 1936 1182 2060 1084 2060" stroke="#e0a851"/>
-      <path class="wire" data-b="c13" d="M1280 2060 C1182 2060 1182 2184 1084 2184" stroke="#e0a851"/>
-      <path class="wire" data-b="c14" d="M1280 2184 C1182 2184 1182 2308 1084 2308" stroke="#e0a851"/>
-      <path class="wire" data-b="c15" d="M1280 2308 C1182 2308 1182 2432 1084 2432" stroke="#e0a851"/>
-      <path class="wire" data-b="c16" d="M1280 2432 C1182 2432 1182 2556 1084 2556" stroke="#e0a851"/>
-      <path class="wire" data-b="c17" d="M1280 2556 C1182 2556 1182 2680 1084 2680" stroke="#e0a851"/>
-      <path class="wire" data-b="c18" d="M1280 2680 C1182 2680 1182 2804 1084 2804" stroke="#e0a851"/>
-      <path class="wire" data-b="c19" d="M1280 2804 C1182 2804 1182 2928 1084 2928" stroke="#e0a851"/>
-      <path class="wire" data-b="c20" d="M1280 2928 C1182 2928 1182 3052 1084 3052" stroke="#e0a851"/>
-      <path class="wire" data-b="c21" d="M1280 3052 C1182 3052 1182 3176 1084 3176" stroke="#e0a851"/>
-      <path class="wire" data-b="c22" d="M1280 3176 C1182 3176 1182 3300 1084 3300" stroke="#e0a851"/>
-      <path class="wire" data-b="e01" d="M248 1688 C2214 1688 2214 1688 4180 1688" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e02" d="M4376 1688 C4278 1688 4278 1812 4180 1812" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e03" d="M4376 1812 C4278 1812 4278 1936 4180 1936" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e04" d="M4376 1936 C4278 1936 4278 2060 4180 2060" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e05" d="M4376 2060 C4278 2060 4278 2184 4180 2184" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e06" d="M4376 2184 C4278 2184 4278 2308 4180 2308" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e07" d="M4376 2308 C4278 2308 4278 2432 4180 2432" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e08" d="M4376 2432 C4278 2432 4278 2556 4180 2556" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e09" d="M4376 2556 C4278 2556 4278 2680 4180 2680" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e10" d="M4376 2680 C4278 2680 4278 2804 4180 2804" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e11" d="M4376 2804 C4278 2804 4278 2928 4180 2928" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e12" d="M4376 2928 C4278 2928 4278 3052 4180 3052" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e13" d="M4376 3052 C4278 3052 4278 3176 4180 3176" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e14" d="M4376 3176 C4278 3176 4278 3300 4180 3300" stroke="#8ba3c7"/>
-      <path class="wire" data-b="e15" d="M4376 3300 C4278 3300 4278 3424 4180 3424" stroke="#8ba3c7"/>
-      <path class="wire" data-b="f01" d="M248 572 C408 572 408 572 568 572" stroke="#9dbb79"/>
-      <path class="wire" data-b="f02" d="M764 572 C666 572 666 696 568 696" stroke="#9dbb79"/>
-      <path class="wire" data-b="f03" d="M764 696 C666 696 666 820 568 820" stroke="#9dbb79"/>
-      <path class="wire" data-b="f04" d="M764 820 C666 820 666 944 568 944" stroke="#9dbb79"/>
-      <path class="wire" data-b="f05" d="M764 944 C666 944 666 1068 568 1068" stroke="#9dbb79"/>
-      <path class="wire" data-b="f06" d="M764 1068 C666 1068 666 1192 568 1192" stroke="#9dbb79"/>
-      <path class="wire" data-b="f07" d="M764 1192 C666 1192 666 1316 568 1316" stroke="#9dbb79"/>
-      <path class="wire" data-b="f08" d="M764 1316 C666 1316 666 1440 568 1440" stroke="#9dbb79"/>
-      <path class="wire" data-b="f09" d="M764 1440 C666 1440 666 1564 568 1564" stroke="#9dbb79"/>
-      <path class="wire" data-b="f10" d="M764 1564 C666 1564 666 1688 568 1688" stroke="#9dbb79"/>
-      <path class="wire" data-b="f11" d="M764 1688 C666 1688 666 1812 568 1812" stroke="#9dbb79"/>
-      <path class="wire" data-b="f12" d="M764 1812 C666 1812 666 1936 568 1936" stroke="#9dbb79"/>
-      <path class="wire" data-b="f13" d="M764 1936 C666 1936 666 2060 568 2060" stroke="#9dbb79"/>
-      <path class="wire" data-b="f14" d="M764 2060 C666 2060 666 2184 568 2184" stroke="#9dbb79"/>
-      <path class="wire" data-b="f15" d="M764 2184 C666 2184 666 2308 568 2308" stroke="#9dbb79"/>
-      <path class="wire" data-b="f16" d="M764 2308 C666 2308 666 2432 568 2432" stroke="#9dbb79"/>
-      <path class="wire" data-b="i01" d="M248 1440 C924 1440 924 1440 1600 1440" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i02" d="M1796 1440 C1698 1440 1698 1564 1600 1564" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i03" d="M1796 1564 C1698 1564 1698 1688 1600 1688" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i04" d="M1796 1688 C1698 1688 1698 1812 1600 1812" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i05" d="M1796 1812 C1698 1812 1698 1936 1600 1936" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i06" d="M1796 1936 C1698 1936 1698 2060 1600 2060" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i07" d="M1796 2060 C1698 2060 1698 2184 1600 2184" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i08" d="M1796 2184 C1698 2184 1698 2308 1600 2308" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i09" d="M1796 2308 C1698 2308 1698 2432 1600 2432" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i10" d="M1796 2432 C1698 2432 1698 2556 1600 2556" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i11" d="M1796 2556 C1698 2556 1698 2680 1600 2680" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i12" d="M1796 2680 C1698 2680 1698 2804 1600 2804" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i13" d="M1796 2804 C1698 2804 1698 2928 1600 2928" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i14" d="M1796 2928 C1698 2928 1698 3052 1600 3052" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i15" d="M1796 3052 C1698 3052 1698 3176 1600 3176" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i16" d="M1796 3176 C1698 3176 1698 3300 1600 3300" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i17" d="M1796 3300 C1698 3300 1698 3424 1600 3424" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i18" d="M1796 3424 C1698 3424 1698 3548 1600 3548" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i19" d="M1796 3548 C1698 3548 1698 3672 1600 3672" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i20" d="M1796 3672 C1698 3672 1698 3796 1600 3796" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i21" d="M1796 3796 C1698 3796 1698 3920 1600 3920" stroke="#7fb6c9"/>
-      <path class="wire" data-b="i22" d="M1796 3920 C1698 3920 1698 4044 1600 4044" stroke="#7fb6c9"/>
-      <path class="wire" data-b="s01" d="M248 1316 C1956 1316 1956 1316 3664 1316" stroke="#c9b458"/>
-      <path class="wire" data-b="s02" d="M3860 1316 C3762 1316 3762 1440 3664 1440" stroke="#c9b458"/>
-      <path class="wire" data-b="s03" d="M3860 1440 C3762 1440 3762 1564 3664 1564" stroke="#c9b458"/>
-      <path class="wire" data-b="s04" d="M3860 1564 C3762 1564 3762 1688 3664 1688" stroke="#c9b458"/>
-      <path class="wire" data-b="s05" d="M3860 1688 C3762 1688 3762 1812 3664 1812" stroke="#c9b458"/>
-      <path class="wire" data-b="s06" d="M3860 1812 C3762 1812 3762 1936 3664 1936" stroke="#c9b458"/>
-      <path class="wire" data-b="s07" d="M3860 1936 C3762 1936 3762 2060 3664 2060" stroke="#c9b458"/>
-      <path class="wire" data-b="s08" d="M3860 2060 C3762 2060 3762 2184 3664 2184" stroke="#c9b458"/>
-      <path class="wire" data-b="s09" d="M3860 2184 C3762 2184 3762 2308 3664 2308" stroke="#c9b458"/>
-      <path class="wire" data-b="s10" d="M3860 2308 C3762 2308 3762 2432 3664 2432" stroke="#c9b458"/>
-      <path class="wire" data-b="t02" d="M248 76 C150 76 150 200 52 200" stroke="#dcb56a"/>
-      <path class="wire" data-b="t03" d="M248 200 C150 200 150 324 52 324" stroke="#dcb56a"/>
-      <path class="wire" data-b="t04" d="M248 324 C150 324 150 448 52 448" stroke="#dcb56a"/>
-      <path class="wire" data-b="t05" d="M248 448 C150 448 150 572 52 572" stroke="#dcb56a"/>
-      <path class="wire" data-b="t06" d="M248 572 C150 572 150 696 52 696" stroke="#dcb56a"/>
-      <path class="wire" data-b="t07" d="M248 696 C150 696 150 820 52 820" stroke="#dcb56a"/>
-      <path class="wire" data-b="t08" d="M248 820 C150 820 150 944 52 944" stroke="#dcb56a"/>
-      <path class="wire" data-b="t09" d="M248 944 C150 944 150 1068 52 1068" stroke="#dcb56a"/>
-      <path class="wire" data-b="t10" d="M248 1068 C150 1068 150 1192 52 1192" stroke="#dcb56a"/>
-      <path class="wire" data-b="t11" d="M248 1192 C150 1192 150 1316 52 1316" stroke="#dcb56a"/>
-      <path class="wire" data-b="t12" d="M248 1316 C150 1316 150 1440 52 1440" stroke="#dcb56a"/>
-      <path class="wire" data-b="t13" d="M248 1440 C150 1440 150 1564 52 1564" stroke="#dcb56a"/>
-      <path class="wire" data-b="t14" d="M248 1564 C150 1564 150 1688 52 1688" stroke="#dcb56a"/>
-      <path class="wire" data-b="t15" d="M248 1688 C150 1688 150 1812 52 1812" stroke="#dcb56a"/>
-      <path class="wire" data-b="t16" d="M248 1812 C150 1812 150 1936 52 1936" stroke="#dcb56a"/>
-      <path class="wire" data-b="t17" d="M248 1936 C150 1936 150 2060 52 2060" stroke="#dcb56a"/>
-      <path class="wire" data-b="t18" d="M248 2060 C150 2060 150 2184 52 2184" stroke="#dcb56a"/>
-      <path class="wire" data-b="z01" d="M248 2060 C2472 2060 2472 2060 4696 2060" stroke="#d96a6a"/>
-      <path class="wire" data-b="z02" d="M4892 2060 C4794 2060 4794 2184 4696 2184" stroke="#d96a6a"/>
-      <path class="wire" data-b="z03" d="M4892 2184 C4794 2184 4794 2308 4696 2308" stroke="#d96a6a"/>
-      <path class="wire" data-b="z04" d="M4892 2308 C4794 2308 4794 2432 4696 2432" stroke="#d96a6a"/>
-      <path class="wire" data-b="z05" d="M4892 2432 C4794 2432 4794 2556 4696 2556" stroke="#d96a6a"/>
-      <path class="wire" data-b="z06" d="M4892 2556 C4794 2556 4794 2680 4696 2680" stroke="#d96a6a"/>
-      <path class="wire" data-b="z07" d="M4892 2680 C4794 2680 4794 2804 4696 2804" stroke="#d96a6a"/>
-      <path class="wire" data-b="z08" d="M4892 2804 C4794 2804 4794 2928 4696 2928" stroke="#d96a6a"/>
-      <path class="wire" data-b="z09" d="M4892 2928 C4794 2928 4794 3052 4696 3052" stroke="#d96a6a"/>
-      <path class="wire" data-b="z10" d="M4892 3052 C4794 3052 4794 3176 4696 3176" stroke="#d96a6a"/>
-      <path class="wire" data-b="z11" d="M4892 3176 C4794 3176 4794 3300 4696 3300" stroke="#d96a6a"/>
-      <path class="wire" data-b="z12" d="M4892 3300 C4794 3300 4794 3424 4696 3424" stroke="#d96a6a"/>
-      <path class="wire" data-b="z13" d="M4892 3424 C4794 3424 4794 3548 4696 3548" stroke="#d96a6a"/>
-      <path class="wire" data-b="z14" d="M4892 3548 C4794 3548 4794 3672 4696 3672" stroke="#d96a6a"/>
-      <path class="wire" data-b="z15" d="M4892 3672 C4794 3672 4794 3796 4696 3796" stroke="#d96a6a"/>
-      <path class="wire" data-b="z16" d="M4892 3796 C4794 3796 4794 3920 4696 3920" stroke="#d96a6a"/>
-      <path class="wire" data-b="z17" d="M4892 3920 C4794 3920 4794 4044 4696 4044" stroke="#d96a6a"/>
-      <path class="wire" data-b="z18" d="M4892 4044 C4794 4044 4794 4168 4696 4168" stroke="#d96a6a"/>
-      <path class="wire" data-b="z19" d="M4892 4168 C4794 4168 4794 4292 4696 4292" stroke="#d96a6a"/>
-      <path class="wire" data-b="z20" d="M4892 4292 C4794 4292 4794 4416 4696 4416" stroke="#d96a6a"/>
-      <path class="wire" data-b="z21" d="M4892 4416 C4794 4416 4794 4540 4696 4540" stroke="#d96a6a"/>
-      <path class="wire" data-b="z22" d="M4892 4540 C4794 4540 4794 4664 4696 4664" stroke="#d96a6a"/>
-      <path class="wire" data-b="z23" d="M4892 4664 C4794 4664 4794 4788 4696 4788" stroke="#d96a6a"/>
-      <path class="wire" data-b="z24" d="M4892 4788 C4794 4788 4794 4912 4696 4912" stroke="#d96a6a"/>
-      <path class="wire" data-b="z25" d="M4892 4912 C4794 4912 4794 5036 4696 5036" stroke="#d96a6a"/>
-      <path class="wire" data-b="z26" d="M4892 5036 C4794 5036 4794 5160 4696 5160" stroke="#d96a6a"/>
-      <path class="wire" data-b="z27" d="M4892 5160 C4794 5160 4794 5284 4696 5284" stroke="#d96a6a"/>
-    </svg>
-<a class="node" style="left:2632px;top:1540px;--c:#7ec8e3" data-branch="a">
-        <b>新手法术书</b><small>拿着它就能施法</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:novice_spell_book</i><u>奖励：ars_nouveau:wand、ars_nouveau:source_gem×2</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:1664px;--c:#7ec8e3" data-branch="a">
-        <b>法杖</b><small>施法与灌注的工具</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:wand</i><u>奖励：ars_nouveau:source_gem×4</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:1788px;--c:#7ec8e3" data-branch="a">
-        <b>魔源宝石</b><small>魔法的电</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:source_gem ×8</i><u>奖励：minecraft:amethyst_shard×8</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:1912px;--c:#7ec8e3" data-branch="a">
-        <b>灌注室</b><small>把魔源灌进物品</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:imbuement_chamber</i><u>奖励：ars_nouveau:source_jar×2</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:2036px;--c:#7ec8e3" data-branch="a">
-        <b>附魔装置</b><small>最重要的合成台</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:enchanting_apparatus</i><u>奖励：minecraft:gold_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:2160px;--c:#7ec8e3" data-branch="a">
-        <b>奥术核心</b><small>高级结构的组件</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:arcane_core</i><u>奖励：ars_nouveau:source_gem×4</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:2284px;--c:#7ec8e3" data-branch="a">
-        <b>魔源罐</b><small>就近存魔源</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:source_jar</i><u>奖励：ars_nouveau:source_gem×4</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:2408px;--c:#7ec8e3" data-branch="a">
-        <b>法师之花</b><small>自然产出魔源</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:magebloom</i><u>奖励：minecraft:bone_meal×16</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:2532px;--c:#7ec8e3" data-branch="a">
-        <b>法师布</b><small>魔法护甲的原料</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:magebloom_fiber</i><u>奖励：ars_nouveau:magebloom×8</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:2656px;--c:#7ec8e3" data-branch="a">
-        <b>法术弓</b><small>把法术装进弓里</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:spell_bow</i><u>奖励：minecraft:bow</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:2780px;--c:#7ec8e3" data-branch="a">
-        <b>附魔师之剑</b><small>魔法近战的答案</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:enchanters_sword</i><u>奖励：minecraft:diamond×2</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:2904px;--c:#7ec8e3" data-branch="a">
-        <b>星斑克</b><small>自动捡东西送回箱子</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:starbuncle_shards</i><u>奖励：ars_nouveau:source_gem×8</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:3028px;--c:#7ec8e3" data-branch="a">
-        <b>德律格米</b><small>自动收集生物掉落</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:drygmy_shard</i><u>奖励：ars_nouveau:source_gem×8</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:3152px;--c:#7ec8e3" data-branch="a">
-        <b>学徒法术书</b><small>二阶法术</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:apprentice_spell_book</i><u>奖励：ars_nouveau:arcane_core、ars_nouveau:source_gem×8</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:3276px;--c:#7ec8e3" data-branch="a">
-        <b>法师铠甲</b><small>魔法护甲全套</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:sorcerer_robes</i><u>奖励：ars_nouveau:magebloom_fiber×8</u></span>
-      </a>
-      <a class="node" style="left:2632px;top:3400px;--c:#7ec8e3" data-branch="a">
-        <b>大法师</b><small>法术体系全部掌握</small>
-        <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:archmage_spell_book</i><u>奖励：ars_nouveau:source_gem×16、minecraft:nether_star</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:1044px;--c:#b39ddb" data-branch="b">
-        <b>石制建造魔杖</b><small>一次放 9 个方块</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:stone_wand</i><u>奖励：minecraft:stone×64</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:1168px;--c:#b39ddb" data-branch="b">
-        <b>石砖墙</b><small>用魔杖铺一面墙</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 minecraft:stone_bricks ×64</i><u>奖励：minecraft:stone×64</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:1292px;--c:#b39ddb" data-branch="b">
-        <b>玻璃幕墙</b><small>透光的建筑</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 minecraft:glass ×64</i><u>奖励：minecraft:glass×32</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:1416px;--c:#b39ddb" data-branch="b">
-        <b>建筑方块</b><small>混凝土或陶瓦都行</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 minecraft:smooth_stone ×64</i><u>奖励：minecraft:white_concrete×32</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:1540px;--c:#b39ddb" data-branch="b">
-        <b>铁制建造魔杖</b><small>一次 27 个方块，可升级</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:iron_wand</i><u>奖励：minecraft:iron_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:1664px;--c:#b39ddb" data-branch="b">
-        <b>钻石建造魔杖</b><small>一次 128 个</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:diamond_wand</i><u>奖励：minecraft:diamond×4</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:1788px;--c:#b39ddb" data-branch="b">
-        <b>建造核心 · 天使</b><small>在空中凭空放方块</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:core_angel</i><u>奖励：minecraft:feather×16</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:1912px;--c:#b39ddb" data-branch="b">
-        <b>建造核心 · 破坏</b><small>快速拆一大片</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:core_destruction</i><u>奖励：minecraft:diamond_pickaxe</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:2036px;--c:#b39ddb" data-branch="b">
-        <b>魔杖核心</b><small>给魔杖装升级核心</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:diamond_wand_core</i><u>奖励：minecraft:diamond×2</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:2160px;--c:#b39ddb" data-branch="b">
-        <b>蓝图台</b><small>机械动力的图纸系统</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 create:schematic_table</i><u>奖励：create:empty_schematic×2</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:2284px;--c:#b39ddb" data-branch="b">
-        <b>蓝图与笔</b><small>把建筑存成图纸</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 create:empty_schematic</i><u>奖励：minecraft:paper×16</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:2408px;--c:#b39ddb" data-branch="b">
-        <b>蓝图加农炮</b><small>让机器替你盖房子</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 create:schematicannon</i><u>奖励：create:empty_schematic×4、minecraft:iron_block×4</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:2532px;--c:#b39ddb" data-branch="b">
-        <b>无限建造魔杖</b><small>一次 1024 个方块，永不磨损</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:infinity_wand</i><u>奖励：minecraft:nether_star</u></span>
-      </a>
-      <a class="node" style="left:2116px;top:2656px;--c:#b39ddb" data-branch="b">
-        <b>建筑大师</b><small>从石杖到无限杖，全部收入囊中</small>
-        <span class="tip"><em>蓝图与建造</em><i>手动确认</i><u>奖励：minecraft:netherite_ingot×2、constructionwand:core_angel</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:1540px;--c:#b39ddb" data-branch="b">
-        <b>白雏菊</b><small>用花瓣换纯净材料</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:pure_daisy</i><u>奖励：minecraft:white_dye×8</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:1664px;--c:#b39ddb" data-branch="b">
-        <b>树枝魔杖</b><small>把魔力从花里取出来</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:twig_wand</i><u>奖励：minecraft:stick×16</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:1788px;--c:#b39ddb" data-branch="b">
-        <b>魔力池</b><small>植物魔法的电池</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:mana_pool</i><u>奖励：botania:mana_spreader×2</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:1912px;--c:#b39ddb" data-branch="b">
-        <b>魔力发射器</b><small>把魔力送到需要的地方</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:mana_spreader</i><u>奖励：minecraft:gold_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:2036px;--c:#b39ddb" data-branch="b">
-        <b>火之花</b><small>烧燃料产魔力</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:endoflame</i><u>奖励：minecraft:coal×32</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:2160px;--c:#b39ddb" data-branch="b">
-        <b>水绣球</b><small>被动产能，不用管</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:hydroangeas</i><u>奖励：botania:mana_spreader</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:2284px;--c:#b39ddb" data-branch="b">
-        <b>魔力钢</b><small>装备的原料</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:manasteel_ingot</i><u>奖励：botania:manasteel_ingot×4</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:2408px;--c:#b39ddb" data-branch="b">
-        <b>魔力钻石</b><small>自动修复耐久</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:mana_diamond</i><u>奖励：minecraft:diamond×2</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:2532px;--c:#b39ddb" data-branch="b">
-        <b>魔力珍珠</b><small>传送与合成的关键</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:mana_pearl</i><u>奖励：minecraft:ender_pearl×4</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:2656px;--c:#b39ddb" data-branch="b">
-        <b>泰拉钢</b><small>植物魔法的中期分水岭</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:terrasteel_ingot</i><u>奖励：botania:mana_pool、minecraft:diamond×2</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:2780px;--c:#b39ddb" data-branch="b">
-        <b>精灵之门</b><small>通往精灵世界</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:alfheim_portal</i><u>奖励：botania:terrasteel_ingot×2</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:2904px;--c:#b39ddb" data-branch="b">
-        <b>精灵钢</b><small>精灵世界的材料</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:elementium_ingot</i><u>奖励：botania:terrasteel_ingot</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:3028px;--c:#b39ddb" data-branch="b">
-        <b>泰拉装备</b><small>泰拉钢全套</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:terrasteel_helmet</i><u>奖励：botania:terrasteel_ingot×4</u></span>
-      </a>
-      <a class="node" style="left:3148px;top:3152px;--c:#b39ddb" data-branch="b">
-        <b>花之大师</b><small>从一朵雏菊到精灵世界</small>
-        <span class="tip"><em>蓝图与建造</em><i>收集 botania:gaia_ingot</i><u>奖励：minecraft:nether_star、botania:terrasteel_ingot×4</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:672px;--c:#e0a851" data-branch="c">
-        <b>安山合金</b><small>机械动力的基础材料</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:andesite_alloy ×16</i><u>奖励：minecraft:iron_nugget×16</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:796px;--c:#e0a851" data-branch="c">
-        <b>传动轴</b><small>旋转力靠它传递</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:shaft</i><u>奖励：create:andesite_alloy×8</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:920px;--c:#e0a851" data-branch="c">
-        <b>齿轮</b><small>改转速、换方向</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:cogwheel</i><u>奖励：create:shaft×8</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:1044px;--c:#e0a851" data-branch="c">
-        <b>大齿轮</b><small>大小搭配就能变速</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:large_cogwheel</i><u>奖励：create:andesite_alloy×16</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:1168px;--c:#e0a851" data-branch="c">
-        <b>传动带</b><small>传动力也能运物品</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:belt_connector</i><u>奖励：create:andesite_alloy×8</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:1292px;--c:#e0a851" data-branch="c">
-        <b>手摇曲柄</b><small>没有动力源时的应急手段</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:hand_crank</i><u>奖励：create:andesite_alloy×8</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:1416px;--c:#e0a851" data-branch="c">
-        <b>第一台动力</b><small>水车，占地小随处可搭</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:water_wheel</i><u>奖励：minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:1540px;--c:#e0a851" data-branch="c">
-        <b>风力</b><small>风车动力足，占地大</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:windmill_bearing</i><u>奖励：minecraft:iron_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:1664px;--c:#e0a851" data-branch="c">
-        <b>压床</b><small>加工金属板材</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:mechanical_press</i><u>奖励：create:millstone</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:1788px;--c:#e0a851" data-branch="c">
-        <b>动力搅拌</b><small>做合金和面团</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:mechanical_mixer</i><u>奖励：create:andesite_alloy×16</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:1912px;--c:#e0a851" data-branch="c">
-        <b>动力锯</b><small>批量处理木材</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:mechanical_saw</i><u>奖励：minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:2036px;--c:#e0a851" data-branch="c">
-        <b>动力钻头</b><small>自动采矿</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:mechanical_drill</i><u>奖励：minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:2160px;--c:#e0a851" data-branch="c">
-        <b>鼓风机</b><small>配岩浆或水就能批量加工</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:encased_fan</i><u>奖励：minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:2284px;--c:#e0a851" data-branch="c">
-        <b>石磨</b><small>最早的加工设备</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:millstone</i><u>奖励：minecraft:wheat×16</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:2408px;--c:#e0a851" data-branch="c">
-        <b>粉碎轮</b><small>矿石打成粉末，产量翻倍</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:crushing_wheel</i><u>奖励：minecraft:iron_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:2532px;--c:#e0a851" data-branch="c">
-        <b>黄铜时代</b><small>中期的分水岭</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:brass_ingot ×8</i><u>奖励：create:brass_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:2656px;--c:#e0a851" data-branch="c">
-        <b>电子管</b><small>黄铜机器的必需零件</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:electron_tube</i><u>奖励：create:brass_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:2780px;--c:#e0a851" data-branch="c">
-        <b>精密构件</b><small>通往一切高级机器</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:precision_mechanism</i><u>奖励：create:electron_tube×4</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:2904px;--c:#e0a851" data-branch="c">
-        <b>物品保险库</b><small>大容量仓储</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:item_vault</i><u>奖励：create:brass_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:3028px;--c:#e0a851" data-branch="c">
-        <b>铺设铁轨</b><small>64 段铁轨</small>
-        <span class="tip"><em>机械动力</em><i>收集 create:track ×64</i><u>奖励：minecraft:iron_ingot×32</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:3152px;--c:#e0a851" data-branch="c">
-        <b>铁路时代</b><small>蒸汽与铁轨</small>
-        <span class="tip"><em>机械动力</em><i>收集 railways:conductor_whistle</i><u>奖励：create:track×64、minecraft:iron_ingot×32</u></span>
-      </a>
-      <a class="node" style="left:1084px;top:3276px;--c:#e0a851" data-branch="c">
-        <b>机械帝国</b><small>从水车到火车，整条线走完</small>
-        <span class="tip"><em>机械动力</em><i>手动确认</i><u>奖励：minecraft:netherite_ingot</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:1664px;--c:#8ba3c7" data-branch="e">
-        <b>前往下界</b><small>造个传送门</small>
-        <span class="tip"><em>探索与征服</em><i>前往 minecraft:the_nether</i><u>奖励：minecraft:obsidian×10</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:1788px;--c:#8ba3c7" data-branch="e">
-        <b>下界要塞</b><small>烈焰人刷怪笼</small>
-        <span class="tip"><em>探索与征服</em><i>收集 minecraft:nether_bricks</i><u>奖励：minecraft:blaze_rod×2</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:1912px;--c:#8ba3c7" data-branch="e">
-        <b>烈焰棒</b><small>酿造与末地的关键</small>
-        <span class="tip"><em>探索与征服</em><i>收集 minecraft:blaze_rod ×2</i><u>奖励：minecraft:gold_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:2036px;--c:#8ba3c7" data-branch="e">
-        <b>远古残骸</b><small>下界合金的原料</small>
-        <span class="tip"><em>探索与征服</em><i>收集 minecraft:ancient_debris</i><u>奖励：minecraft:diamond×2</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:2160px;--c:#8ba3c7" data-branch="e">
-        <b>下界合金</b><small>装备的最终形态</small>
-        <span class="tip"><em>探索与征服</em><i>收集 minecraft:netherite_ingot</i><u>奖励：minecraft:diamond×4</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:2284px;--c:#8ba3c7" data-branch="e">
-        <b>末影珍珠</b><small>注意别盯着末影人看</small>
-        <span class="tip"><em>探索与征服</em><i>收集 minecraft:ender_pearl</i><u>奖励：minecraft:ender_pearl×4</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:2408px;--c:#8ba3c7" data-branch="e">
-        <b>末影之眼</b><small>用来找要塞</small>
-        <span class="tip"><em>探索与征服</em><i>收集 minecraft:ender_eye</i><u>奖励：minecraft:ender_pearl×8</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:2532px;--c:#8ba3c7" data-branch="e">
-        <b>抵达末地</b><small>走进末地传送门</small>
-        <span class="tip"><em>探索与征服</em><i>前往 minecraft:the_end</i><u>奖励：minecraft:golden_apple×2</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:2656px;--c:#8ba3c7" data-branch="e">
-        <b>终结末影龙</b><small>击败末影龙</small>
-        <span class="tip"><em>探索与征服</em><i>击败 minecraft:ender_dragon</i><u>奖励：minecraft:elytra、minecraft:dragon_breath×4</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:2780px;--c:#8ba3c7" data-branch="e">
-        <b>末地城</b><small>鞘翅与潜影贝</small>
-        <span class="tip"><em>探索与征服</em><i>收集 minecraft:purpur_block</i><u>奖励：minecraft:ender_pearl×8</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:2904px;--c:#8ba3c7" data-branch="e">
-        <b>信标</b><small>范围增益</small>
-        <span class="tip"><em>探索与征服</em><i>收集 minecraft:beacon</i><u>奖励：minecraft:netherite_ingot</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:3028px;--c:#8ba3c7" data-branch="e">
-        <b>远古城市</b><small>深暗之域的回响碎片</small>
-        <span class="tip"><em>探索与征服</em><i>收集 minecraft:echo_shard</i><u>奖励：minecraft:diamond×4</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:3152px;--c:#8ba3c7" data-branch="e">
-        <b>直面监守者</b><small>打赢它，或者跑掉</small>
-        <span class="tip"><em>探索与征服</em><i>击败 minecraft:warden</i><u>奖励：minecraft:netherite_ingot、minecraft:echo_shard×4</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:3276px;--c:#8ba3c7" data-branch="e">
-        <b>海底神殿</b><small>远古守卫者</small>
-        <span class="tip"><em>探索与征服</em><i>击败 minecraft:elder_guardian</i><u>奖励：minecraft:sponge×8</u></span>
-      </a>
-      <a class="node" style="left:4180px;top:3400px;--c:#8ba3c7" data-branch="e">
-        <b>世界尽头</b><small>下界、末地、深暗全走一遍</small>
-        <span class="tip"><em>探索与征服</em><i>手动确认</i><u>奖励：minecraft:netherite_ingot×2</u></span>
-      </a>
-      <a class="node" style="left:568px;top:548px;--c:#9dbb79" data-branch="f">
-        <b>一把好刀</b><small>燧石刀</small>
-        <span class="tip"><em>田园生活</em><i>收集 farmersdelight:flint_knife</i><u>奖励：minecraft:wheat_seeds×8</u></span>
-      </a>
-      <a class="node" style="left:568px;top:672px;--c:#9dbb79" data-branch="f">
-        <b>砧板</b><small>把食材切成更多份</small>
-        <span class="tip"><em>田园生活</em><i>收集 farmersdelight:cutting_board</i><u>奖励：farmersdelight:flint_knife</u></span>
-      </a>
-      <a class="node" style="left:568px;top:796px;--c:#9dbb79" data-branch="f">
-        <b>下厨</b><small>架锅开火</small>
-        <span class="tip"><em>田园生活</em><i>收集 farmersdelight:cooking_pot</i><u>奖励：minecraft:bowl×4</u></span>
-      </a>
-      <a class="node" style="left:568px;top:920px;--c:#9dbb79" data-branch="f">
-        <b>麦浪</b><small>收 64 个小麦</small>
-        <span class="tip"><em>田园生活</em><i>收集 minecraft:wheat ×64</i><u>奖励：minecraft:bread×8、minecraft:bone_meal×8</u></span>
-      </a>
-      <a class="node" style="left:568px;top:1044px;--c:#9dbb79" data-branch="f">
-        <b>番茄红了</b><small>农夫乐事的新作物</small>
-        <span class="tip"><em>田园生活</em><i>收集 farmersdelight:tomato</i><u>奖励：minecraft:bone_meal×8</u></span>
-      </a>
-      <a class="node" style="left:568px;top:1168px;--c:#9dbb79" data-branch="f">
-        <b>卷心菜</b><small>另一种主粮</small>
-        <span class="tip"><em>田园生活</em><i>收集 farmersdelight:cabbage</i><u>奖励：minecraft:bone_meal×8</u></span>
-      </a>
-      <a class="node" style="left:568px;top:1292px;--c:#9dbb79" data-branch="f">
-        <b>稻田</b><small>水稻</small>
-        <span class="tip"><em>田园生活</em><i>收集 farmersdelight:rice</i><u>奖励：minecraft:bone_meal×8</u></span>
-      </a>
-      <a class="node" style="left:568px;top:1416px;--c:#9dbb79" data-branch="f">
-        <b>洋葱与胡萝卜</b><small>做炖菜的料</small>
-        <span class="tip"><em>田园生活</em><i>收集 farmersdelight:onion</i><u>奖励：minecraft:carrot×8</u></span>
-      </a>
-      <a class="node" style="left:568px;top:1540px;--c:#9dbb79" data-branch="f">
-        <b>肥沃土壤</b><small>不用水不用光的农田</small>
-        <span class="tip"><em>田园生活</em><i>收集 farmersdelight:rich_soil</i><u>奖励：minecraft:bone_meal×16</u></span>
-      </a>
-      <a class="node" style="left:568px;top:1664px;--c:#9dbb79" data-branch="f">
-        <b>煎锅</b><small>能打能炒</small>
-        <span class="tip"><em>田园生活</em><i>收集 farmersdelight:skillet</i><u>奖励：minecraft:iron_ingot×4</u></span>
-      </a>
-      <a class="node" style="left:568px;top:1788px;--c:#9dbb79" data-branch="f">
-        <b>灶台</b><small>同时烧多口锅</small>
-        <span class="tip"><em>田园生活</em><i>收集 farmersdelight:stove</i><u>奖励：minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:568px;top:1912px;--c:#9dbb79" data-branch="f">
-        <b>傻瓜式厨房</b><small>材料在附近箱子里就能做菜</small>
-        <span class="tip"><em>田园生活</em><i>收集 cookingforblockheads:cooking_table</i><u>奖励：cookingforblockheads:fridge、minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:568px;top:2036px;--c:#9dbb79" data-branch="f">
-        <b>冰箱</b><small>给厨房加储物格</small>
-        <span class="tip"><em>田园生活</em><i>收集 cookingforblockheads:fridge</i><u>奖励：minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:568px;top:2160px;--c:#9dbb79" data-branch="f">
-        <b>养蜂</b><small>蜂蜜能解毒</small>
-        <span class="tip"><em>田园生活</em><i>收集 minecraft:beehive</i><u>奖励：minecraft:honey_bottle×4</u></span>
-      </a>
-      <a class="node" style="left:568px;top:2284px;--c:#9dbb79" data-branch="f">
-        <b>做个蛋糕</b><small>犒劳自己</small>
-        <span class="tip"><em>田园生活</em><i>收集 minecraft:cake</i><u>奖励：minecraft:sugar×16</u></span>
-      </a>
-      <a class="node" style="left:568px;top:2408px;--c:#9dbb79" data-branch="f">
-        <b>田园大成</b><small>农场、厨房、蜂箱都齐了</small>
-        <span class="tip"><em>田园生活</em><i>手动确认</i><u>奖励：minecraft:golden_carrot×8</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:1416px;--c:#7fb6c9" data-branch="i">
-        <b>锇</b><small>通用机械的基础金属</small>
-        <span class="tip"><em>工业帝国</em><i>收集 mekanism:ingot_osmium ×8</i><u>奖励：minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:1540px;--c:#7fb6c9" data-branch="i">
-        <b>炼钢</b><small>钢锭是骨架材料</small>
-        <span class="tip"><em>工业帝国</em><i>收集 mekanism:ingot_steel ×4</i><u>奖励：minecraft:iron_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:1664px;--c:#7fb6c9" data-branch="i">
-        <b>冶金灌注机</b><small>第一台核心机器</small>
-        <span class="tip"><em>工业帝国</em><i>收集 mekanism:metallurgic_infuser</i><u>奖励：mekanism:enrichment_chamber</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:1788px;--c:#7fb6c9" data-branch="i">
-        <b>富集仓</b><small>矿石产出翻倍</small>
-        <span class="tip"><em>工业帝国</em><i>收集 mekanism:enrichment_chamber</i><u>奖励：minecraft:iron_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:1912px;--c:#7fb6c9" data-branch="i">
-        <b>控制电路</b><small>所有机器的中间件</small>
-        <span class="tip"><em>工业帝国</em><i>收集 mekanism:basic_control_circuit</i><u>奖励：minecraft:iron_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:2036px;--c:#7fb6c9" data-branch="i">
-        <b>发电</b><small>热力发电机</small>
-        <span class="tip"><em>工业帝国</em><i>收集 mekanismgenerators:heat_generator</i><u>奖励：thermal:machine_furnace</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:2160px;--c:#7fb6c9" data-branch="i">
-        <b>热力机械</b><small>矿石处理链的补充</small>
-        <span class="tip"><em>工业帝国</em><i>收集 thermal:machine_furnace</i><u>奖励：minecraft:iron_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:2284px;--c:#7fb6c9" data-branch="i">
-        <b>工程师之锤</b><small>沉浸工程的起点</small>
-        <span class="tip"><em>工业帝国</em><i>收集 immersiveengineering:hammer</i><u>奖励：immersiveengineering:ingot_steel×4</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:2408px;--c:#7fb6c9" data-branch="i">
-        <b>焦炉</b><small>烧出焦炭</small>
-        <span class="tip"><em>工业帝国</em><i>收集 immersiveengineering:coke_oven</i><u>奖励：minecraft:coal×32</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:2532px;--c:#7fb6c9" data-branch="i">
-        <b>高炉</b><small>出钢，也是多方块的入门</small>
-        <span class="tip"><em>工业帝国</em><i>收集 immersiveengineering:blast_furnace</i><u>奖励：immersiveengineering:ingot_steel×8</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:2656px;--c:#7fb6c9" data-branch="i">
-        <b>赛特斯石英</b><small>AE2 从这种水晶开始</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:certus_quartz_crystal ×8</i><u>奖励：ae2:certus_quartz_crystal×8</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:2780px;--c:#7fb6c9" data-branch="i">
-        <b>充能器</b><small>给水晶充能</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:charger</i><u>奖励：ae2:certus_quartz_crystal×8</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:2904px;--c:#7fb6c9" data-branch="i">
-        <b>压印器</b><small>把电路图案压到硅片上</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:inscriber</i><u>奖励：ae2:printed_silicon×4</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:3028px;--c:#7fb6c9" data-branch="i">
-        <b>硅片</b><small>所有处理器的底子</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:printed_silicon</i><u>奖励：minecraft:iron_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:3152px;--c:#7fb6c9" data-branch="i">
-        <b>逻辑处理器</b><small>三种处理器之一</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:logic_processor</i><u>奖励：ae2:printed_logic_processor×4</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:3276px;--c:#7fb6c9" data-branch="i">
-        <b>运算处理器</b><small>之三</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:calculation_processor</i><u>奖励：ae2:printed_calculation_processor×4</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:3400px;--c:#7fb6c9" data-branch="i">
-        <b>工程处理器</b><small>高级机器的门票</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:engineering_processor</i><u>奖励：ae2:printed_engineering_processor×4</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:3524px;--c:#7fb6c9" data-branch="i">
-        <b>ME 驱动器</b><small>插进存储元件就有数字仓库</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:drive</i><u>奖励：ae2:item_storage_cell_1k×2</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:3648px;--c:#7fb6c9" data-branch="i">
-        <b>存储元件</b><small>一格装 1024 种物品</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:item_storage_cell_1k</i><u>奖励：ae2:item_storage_cell_4k</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:3772px;--c:#7fb6c9" data-branch="i">
-        <b>样板供应器</b><small>自动合成的关键</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:pattern_provider</i><u>奖励：ae2:engineering_processor×4</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:3896px;--c:#7fb6c9" data-branch="i">
-        <b>ME 合成终端</b><small>一个界面看遍整个仓库</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:crafting_terminal</i><u>奖励：ae2:drive、ae2:item_storage_cell_1k×2</u></span>
-      </a>
-      <a class="node" style="left:1600px;top:4020px;--c:#7fb6c9" data-branch="i">
-        <b>自动合成</b><small>让 ME 网络替你干活</small>
-        <span class="tip"><em>工业帝国</em><i>收集 ae2:crafting_accelerator</i><u>奖励：ae2:engineering_processor×8</u></span>
-      </a>
-      <a class="node" style="left:3664px;top:1292px;--c:#c9b458" data-branch="s">
-        <b>储物抽屉</b><small>一格装海量同类物品</small>
-        <span class="tip"><em>收纳与物流</em><i>收集 storagedrawers:oak_full_drawers_1</i><u>奖励：minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:3664px;top:1416px;--c:#c9b458" data-branch="s">
-        <b>抽屉升级</b><small>扩容与压缩</small>
-        <span class="tip"><em>收纳与物流</em><i>收集 storagedrawers:upgrade_template</i><u>奖励：minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node" style="left:3664px;top:1540px;--c:#c9b458" data-branch="s">
-        <b>铁箱子</b><small>比木箱大</small>
-        <span class="tip"><em>收纳与物流</em><i>收集 minecraft:chest ×8</i><u>奖励：minecraft:oak_planks×32</u></span>
-      </a>
-      <a class="node" style="left:3664px;top:1664px;--c:#c9b458" data-branch="s">
-        <b>潜影盒</b><small>移动仓库</small>
-        <span class="tip"><em>收纳与物流</em><i>收集 minecraft:shulker_box</i><u>奖励：minecraft:shulker_shell×2</u></span>
-      </a>
-      <a class="node" style="left:3664px;top:1788px;--c:#c9b458" data-branch="s">
-        <b>精致存储</b><small>升级版容器</small>
-        <span class="tip"><em>收纳与物流</em><i>收集 sophisticatedstorage:iron_chest</i><u>奖励：minecraft:iron_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:3664px;top:1912px;--c:#c9b458" data-branch="s">
-        <b>漏斗流水线</b><small>自动搬运</small>
-        <span class="tip"><em>收纳与物流</em><i>收集 minecraft:hopper ×4</i><u>奖励：minecraft:iron_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:3664px;top:2036px;--c:#c9b458" data-branch="s">
-        <b>分类仓库</b><small>每种矿物一个抽屉</small>
-        <span class="tip"><em>收纳与物流</em><i>收集 storagedrawers:oak_full_drawers_4</i><u>奖励：minecraft:iron_ingot×16</u></span>
-      </a>
-      <a class="node" style="left:3664px;top:2160px;--c:#c9b458" data-branch="s">
-        <b>末影箱</b><small>随身仓库</small>
-        <span class="tip"><em>收纳与物流</em><i>收集 minecraft:ender_chest</i><u>奖励：minecraft:ender_pearl×8</u></span>
-      </a>
-      <a class="node" style="left:3664px;top:2284px;--c:#c9b458" data-branch="s">
-        <b>物流之始</b><small>用 Create 传动带运物品</small>
-        <span class="tip"><em>收纳与物流</em><i>收集 create:belt_connector ×4</i><u>奖励：create:andesite_alloy×16</u></span>
-      </a>
-      <a class="node" style="left:3664px;top:2408px;--c:#c9b458" data-branch="s">
-        <b>井井有条</b><small>仓库彻底分好类</small>
-        <span class="tip"><em>收纳与物流</em><i>手动确认</i><u>奖励：minecraft:netherite_scrap</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:52px;--c:#dcb56a" data-branch="t">
-        <b>徒手起步</b><small>打 16 个原木</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:oak_log ×16</i><u>奖励：minecraft:apple×4、minecraft:torch×8</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:176px;--c:#dcb56a" data-branch="t">
-        <b>工作台</b><small>合成时代的开始</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:crafting_table</i><u>奖励：minecraft:oak_planks×16</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:300px;--c:#dcb56a" data-branch="t">
-        <b>木制工具</b><small>木镐与木斧</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:wooden_pickaxe</i><u>奖励：minecraft:stick×8</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:424px;--c:#dcb56a" data-branch="t">
-        <b>石器时代</b><small>石镐能挖铁矿了</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:stone_pickaxe</i><u>奖励：minecraft:coal×16、minecraft:torch×16</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:548px;--c:#dcb56a" data-branch="t">
-        <b>生火</b><small>八块圆石围一个熔炉</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:furnace</i><u>奖励：minecraft:coal×8</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:672px;--c:#dcb56a" data-branch="t">
-        <b>铁器时代</b><small>攒 8 个铁锭</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:iron_ingot ×8</i><u>奖励：minecraft:iron_pickaxe、minecraft:bread×4</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:796px;--c:#dcb56a" data-branch="t">
-        <b>安全第一</b><small>盾牌能挡下大部分正面伤害</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:shield</i><u>奖励：minecraft:iron_ingot×4</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:920px;--c:#dcb56a" data-branch="t">
-        <b>铁甲护身</b><small>穿着它再下矿</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:iron_chestplate</i><u>奖励：minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:1044px;--c:#dcb56a" data-branch="t">
-        <b>过夜</b><small>做张床，跳过夜晚</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:red_bed</i><u>奖励：minecraft:white_wool×8</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:1168px;--c:#dcb56a" data-branch="t">
-        <b>储粮</b><small>16 个熟牛肉</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:cooked_beef ×16</i><u>奖励：minecraft:bread×8</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:1292px;--c:#dcb56a" data-branch="t">
-        <b>背包与收纳</b><small>出门采矿不用来回跑</small>
-        <span class="tip"><em>前期主线</em><i>收集 sophisticatedbackpacks:backpack</i><u>奖励：storagedrawers:oak_full_drawers_1×2、minecraft:iron_ingot×8</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:1416px;--c:#dcb56a" data-branch="t">
-        <b>钻石！</b><small>挖到第一颗钻石</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:diamond</i><u>奖励：minecraft:diamond_pickaxe</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:1540px;--c:#dcb56a" data-branch="t">
-        <b>附魔入门</b><small>附魔台 + 书架</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:enchanting_table</i><u>奖励：minecraft:bookshelf×4、minecraft:lapis_lazuli×16</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:1664px;--c:#dcb56a" data-branch="t">
-        <b>铁砧与修复</b><small>合并附魔、修复耐久</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:anvil</i><u>奖励：minecraft:iron_block×2</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:1788px;--c:#dcb56a" data-branch="t">
-        <b>黑曜石</b><small>水浇岩浆</small>
-        <span class="tip"><em>前期主线</em><i>收集 minecraft:obsidian</i><u>奖励：minecraft:diamond×2</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:1912px;--c:#dcb56a" data-branch="t">
-        <b>传送网络</b><small>常去的地方都放一个</small>
-        <span class="tip"><em>前期主线</em><i>收集 waystones:waystone</i><u>奖励：minecraft:stone_bricks×32、waystones:return_scroll×2</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:2036px;--c:#dcb56a" data-branch="t">
-        <b>认出任务书</b><small>按 U 打开，右键任务书也行</small>
-        <span class="tip"><em>前期主线</em><i>使用 heracles:quest_book</i><u>奖励：minecraft:golden_apple×2</u></span>
-      </a>
-      <a class="node trunk" style="left:52px;top:2160px;--c:#dcb56a" data-branch="t">
-        <b>扎下根来</b><small>基地、装备、食物、交通都齐了</small>
-        <span class="tip"><em>前期主线</em><i>手动确认</i><u>奖励：minecraft:netherite_scrap、minecraft:diamond×4</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:2036px;--c:#d96a6a" data-branch="z">
-        <b>变异开始</b><small>僵尸突变体</small>
-        <span class="tip"><em>强者之路</em><i>击败 mutantmonsters:mutant_zombie</i><u>奖励：minecraft:golden_apple×2</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:2160px;--c:#d96a6a" data-branch="z">
-        <b>苦力怕突变体</b><small>炸得又远又疼</small>
-        <span class="tip"><em>强者之路</em><i>击败 mutantmonsters:mutant_creeper</i><u>奖励：minecraft:gunpowder×16</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:2284px;--c:#d96a6a" data-branch="z">
-        <b>骷髅突变体</b><small>会拆成骨头再拼回来</small>
-        <span class="tip"><em>强者之路</em><i>击败 mutantmonsters:mutant_skeleton</i><u>奖励：minecraft:bone×16</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:2408px;--c:#d96a6a" data-branch="z">
-        <b>末影人突变体</b><small>会分裂出克隆体</small>
-        <span class="tip"><em>强者之路</em><i>击败 mutantmonsters:mutant_enderman</i><u>奖励：minecraft:enchanted_golden_apple</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:2532px;--c:#d96a6a" data-branch="z">
-        <b>钢铁守护者</b><small>矿井深处的钢铁巨像</small>
-        <span class="tip"><em>强者之路</em><i>击败 mowziesmobs:ferrous_wroughtnaut</i><u>奖励：minecraft:iron_block×8</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:2656px;--c:#d96a6a" data-branch="z">
-        <b>霜冻巨兽</b><small>会把你按在地上</small>
-        <span class="tip"><em>强者之路</em><i>击败 mowziesmobs:frostmaw</i><u>奖励：minecraft:blue_ice×16</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:2780px;--c:#d96a6a" data-branch="z">
-        <b>太阳鸟</b><small>会召唤族人群殴你</small>
-        <span class="tip"><em>强者之路</em><i>击败 mowziesmobs:umvuthi</i><u>奖励：minecraft:gold_block×4</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:2904px;--c:#d96a6a" data-branch="z">
-        <b>霜冻雪怪</b><small>Bosses'Rise 的雪原 Boss</small>
-        <span class="tip"><em>强者之路</em><i>击败 block_factorys_bosses:yeti</i><u>奖励：minecraft:blue_ice×16</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:3028px;--c:#d96a6a" data-branch="z">
-        <b>深渊巨口</b><small>沉船墓场的海怪</small>
-        <span class="tip"><em>强者之路</em><i>击败 aquamirae:maw</i><u>奖励：minecraft:prismarine_shard×16</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:3152px;--c:#d96a6a" data-branch="z">
-        <b>船长科妮莉亚</b><small>亡灵船长</small>
-        <span class="tip"><em>强者之路</em><i>击败 aquamirae:captain_cornelia</i><u>奖励：minecraft:heart_of_the_sea</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:3276px;--c:#d96a6a" data-branch="z">
-        <b>赫尔瓦，冥界骑士</b><small>Bosses'Rise 的第一场硬仗</small>
-        <span class="tip"><em>强者之路</em><i>击败 block_factorys_bosses:underworld_knight</i><u>奖励：minecraft:netherite_scrap×2</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:3400px;--c:#d96a6a" data-branch="z">
-        <b>阿什洛德，炼狱飞龙</b><small>火球带范围灼烧</small>
-        <span class="tip"><em>强者之路</em><i>击败 block_factorys_bosses:infernal_dragon</i><u>奖励：minecraft:netherite_ingot</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:3524px;--c:#d96a6a" data-branch="z">
-        <b>斯洛克，巨型沙虫</b><small>从地底突然窜出</small>
-        <span class="tip"><em>强者之路</em><i>击败 block_factorys_bosses:sandworm</i><u>奖励：minecraft:netherite_ingot</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:3648px;--c:#d96a6a" data-branch="z">
-        <b>先驱者</b><small>亡灵法师首领</small>
-        <span class="tip"><em>强者之路</em><i>击败 cataclysm:the_harbinger</i><u>奖励：minecraft:netherite_scrap×3</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:3772px;--c:#d96a6a" data-branch="z">
-        <b>下界合金巨兽</b><small>正面硬刚不划算</small>
-        <span class="tip"><em>强者之路</em><i>击败 cataclysm:netherite_monstrosity</i><u>奖励：minecraft:netherite_ingot</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:3896px;--c:#d96a6a" data-branch="z">
-        <b>末影守卫</b><small>灾变的第一位 Boss</small>
-        <span class="tip"><em>强者之路</em><i>击败 cataclysm:ender_guardian</i><u>奖励：minecraft:netherite_scrap×4</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:4020px;--c:#d96a6a" data-branch="z">
-        <b>焰魔</b><small>近战与火焰两个阶段</small>
-        <span class="tip"><em>强者之路</em><i>击败 cataclysm:ignis</i><u>奖励：minecraft:blaze_rod×16</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:4144px;--c:#d96a6a" data-branch="z">
-        <b>咒翼灵骸</b><small>骑亡灵马的法师</small>
-        <span class="tip"><em>强者之路</em><i>击败 cataclysm:maledictus</i><u>奖励：minecraft:netherite_ingot</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:4268px;--c:#d96a6a" data-branch="z">
-        <b>远古遗魂</b><small>会掀起沙暴</small>
-        <span class="tip"><em>强者之路</em><i>击败 cataclysm:ancient_remnant</i><u>奖励：minecraft:gold_block×4</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:4392px;--c:#d96a6a" data-branch="z">
-        <b>暝煌龙</b><small>Alex's Caves 的顶级掠食者</small>
-        <span class="tip"><em>强者之路</em><i>击败 alexscaves:luxtructosaurus</i><u>奖励：minecraft:netherite_ingot×2</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:4516px;--c:#d96a6a" data-branch="z">
-        <b>撼地斯拉</b><small>会喷核弹的巨型恐龙</small>
-        <span class="tip"><em>强者之路</em><i>击败 alexscaves:tremorzilla</i><u>奖励：minecraft:netherite_ingot</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:4640px;--c:#d96a6a" data-branch="z">
-        <b>死者之王</b><small>魔法线的期末考</small>
-        <span class="tip"><em>强者之路</em><i>击败 irons_spellbooks:dead_king</i><u>奖励：minecraft:netherite_ingot×2</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:4764px;--c:#d96a6a" data-branch="z">
-        <b>幽咽蛛王</b><small>永夜之地的巨蛛</small>
-        <span class="tip"><em>强者之路</em><i>击败 blue_skies:arachnarch</i><u>奖励：minecraft:netherite_ingot</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:4888px;--c:#d96a6a" data-branch="z">
-        <b>潜行者</b><small>会追着你穿墙</small>
-        <span class="tip"><em>强者之路</em><i>击败 deeperdarker:stalker</i><u>奖励：minecraft:netherite_ingot</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:5012px;--c:#d96a6a" data-branch="z">
-        <b>噬命者</b><small>混沌降生的恐怖存在</small>
-        <span class="tip"><em>强者之路</em><i>击败 born_in_chaos_v1:lifestealer</i><u>奖励：minecraft:golden_apple×8</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:5136px;--c:#d96a6a" data-branch="z">
-        <b>凋灵（强化后）</b><small>每杀一次它都会更强</small>
-        <span class="tip"><em>强者之路</em><i>击败 minecraft:wither</i><u>奖励：minecraft:nether_star</u></span>
-      </a>
-      <a class="node" style="left:4696px;top:5260px;--c:#d96a6a" data-branch="z">
-        <b>终章 · 利维坦</b><small>水外无敌，必须水下作战</small>
-        <span class="tip"><em>强者之路</em><i>击败 cataclysm:the_leviathan</i><u>奖励：minecraft:netherite_ingot×3、minecraft:enchanted_golden_apple×4</u></span>
-      </a>
+<p class="hint">操作：点一级分支可以折叠 / 展开；鼠标移到节点上看副标题、判据与奖励。整张图可滚动查看。</p>
+<div id="mapWrap"><div id="map"><svg class="wires" id="wires"></svg></div></div>
+
+<div class="cmdbox">
+  <h3>命令快捷页</h3>
+  <p class="sub">任务书左侧还有一个 <b>commands</b> 页，共 9 个可重复点击的命令按钮 —— 点「完成」再点领奖就会执行，不用手打。</p>
+  <div class="cmdgrid">
+    <div class="cmd"><b>设置家</b><small>把当前位置设成名为 home 的家</small><code>/sethome home</code></div>
+    <div class="cmd"><b>回第二个家</b><small>传送到 base</small><code>/home base</code></div>
+    <div class="cmd"><b>回家</b><small>传送到 home</small><code>/home home</code></div>
+    <div class="cmd"><b>删除家 base</b><small>清理不用的家</small><code>/delhome base</code></div>
+    <div class="cmd"><b>家的列表</b><small>列出所有已设置的家</small><code>/homes</code></div>
+    <div class="cmd"><b>命令快捷</b><small>点一下就能执行，可重复使用</small></div>
+    <div class="cmd"><b>返回上一位置</b><small>回到死亡点或上次传送前</small><code>/back</code></div>
+    <div class="cmd"><b>公共传送点</b><small>查看服务器公共传送点</small><code>/warp</code></div>
+    <div class="cmd"><b>设置第二个家</b><small>名为 base</small><code>/sethome base</code></div>
   </div>
 </div>
 </main>
 <footer>由脚本从整合包内的实际任务数据反向生成，与游戏里完全一致。<br>
 整合包与本站由 <strong>大肥鱼(deepseek)</strong>制作 ｜ <a href="index.html">← 返回首页</a></footer>
 <script>
-const nodes=[...document.querySelectorAll('.node')];
-document.querySelector('.tree').addEventListener('mouseover',e=>{const n=e.target.closest('.node');if(!n)return;
-  const b=n.dataset.branch;nodes.forEach(x=>{const on=x.dataset.branch===b;x.classList.toggle('dim',!on);x.classList.toggle('hot',on&&x===n);});});
-document.querySelector('.tree').addEventListener('mouseout',e=>{
-  if(e.relatedTarget&&e.relatedTarget.closest&&e.relatedTarget.closest('.node'))return;
-  nodes.forEach(x=>x.classList.remove('dim','hot'));});
+const TREE = {"name":"匠造与奥术","note":"174 个任务","children":[{"name":"前期主线","color":"#dcb56a","note":"从徒手打木头到传送网络，所有人的必经之路","count":18,"children":[{"name":"徒手起步","sub":"打 16 个原木","idx":1,"cond":"收集 minecraft:oak_log ×16","reward":"minecraft:apple×4、minecraft:torch×8"},{"name":"工作台","sub":"合成时代的开始","idx":2,"cond":"收集 minecraft:crafting_table","reward":"minecraft:oak_planks×16"},{"name":"木制工具","sub":"木镐与木斧","idx":3,"cond":"收集 minecraft:wooden_pickaxe","reward":"minecraft:stick×8"},{"name":"石器时代","sub":"石镐能挖铁矿了","idx":4,"cond":"收集 minecraft:stone_pickaxe","reward":"minecraft:coal×16、minecraft:torch×16"},{"name":"生火","sub":"八块圆石围一个熔炉","idx":5,"cond":"收集 minecraft:furnace","reward":"minecraft:coal×8"},{"name":"铁器时代","sub":"攒 8 个铁锭","idx":6,"cond":"收集 minecraft:iron_ingot ×8","reward":"minecraft:iron_pickaxe、minecraft:bread×4"},{"name":"安全第一","sub":"盾牌能挡下大部分正面伤害","idx":7,"cond":"收集 minecraft:shield","reward":"minecraft:iron_ingot×4"},{"name":"铁甲护身","sub":"穿着它再下矿","idx":8,"cond":"收集 minecraft:iron_chestplate","reward":"minecraft:iron_ingot×8"},{"name":"过夜","sub":"做张床，跳过夜晚","idx":9,"cond":"收集 minecraft:red_bed","reward":"minecraft:white_wool×8"},{"name":"储粮","sub":"16 个熟牛肉","idx":10,"cond":"收集 minecraft:cooked_beef ×16","reward":"minecraft:bread×8"},{"name":"背包与收纳","sub":"出门采矿不用来回跑","idx":11,"cond":"收集 sophisticatedbackpacks:backpack","reward":"storagedrawers:oak_full_drawers_1×2、minecraft:iron_ingot×8"},{"name":"钻石！","sub":"挖到第一颗钻石","idx":12,"cond":"收集 minecraft:diamond","reward":"minecraft:diamond_pickaxe"},{"name":"附魔入门","sub":"附魔台 + 书架","idx":13,"cond":"收集 minecraft:enchanting_table","reward":"minecraft:bookshelf×4、minecraft:lapis_lazuli×16"},{"name":"铁砧与修复","sub":"合并附魔、修复耐久","idx":14,"cond":"收集 minecraft:anvil","reward":"minecraft:iron_block×2"},{"name":"黑曜石","sub":"水浇岩浆","idx":15,"cond":"收集 minecraft:obsidian","reward":"minecraft:diamond×2"},{"name":"传送网络","sub":"常去的地方都放一个","idx":16,"cond":"收集 waystones:waystone","reward":"minecraft:stone_bricks×32、waystones:return_scroll×2"},{"name":"认出任务书","sub":"按 U 打开，右键任务书也行","idx":17,"cond":"使用 heracles:quest_book","reward":"minecraft:golden_apple×2"},{"name":"扎下根来","sub":"基地、装备、食物、交通都齐了","idx":18,"cond":"手动确认","reward":"minecraft:netherite_scrap、minecraft:diamond×4"}]},{"name":"田园生活","color":"#9dbb79","note":"农夫乐事与厨房","count":16,"children":[{"name":"一把好刀","sub":"燧石刀","idx":1,"cond":"收集 farmersdelight:flint_knife","reward":"minecraft:wheat_seeds×8"},{"name":"砧板","sub":"把食材切成更多份","idx":2,"cond":"收集 farmersdelight:cutting_board","reward":"farmersdelight:flint_knife"},{"name":"下厨","sub":"架锅开火","idx":3,"cond":"收集 farmersdelight:cooking_pot","reward":"minecraft:bowl×4"},{"name":"麦浪","sub":"收 64 个小麦","idx":4,"cond":"收集 minecraft:wheat ×64","reward":"minecraft:bread×8、minecraft:bone_meal×8"},{"name":"番茄红了","sub":"农夫乐事的新作物","idx":5,"cond":"收集 farmersdelight:tomato","reward":"minecraft:bone_meal×8"},{"name":"卷心菜","sub":"另一种主粮","idx":6,"cond":"收集 farmersdelight:cabbage","reward":"minecraft:bone_meal×8"},{"name":"稻田","sub":"水稻","idx":7,"cond":"收集 farmersdelight:rice","reward":"minecraft:bone_meal×8"},{"name":"洋葱与胡萝卜","sub":"做炖菜的料","idx":8,"cond":"收集 farmersdelight:onion","reward":"minecraft:carrot×8"},{"name":"肥沃土壤","sub":"不用水不用光的农田","idx":9,"cond":"收集 farmersdelight:rich_soil","reward":"minecraft:bone_meal×16"},{"name":"煎锅","sub":"能打能炒","idx":10,"cond":"收集 farmersdelight:skillet","reward":"minecraft:iron_ingot×4"},{"name":"灶台","sub":"同时烧多口锅","idx":11,"cond":"收集 farmersdelight:stove","reward":"minecraft:iron_ingot×8"},{"name":"傻瓜式厨房","sub":"材料在附近箱子里就能做菜","idx":12,"cond":"收集 cookingforblockheads:cooking_table","reward":"cookingforblockheads:fridge、minecraft:iron_ingot×8"},{"name":"冰箱","sub":"给厨房加储物格","idx":13,"cond":"收集 cookingforblockheads:fridge","reward":"minecraft:iron_ingot×8"},{"name":"养蜂","sub":"蜂蜜能解毒","idx":14,"cond":"收集 minecraft:beehive","reward":"minecraft:honey_bottle×4"},{"name":"做个蛋糕","sub":"犒劳自己","idx":15,"cond":"收集 minecraft:cake","reward":"minecraft:sugar×16"},{"name":"田园大成","sub":"农场、厨房、蜂箱都齐了","idx":16,"cond":"手动确认","reward":"minecraft:golden_carrot×8"}]},{"name":"机械动力","color":"#e0a851","note":"从水车到铁路","count":22,"children":[{"name":"安山合金","sub":"机械动力的基础材料","idx":1,"cond":"收集 create:andesite_alloy ×16","reward":"minecraft:iron_nugget×16"},{"name":"传动轴","sub":"旋转力靠它传递","idx":2,"cond":"收集 create:shaft","reward":"create:andesite_alloy×8"},{"name":"齿轮","sub":"改转速、换方向","idx":3,"cond":"收集 create:cogwheel","reward":"create:shaft×8"},{"name":"大齿轮","sub":"大小搭配就能变速","idx":4,"cond":"收集 create:large_cogwheel","reward":"create:andesite_alloy×16"},{"name":"传动带","sub":"传动力也能运物品","idx":5,"cond":"收集 create:belt_connector","reward":"create:andesite_alloy×8"},{"name":"手摇曲柄","sub":"没有动力源时的应急手段","idx":6,"cond":"收集 create:hand_crank","reward":"create:andesite_alloy×8"},{"name":"第一台动力","sub":"水车，占地小随处可搭","idx":7,"cond":"收集 create:water_wheel","reward":"minecraft:iron_ingot×8"},{"name":"风力","sub":"风车动力足，占地大","idx":8,"cond":"收集 create:windmill_bearing","reward":"minecraft:iron_ingot×16"},{"name":"压床","sub":"加工金属板材","idx":9,"cond":"收集 create:mechanical_press","reward":"create:millstone"},{"name":"动力搅拌","sub":"做合金和面团","idx":10,"cond":"收集 create:mechanical_mixer","reward":"create:andesite_alloy×16"},{"name":"动力锯","sub":"批量处理木材","idx":11,"cond":"收集 create:mechanical_saw","reward":"minecraft:iron_ingot×8"},{"name":"动力钻头","sub":"自动采矿","idx":12,"cond":"收集 create:mechanical_drill","reward":"minecraft:iron_ingot×8"},{"name":"鼓风机","sub":"配岩浆或水就能批量加工","idx":13,"cond":"收集 create:encased_fan","reward":"minecraft:iron_ingot×8"},{"name":"石磨","sub":"最早的加工设备","idx":14,"cond":"收集 create:millstone","reward":"minecraft:wheat×16"},{"name":"粉碎轮","sub":"矿石打成粉末，产量翻倍","idx":15,"cond":"收集 create:crushing_wheel","reward":"minecraft:iron_ingot×16"},{"name":"黄铜时代","sub":"中期的分水岭","idx":16,"cond":"收集 create:brass_ingot ×8","reward":"create:brass_ingot×8"},{"name":"电子管","sub":"黄铜机器的必需零件","idx":17,"cond":"收集 create:electron_tube","reward":"create:brass_ingot×8"},{"name":"精密构件","sub":"通往一切高级机器","idx":18,"cond":"收集 create:precision_mechanism","reward":"create:electron_tube×4"},{"name":"物品保险库","sub":"大容量仓储","idx":19,"cond":"收集 create:item_vault","reward":"create:brass_ingot×8"},{"name":"铺设铁轨","sub":"64 段铁轨","idx":20,"cond":"收集 create:track ×64","reward":"minecraft:iron_ingot×32"},{"name":"铁路时代","sub":"蒸汽与铁轨","idx":21,"cond":"收集 railways:conductor_whistle","reward":"create:track×64、minecraft:iron_ingot×32"},{"name":"机械帝国","sub":"从水车到火车，整条线走完","idx":22,"cond":"手动确认","reward":"minecraft:netherite_ingot"}]},{"name":"工业帝国","color":"#7fb6c9","note":"通用机械 · 沉浸工程 · AE2","count":22,"children":[{"name":"锇","sub":"通用机械的基础金属","idx":1,"cond":"收集 mekanism:ingot_osmium ×8","reward":"minecraft:iron_ingot×8"},{"name":"炼钢","sub":"钢锭是骨架材料","idx":2,"cond":"收集 mekanism:ingot_steel ×4","reward":"minecraft:iron_ingot×16"},{"name":"冶金灌注机","sub":"第一台核心机器","idx":3,"cond":"收集 mekanism:metallurgic_infuser","reward":"mekanism:enrichment_chamber"},{"name":"富集仓","sub":"矿石产出翻倍","idx":4,"cond":"收集 mekanism:enrichment_chamber","reward":"minecraft:iron_ingot×16"},{"name":"控制电路","sub":"所有机器的中间件","idx":5,"cond":"收集 mekanism:basic_control_circuit","reward":"minecraft:iron_ingot×16"},{"name":"发电","sub":"热力发电机","idx":6,"cond":"收集 mekanismgenerators:heat_generator","reward":"thermal:machine_furnace"},{"name":"热力机械","sub":"矿石处理链的补充","idx":7,"cond":"收集 thermal:machine_furnace","reward":"minecraft:iron_ingot×16"},{"name":"工程师之锤","sub":"沉浸工程的起点","idx":8,"cond":"收集 immersiveengineering:hammer","reward":"immersiveengineering:ingot_steel×4"},{"name":"焦炉","sub":"烧出焦炭","idx":9,"cond":"收集 immersiveengineering:coke_oven","reward":"minecraft:coal×32"},{"name":"高炉","sub":"出钢，也是多方块的入门","idx":10,"cond":"收集 immersiveengineering:blast_furnace","reward":"immersiveengineering:ingot_steel×8"},{"name":"赛特斯石英","sub":"AE2 从这种水晶开始","idx":11,"cond":"收集 ae2:certus_quartz_crystal ×8","reward":"ae2:certus_quartz_crystal×8"},{"name":"充能器","sub":"给水晶充能","idx":12,"cond":"收集 ae2:charger","reward":"ae2:certus_quartz_crystal×8"},{"name":"压印器","sub":"把电路图案压到硅片上","idx":13,"cond":"收集 ae2:inscriber","reward":"ae2:printed_silicon×4"},{"name":"硅片","sub":"所有处理器的底子","idx":14,"cond":"收集 ae2:printed_silicon","reward":"minecraft:iron_ingot×16"},{"name":"逻辑处理器","sub":"三种处理器之一","idx":15,"cond":"收集 ae2:logic_processor","reward":"ae2:printed_logic_processor×4"},{"name":"运算处理器","sub":"之三","idx":16,"cond":"收集 ae2:calculation_processor","reward":"ae2:printed_calculation_processor×4"},{"name":"工程处理器","sub":"高级机器的门票","idx":17,"cond":"收集 ae2:engineering_processor","reward":"ae2:printed_engineering_processor×4"},{"name":"ME 驱动器","sub":"插进存储元件就有数字仓库","idx":18,"cond":"收集 ae2:drive","reward":"ae2:item_storage_cell_1k×2"},{"name":"存储元件","sub":"一格装 1024 种物品","idx":19,"cond":"收集 ae2:item_storage_cell_1k","reward":"ae2:item_storage_cell_4k"},{"name":"样板供应器","sub":"自动合成的关键","idx":20,"cond":"收集 ae2:pattern_provider","reward":"ae2:engineering_processor×4"},{"name":"ME 合成终端","sub":"一个界面看遍整个仓库","idx":21,"cond":"收集 ae2:crafting_terminal","reward":"ae2:drive、ae2:item_storage_cell_1k×2"},{"name":"自动合成","sub":"让 ME 网络替你干活","idx":22,"cond":"收集 ae2:crafting_accelerator","reward":"ae2:engineering_processor×8"}]},{"name":"蓝图与建造","color":"#b39ddb","note":"建造魔杖与蓝图加农炮","count":14,"children":[{"name":"石制建造魔杖","sub":"一次放 9 个方块","idx":1,"cond":"收集 constructionwand:stone_wand","reward":"minecraft:stone×64"},{"name":"石砖墙","sub":"用魔杖铺一面墙","idx":2,"cond":"收集 minecraft:stone_bricks ×64","reward":"minecraft:stone×64"},{"name":"玻璃幕墙","sub":"透光的建筑","idx":3,"cond":"收集 minecraft:glass ×64","reward":"minecraft:glass×32"},{"name":"建筑方块","sub":"混凝土或陶瓦都行","idx":4,"cond":"收集 minecraft:smooth_stone ×64","reward":"minecraft:white_concrete×32"},{"name":"铁制建造魔杖","sub":"一次 27 个方块，可升级","idx":5,"cond":"收集 constructionwand:iron_wand","reward":"minecraft:iron_ingot×16"},{"name":"钻石建造魔杖","sub":"一次 128 个","idx":6,"cond":"收集 constructionwand:diamond_wand","reward":"minecraft:diamond×4"},{"name":"建造核心 · 天使","sub":"在空中凭空放方块","idx":7,"cond":"收集 constructionwand:core_angel","reward":"minecraft:feather×16"},{"name":"建造核心 · 破坏","sub":"快速拆一大片","idx":8,"cond":"收集 constructionwand:core_destruction","reward":"minecraft:diamond_pickaxe"},{"name":"魔杖核心","sub":"给魔杖装升级核心","idx":9,"cond":"收集 constructionwand:diamond_wand_core","reward":"minecraft:diamond×2"},{"name":"蓝图台","sub":"机械动力的图纸系统","idx":10,"cond":"收集 create:schematic_table","reward":"create:empty_schematic×2"},{"name":"蓝图与笔","sub":"把建筑存成图纸","idx":11,"cond":"收集 create:empty_schematic","reward":"minecraft:paper×16"},{"name":"蓝图加农炮","sub":"让机器替你盖房子","idx":12,"cond":"收集 create:schematicannon","reward":"create:empty_schematic×4、minecraft:iron_block×4"},{"name":"无限建造魔杖","sub":"一次 1024 个方块，永不磨损","idx":13,"cond":"收集 constructionwand:infinity_wand","reward":"minecraft:nether_star"},{"name":"建筑大师","sub":"从石杖到无限杖，全部收入囊中","idx":14,"cond":"手动确认","reward":"minecraft:netherite_ingot×2、constructionwand:core_angel"}]},{"name":"奥术 · 新生魔艺","color":"#7ec8e3","note":"法术 · 魔源 · 灌注","count":16,"children":[{"name":"新手法术书","sub":"拿着它就能施法","idx":1,"cond":"收集 ars_nouveau:novice_spell_book","reward":"ars_nouveau:wand、ars_nouveau:source_gem×2"},{"name":"法杖","sub":"施法与灌注的工具","idx":2,"cond":"收集 ars_nouveau:wand","reward":"ars_nouveau:source_gem×4"},{"name":"魔源宝石","sub":"魔法的电","idx":3,"cond":"收集 ars_nouveau:source_gem ×8","reward":"minecraft:amethyst_shard×8"},{"name":"灌注室","sub":"把魔源灌进物品","idx":4,"cond":"收集 ars_nouveau:imbuement_chamber","reward":"ars_nouveau:source_jar×2"},{"name":"附魔装置","sub":"最重要的合成台","idx":5,"cond":"收集 ars_nouveau:enchanting_apparatus","reward":"minecraft:gold_ingot×16"},{"name":"奥术核心","sub":"高级结构的组件","idx":6,"cond":"收集 ars_nouveau:arcane_core","reward":"ars_nouveau:source_gem×4"},{"name":"魔源罐","sub":"就近存魔源","idx":7,"cond":"收集 ars_nouveau:source_jar","reward":"ars_nouveau:source_gem×4"},{"name":"法师之花","sub":"自然产出魔源","idx":8,"cond":"收集 ars_nouveau:magebloom","reward":"minecraft:bone_meal×16"},{"name":"法师布","sub":"魔法护甲的原料","idx":9,"cond":"收集 ars_nouveau:magebloom_fiber","reward":"ars_nouveau:magebloom×8"},{"name":"法术弓","sub":"把法术装进弓里","idx":10,"cond":"收集 ars_nouveau:spell_bow","reward":"minecraft:bow"},{"name":"附魔师之剑","sub":"魔法近战的答案","idx":11,"cond":"收集 ars_nouveau:enchanters_sword","reward":"minecraft:diamond×2"},{"name":"星斑克","sub":"自动捡东西送回箱子","idx":12,"cond":"收集 ars_nouveau:starbuncle_shards","reward":"ars_nouveau:source_gem×8"},{"name":"德律格米","sub":"自动收集生物掉落","idx":13,"cond":"收集 ars_nouveau:drygmy_shard","reward":"ars_nouveau:source_gem×8"},{"name":"学徒法术书","sub":"二阶法术","idx":14,"cond":"收集 ars_nouveau:apprentice_spell_book","reward":"ars_nouveau:arcane_core、ars_nouveau:source_gem×8"},{"name":"法师铠甲","sub":"魔法护甲全套","idx":15,"cond":"收集 ars_nouveau:sorcerer_robes","reward":"ars_nouveau:magebloom_fiber×8"},{"name":"大法师","sub":"法术体系全部掌握","idx":16,"cond":"收集 ars_nouveau:archmage_spell_book","reward":"ars_nouveau:source_gem×16、minecraft:nether_star"}]},{"name":"奥术 · 植物魔法","color":"#8fd9a8","note":"用花做资源农场","count":14,"children":[{"name":"白雏菊","sub":"用花瓣换纯净材料","idx":1,"cond":"收集 botania:pure_daisy","reward":"minecraft:white_dye×8"},{"name":"树枝魔杖","sub":"把魔力从花里取出来","idx":2,"cond":"收集 botania:twig_wand","reward":"minecraft:stick×16"},{"name":"魔力池","sub":"植物魔法的电池","idx":3,"cond":"收集 botania:mana_pool","reward":"botania:mana_spreader×2"},{"name":"魔力发射器","sub":"把魔力送到需要的地方","idx":4,"cond":"收集 botania:mana_spreader","reward":"minecraft:gold_ingot×16"},{"name":"火之花","sub":"烧燃料产魔力","idx":5,"cond":"收集 botania:endoflame","reward":"minecraft:coal×32"},{"name":"水绣球","sub":"被动产能，不用管","idx":6,"cond":"收集 botania:hydroangeas","reward":"botania:mana_spreader"},{"name":"魔力钢","sub":"装备的原料","idx":7,"cond":"收集 botania:manasteel_ingot","reward":"botania:manasteel_ingot×4"},{"name":"魔力钻石","sub":"自动修复耐久","idx":8,"cond":"收集 botania:mana_diamond","reward":"minecraft:diamond×2"},{"name":"魔力珍珠","sub":"传送与合成的关键","idx":9,"cond":"收集 botania:mana_pearl","reward":"minecraft:ender_pearl×4"},{"name":"泰拉钢","sub":"植物魔法的中期分水岭","idx":10,"cond":"收集 botania:terrasteel_ingot","reward":"botania:mana_pool、minecraft:diamond×2"},{"name":"精灵之门","sub":"通往精灵世界","idx":11,"cond":"收集 botania:alfheim_portal","reward":"botania:terrasteel_ingot×2"},{"name":"精灵钢","sub":"精灵世界的材料","idx":12,"cond":"收集 botania:elementium_ingot","reward":"botania:terrasteel_ingot"},{"name":"泰拉装备","sub":"泰拉钢全套","idx":13,"cond":"收集 botania:terrasteel_helmet","reward":"botania:terrasteel_ingot×4"},{"name":"花之大师","sub":"从一朵雏菊到精灵世界","idx":14,"cond":"收集 botania:gaia_ingot","reward":"minecraft:nether_star、botania:terrasteel_ingot×4"}]},{"name":"收纳与物流","color":"#c9b458","note":"把仓库理清楚","count":10,"children":[{"name":"储物抽屉","sub":"一格装海量同类物品","idx":1,"cond":"收集 storagedrawers:oak_full_drawers_1","reward":"minecraft:iron_ingot×8"},{"name":"抽屉升级","sub":"扩容与压缩","idx":2,"cond":"收集 storagedrawers:upgrade_template","reward":"minecraft:iron_ingot×8"},{"name":"铁箱子","sub":"比木箱大","idx":3,"cond":"收集 minecraft:chest ×8","reward":"minecraft:oak_planks×32"},{"name":"潜影盒","sub":"移动仓库","idx":4,"cond":"收集 minecraft:shulker_box","reward":"minecraft:shulker_shell×2"},{"name":"精致存储","sub":"升级版容器","idx":5,"cond":"收集 sophisticatedstorage:iron_chest","reward":"minecraft:iron_ingot×16"},{"name":"漏斗流水线","sub":"自动搬运","idx":6,"cond":"收集 minecraft:hopper ×4","reward":"minecraft:iron_ingot×16"},{"name":"分类仓库","sub":"每种矿物一个抽屉","idx":7,"cond":"收集 storagedrawers:oak_full_drawers_4","reward":"minecraft:iron_ingot×16"},{"name":"末影箱","sub":"随身仓库","idx":8,"cond":"收集 minecraft:ender_chest","reward":"minecraft:ender_pearl×8"},{"name":"物流之始","sub":"用 Create 传动带运物品","idx":9,"cond":"收集 create:belt_connector ×4","reward":"create:andesite_alloy×16"},{"name":"井井有条","sub":"仓库彻底分好类","idx":10,"cond":"手动确认","reward":"minecraft:netherite_scrap"}]},{"name":"探索与征服","color":"#8ba3c7","note":"下界 · 末地 · 远古城市","count":15,"children":[{"name":"前往下界","sub":"造个传送门","idx":1,"cond":"前往 minecraft:the_nether","reward":"minecraft:obsidian×10"},{"name":"下界要塞","sub":"烈焰人刷怪笼","idx":2,"cond":"收集 minecraft:nether_bricks","reward":"minecraft:blaze_rod×2"},{"name":"烈焰棒","sub":"酿造与末地的关键","idx":3,"cond":"收集 minecraft:blaze_rod ×2","reward":"minecraft:gold_ingot×8"},{"name":"远古残骸","sub":"下界合金的原料","idx":4,"cond":"收集 minecraft:ancient_debris","reward":"minecraft:diamond×2"},{"name":"下界合金","sub":"装备的最终形态","idx":5,"cond":"收集 minecraft:netherite_ingot","reward":"minecraft:diamond×4"},{"name":"末影珍珠","sub":"注意别盯着末影人看","idx":6,"cond":"收集 minecraft:ender_pearl","reward":"minecraft:ender_pearl×4"},{"name":"末影之眼","sub":"用来找要塞","idx":7,"cond":"收集 minecraft:ender_eye","reward":"minecraft:ender_pearl×8"},{"name":"抵达末地","sub":"走进末地传送门","idx":8,"cond":"前往 minecraft:the_end","reward":"minecraft:golden_apple×2"},{"name":"终结末影龙","sub":"击败末影龙","idx":9,"cond":"击败 minecraft:ender_dragon","reward":"minecraft:elytra、minecraft:dragon_breath×4"},{"name":"末地城","sub":"鞘翅与潜影贝","idx":10,"cond":"收集 minecraft:purpur_block","reward":"minecraft:ender_pearl×8"},{"name":"信标","sub":"范围增益","idx":11,"cond":"收集 minecraft:beacon","reward":"minecraft:netherite_ingot"},{"name":"远古城市","sub":"深暗之域的回响碎片","idx":12,"cond":"收集 minecraft:echo_shard","reward":"minecraft:diamond×4"},{"name":"直面监守者","sub":"打赢它，或者跑掉","idx":13,"cond":"击败 minecraft:warden","reward":"minecraft:netherite_ingot、minecraft:echo_shard×4"},{"name":"海底神殿","sub":"远古守卫者","idx":14,"cond":"击败 minecraft:elder_guardian","reward":"minecraft:sponge×8"},{"name":"世界尽头","sub":"下界、末地、深暗全走一遍","idx":15,"cond":"手动确认","reward":"minecraft:netherite_ingot×2"}]},{"name":"强者之路","color":"#d96a6a","note":"27 场 Boss 战","count":27,"children":[{"name":"变异开始","sub":"僵尸突变体","idx":1,"cond":"击败 mutantmonsters:mutant_zombie","reward":"minecraft:golden_apple×2"},{"name":"苦力怕突变体","sub":"炸得又远又疼","idx":2,"cond":"击败 mutantmonsters:mutant_creeper","reward":"minecraft:gunpowder×16"},{"name":"骷髅突变体","sub":"会拆成骨头再拼回来","idx":3,"cond":"击败 mutantmonsters:mutant_skeleton","reward":"minecraft:bone×16"},{"name":"末影人突变体","sub":"会分裂出克隆体","idx":4,"cond":"击败 mutantmonsters:mutant_enderman","reward":"minecraft:enchanted_golden_apple"},{"name":"钢铁守护者","sub":"矿井深处的钢铁巨像","idx":5,"cond":"击败 mowziesmobs:ferrous_wroughtnaut","reward":"minecraft:iron_block×8"},{"name":"霜冻巨兽","sub":"会把你按在地上","idx":6,"cond":"击败 mowziesmobs:frostmaw","reward":"minecraft:blue_ice×16"},{"name":"太阳鸟","sub":"会召唤族人群殴你","idx":7,"cond":"击败 mowziesmobs:umvuthi","reward":"minecraft:gold_block×4"},{"name":"霜冻雪怪","sub":"Bosses'Rise 的雪原 Boss","idx":8,"cond":"击败 block_factorys_bosses:yeti","reward":"minecraft:blue_ice×16"},{"name":"深渊巨口","sub":"沉船墓场的海怪","idx":9,"cond":"击败 aquamirae:maw","reward":"minecraft:prismarine_shard×16"},{"name":"船长科妮莉亚","sub":"亡灵船长","idx":10,"cond":"击败 aquamirae:captain_cornelia","reward":"minecraft:heart_of_the_sea"},{"name":"赫尔瓦，冥界骑士","sub":"Bosses'Rise 的第一场硬仗","idx":11,"cond":"击败 block_factorys_bosses:underworld_knight","reward":"minecraft:netherite_scrap×2"},{"name":"阿什洛德，炼狱飞龙","sub":"火球带范围灼烧","idx":12,"cond":"击败 block_factorys_bosses:infernal_dragon","reward":"minecraft:netherite_ingot"},{"name":"斯洛克，巨型沙虫","sub":"从地底突然窜出","idx":13,"cond":"击败 block_factorys_bosses:sandworm","reward":"minecraft:netherite_ingot"},{"name":"先驱者","sub":"亡灵法师首领","idx":14,"cond":"击败 cataclysm:the_harbinger","reward":"minecraft:netherite_scrap×3"},{"name":"下界合金巨兽","sub":"正面硬刚不划算","idx":15,"cond":"击败 cataclysm:netherite_monstrosity","reward":"minecraft:netherite_ingot"},{"name":"末影守卫","sub":"灾变的第一位 Boss","idx":16,"cond":"击败 cataclysm:ender_guardian","reward":"minecraft:netherite_scrap×4"},{"name":"焰魔","sub":"近战与火焰两个阶段","idx":17,"cond":"击败 cataclysm:ignis","reward":"minecraft:blaze_rod×16"},{"name":"咒翼灵骸","sub":"骑亡灵马的法师","idx":18,"cond":"击败 cataclysm:maledictus","reward":"minecraft:netherite_ingot"},{"name":"远古遗魂","sub":"会掀起沙暴","idx":19,"cond":"击败 cataclysm:ancient_remnant","reward":"minecraft:gold_block×4"},{"name":"暝煌龙","sub":"Alex's Caves 的顶级掠食者","idx":20,"cond":"击败 alexscaves:luxtructosaurus","reward":"minecraft:netherite_ingot×2"},{"name":"撼地斯拉","sub":"会喷核弹的巨型恐龙","idx":21,"cond":"击败 alexscaves:tremorzilla","reward":"minecraft:netherite_ingot"},{"name":"死者之王","sub":"魔法线的期末考","idx":22,"cond":"击败 irons_spellbooks:dead_king","reward":"minecraft:netherite_ingot×2"},{"name":"幽咽蛛王","sub":"永夜之地的巨蛛","idx":23,"cond":"击败 blue_skies:arachnarch","reward":"minecraft:netherite_ingot"},{"name":"潜行者","sub":"会追着你穿墙","idx":24,"cond":"击败 deeperdarker:stalker","reward":"minecraft:netherite_ingot"},{"name":"噬命者","sub":"混沌降生的恐怖存在","idx":25,"cond":"击败 born_in_chaos_v1:lifestealer","reward":"minecraft:golden_apple×8"},{"name":"凋灵（强化后）","sub":"每杀一次它都会更强","idx":26,"cond":"击败 minecraft:wither","reward":"minecraft:nether_star"},{"name":"终章 · 利维坦","sub":"水外无敌，必须水下作战","idx":27,"cond":"击败 cataclysm:the_leviathan","reward":"minecraft:netherite_ingot×3、minecraft:enchanted_golden_apple×4"}]}]};
+
+const ROOT_W = 210, BR_W = 188, LEAF_W = 214, GAP_Y = 6, BR_GAP = 16, COL = 74;
+const map = document.getElementById('map'), wires = document.getElementById('wires');
+const collapsed = new Set();
+let NODES = [], WIRES = [];
+
+function build(){
+  NODES = []; WIRES = [];
+  const kids = TREE.children;
+  // 左右分组：主线固定放右侧第一个，其余交替
+  const right = [], left = [];
+  kids.forEach((b, i) => (i % 2 === 0 ? right : left).push(b));
+
+  const measure = (list) => list.reduce((s, b) => s + 30 + (collapsed.has(b.name) ? 0 : b.children.length * 32) + BR_GAP, 0);
+  const hR = measure(right), hL = measure(left);
+  const H = Math.max(hR, hL, 320) + 60;
+  const W = 2 * (COL * 2 + BR_W + LEAF_W) + ROOT_W + 120;
+  const cx = W / 2, cy = H / 2;
+
+  NODES.push({ kind:'root', x: cx - ROOT_W/2, y: cy - 26, w: ROOT_W, h: 52, name: TREE.name, note: TREE.note });
+  const rootBox = NODES[0];
+
+  const side = (list, h, dir) => {
+    let y = (H - h) / 2 + 10;
+    for (const b of list) {
+      const bh = 30;
+      const by = y + bh/2;
+      const bx = dir > 0 ? cx + COL : cx - COL - BR_W;
+      const bnode = { kind:'branch', x: bx, y: y, w: BR_W, h: bh, name: b.name, color: b.color, count: b.count, note: b.note, kids: b.children };
+      NODES.push(bnode);
+      WIRES.push({ a: rootBox, b: bnode, color: b.color, dir });
+      y += bh + 6;
+      if (!collapsed.has(b.name)) {
+        let ly = y;
+        b.children.forEach((c, i) => {
+          const lx = dir > 0 ? cx + COL * 2 + BR_W : cx - COL * 2 - BR_W - LEAF_W;
+          const ln = { kind:'leaf', x: lx, y: ly, w: LEAF_W, h: 28, name: c.name, sub: c.sub, idx: c.idx, cond: c.cond, reward: c.reward, color: b.color, parent: b.name };
+          NODES.push(ln);
+          WIRES.push({ a: bnode, b: ln, color: b.color, dir });
+          ly += 32;
+        });
+        y = ly + BR_GAP;
+      } else { y += BR_GAP; }
+    }
+  };
+  side(right, hR, 1);
+  side(left, hL, -1);
+
+  map.style.width = W + 'px'; map.style.height = H + 'px';
+  wires.setAttribute('width', W); wires.setAttribute('height', H);
+
+  // 渲染连线
+  wires.innerHTML = WIRES.map((w, i) => {
+    const A = w.a, B = w.b;
+    const ax = w.dir > 0 ? A.x + A.w : A.x;
+    const ay = A.y + A.h / 2;
+    const bx = w.dir > 0 ? B.x : B.x + B.w;
+    const by = B.y + B.h / 2;
+    const mx = (ax + bx) / 2;
+    return `<path class="wire" data-i="${i}" d="M${ax} ${ay} C${mx} ${ay} ${mx} ${by} ${bx} ${by}" stroke="${w.color}"/>`;
+  }).join('');
+
+  // 渲染节点
+  const old = map.querySelectorAll('.n'); old.forEach(e => e.remove());
+  for (const n of NODES) {
+    const el = document.createElement('div');
+    el.className = 'n ' + n.kind;
+    el.style.left = n.x + 'px'; el.style.top = n.y + 'px';
+    el.style.width = n.w + 'px'; el.style.height = n.h + 'px';
+    el.style.padding = n.kind === 'root' ? '0 18px' : n.kind === 'branch' ? '0 13px' : '0 10px';
+    if (n.kind === 'branch') { el.style.background = n.color; el.style.justifyContent = 'space-between'; }
+    if (n.kind === 'leaf') el.style.borderLeft = '3px solid ' + n.color;
+    if (n.kind === 'root') { el.innerHTML = `<div><b>${n.name}</b><br><small style="font-size:11.5px">${n.note}</small></div>`; }
+    else if (n.kind === 'branch') {
+      el.innerHTML = `<b>${n.name}<span class="cnt"> ${n.count}</span><span class="tri">${collapsed.has(n.name) ? '▶' : '▼'}</span></b>`;
+      el.onclick = () => { collapsed.has(n.name) ? collapsed.delete(n.name) : collapsed.add(n.name); build(); };
+    } else {
+      el.innerHTML = `<span class="ix">${n.idx}</span><span class="bd"><b>${n.name}</b><small>${n.sub || ''}</small></span>
+        <span class="tip"><em style="color:${n.color};font-style:normal;font-size:11px">${n.parent}</em>${n.cond ? `<i>${n.cond}</i>` : ''}${n.reward ? `<u>奖励：${n.reward}</u>` : ''}</span>`;
+    }
+    map.appendChild(el);
+  }
+
+  // 悬停高亮同支线
+  map.onmouseover = (e) => {
+    const t = e.target.closest('.leaf'); if (!t) return;
+    const br = t.querySelector('.tip em')?.textContent;
+    map.querySelectorAll('.n.leaf').forEach(x => x.classList.toggle('dim', x.querySelector('.tip em')?.textContent !== br));
+    map.querySelectorAll('.wire').forEach(w => w.classList.remove('hot'));
+  };
+  map.onmouseout = (e) => {
+    if (e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('.leaf')) return;
+    map.querySelectorAll('.n.leaf').forEach(x => x.classList.remove('dim'));
+  };
+}
+document.getElementById('expand').onclick = () => { collapsed.clear(); build(); };
+document.getElementById('collapse').onclick = () => { TREE.children.forEach(b => collapsed.add(b.name)); build(); };
+build();
 </script>
 </body>
 </html>
