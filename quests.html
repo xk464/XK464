@@ -4,47 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b0e0c">
-<title>匠造与奥术 · 任务线科技树</title>
+<title>匠造与奥术 · 任务科技树</title>
 <style>
-:root{
-  --bg:#0b0e0c; --bg2:#10140f; --panel:#151a14; --panel2:#1b211a;
-  --ink:#eef1e6; --muted:#9aa392; --faint:#6b7364; --line:rgba(226,219,190,.13);
-  --gold:#dcb56a; --gold2:#f0d79b; --green:#9dbb79; --blue:#7fb6c9; --purple:#b39ddb; --red:#d98b6a;
-  --serif:"Noto Serif SC","Songti SC",Georgia,serif;
-  --sans:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;color:var(--ink);font-family:var(--sans);line-height:1.75;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% -10%,rgba(220,181,106,.09),transparent 60%),
-    radial-gradient(ellipse 60% 40% at 90% 15%,rgba(127,182,201,.06),transparent 55%),
-    radial-gradient(ellipse 70% 50% at 5% 80%,rgba(157,187,121,.05),transparent 60%),
-    linear-gradient(180deg,var(--bg2),var(--bg) 40%);
-  background-attachment:fixed;
-}
-body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
-  background-image:radial-gradient(circle at 1px 1px,#fff 1px,transparent 0);
-  background-size:4px 4px;
-}
-header.top{
-  position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);
-  background:rgba(11,14,12,.82);border-bottom:1px solid var(--line);
-}
+:root{--bg:#0b0e0c;--bg2:#10140f;--ink:#eef1e6;--muted:#9aa392;--faint:#6b7364;--line:rgba(226,219,190,.13);
+--gold:#dcb56a;--gold2:#f0d79b;--green:#9dbb79;--serif:"Noto Serif SC","Songti SC",Georgia,serif;--sans:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:var(--sans);line-height:1.75;
+background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(220,181,106,.09),transparent 60%),
+radial-gradient(ellipse 60% 40% at 90% 15%,rgba(127,182,201,.06),transparent 55%),
+radial-gradient(ellipse 70% 50% at 5% 80%,rgba(157,187,121,.05),transparent 60%),
+linear-gradient(180deg,var(--bg2),var(--bg) 40%);background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
+background-image:radial-gradient(circle at 1px 1px,#fff 1px,transparent 0);background-size:4px 4px}
+header.top{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(11,14,12,.82);border-bottom:1px solid var(--line)}
 .top-in{max-width:1400px;margin:0 auto;padding:14px 26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.back{
-  display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);
-  border:1px solid var(--line);border-radius:999px;padding:6px 15px 6px 11px;font-size:13.5px;transition:.18s;
-}
+.back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+border-radius:999px;padding:6px 15px 6px 11px;font-size:13.5px;transition:.18s}
 .back:hover{border-color:var(--gold);color:var(--gold2);background:rgba(220,181,106,.08)}
-.brand{font-family:var(--serif);font-size:16px;letter-spacing:.05em}
-.brand b{color:var(--gold)}
-.spacer{flex:1}
-.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.brand{font-family:var(--serif);font-size:16px;letter-spacing:.05em}.brand b{color:var(--gold)}
+.spacer{flex:1}.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
 main{max-width:1400px;margin:0 auto;padding:30px 26px 90px;position:relative;z-index:1}
-h1{font-family:var(--serif);font-size:clamp(24px,3.4vw,38px);margin:0 0 8px;letter-spacing:.02em}
+h1{font-family:var(--serif);font-size:clamp(24px,3.4vw,38px);margin:0 0 8px}
 h1 em{font-style:normal;color:var(--gold)}
 .lead{color:var(--muted);margin:0 0 6px;font-size:14.5px}
 .stats{display:flex;gap:26px;flex-wrap:wrap;margin:20px 0 8px}
@@ -53,43 +33,35 @@ h1 em{font-style:normal;color:var(--gold)}
 .legend{display:flex;flex-wrap:wrap;gap:9px 18px;margin:18px 0 14px;font-size:13px}
 .legend i{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:7px;vertical-align:middle}
 .hint{color:var(--faint);font-size:12.5px;margin:8px 0 16px}
-footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 26px 60px;color:var(--faint);font-size:13px;max-width:1400px;margin-left:auto;margin-right:auto}
-footer a{color:var(--gold);text-decoration:none}
-footer a:hover{text-decoration:underline}
-
 .tree-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;margin-top:8px;position:relative;
-  background:radial-gradient(ellipse 60% 40% at 12% 0%,rgba(220,181,106,.07),transparent 60%),
-             radial-gradient(ellipse 50% 40% at 85% 90%,rgba(127,182,201,.06),transparent 60%),
-             linear-gradient(180deg,rgba(21,26,20,.96),rgba(13,17,13,.96));
-  box-shadow:0 20px 60px rgba(0,0,0,.45) inset, 0 1px 0 rgba(255,255,255,.03)}
-.tree{position:relative}
-svg.wires{position:absolute;inset:0;pointer-events:none}
+background:radial-gradient(ellipse 60% 40% at 12% 0%,rgba(220,181,106,.07),transparent 60%),
+radial-gradient(ellipse 50% 40% at 85% 90%,rgba(127,182,201,.06),transparent 60%),
+linear-gradient(180deg,rgba(21,26,20,.96),rgba(13,17,13,.96));box-shadow:0 20px 60px rgba(0,0,0,.45) inset}
+.tree{position:relative}svg.wires{position:absolute;inset:0;pointer-events:none}
 .wire{fill:none;stroke-width:1.7;stroke-opacity:.34;transition:.2s}
-.wire.hot{stroke-opacity:.95;stroke-width:2.6}
-.node{position:absolute;width:208px;padding:8px 12px 9px;border-radius:11px;text-decoration:none;color:inherit;
-  border:1px solid var(--line);border-left:3px solid var(--c);background:rgba(11,14,11,.86);
-  transition:transform .16s,box-shadow .16s,background .16s;z-index:2}
+.node{position:absolute;width:196px;padding:8px 12px 9px;border-radius:11px;text-decoration:none;color:inherit;
+border:1px solid var(--line);border-left:3px solid var(--c);background:rgba(11,14,11,.86);transition:.16s;z-index:2}
 .node:hover{transform:translateY(-2px);background:rgba(28,34,26,.96);box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:9}
 .node.trunk{background:rgba(24,25,17,.9)}
 .node b{display:block;font-size:13.5px;font-weight:600;line-height:1.35}
 .node small{display:block;color:var(--muted);font-size:11px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .node .tip{display:none;position:absolute;left:0;top:calc(100% + 7px);min-width:250px;max-width:330px;padding:11px 13px;
-  border:1px solid var(--line);border-radius:10px;background:rgba(9,12,9,.98);font-size:12px;z-index:40;box-shadow:0 14px 40px rgba(0,0,0,.6)}
+border:1px solid var(--line);border-radius:10px;background:rgba(9,12,9,.98);font-size:12px;z-index:40;box-shadow:0 14px 40px rgba(0,0,0,.6)}
 .node:hover .tip{display:block}
-.node .tip em{display:block;color:var(--c);font-style:normal;font-size:11px;margin-bottom:5px;letter-spacing:.05em}
+.node .tip em{display:block;color:var(--c);font-style:normal;font-size:11px;margin-bottom:5px}
 .node .tip i{display:block;color:var(--muted);font-style:normal}
 .node .tip u{display:block;color:var(--green);text-decoration:none;margin-top:5px;padding-top:5px;border-top:1px solid var(--line)}
-.node.dim{opacity:.22}
-.node.hot{box-shadow:0 0 0 1px var(--c),0 8px 26px rgba(0,0,0,.5)}
-.band{position:absolute;top:0;bottom:0;width:1px;background:var(--line);opacity:.5}
+.node.dim{opacity:.2}.node.hot{box-shadow:0 0 0 1px var(--c),0 8px 26px rgba(0,0,0,.5)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 26px 60px;color:var(--faint);font-size:13px;max-width:1400px;margin:40px auto 0}
+footer a{color:var(--gold);text-decoration:none}
 </style>
 </head>
 <body>
 <header class="top"><div class="top-in">
   <a class="back" href="index.html">← 返回首页</a>
-  <div class="brand">匠造与奥术 · <b>任务线科技树</b></div>
+  <div class="brand">匠造与奥术 · <b>任务科技树</b></div>
   <div class="spacer"></div>
-  <span class="tag">按 <b>U</b> 在游戏内打开</span>
+  <span class="tag">游戏内按 <b>L</b> 打开</span>
 </div></header>
 <main>
 <h1>任务线 <em>科技树</em></h1>
@@ -98,7 +70,7 @@ svg.wires{position:absolute;inset:0;pointer-events:none}
   <div class="stat"><b>174</b><span>个任务</span></div>
   <div class="stat"><b>9</b><span>条支线</span></div>
   <div class="stat"><b>173</b><span>条前置关系</span></div>
-  <div class="stat"><b>119</b><span>种奖励</span></div>
+  <div class="stat"><b>183</b><span>含命令快捷页</span></div>
 </div>
 <div class="legend">
 <span><i style="background:#dcb56a"></i>前期主线<span style="color:var(--faint)"> 18</span></span>
@@ -112,898 +84,892 @@ svg.wires{position:absolute;inset:0;pointer-events:none}
   <span><i style="background:#8ba3c7"></i>探索与征服<span style="color:var(--faint)"> 15</span></span>
   <span><i style="background:#d96a6a"></i>强者之路<span style="color:var(--faint)"> 27</span></span>
 </div>
-<p class="hint">操作：整张图可左右上下拖动查看；鼠标移到节点上会高亮它所在的那条链。</p>
+<p class="hint">操作：整张图可拖动查看；鼠标移到节点上会高亮它所在的那条支线，其余淡出。</p>
 <div class="tree-wrap">
-  <div class="tree" style="width:2696px;height:3086px">
-    <svg class="wires" width="2696" height="3086">
-      <path class="wire" data-a="t13" data-b="a01" d="M264 921 C868 921 868 921 1472 921" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a01" data-b="a02" d="M1680 921 C1576 921 1576 991 1472 991" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a02" data-b="a03" d="M1680 991 C1576 991 1576 1061 1472 1061" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a03" data-b="a04" d="M1680 1061 C1576 1061 1576 1131 1472 1131" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a04" data-b="a05" d="M1680 1131 C1576 1131 1576 1201 1472 1201" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a05" data-b="a06" d="M1680 1201 C1576 1201 1576 1271 1472 1271" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a06" data-b="a07" d="M1680 1271 C1576 1271 1576 1341 1472 1341" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a07" data-b="a08" d="M1680 1341 C1576 1341 1576 1411 1472 1411" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a08" data-b="a09" d="M1680 1411 C1576 1411 1576 1481 1472 1481" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a09" data-b="a10" d="M1680 1481 C1576 1481 1576 1551 1472 1551" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a10" data-b="a11" d="M1680 1551 C1576 1551 1576 1621 1472 1621" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a11" data-b="a12" d="M1680 1621 C1576 1621 1576 1691 1472 1691" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a12" data-b="a13" d="M1680 1691 C1576 1691 1576 1761 1472 1761" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a13" data-b="a14" d="M1680 1761 C1576 1761 1576 1831 1472 1831" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a14" data-b="a15" d="M1680 1831 C1576 1831 1576 1901 1472 1901" stroke="#7ec8e3"/>
-      <path class="wire" data-a="a15" data-b="a16" d="M1680 1901 C1576 1901 1576 1971 1472 1971" stroke="#7ec8e3"/>
-      <path class="wire" data-a="t09" data-b="b01" d="M264 641 C750 641 750 641 1236 641" stroke="#b39ddb"/>
-      <path class="wire" data-a="b01" data-b="b02" d="M1444 641 C1340 641 1340 711 1236 711" stroke="#b39ddb"/>
-      <path class="wire" data-a="b02" data-b="b03" d="M1444 711 C1340 711 1340 781 1236 781" stroke="#b39ddb"/>
-      <path class="wire" data-a="b03" data-b="b04" d="M1444 781 C1340 781 1340 851 1236 851" stroke="#b39ddb"/>
-      <path class="wire" data-a="b04" data-b="b05" d="M1444 851 C1340 851 1340 921 1236 921" stroke="#b39ddb"/>
-      <path class="wire" data-a="b05" data-b="b06" d="M1444 921 C1340 921 1340 991 1236 991" stroke="#b39ddb"/>
-      <path class="wire" data-a="b06" data-b="b07" d="M1444 991 C1340 991 1340 1061 1236 1061" stroke="#b39ddb"/>
-      <path class="wire" data-a="b07" data-b="b08" d="M1444 1061 C1340 1061 1340 1131 1236 1131" stroke="#b39ddb"/>
-      <path class="wire" data-a="b08" data-b="b09" d="M1444 1131 C1340 1131 1340 1201 1236 1201" stroke="#b39ddb"/>
-      <path class="wire" data-a="b09" data-b="b10" d="M1444 1201 C1340 1201 1340 1271 1236 1271" stroke="#b39ddb"/>
-      <path class="wire" data-a="b10" data-b="b11" d="M1444 1271 C1340 1271 1340 1341 1236 1341" stroke="#b39ddb"/>
-      <path class="wire" data-a="b11" data-b="b12" d="M1444 1341 C1340 1341 1340 1411 1236 1411" stroke="#b39ddb"/>
-      <path class="wire" data-a="b12" data-b="b13" d="M1444 1411 C1340 1411 1340 1481 1236 1481" stroke="#b39ddb"/>
-      <path class="wire" data-a="b13" data-b="b14" d="M1444 1481 C1340 1481 1340 1551 1236 1551" stroke="#b39ddb"/>
-      <path class="wire" data-a="t13" data-b="bo01" d="M264 921 C986 921 986 921 1708 921" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo01" data-b="bo02" d="M1916 921 C1812 921 1812 991 1708 991" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo02" data-b="bo03" d="M1916 991 C1812 991 1812 1061 1708 1061" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo03" data-b="bo04" d="M1916 1061 C1812 1061 1812 1131 1708 1131" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo04" data-b="bo05" d="M1916 1131 C1812 1131 1812 1201 1708 1201" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo05" data-b="bo06" d="M1916 1201 C1812 1201 1812 1271 1708 1271" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo06" data-b="bo07" d="M1916 1271 C1812 1271 1812 1341 1708 1341" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo07" data-b="bo08" d="M1916 1341 C1812 1341 1812 1411 1708 1411" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo08" data-b="bo09" d="M1916 1411 C1812 1411 1812 1481 1708 1481" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo09" data-b="bo10" d="M1916 1481 C1812 1481 1812 1551 1708 1551" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo10" data-b="bo11" d="M1916 1551 C1812 1551 1812 1621 1708 1621" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo11" data-b="bo12" d="M1916 1621 C1812 1621 1812 1691 1708 1691" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo12" data-b="bo13" d="M1916 1691 C1812 1691 1812 1761 1708 1761" stroke="#b39ddb"/>
-      <path class="wire" data-a="bo13" data-b="bo14" d="M1916 1761 C1812 1761 1812 1831 1708 1831" stroke="#b39ddb"/>
-      <path class="wire" data-a="t06" data-b="c01" d="M264 431 C514 431 514 431 764 431" stroke="#e0a851"/>
-      <path class="wire" data-a="c01" data-b="c02" d="M972 431 C868 431 868 501 764 501" stroke="#e0a851"/>
-      <path class="wire" data-a="c02" data-b="c03" d="M972 501 C868 501 868 571 764 571" stroke="#e0a851"/>
-      <path class="wire" data-a="c03" data-b="c04" d="M972 571 C868 571 868 641 764 641" stroke="#e0a851"/>
-      <path class="wire" data-a="c04" data-b="c05" d="M972 641 C868 641 868 711 764 711" stroke="#e0a851"/>
-      <path class="wire" data-a="c05" data-b="c06" d="M972 711 C868 711 868 781 764 781" stroke="#e0a851"/>
-      <path class="wire" data-a="c06" data-b="c07" d="M972 781 C868 781 868 851 764 851" stroke="#e0a851"/>
-      <path class="wire" data-a="c07" data-b="c08" d="M972 851 C868 851 868 921 764 921" stroke="#e0a851"/>
-      <path class="wire" data-a="c08" data-b="c09" d="M972 921 C868 921 868 991 764 991" stroke="#e0a851"/>
-      <path class="wire" data-a="c09" data-b="c10" d="M972 991 C868 991 868 1061 764 1061" stroke="#e0a851"/>
-      <path class="wire" data-a="c10" data-b="c11" d="M972 1061 C868 1061 868 1131 764 1131" stroke="#e0a851"/>
-      <path class="wire" data-a="c11" data-b="c12" d="M972 1131 C868 1131 868 1201 764 1201" stroke="#e0a851"/>
-      <path class="wire" data-a="c12" data-b="c13" d="M972 1201 C868 1201 868 1271 764 1271" stroke="#e0a851"/>
-      <path class="wire" data-a="c13" data-b="c14" d="M972 1271 C868 1271 868 1341 764 1341" stroke="#e0a851"/>
-      <path class="wire" data-a="c14" data-b="c15" d="M972 1341 C868 1341 868 1411 764 1411" stroke="#e0a851"/>
-      <path class="wire" data-a="c15" data-b="c16" d="M972 1411 C868 1411 868 1481 764 1481" stroke="#e0a851"/>
-      <path class="wire" data-a="c16" data-b="c17" d="M972 1481 C868 1481 868 1551 764 1551" stroke="#e0a851"/>
-      <path class="wire" data-a="c17" data-b="c18" d="M972 1551 C868 1551 868 1621 764 1621" stroke="#e0a851"/>
-      <path class="wire" data-a="c18" data-b="c19" d="M972 1621 C868 1621 868 1691 764 1691" stroke="#e0a851"/>
-      <path class="wire" data-a="c19" data-b="c20" d="M972 1691 C868 1691 868 1761 764 1761" stroke="#e0a851"/>
-      <path class="wire" data-a="c20" data-b="c21" d="M972 1761 C868 1761 868 1831 764 1831" stroke="#e0a851"/>
-      <path class="wire" data-a="c21" data-b="c22" d="M972 1831 C868 1831 868 1901 764 1901" stroke="#e0a851"/>
-      <path class="wire" data-a="t14" data-b="e01" d="M264 991 C1222 991 1222 991 2180 991" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e01" data-b="e02" d="M2388 991 C2284 991 2284 1061 2180 1061" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e02" data-b="e03" d="M2388 1061 C2284 1061 2284 1131 2180 1131" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e03" data-b="e04" d="M2388 1131 C2284 1131 2284 1201 2180 1201" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e04" data-b="e05" d="M2388 1201 C2284 1201 2284 1271 2180 1271" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e05" data-b="e06" d="M2388 1271 C2284 1271 2284 1341 2180 1341" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e06" data-b="e07" d="M2388 1341 C2284 1341 2284 1411 2180 1411" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e07" data-b="e08" d="M2388 1411 C2284 1411 2284 1481 2180 1481" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e08" data-b="e09" d="M2388 1481 C2284 1481 2284 1551 2180 1551" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e09" data-b="e10" d="M2388 1551 C2284 1551 2284 1621 2180 1621" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e10" data-b="e11" d="M2388 1621 C2284 1621 2284 1691 2180 1691" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e11" data-b="e12" d="M2388 1691 C2284 1691 2284 1761 2180 1761" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e12" data-b="e13" d="M2388 1761 C2284 1761 2284 1831 2180 1831" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e13" data-b="e14" d="M2388 1831 C2284 1831 2284 1901 2180 1901" stroke="#8ba3c7"/>
-      <path class="wire" data-a="e14" data-b="e15" d="M2388 1901 C2284 1901 2284 1971 2180 1971" stroke="#8ba3c7"/>
-      <path class="wire" data-a="t05" data-b="f01" d="M264 361 C396 361 396 361 528 361" stroke="#9dbb79"/>
-      <path class="wire" data-a="f01" data-b="f02" d="M736 361 C632 361 632 431 528 431" stroke="#9dbb79"/>
-      <path class="wire" data-a="f02" data-b="f03" d="M736 431 C632 431 632 501 528 501" stroke="#9dbb79"/>
-      <path class="wire" data-a="f03" data-b="f04" d="M736 501 C632 501 632 571 528 571" stroke="#9dbb79"/>
-      <path class="wire" data-a="f04" data-b="f05" d="M736 571 C632 571 632 641 528 641" stroke="#9dbb79"/>
-      <path class="wire" data-a="f05" data-b="f06" d="M736 641 C632 641 632 711 528 711" stroke="#9dbb79"/>
-      <path class="wire" data-a="f06" data-b="f07" d="M736 711 C632 711 632 781 528 781" stroke="#9dbb79"/>
-      <path class="wire" data-a="f07" data-b="f08" d="M736 781 C632 781 632 851 528 851" stroke="#9dbb79"/>
-      <path class="wire" data-a="f08" data-b="f09" d="M736 851 C632 851 632 921 528 921" stroke="#9dbb79"/>
-      <path class="wire" data-a="f09" data-b="f10" d="M736 921 C632 921 632 991 528 991" stroke="#9dbb79"/>
-      <path class="wire" data-a="f10" data-b="f11" d="M736 991 C632 991 632 1061 528 1061" stroke="#9dbb79"/>
-      <path class="wire" data-a="f11" data-b="f12" d="M736 1061 C632 1061 632 1131 528 1131" stroke="#9dbb79"/>
-      <path class="wire" data-a="f12" data-b="f13" d="M736 1131 C632 1131 632 1201 528 1201" stroke="#9dbb79"/>
-      <path class="wire" data-a="f13" data-b="f14" d="M736 1201 C632 1201 632 1271 528 1271" stroke="#9dbb79"/>
-      <path class="wire" data-a="f14" data-b="f15" d="M736 1271 C632 1271 632 1341 528 1341" stroke="#9dbb79"/>
-      <path class="wire" data-a="f15" data-b="f16" d="M736 1341 C632 1341 632 1411 528 1411" stroke="#9dbb79"/>
-      <path class="wire" data-a="t12" data-b="i01" d="M264 851 C632 851 632 851 1000 851" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i01" data-b="i02" d="M1208 851 C1104 851 1104 921 1000 921" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i02" data-b="i03" d="M1208 921 C1104 921 1104 991 1000 991" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i03" data-b="i04" d="M1208 991 C1104 991 1104 1061 1000 1061" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i04" data-b="i05" d="M1208 1061 C1104 1061 1104 1131 1000 1131" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i05" data-b="i06" d="M1208 1131 C1104 1131 1104 1201 1000 1201" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i06" data-b="i07" d="M1208 1201 C1104 1201 1104 1271 1000 1271" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i07" data-b="i08" d="M1208 1271 C1104 1271 1104 1341 1000 1341" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i08" data-b="i09" d="M1208 1341 C1104 1341 1104 1411 1000 1411" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i09" data-b="i10" d="M1208 1411 C1104 1411 1104 1481 1000 1481" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i10" data-b="i11" d="M1208 1481 C1104 1481 1104 1551 1000 1551" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i11" data-b="i12" d="M1208 1551 C1104 1551 1104 1621 1000 1621" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i12" data-b="i13" d="M1208 1621 C1104 1621 1104 1691 1000 1691" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i13" data-b="i14" d="M1208 1691 C1104 1691 1104 1761 1000 1761" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i14" data-b="i15" d="M1208 1761 C1104 1761 1104 1831 1000 1831" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i15" data-b="i16" d="M1208 1831 C1104 1831 1104 1901 1000 1901" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i16" data-b="i17" d="M1208 1901 C1104 1901 1104 1971 1000 1971" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i17" data-b="i18" d="M1208 1971 C1104 1971 1104 2041 1000 2041" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i18" data-b="i19" d="M1208 2041 C1104 2041 1104 2111 1000 2111" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i19" data-b="i20" d="M1208 2111 C1104 2111 1104 2181 1000 2181" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i20" data-b="i21" d="M1208 2181 C1104 2181 1104 2251 1000 2251" stroke="#7fb6c9"/>
-      <path class="wire" data-a="i21" data-b="i22" d="M1208 2251 C1104 2251 1104 2321 1000 2321" stroke="#7fb6c9"/>
-      <path class="wire" data-a="t11" data-b="s01" d="M264 781 C1104 781 1104 781 1944 781" stroke="#c9b458"/>
-      <path class="wire" data-a="s01" data-b="s02" d="M2152 781 C2048 781 2048 851 1944 851" stroke="#c9b458"/>
-      <path class="wire" data-a="s02" data-b="s03" d="M2152 851 C2048 851 2048 921 1944 921" stroke="#c9b458"/>
-      <path class="wire" data-a="s03" data-b="s04" d="M2152 921 C2048 921 2048 991 1944 991" stroke="#c9b458"/>
-      <path class="wire" data-a="s04" data-b="s05" d="M2152 991 C2048 991 2048 1061 1944 1061" stroke="#c9b458"/>
-      <path class="wire" data-a="s05" data-b="s06" d="M2152 1061 C2048 1061 2048 1131 1944 1131" stroke="#c9b458"/>
-      <path class="wire" data-a="s06" data-b="s07" d="M2152 1131 C2048 1131 2048 1201 1944 1201" stroke="#c9b458"/>
-      <path class="wire" data-a="s07" data-b="s08" d="M2152 1201 C2048 1201 2048 1271 1944 1271" stroke="#c9b458"/>
-      <path class="wire" data-a="s08" data-b="s09" d="M2152 1271 C2048 1271 2048 1341 1944 1341" stroke="#c9b458"/>
-      <path class="wire" data-a="s09" data-b="s10" d="M2152 1341 C2048 1341 2048 1411 1944 1411" stroke="#c9b458"/>
-      <path class="wire" data-a="t01" data-b="t02" d="M264 81 C160 81 160 151 56 151" stroke="#dcb56a"/>
-      <path class="wire" data-a="t02" data-b="t03" d="M264 151 C160 151 160 221 56 221" stroke="#dcb56a"/>
-      <path class="wire" data-a="t03" data-b="t04" d="M264 221 C160 221 160 291 56 291" stroke="#dcb56a"/>
-      <path class="wire" data-a="t04" data-b="t05" d="M264 291 C160 291 160 361 56 361" stroke="#dcb56a"/>
-      <path class="wire" data-a="t05" data-b="t06" d="M264 361 C160 361 160 431 56 431" stroke="#dcb56a"/>
-      <path class="wire" data-a="t06" data-b="t07" d="M264 431 C160 431 160 501 56 501" stroke="#dcb56a"/>
-      <path class="wire" data-a="t07" data-b="t08" d="M264 501 C160 501 160 571 56 571" stroke="#dcb56a"/>
-      <path class="wire" data-a="t08" data-b="t09" d="M264 571 C160 571 160 641 56 641" stroke="#dcb56a"/>
-      <path class="wire" data-a="t09" data-b="t10" d="M264 641 C160 641 160 711 56 711" stroke="#dcb56a"/>
-      <path class="wire" data-a="t10" data-b="t11" d="M264 711 C160 711 160 781 56 781" stroke="#dcb56a"/>
-      <path class="wire" data-a="t11" data-b="t12" d="M264 781 C160 781 160 851 56 851" stroke="#dcb56a"/>
-      <path class="wire" data-a="t12" data-b="t13" d="M264 851 C160 851 160 921 56 921" stroke="#dcb56a"/>
-      <path class="wire" data-a="t13" data-b="t14" d="M264 921 C160 921 160 991 56 991" stroke="#dcb56a"/>
-      <path class="wire" data-a="t14" data-b="t15" d="M264 991 C160 991 160 1061 56 1061" stroke="#dcb56a"/>
-      <path class="wire" data-a="t15" data-b="t16" d="M264 1061 C160 1061 160 1131 56 1131" stroke="#dcb56a"/>
-      <path class="wire" data-a="t16" data-b="t17" d="M264 1131 C160 1131 160 1201 56 1201" stroke="#dcb56a"/>
-      <path class="wire" data-a="t17" data-b="t18" d="M264 1201 C160 1201 160 1271 56 1271" stroke="#dcb56a"/>
-      <path class="wire" data-a="t17" data-b="z01" d="M264 1201 C1340 1201 1340 1201 2416 1201" stroke="#d96a6a"/>
-      <path class="wire" data-a="z01" data-b="z02" d="M2624 1201 C2520 1201 2520 1271 2416 1271" stroke="#d96a6a"/>
-      <path class="wire" data-a="z02" data-b="z03" d="M2624 1271 C2520 1271 2520 1341 2416 1341" stroke="#d96a6a"/>
-      <path class="wire" data-a="z03" data-b="z04" d="M2624 1341 C2520 1341 2520 1411 2416 1411" stroke="#d96a6a"/>
-      <path class="wire" data-a="z04" data-b="z05" d="M2624 1411 C2520 1411 2520 1481 2416 1481" stroke="#d96a6a"/>
-      <path class="wire" data-a="z05" data-b="z06" d="M2624 1481 C2520 1481 2520 1551 2416 1551" stroke="#d96a6a"/>
-      <path class="wire" data-a="z06" data-b="z07" d="M2624 1551 C2520 1551 2520 1621 2416 1621" stroke="#d96a6a"/>
-      <path class="wire" data-a="z07" data-b="z08" d="M2624 1621 C2520 1621 2520 1691 2416 1691" stroke="#d96a6a"/>
-      <path class="wire" data-a="z08" data-b="z09" d="M2624 1691 C2520 1691 2520 1761 2416 1761" stroke="#d96a6a"/>
-      <path class="wire" data-a="z09" data-b="z10" d="M2624 1761 C2520 1761 2520 1831 2416 1831" stroke="#d96a6a"/>
-      <path class="wire" data-a="z10" data-b="z11" d="M2624 1831 C2520 1831 2520 1901 2416 1901" stroke="#d96a6a"/>
-      <path class="wire" data-a="z11" data-b="z12" d="M2624 1901 C2520 1901 2520 1971 2416 1971" stroke="#d96a6a"/>
-      <path class="wire" data-a="z12" data-b="z13" d="M2624 1971 C2520 1971 2520 2041 2416 2041" stroke="#d96a6a"/>
-      <path class="wire" data-a="z13" data-b="z14" d="M2624 2041 C2520 2041 2520 2111 2416 2111" stroke="#d96a6a"/>
-      <path class="wire" data-a="z14" data-b="z15" d="M2624 2111 C2520 2111 2520 2181 2416 2181" stroke="#d96a6a"/>
-      <path class="wire" data-a="z15" data-b="z16" d="M2624 2181 C2520 2181 2520 2251 2416 2251" stroke="#d96a6a"/>
-      <path class="wire" data-a="z16" data-b="z17" d="M2624 2251 C2520 2251 2520 2321 2416 2321" stroke="#d96a6a"/>
-      <path class="wire" data-a="z17" data-b="z18" d="M2624 2321 C2520 2321 2520 2391 2416 2391" stroke="#d96a6a"/>
-      <path class="wire" data-a="z18" data-b="z19" d="M2624 2391 C2520 2391 2520 2461 2416 2461" stroke="#d96a6a"/>
-      <path class="wire" data-a="z19" data-b="z20" d="M2624 2461 C2520 2461 2520 2531 2416 2531" stroke="#d96a6a"/>
-      <path class="wire" data-a="z20" data-b="z21" d="M2624 2531 C2520 2531 2520 2601 2416 2601" stroke="#d96a6a"/>
-      <path class="wire" data-a="z21" data-b="z22" d="M2624 2601 C2520 2601 2520 2671 2416 2671" stroke="#d96a6a"/>
-      <path class="wire" data-a="z22" data-b="z23" d="M2624 2671 C2520 2671 2520 2741 2416 2741" stroke="#d96a6a"/>
-      <path class="wire" data-a="z23" data-b="z24" d="M2624 2741 C2520 2741 2520 2811 2416 2811" stroke="#d96a6a"/>
-      <path class="wire" data-a="z24" data-b="z25" d="M2624 2811 C2520 2811 2520 2881 2416 2881" stroke="#d96a6a"/>
-      <path class="wire" data-a="z25" data-b="z26" d="M2624 2881 C2520 2881 2520 2951 2416 2951" stroke="#d96a6a"/>
-      <path class="wire" data-a="z26" data-b="z27" d="M2624 2951 C2520 2951 2520 3021 2416 3021" stroke="#d96a6a"/>
+  <div class="tree" style="width:4946px;height:5340px">
+    <svg class="wires" width="4946" height="5340">
+      <path class="wire" data-b="a01" d="M248 1564 C1440 1564 1440 1564 2632 1564" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a02" d="M2828 1564 C2730 1564 2730 1688 2632 1688" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a03" d="M2828 1688 C2730 1688 2730 1812 2632 1812" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a04" d="M2828 1812 C2730 1812 2730 1936 2632 1936" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a05" d="M2828 1936 C2730 1936 2730 2060 2632 2060" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a06" d="M2828 2060 C2730 2060 2730 2184 2632 2184" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a07" d="M2828 2184 C2730 2184 2730 2308 2632 2308" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a08" d="M2828 2308 C2730 2308 2730 2432 2632 2432" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a09" d="M2828 2432 C2730 2432 2730 2556 2632 2556" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a10" d="M2828 2556 C2730 2556 2730 2680 2632 2680" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a11" d="M2828 2680 C2730 2680 2730 2804 2632 2804" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a12" d="M2828 2804 C2730 2804 2730 2928 2632 2928" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a13" d="M2828 2928 C2730 2928 2730 3052 2632 3052" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a14" d="M2828 3052 C2730 3052 2730 3176 2632 3176" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a15" d="M2828 3176 C2730 3176 2730 3300 2632 3300" stroke="#7ec8e3"/>
+      <path class="wire" data-b="a16" d="M2828 3300 C2730 3300 2730 3424 2632 3424" stroke="#7ec8e3"/>
+      <path class="wire" data-b="b01" d="M248 1068 C1182 1068 1182 1068 2116 1068" stroke="#b39ddb"/>
+      <path class="wire" data-b="b02" d="M2312 1068 C2214 1068 2214 1192 2116 1192" stroke="#b39ddb"/>
+      <path class="wire" data-b="b03" d="M2312 1192 C2214 1192 2214 1316 2116 1316" stroke="#b39ddb"/>
+      <path class="wire" data-b="b04" d="M2312 1316 C2214 1316 2214 1440 2116 1440" stroke="#b39ddb"/>
+      <path class="wire" data-b="b05" d="M2312 1440 C2214 1440 2214 1564 2116 1564" stroke="#b39ddb"/>
+      <path class="wire" data-b="b06" d="M2312 1564 C2214 1564 2214 1688 2116 1688" stroke="#b39ddb"/>
+      <path class="wire" data-b="b07" d="M2312 1688 C2214 1688 2214 1812 2116 1812" stroke="#b39ddb"/>
+      <path class="wire" data-b="b08" d="M2312 1812 C2214 1812 2214 1936 2116 1936" stroke="#b39ddb"/>
+      <path class="wire" data-b="b09" d="M2312 1936 C2214 1936 2214 2060 2116 2060" stroke="#b39ddb"/>
+      <path class="wire" data-b="b10" d="M2312 2060 C2214 2060 2214 2184 2116 2184" stroke="#b39ddb"/>
+      <path class="wire" data-b="b11" d="M2312 2184 C2214 2184 2214 2308 2116 2308" stroke="#b39ddb"/>
+      <path class="wire" data-b="b12" d="M2312 2308 C2214 2308 2214 2432 2116 2432" stroke="#b39ddb"/>
+      <path class="wire" data-b="b13" d="M2312 2432 C2214 2432 2214 2556 2116 2556" stroke="#b39ddb"/>
+      <path class="wire" data-b="b14" d="M2312 2556 C2214 2556 2214 2680 2116 2680" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo01" d="M248 1564 C1698 1564 1698 1564 3148 1564" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo02" d="M3344 1564 C3246 1564 3246 1688 3148 1688" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo03" d="M3344 1688 C3246 1688 3246 1812 3148 1812" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo04" d="M3344 1812 C3246 1812 3246 1936 3148 1936" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo05" d="M3344 1936 C3246 1936 3246 2060 3148 2060" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo06" d="M3344 2060 C3246 2060 3246 2184 3148 2184" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo07" d="M3344 2184 C3246 2184 3246 2308 3148 2308" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo08" d="M3344 2308 C3246 2308 3246 2432 3148 2432" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo09" d="M3344 2432 C3246 2432 3246 2556 3148 2556" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo10" d="M3344 2556 C3246 2556 3246 2680 3148 2680" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo11" d="M3344 2680 C3246 2680 3246 2804 3148 2804" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo12" d="M3344 2804 C3246 2804 3246 2928 3148 2928" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo13" d="M3344 2928 C3246 2928 3246 3052 3148 3052" stroke="#b39ddb"/>
+      <path class="wire" data-b="bo14" d="M3344 3052 C3246 3052 3246 3176 3148 3176" stroke="#b39ddb"/>
+      <path class="wire" data-b="c01" d="M248 696 C666 696 666 696 1084 696" stroke="#e0a851"/>
+      <path class="wire" data-b="c02" d="M1280 696 C1182 696 1182 820 1084 820" stroke="#e0a851"/>
+      <path class="wire" data-b="c03" d="M1280 820 C1182 820 1182 944 1084 944" stroke="#e0a851"/>
+      <path class="wire" data-b="c04" d="M1280 944 C1182 944 1182 1068 1084 1068" stroke="#e0a851"/>
+      <path class="wire" data-b="c05" d="M1280 1068 C1182 1068 1182 1192 1084 1192" stroke="#e0a851"/>
+      <path class="wire" data-b="c06" d="M1280 1192 C1182 1192 1182 1316 1084 1316" stroke="#e0a851"/>
+      <path class="wire" data-b="c07" d="M1280 1316 C1182 1316 1182 1440 1084 1440" stroke="#e0a851"/>
+      <path class="wire" data-b="c08" d="M1280 1440 C1182 1440 1182 1564 1084 1564" stroke="#e0a851"/>
+      <path class="wire" data-b="c09" d="M1280 1564 C1182 1564 1182 1688 1084 1688" stroke="#e0a851"/>
+      <path class="wire" data-b="c10" d="M1280 1688 C1182 1688 1182 1812 1084 1812" stroke="#e0a851"/>
+      <path class="wire" data-b="c11" d="M1280 1812 C1182 1812 1182 1936 1084 1936" stroke="#e0a851"/>
+      <path class="wire" data-b="c12" d="M1280 1936 C1182 1936 1182 2060 1084 2060" stroke="#e0a851"/>
+      <path class="wire" data-b="c13" d="M1280 2060 C1182 2060 1182 2184 1084 2184" stroke="#e0a851"/>
+      <path class="wire" data-b="c14" d="M1280 2184 C1182 2184 1182 2308 1084 2308" stroke="#e0a851"/>
+      <path class="wire" data-b="c15" d="M1280 2308 C1182 2308 1182 2432 1084 2432" stroke="#e0a851"/>
+      <path class="wire" data-b="c16" d="M1280 2432 C1182 2432 1182 2556 1084 2556" stroke="#e0a851"/>
+      <path class="wire" data-b="c17" d="M1280 2556 C1182 2556 1182 2680 1084 2680" stroke="#e0a851"/>
+      <path class="wire" data-b="c18" d="M1280 2680 C1182 2680 1182 2804 1084 2804" stroke="#e0a851"/>
+      <path class="wire" data-b="c19" d="M1280 2804 C1182 2804 1182 2928 1084 2928" stroke="#e0a851"/>
+      <path class="wire" data-b="c20" d="M1280 2928 C1182 2928 1182 3052 1084 3052" stroke="#e0a851"/>
+      <path class="wire" data-b="c21" d="M1280 3052 C1182 3052 1182 3176 1084 3176" stroke="#e0a851"/>
+      <path class="wire" data-b="c22" d="M1280 3176 C1182 3176 1182 3300 1084 3300" stroke="#e0a851"/>
+      <path class="wire" data-b="e01" d="M248 1688 C2214 1688 2214 1688 4180 1688" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e02" d="M4376 1688 C4278 1688 4278 1812 4180 1812" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e03" d="M4376 1812 C4278 1812 4278 1936 4180 1936" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e04" d="M4376 1936 C4278 1936 4278 2060 4180 2060" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e05" d="M4376 2060 C4278 2060 4278 2184 4180 2184" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e06" d="M4376 2184 C4278 2184 4278 2308 4180 2308" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e07" d="M4376 2308 C4278 2308 4278 2432 4180 2432" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e08" d="M4376 2432 C4278 2432 4278 2556 4180 2556" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e09" d="M4376 2556 C4278 2556 4278 2680 4180 2680" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e10" d="M4376 2680 C4278 2680 4278 2804 4180 2804" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e11" d="M4376 2804 C4278 2804 4278 2928 4180 2928" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e12" d="M4376 2928 C4278 2928 4278 3052 4180 3052" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e13" d="M4376 3052 C4278 3052 4278 3176 4180 3176" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e14" d="M4376 3176 C4278 3176 4278 3300 4180 3300" stroke="#8ba3c7"/>
+      <path class="wire" data-b="e15" d="M4376 3300 C4278 3300 4278 3424 4180 3424" stroke="#8ba3c7"/>
+      <path class="wire" data-b="f01" d="M248 572 C408 572 408 572 568 572" stroke="#9dbb79"/>
+      <path class="wire" data-b="f02" d="M764 572 C666 572 666 696 568 696" stroke="#9dbb79"/>
+      <path class="wire" data-b="f03" d="M764 696 C666 696 666 820 568 820" stroke="#9dbb79"/>
+      <path class="wire" data-b="f04" d="M764 820 C666 820 666 944 568 944" stroke="#9dbb79"/>
+      <path class="wire" data-b="f05" d="M764 944 C666 944 666 1068 568 1068" stroke="#9dbb79"/>
+      <path class="wire" data-b="f06" d="M764 1068 C666 1068 666 1192 568 1192" stroke="#9dbb79"/>
+      <path class="wire" data-b="f07" d="M764 1192 C666 1192 666 1316 568 1316" stroke="#9dbb79"/>
+      <path class="wire" data-b="f08" d="M764 1316 C666 1316 666 1440 568 1440" stroke="#9dbb79"/>
+      <path class="wire" data-b="f09" d="M764 1440 C666 1440 666 1564 568 1564" stroke="#9dbb79"/>
+      <path class="wire" data-b="f10" d="M764 1564 C666 1564 666 1688 568 1688" stroke="#9dbb79"/>
+      <path class="wire" data-b="f11" d="M764 1688 C666 1688 666 1812 568 1812" stroke="#9dbb79"/>
+      <path class="wire" data-b="f12" d="M764 1812 C666 1812 666 1936 568 1936" stroke="#9dbb79"/>
+      <path class="wire" data-b="f13" d="M764 1936 C666 1936 666 2060 568 2060" stroke="#9dbb79"/>
+      <path class="wire" data-b="f14" d="M764 2060 C666 2060 666 2184 568 2184" stroke="#9dbb79"/>
+      <path class="wire" data-b="f15" d="M764 2184 C666 2184 666 2308 568 2308" stroke="#9dbb79"/>
+      <path class="wire" data-b="f16" d="M764 2308 C666 2308 666 2432 568 2432" stroke="#9dbb79"/>
+      <path class="wire" data-b="i01" d="M248 1440 C924 1440 924 1440 1600 1440" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i02" d="M1796 1440 C1698 1440 1698 1564 1600 1564" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i03" d="M1796 1564 C1698 1564 1698 1688 1600 1688" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i04" d="M1796 1688 C1698 1688 1698 1812 1600 1812" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i05" d="M1796 1812 C1698 1812 1698 1936 1600 1936" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i06" d="M1796 1936 C1698 1936 1698 2060 1600 2060" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i07" d="M1796 2060 C1698 2060 1698 2184 1600 2184" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i08" d="M1796 2184 C1698 2184 1698 2308 1600 2308" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i09" d="M1796 2308 C1698 2308 1698 2432 1600 2432" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i10" d="M1796 2432 C1698 2432 1698 2556 1600 2556" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i11" d="M1796 2556 C1698 2556 1698 2680 1600 2680" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i12" d="M1796 2680 C1698 2680 1698 2804 1600 2804" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i13" d="M1796 2804 C1698 2804 1698 2928 1600 2928" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i14" d="M1796 2928 C1698 2928 1698 3052 1600 3052" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i15" d="M1796 3052 C1698 3052 1698 3176 1600 3176" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i16" d="M1796 3176 C1698 3176 1698 3300 1600 3300" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i17" d="M1796 3300 C1698 3300 1698 3424 1600 3424" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i18" d="M1796 3424 C1698 3424 1698 3548 1600 3548" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i19" d="M1796 3548 C1698 3548 1698 3672 1600 3672" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i20" d="M1796 3672 C1698 3672 1698 3796 1600 3796" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i21" d="M1796 3796 C1698 3796 1698 3920 1600 3920" stroke="#7fb6c9"/>
+      <path class="wire" data-b="i22" d="M1796 3920 C1698 3920 1698 4044 1600 4044" stroke="#7fb6c9"/>
+      <path class="wire" data-b="s01" d="M248 1316 C1956 1316 1956 1316 3664 1316" stroke="#c9b458"/>
+      <path class="wire" data-b="s02" d="M3860 1316 C3762 1316 3762 1440 3664 1440" stroke="#c9b458"/>
+      <path class="wire" data-b="s03" d="M3860 1440 C3762 1440 3762 1564 3664 1564" stroke="#c9b458"/>
+      <path class="wire" data-b="s04" d="M3860 1564 C3762 1564 3762 1688 3664 1688" stroke="#c9b458"/>
+      <path class="wire" data-b="s05" d="M3860 1688 C3762 1688 3762 1812 3664 1812" stroke="#c9b458"/>
+      <path class="wire" data-b="s06" d="M3860 1812 C3762 1812 3762 1936 3664 1936" stroke="#c9b458"/>
+      <path class="wire" data-b="s07" d="M3860 1936 C3762 1936 3762 2060 3664 2060" stroke="#c9b458"/>
+      <path class="wire" data-b="s08" d="M3860 2060 C3762 2060 3762 2184 3664 2184" stroke="#c9b458"/>
+      <path class="wire" data-b="s09" d="M3860 2184 C3762 2184 3762 2308 3664 2308" stroke="#c9b458"/>
+      <path class="wire" data-b="s10" d="M3860 2308 C3762 2308 3762 2432 3664 2432" stroke="#c9b458"/>
+      <path class="wire" data-b="t02" d="M248 76 C150 76 150 200 52 200" stroke="#dcb56a"/>
+      <path class="wire" data-b="t03" d="M248 200 C150 200 150 324 52 324" stroke="#dcb56a"/>
+      <path class="wire" data-b="t04" d="M248 324 C150 324 150 448 52 448" stroke="#dcb56a"/>
+      <path class="wire" data-b="t05" d="M248 448 C150 448 150 572 52 572" stroke="#dcb56a"/>
+      <path class="wire" data-b="t06" d="M248 572 C150 572 150 696 52 696" stroke="#dcb56a"/>
+      <path class="wire" data-b="t07" d="M248 696 C150 696 150 820 52 820" stroke="#dcb56a"/>
+      <path class="wire" data-b="t08" d="M248 820 C150 820 150 944 52 944" stroke="#dcb56a"/>
+      <path class="wire" data-b="t09" d="M248 944 C150 944 150 1068 52 1068" stroke="#dcb56a"/>
+      <path class="wire" data-b="t10" d="M248 1068 C150 1068 150 1192 52 1192" stroke="#dcb56a"/>
+      <path class="wire" data-b="t11" d="M248 1192 C150 1192 150 1316 52 1316" stroke="#dcb56a"/>
+      <path class="wire" data-b="t12" d="M248 1316 C150 1316 150 1440 52 1440" stroke="#dcb56a"/>
+      <path class="wire" data-b="t13" d="M248 1440 C150 1440 150 1564 52 1564" stroke="#dcb56a"/>
+      <path class="wire" data-b="t14" d="M248 1564 C150 1564 150 1688 52 1688" stroke="#dcb56a"/>
+      <path class="wire" data-b="t15" d="M248 1688 C150 1688 150 1812 52 1812" stroke="#dcb56a"/>
+      <path class="wire" data-b="t16" d="M248 1812 C150 1812 150 1936 52 1936" stroke="#dcb56a"/>
+      <path class="wire" data-b="t17" d="M248 1936 C150 1936 150 2060 52 2060" stroke="#dcb56a"/>
+      <path class="wire" data-b="t18" d="M248 2060 C150 2060 150 2184 52 2184" stroke="#dcb56a"/>
+      <path class="wire" data-b="z01" d="M248 2060 C2472 2060 2472 2060 4696 2060" stroke="#d96a6a"/>
+      <path class="wire" data-b="z02" d="M4892 2060 C4794 2060 4794 2184 4696 2184" stroke="#d96a6a"/>
+      <path class="wire" data-b="z03" d="M4892 2184 C4794 2184 4794 2308 4696 2308" stroke="#d96a6a"/>
+      <path class="wire" data-b="z04" d="M4892 2308 C4794 2308 4794 2432 4696 2432" stroke="#d96a6a"/>
+      <path class="wire" data-b="z05" d="M4892 2432 C4794 2432 4794 2556 4696 2556" stroke="#d96a6a"/>
+      <path class="wire" data-b="z06" d="M4892 2556 C4794 2556 4794 2680 4696 2680" stroke="#d96a6a"/>
+      <path class="wire" data-b="z07" d="M4892 2680 C4794 2680 4794 2804 4696 2804" stroke="#d96a6a"/>
+      <path class="wire" data-b="z08" d="M4892 2804 C4794 2804 4794 2928 4696 2928" stroke="#d96a6a"/>
+      <path class="wire" data-b="z09" d="M4892 2928 C4794 2928 4794 3052 4696 3052" stroke="#d96a6a"/>
+      <path class="wire" data-b="z10" d="M4892 3052 C4794 3052 4794 3176 4696 3176" stroke="#d96a6a"/>
+      <path class="wire" data-b="z11" d="M4892 3176 C4794 3176 4794 3300 4696 3300" stroke="#d96a6a"/>
+      <path class="wire" data-b="z12" d="M4892 3300 C4794 3300 4794 3424 4696 3424" stroke="#d96a6a"/>
+      <path class="wire" data-b="z13" d="M4892 3424 C4794 3424 4794 3548 4696 3548" stroke="#d96a6a"/>
+      <path class="wire" data-b="z14" d="M4892 3548 C4794 3548 4794 3672 4696 3672" stroke="#d96a6a"/>
+      <path class="wire" data-b="z15" d="M4892 3672 C4794 3672 4794 3796 4696 3796" stroke="#d96a6a"/>
+      <path class="wire" data-b="z16" d="M4892 3796 C4794 3796 4794 3920 4696 3920" stroke="#d96a6a"/>
+      <path class="wire" data-b="z17" d="M4892 3920 C4794 3920 4794 4044 4696 4044" stroke="#d96a6a"/>
+      <path class="wire" data-b="z18" d="M4892 4044 C4794 4044 4794 4168 4696 4168" stroke="#d96a6a"/>
+      <path class="wire" data-b="z19" d="M4892 4168 C4794 4168 4794 4292 4696 4292" stroke="#d96a6a"/>
+      <path class="wire" data-b="z20" d="M4892 4292 C4794 4292 4794 4416 4696 4416" stroke="#d96a6a"/>
+      <path class="wire" data-b="z21" d="M4892 4416 C4794 4416 4794 4540 4696 4540" stroke="#d96a6a"/>
+      <path class="wire" data-b="z22" d="M4892 4540 C4794 4540 4794 4664 4696 4664" stroke="#d96a6a"/>
+      <path class="wire" data-b="z23" d="M4892 4664 C4794 4664 4794 4788 4696 4788" stroke="#d96a6a"/>
+      <path class="wire" data-b="z24" d="M4892 4788 C4794 4788 4794 4912 4696 4912" stroke="#d96a6a"/>
+      <path class="wire" data-b="z25" d="M4892 4912 C4794 4912 4794 5036 4696 5036" stroke="#d96a6a"/>
+      <path class="wire" data-b="z26" d="M4892 5036 C4794 5036 4794 5160 4696 5160" stroke="#d96a6a"/>
+      <path class="wire" data-b="z27" d="M4892 5160 C4794 5160 4794 5284 4696 5284" stroke="#d96a6a"/>
     </svg>
-    <a class="node " id="n-a01" data-id="a01" data-branch="a" style="left:1472px;top:896px;--c:#7ec8e3">
+<a class="node" style="left:2632px;top:1540px;--c:#7ec8e3" data-branch="a">
         <b>新手法术书</b><small>拿着它就能施法</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:novice_spell_book</i><u>奖励：ars_nouveau:wand、ars_nouveau:source_gem×2</u></span>
       </a>
-      <a class="node " id="n-a02" data-id="a02" data-branch="a" style="left:1472px;top:966px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:1664px;--c:#7ec8e3" data-branch="a">
         <b>法杖</b><small>施法与灌注的工具</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:wand</i><u>奖励：ars_nouveau:source_gem×4</u></span>
       </a>
-      <a class="node " id="n-a03" data-id="a03" data-branch="a" style="left:1472px;top:1036px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:1788px;--c:#7ec8e3" data-branch="a">
         <b>魔源宝石</b><small>魔法的电</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:source_gem ×8</i><u>奖励：minecraft:amethyst_shard×8</u></span>
       </a>
-      <a class="node " id="n-a04" data-id="a04" data-branch="a" style="left:1472px;top:1106px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:1912px;--c:#7ec8e3" data-branch="a">
         <b>灌注室</b><small>把魔源灌进物品</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:imbuement_chamber</i><u>奖励：ars_nouveau:source_jar×2</u></span>
       </a>
-      <a class="node " id="n-a05" data-id="a05" data-branch="a" style="left:1472px;top:1176px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:2036px;--c:#7ec8e3" data-branch="a">
         <b>附魔装置</b><small>最重要的合成台</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:enchanting_apparatus</i><u>奖励：minecraft:gold_ingot×16</u></span>
       </a>
-      <a class="node " id="n-a06" data-id="a06" data-branch="a" style="left:1472px;top:1246px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:2160px;--c:#7ec8e3" data-branch="a">
         <b>奥术核心</b><small>高级结构的组件</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:arcane_core</i><u>奖励：ars_nouveau:source_gem×4</u></span>
       </a>
-      <a class="node " id="n-a07" data-id="a07" data-branch="a" style="left:1472px;top:1316px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:2284px;--c:#7ec8e3" data-branch="a">
         <b>魔源罐</b><small>就近存魔源</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:source_jar</i><u>奖励：ars_nouveau:source_gem×4</u></span>
       </a>
-      <a class="node " id="n-a08" data-id="a08" data-branch="a" style="left:1472px;top:1386px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:2408px;--c:#7ec8e3" data-branch="a">
         <b>法师之花</b><small>自然产出魔源</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:magebloom</i><u>奖励：minecraft:bone_meal×16</u></span>
       </a>
-      <a class="node " id="n-a09" data-id="a09" data-branch="a" style="left:1472px;top:1456px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:2532px;--c:#7ec8e3" data-branch="a">
         <b>法师布</b><small>魔法护甲的原料</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:magebloom_fiber</i><u>奖励：ars_nouveau:magebloom×8</u></span>
       </a>
-      <a class="node " id="n-a10" data-id="a10" data-branch="a" style="left:1472px;top:1526px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:2656px;--c:#7ec8e3" data-branch="a">
         <b>法术弓</b><small>把法术装进弓里</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:spell_bow</i><u>奖励：minecraft:bow</u></span>
       </a>
-      <a class="node " id="n-a11" data-id="a11" data-branch="a" style="left:1472px;top:1596px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:2780px;--c:#7ec8e3" data-branch="a">
         <b>附魔师之剑</b><small>魔法近战的答案</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:enchanters_sword</i><u>奖励：minecraft:diamond×2</u></span>
       </a>
-      <a class="node " id="n-a12" data-id="a12" data-branch="a" style="left:1472px;top:1666px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:2904px;--c:#7ec8e3" data-branch="a">
         <b>星斑克</b><small>自动捡东西送回箱子</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:starbuncle_shards</i><u>奖励：ars_nouveau:source_gem×8</u></span>
       </a>
-      <a class="node " id="n-a13" data-id="a13" data-branch="a" style="left:1472px;top:1736px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:3028px;--c:#7ec8e3" data-branch="a">
         <b>德律格米</b><small>自动收集生物掉落</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:drygmy_shard</i><u>奖励：ars_nouveau:source_gem×8</u></span>
       </a>
-      <a class="node " id="n-a14" data-id="a14" data-branch="a" style="left:1472px;top:1806px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:3152px;--c:#7ec8e3" data-branch="a">
         <b>学徒法术书</b><small>二阶法术</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:apprentice_spell_book</i><u>奖励：ars_nouveau:arcane_core、ars_nouveau:source_gem×8</u></span>
       </a>
-      <a class="node " id="n-a15" data-id="a15" data-branch="a" style="left:1472px;top:1876px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:3276px;--c:#7ec8e3" data-branch="a">
         <b>法师铠甲</b><small>魔法护甲全套</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:sorcerer_robes</i><u>奖励：ars_nouveau:magebloom_fiber×8</u></span>
       </a>
-      <a class="node " id="n-a16" data-id="a16" data-branch="a" style="left:1472px;top:1946px;--c:#7ec8e3">
+      <a class="node" style="left:2632px;top:3400px;--c:#7ec8e3" data-branch="a">
         <b>大法师</b><small>法术体系全部掌握</small>
         <span class="tip"><em>新生魔艺</em><i>收集 ars_nouveau:archmage_spell_book</i><u>奖励：ars_nouveau:source_gem×16、minecraft:nether_star</u></span>
       </a>
-      <a class="node " id="n-b01" data-id="b01" data-branch="b" style="left:1236px;top:616px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:1044px;--c:#b39ddb" data-branch="b">
         <b>石制建造魔杖</b><small>一次放 9 个方块</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:stone_wand</i><u>奖励：minecraft:stone×64</u></span>
       </a>
-      <a class="node " id="n-b02" data-id="b02" data-branch="b" style="left:1236px;top:686px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:1168px;--c:#b39ddb" data-branch="b">
         <b>石砖墙</b><small>用魔杖铺一面墙</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 minecraft:stone_bricks ×64</i><u>奖励：minecraft:stone×64</u></span>
       </a>
-      <a class="node " id="n-b03" data-id="b03" data-branch="b" style="left:1236px;top:756px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:1292px;--c:#b39ddb" data-branch="b">
         <b>玻璃幕墙</b><small>透光的建筑</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 minecraft:glass ×64</i><u>奖励：minecraft:glass×32</u></span>
       </a>
-      <a class="node " id="n-b04" data-id="b04" data-branch="b" style="left:1236px;top:826px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:1416px;--c:#b39ddb" data-branch="b">
         <b>建筑方块</b><small>混凝土或陶瓦都行</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 minecraft:smooth_stone ×64</i><u>奖励：minecraft:white_concrete×32</u></span>
       </a>
-      <a class="node " id="n-b05" data-id="b05" data-branch="b" style="left:1236px;top:896px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:1540px;--c:#b39ddb" data-branch="b">
         <b>铁制建造魔杖</b><small>一次 27 个方块，可升级</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:iron_wand</i><u>奖励：minecraft:iron_ingot×16</u></span>
       </a>
-      <a class="node " id="n-b06" data-id="b06" data-branch="b" style="left:1236px;top:966px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:1664px;--c:#b39ddb" data-branch="b">
         <b>钻石建造魔杖</b><small>一次 128 个</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:diamond_wand</i><u>奖励：minecraft:diamond×4</u></span>
       </a>
-      <a class="node " id="n-b07" data-id="b07" data-branch="b" style="left:1236px;top:1036px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:1788px;--c:#b39ddb" data-branch="b">
         <b>建造核心 · 天使</b><small>在空中凭空放方块</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:core_angel</i><u>奖励：minecraft:feather×16</u></span>
       </a>
-      <a class="node " id="n-b08" data-id="b08" data-branch="b" style="left:1236px;top:1106px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:1912px;--c:#b39ddb" data-branch="b">
         <b>建造核心 · 破坏</b><small>快速拆一大片</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:core_destruction</i><u>奖励：minecraft:diamond_pickaxe</u></span>
       </a>
-      <a class="node " id="n-b09" data-id="b09" data-branch="b" style="left:1236px;top:1176px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:2036px;--c:#b39ddb" data-branch="b">
         <b>魔杖核心</b><small>给魔杖装升级核心</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:diamond_wand_core</i><u>奖励：minecraft:diamond×2</u></span>
       </a>
-      <a class="node " id="n-b10" data-id="b10" data-branch="b" style="left:1236px;top:1246px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:2160px;--c:#b39ddb" data-branch="b">
         <b>蓝图台</b><small>机械动力的图纸系统</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 create:schematic_table</i><u>奖励：create:empty_schematic×2</u></span>
       </a>
-      <a class="node " id="n-b11" data-id="b11" data-branch="b" style="left:1236px;top:1316px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:2284px;--c:#b39ddb" data-branch="b">
         <b>蓝图与笔</b><small>把建筑存成图纸</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 create:empty_schematic</i><u>奖励：minecraft:paper×16</u></span>
       </a>
-      <a class="node " id="n-b12" data-id="b12" data-branch="b" style="left:1236px;top:1386px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:2408px;--c:#b39ddb" data-branch="b">
         <b>蓝图加农炮</b><small>让机器替你盖房子</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 create:schematicannon</i><u>奖励：create:empty_schematic×4、minecraft:iron_block×4</u></span>
       </a>
-      <a class="node " id="n-b13" data-id="b13" data-branch="b" style="left:1236px;top:1456px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:2532px;--c:#b39ddb" data-branch="b">
         <b>无限建造魔杖</b><small>一次 1024 个方块，永不磨损</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 constructionwand:infinity_wand</i><u>奖励：minecraft:nether_star</u></span>
       </a>
-      <a class="node " id="n-b14" data-id="b14" data-branch="b" style="left:1236px;top:1526px;--c:#b39ddb">
+      <a class="node" style="left:2116px;top:2656px;--c:#b39ddb" data-branch="b">
         <b>建筑大师</b><small>从石杖到无限杖，全部收入囊中</small>
         <span class="tip"><em>蓝图与建造</em><i>手动确认</i><u>奖励：minecraft:netherite_ingot×2、constructionwand:core_angel</u></span>
       </a>
-      <a class="node " id="n-bo01" data-id="bo01" data-branch="b" style="left:1708px;top:896px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:1540px;--c:#b39ddb" data-branch="b">
         <b>白雏菊</b><small>用花瓣换纯净材料</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:pure_daisy</i><u>奖励：minecraft:white_dye×8</u></span>
       </a>
-      <a class="node " id="n-bo02" data-id="bo02" data-branch="b" style="left:1708px;top:966px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:1664px;--c:#b39ddb" data-branch="b">
         <b>树枝魔杖</b><small>把魔力从花里取出来</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:twig_wand</i><u>奖励：minecraft:stick×16</u></span>
       </a>
-      <a class="node " id="n-bo03" data-id="bo03" data-branch="b" style="left:1708px;top:1036px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:1788px;--c:#b39ddb" data-branch="b">
         <b>魔力池</b><small>植物魔法的电池</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:mana_pool</i><u>奖励：botania:mana_spreader×2</u></span>
       </a>
-      <a class="node " id="n-bo04" data-id="bo04" data-branch="b" style="left:1708px;top:1106px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:1912px;--c:#b39ddb" data-branch="b">
         <b>魔力发射器</b><small>把魔力送到需要的地方</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:mana_spreader</i><u>奖励：minecraft:gold_ingot×16</u></span>
       </a>
-      <a class="node " id="n-bo05" data-id="bo05" data-branch="b" style="left:1708px;top:1176px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:2036px;--c:#b39ddb" data-branch="b">
         <b>火之花</b><small>烧燃料产魔力</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:endoflame</i><u>奖励：minecraft:coal×32</u></span>
       </a>
-      <a class="node " id="n-bo06" data-id="bo06" data-branch="b" style="left:1708px;top:1246px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:2160px;--c:#b39ddb" data-branch="b">
         <b>水绣球</b><small>被动产能，不用管</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:hydroangeas</i><u>奖励：botania:mana_spreader</u></span>
       </a>
-      <a class="node " id="n-bo07" data-id="bo07" data-branch="b" style="left:1708px;top:1316px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:2284px;--c:#b39ddb" data-branch="b">
         <b>魔力钢</b><small>装备的原料</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:manasteel_ingot</i><u>奖励：botania:manasteel_ingot×4</u></span>
       </a>
-      <a class="node " id="n-bo08" data-id="bo08" data-branch="b" style="left:1708px;top:1386px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:2408px;--c:#b39ddb" data-branch="b">
         <b>魔力钻石</b><small>自动修复耐久</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:mana_diamond</i><u>奖励：minecraft:diamond×2</u></span>
       </a>
-      <a class="node " id="n-bo09" data-id="bo09" data-branch="b" style="left:1708px;top:1456px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:2532px;--c:#b39ddb" data-branch="b">
         <b>魔力珍珠</b><small>传送与合成的关键</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:mana_pearl</i><u>奖励：minecraft:ender_pearl×4</u></span>
       </a>
-      <a class="node " id="n-bo10" data-id="bo10" data-branch="b" style="left:1708px;top:1526px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:2656px;--c:#b39ddb" data-branch="b">
         <b>泰拉钢</b><small>植物魔法的中期分水岭</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:terrasteel_ingot</i><u>奖励：botania:mana_pool、minecraft:diamond×2</u></span>
       </a>
-      <a class="node " id="n-bo11" data-id="bo11" data-branch="b" style="left:1708px;top:1596px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:2780px;--c:#b39ddb" data-branch="b">
         <b>精灵之门</b><small>通往精灵世界</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:alfheim_portal</i><u>奖励：botania:terrasteel_ingot×2</u></span>
       </a>
-      <a class="node " id="n-bo12" data-id="bo12" data-branch="b" style="left:1708px;top:1666px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:2904px;--c:#b39ddb" data-branch="b">
         <b>精灵钢</b><small>精灵世界的材料</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:elementium_ingot</i><u>奖励：botania:terrasteel_ingot</u></span>
       </a>
-      <a class="node " id="n-bo13" data-id="bo13" data-branch="b" style="left:1708px;top:1736px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:3028px;--c:#b39ddb" data-branch="b">
         <b>泰拉装备</b><small>泰拉钢全套</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:terrasteel_helmet</i><u>奖励：botania:terrasteel_ingot×4</u></span>
       </a>
-      <a class="node " id="n-bo14" data-id="bo14" data-branch="b" style="left:1708px;top:1806px;--c:#b39ddb">
+      <a class="node" style="left:3148px;top:3152px;--c:#b39ddb" data-branch="b">
         <b>花之大师</b><small>从一朵雏菊到精灵世界</small>
         <span class="tip"><em>蓝图与建造</em><i>收集 botania:gaia_ingot</i><u>奖励：minecraft:nether_star、botania:terrasteel_ingot×4</u></span>
       </a>
-      <a class="node " id="n-c01" data-id="c01" data-branch="c" style="left:764px;top:406px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:672px;--c:#e0a851" data-branch="c">
         <b>安山合金</b><small>机械动力的基础材料</small>
         <span class="tip"><em>机械动力</em><i>收集 create:andesite_alloy ×16</i><u>奖励：minecraft:iron_nugget×16</u></span>
       </a>
-      <a class="node " id="n-c02" data-id="c02" data-branch="c" style="left:764px;top:476px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:796px;--c:#e0a851" data-branch="c">
         <b>传动轴</b><small>旋转力靠它传递</small>
         <span class="tip"><em>机械动力</em><i>收集 create:shaft</i><u>奖励：create:andesite_alloy×8</u></span>
       </a>
-      <a class="node " id="n-c03" data-id="c03" data-branch="c" style="left:764px;top:546px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:920px;--c:#e0a851" data-branch="c">
         <b>齿轮</b><small>改转速、换方向</small>
         <span class="tip"><em>机械动力</em><i>收集 create:cogwheel</i><u>奖励：create:shaft×8</u></span>
       </a>
-      <a class="node " id="n-c04" data-id="c04" data-branch="c" style="left:764px;top:616px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:1044px;--c:#e0a851" data-branch="c">
         <b>大齿轮</b><small>大小搭配就能变速</small>
         <span class="tip"><em>机械动力</em><i>收集 create:large_cogwheel</i><u>奖励：create:andesite_alloy×16</u></span>
       </a>
-      <a class="node " id="n-c05" data-id="c05" data-branch="c" style="left:764px;top:686px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:1168px;--c:#e0a851" data-branch="c">
         <b>传动带</b><small>传动力也能运物品</small>
         <span class="tip"><em>机械动力</em><i>收集 create:belt_connector</i><u>奖励：create:andesite_alloy×8</u></span>
       </a>
-      <a class="node " id="n-c06" data-id="c06" data-branch="c" style="left:764px;top:756px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:1292px;--c:#e0a851" data-branch="c">
         <b>手摇曲柄</b><small>没有动力源时的应急手段</small>
         <span class="tip"><em>机械动力</em><i>收集 create:hand_crank</i><u>奖励：create:andesite_alloy×8</u></span>
       </a>
-      <a class="node " id="n-c07" data-id="c07" data-branch="c" style="left:764px;top:826px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:1416px;--c:#e0a851" data-branch="c">
         <b>第一台动力</b><small>水车，占地小随处可搭</small>
         <span class="tip"><em>机械动力</em><i>收集 create:water_wheel</i><u>奖励：minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node " id="n-c08" data-id="c08" data-branch="c" style="left:764px;top:896px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:1540px;--c:#e0a851" data-branch="c">
         <b>风力</b><small>风车动力足，占地大</small>
         <span class="tip"><em>机械动力</em><i>收集 create:windmill_bearing</i><u>奖励：minecraft:iron_ingot×16</u></span>
       </a>
-      <a class="node " id="n-c09" data-id="c09" data-branch="c" style="left:764px;top:966px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:1664px;--c:#e0a851" data-branch="c">
         <b>压床</b><small>加工金属板材</small>
         <span class="tip"><em>机械动力</em><i>收集 create:mechanical_press</i><u>奖励：create:millstone</u></span>
       </a>
-      <a class="node " id="n-c10" data-id="c10" data-branch="c" style="left:764px;top:1036px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:1788px;--c:#e0a851" data-branch="c">
         <b>动力搅拌</b><small>做合金和面团</small>
         <span class="tip"><em>机械动力</em><i>收集 create:mechanical_mixer</i><u>奖励：create:andesite_alloy×16</u></span>
       </a>
-      <a class="node " id="n-c11" data-id="c11" data-branch="c" style="left:764px;top:1106px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:1912px;--c:#e0a851" data-branch="c">
         <b>动力锯</b><small>批量处理木材</small>
         <span class="tip"><em>机械动力</em><i>收集 create:mechanical_saw</i><u>奖励：minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node " id="n-c12" data-id="c12" data-branch="c" style="left:764px;top:1176px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:2036px;--c:#e0a851" data-branch="c">
         <b>动力钻头</b><small>自动采矿</small>
         <span class="tip"><em>机械动力</em><i>收集 create:mechanical_drill</i><u>奖励：minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node " id="n-c13" data-id="c13" data-branch="c" style="left:764px;top:1246px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:2160px;--c:#e0a851" data-branch="c">
         <b>鼓风机</b><small>配岩浆或水就能批量加工</small>
         <span class="tip"><em>机械动力</em><i>收集 create:encased_fan</i><u>奖励：minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node " id="n-c14" data-id="c14" data-branch="c" style="left:764px;top:1316px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:2284px;--c:#e0a851" data-branch="c">
         <b>石磨</b><small>最早的加工设备</small>
         <span class="tip"><em>机械动力</em><i>收集 create:millstone</i><u>奖励：minecraft:wheat×16</u></span>
       </a>
-      <a class="node " id="n-c15" data-id="c15" data-branch="c" style="left:764px;top:1386px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:2408px;--c:#e0a851" data-branch="c">
         <b>粉碎轮</b><small>矿石打成粉末，产量翻倍</small>
         <span class="tip"><em>机械动力</em><i>收集 create:crushing_wheel</i><u>奖励：minecraft:iron_ingot×16</u></span>
       </a>
-      <a class="node " id="n-c16" data-id="c16" data-branch="c" style="left:764px;top:1456px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:2532px;--c:#e0a851" data-branch="c">
         <b>黄铜时代</b><small>中期的分水岭</small>
         <span class="tip"><em>机械动力</em><i>收集 create:brass_ingot ×8</i><u>奖励：create:brass_ingot×8</u></span>
       </a>
-      <a class="node " id="n-c17" data-id="c17" data-branch="c" style="left:764px;top:1526px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:2656px;--c:#e0a851" data-branch="c">
         <b>电子管</b><small>黄铜机器的必需零件</small>
         <span class="tip"><em>机械动力</em><i>收集 create:electron_tube</i><u>奖励：create:brass_ingot×8</u></span>
       </a>
-      <a class="node " id="n-c18" data-id="c18" data-branch="c" style="left:764px;top:1596px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:2780px;--c:#e0a851" data-branch="c">
         <b>精密构件</b><small>通往一切高级机器</small>
         <span class="tip"><em>机械动力</em><i>收集 create:precision_mechanism</i><u>奖励：create:electron_tube×4</u></span>
       </a>
-      <a class="node " id="n-c19" data-id="c19" data-branch="c" style="left:764px;top:1666px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:2904px;--c:#e0a851" data-branch="c">
         <b>物品保险库</b><small>大容量仓储</small>
         <span class="tip"><em>机械动力</em><i>收集 create:item_vault</i><u>奖励：create:brass_ingot×8</u></span>
       </a>
-      <a class="node " id="n-c20" data-id="c20" data-branch="c" style="left:764px;top:1736px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:3028px;--c:#e0a851" data-branch="c">
         <b>铺设铁轨</b><small>64 段铁轨</small>
         <span class="tip"><em>机械动力</em><i>收集 create:track ×64</i><u>奖励：minecraft:iron_ingot×32</u></span>
       </a>
-      <a class="node " id="n-c21" data-id="c21" data-branch="c" style="left:764px;top:1806px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:3152px;--c:#e0a851" data-branch="c">
         <b>铁路时代</b><small>蒸汽与铁轨</small>
         <span class="tip"><em>机械动力</em><i>收集 railways:conductor_whistle</i><u>奖励：create:track×64、minecraft:iron_ingot×32</u></span>
       </a>
-      <a class="node " id="n-c22" data-id="c22" data-branch="c" style="left:764px;top:1876px;--c:#e0a851">
+      <a class="node" style="left:1084px;top:3276px;--c:#e0a851" data-branch="c">
         <b>机械帝国</b><small>从水车到火车，整条线走完</small>
         <span class="tip"><em>机械动力</em><i>手动确认</i><u>奖励：minecraft:netherite_ingot</u></span>
       </a>
-      <a class="node " id="n-e01" data-id="e01" data-branch="e" style="left:2180px;top:966px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:1664px;--c:#8ba3c7" data-branch="e">
         <b>前往下界</b><small>造个传送门</small>
         <span class="tip"><em>探索与征服</em><i>前往 minecraft:the_nether</i><u>奖励：minecraft:obsidian×10</u></span>
       </a>
-      <a class="node " id="n-e02" data-id="e02" data-branch="e" style="left:2180px;top:1036px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:1788px;--c:#8ba3c7" data-branch="e">
         <b>下界要塞</b><small>烈焰人刷怪笼</small>
         <span class="tip"><em>探索与征服</em><i>收集 minecraft:nether_bricks</i><u>奖励：minecraft:blaze_rod×2</u></span>
       </a>
-      <a class="node " id="n-e03" data-id="e03" data-branch="e" style="left:2180px;top:1106px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:1912px;--c:#8ba3c7" data-branch="e">
         <b>烈焰棒</b><small>酿造与末地的关键</small>
         <span class="tip"><em>探索与征服</em><i>收集 minecraft:blaze_rod ×2</i><u>奖励：minecraft:gold_ingot×8</u></span>
       </a>
-      <a class="node " id="n-e04" data-id="e04" data-branch="e" style="left:2180px;top:1176px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:2036px;--c:#8ba3c7" data-branch="e">
         <b>远古残骸</b><small>下界合金的原料</small>
         <span class="tip"><em>探索与征服</em><i>收集 minecraft:ancient_debris</i><u>奖励：minecraft:diamond×2</u></span>
       </a>
-      <a class="node " id="n-e05" data-id="e05" data-branch="e" style="left:2180px;top:1246px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:2160px;--c:#8ba3c7" data-branch="e">
         <b>下界合金</b><small>装备的最终形态</small>
         <span class="tip"><em>探索与征服</em><i>收集 minecraft:netherite_ingot</i><u>奖励：minecraft:diamond×4</u></span>
       </a>
-      <a class="node " id="n-e06" data-id="e06" data-branch="e" style="left:2180px;top:1316px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:2284px;--c:#8ba3c7" data-branch="e">
         <b>末影珍珠</b><small>注意别盯着末影人看</small>
         <span class="tip"><em>探索与征服</em><i>收集 minecraft:ender_pearl</i><u>奖励：minecraft:ender_pearl×4</u></span>
       </a>
-      <a class="node " id="n-e07" data-id="e07" data-branch="e" style="left:2180px;top:1386px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:2408px;--c:#8ba3c7" data-branch="e">
         <b>末影之眼</b><small>用来找要塞</small>
         <span class="tip"><em>探索与征服</em><i>收集 minecraft:ender_eye</i><u>奖励：minecraft:ender_pearl×8</u></span>
       </a>
-      <a class="node " id="n-e08" data-id="e08" data-branch="e" style="left:2180px;top:1456px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:2532px;--c:#8ba3c7" data-branch="e">
         <b>抵达末地</b><small>走进末地传送门</small>
         <span class="tip"><em>探索与征服</em><i>前往 minecraft:the_end</i><u>奖励：minecraft:golden_apple×2</u></span>
       </a>
-      <a class="node " id="n-e09" data-id="e09" data-branch="e" style="left:2180px;top:1526px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:2656px;--c:#8ba3c7" data-branch="e">
         <b>终结末影龙</b><small>击败末影龙</small>
         <span class="tip"><em>探索与征服</em><i>击败 minecraft:ender_dragon</i><u>奖励：minecraft:elytra、minecraft:dragon_breath×4</u></span>
       </a>
-      <a class="node " id="n-e10" data-id="e10" data-branch="e" style="left:2180px;top:1596px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:2780px;--c:#8ba3c7" data-branch="e">
         <b>末地城</b><small>鞘翅与潜影贝</small>
         <span class="tip"><em>探索与征服</em><i>收集 minecraft:purpur_block</i><u>奖励：minecraft:ender_pearl×8</u></span>
       </a>
-      <a class="node " id="n-e11" data-id="e11" data-branch="e" style="left:2180px;top:1666px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:2904px;--c:#8ba3c7" data-branch="e">
         <b>信标</b><small>范围增益</small>
         <span class="tip"><em>探索与征服</em><i>收集 minecraft:beacon</i><u>奖励：minecraft:netherite_ingot</u></span>
       </a>
-      <a class="node " id="n-e12" data-id="e12" data-branch="e" style="left:2180px;top:1736px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:3028px;--c:#8ba3c7" data-branch="e">
         <b>远古城市</b><small>深暗之域的回响碎片</small>
         <span class="tip"><em>探索与征服</em><i>收集 minecraft:echo_shard</i><u>奖励：minecraft:diamond×4</u></span>
       </a>
-      <a class="node " id="n-e13" data-id="e13" data-branch="e" style="left:2180px;top:1806px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:3152px;--c:#8ba3c7" data-branch="e">
         <b>直面监守者</b><small>打赢它，或者跑掉</small>
         <span class="tip"><em>探索与征服</em><i>击败 minecraft:warden</i><u>奖励：minecraft:netherite_ingot、minecraft:echo_shard×4</u></span>
       </a>
-      <a class="node " id="n-e14" data-id="e14" data-branch="e" style="left:2180px;top:1876px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:3276px;--c:#8ba3c7" data-branch="e">
         <b>海底神殿</b><small>远古守卫者</small>
         <span class="tip"><em>探索与征服</em><i>击败 minecraft:elder_guardian</i><u>奖励：minecraft:sponge×8</u></span>
       </a>
-      <a class="node " id="n-e15" data-id="e15" data-branch="e" style="left:2180px;top:1946px;--c:#8ba3c7">
+      <a class="node" style="left:4180px;top:3400px;--c:#8ba3c7" data-branch="e">
         <b>世界尽头</b><small>下界、末地、深暗全走一遍</small>
         <span class="tip"><em>探索与征服</em><i>手动确认</i><u>奖励：minecraft:netherite_ingot×2</u></span>
       </a>
-      <a class="node " id="n-f01" data-id="f01" data-branch="f" style="left:528px;top:336px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:548px;--c:#9dbb79" data-branch="f">
         <b>一把好刀</b><small>燧石刀</small>
         <span class="tip"><em>田园生活</em><i>收集 farmersdelight:flint_knife</i><u>奖励：minecraft:wheat_seeds×8</u></span>
       </a>
-      <a class="node " id="n-f02" data-id="f02" data-branch="f" style="left:528px;top:406px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:672px;--c:#9dbb79" data-branch="f">
         <b>砧板</b><small>把食材切成更多份</small>
         <span class="tip"><em>田园生活</em><i>收集 farmersdelight:cutting_board</i><u>奖励：farmersdelight:flint_knife</u></span>
       </a>
-      <a class="node " id="n-f03" data-id="f03" data-branch="f" style="left:528px;top:476px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:796px;--c:#9dbb79" data-branch="f">
         <b>下厨</b><small>架锅开火</small>
         <span class="tip"><em>田园生活</em><i>收集 farmersdelight:cooking_pot</i><u>奖励：minecraft:bowl×4</u></span>
       </a>
-      <a class="node " id="n-f04" data-id="f04" data-branch="f" style="left:528px;top:546px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:920px;--c:#9dbb79" data-branch="f">
         <b>麦浪</b><small>收 64 个小麦</small>
         <span class="tip"><em>田园生活</em><i>收集 minecraft:wheat ×64</i><u>奖励：minecraft:bread×8、minecraft:bone_meal×8</u></span>
       </a>
-      <a class="node " id="n-f05" data-id="f05" data-branch="f" style="left:528px;top:616px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:1044px;--c:#9dbb79" data-branch="f">
         <b>番茄红了</b><small>农夫乐事的新作物</small>
         <span class="tip"><em>田园生活</em><i>收集 farmersdelight:tomato</i><u>奖励：minecraft:bone_meal×8</u></span>
       </a>
-      <a class="node " id="n-f06" data-id="f06" data-branch="f" style="left:528px;top:686px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:1168px;--c:#9dbb79" data-branch="f">
         <b>卷心菜</b><small>另一种主粮</small>
         <span class="tip"><em>田园生活</em><i>收集 farmersdelight:cabbage</i><u>奖励：minecraft:bone_meal×8</u></span>
       </a>
-      <a class="node " id="n-f07" data-id="f07" data-branch="f" style="left:528px;top:756px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:1292px;--c:#9dbb79" data-branch="f">
         <b>稻田</b><small>水稻</small>
         <span class="tip"><em>田园生活</em><i>收集 farmersdelight:rice</i><u>奖励：minecraft:bone_meal×8</u></span>
       </a>
-      <a class="node " id="n-f08" data-id="f08" data-branch="f" style="left:528px;top:826px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:1416px;--c:#9dbb79" data-branch="f">
         <b>洋葱与胡萝卜</b><small>做炖菜的料</small>
         <span class="tip"><em>田园生活</em><i>收集 farmersdelight:onion</i><u>奖励：minecraft:carrot×8</u></span>
       </a>
-      <a class="node " id="n-f09" data-id="f09" data-branch="f" style="left:528px;top:896px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:1540px;--c:#9dbb79" data-branch="f">
         <b>肥沃土壤</b><small>不用水不用光的农田</small>
         <span class="tip"><em>田园生活</em><i>收集 farmersdelight:rich_soil</i><u>奖励：minecraft:bone_meal×16</u></span>
       </a>
-      <a class="node " id="n-f10" data-id="f10" data-branch="f" style="left:528px;top:966px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:1664px;--c:#9dbb79" data-branch="f">
         <b>煎锅</b><small>能打能炒</small>
         <span class="tip"><em>田园生活</em><i>收集 farmersdelight:skillet</i><u>奖励：minecraft:iron_ingot×4</u></span>
       </a>
-      <a class="node " id="n-f11" data-id="f11" data-branch="f" style="left:528px;top:1036px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:1788px;--c:#9dbb79" data-branch="f">
         <b>灶台</b><small>同时烧多口锅</small>
         <span class="tip"><em>田园生活</em><i>收集 farmersdelight:stove</i><u>奖励：minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node " id="n-f12" data-id="f12" data-branch="f" style="left:528px;top:1106px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:1912px;--c:#9dbb79" data-branch="f">
         <b>傻瓜式厨房</b><small>材料在附近箱子里就能做菜</small>
         <span class="tip"><em>田园生活</em><i>收集 cookingforblockheads:cooking_table</i><u>奖励：cookingforblockheads:fridge、minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node " id="n-f13" data-id="f13" data-branch="f" style="left:528px;top:1176px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:2036px;--c:#9dbb79" data-branch="f">
         <b>冰箱</b><small>给厨房加储物格</small>
         <span class="tip"><em>田园生活</em><i>收集 cookingforblockheads:fridge</i><u>奖励：minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node " id="n-f14" data-id="f14" data-branch="f" style="left:528px;top:1246px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:2160px;--c:#9dbb79" data-branch="f">
         <b>养蜂</b><small>蜂蜜能解毒</small>
         <span class="tip"><em>田园生活</em><i>收集 minecraft:beehive</i><u>奖励：minecraft:honey_bottle×4</u></span>
       </a>
-      <a class="node " id="n-f15" data-id="f15" data-branch="f" style="left:528px;top:1316px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:2284px;--c:#9dbb79" data-branch="f">
         <b>做个蛋糕</b><small>犒劳自己</small>
         <span class="tip"><em>田园生活</em><i>收集 minecraft:cake</i><u>奖励：minecraft:sugar×16</u></span>
       </a>
-      <a class="node " id="n-f16" data-id="f16" data-branch="f" style="left:528px;top:1386px;--c:#9dbb79">
+      <a class="node" style="left:568px;top:2408px;--c:#9dbb79" data-branch="f">
         <b>田园大成</b><small>农场、厨房、蜂箱都齐了</small>
         <span class="tip"><em>田园生活</em><i>手动确认</i><u>奖励：minecraft:golden_carrot×8</u></span>
       </a>
-      <a class="node " id="n-i01" data-id="i01" data-branch="i" style="left:1000px;top:826px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:1416px;--c:#7fb6c9" data-branch="i">
         <b>锇</b><small>通用机械的基础金属</small>
         <span class="tip"><em>工业帝国</em><i>收集 mekanism:ingot_osmium ×8</i><u>奖励：minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node " id="n-i02" data-id="i02" data-branch="i" style="left:1000px;top:896px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:1540px;--c:#7fb6c9" data-branch="i">
         <b>炼钢</b><small>钢锭是骨架材料</small>
         <span class="tip"><em>工业帝国</em><i>收集 mekanism:ingot_steel ×4</i><u>奖励：minecraft:iron_ingot×16</u></span>
       </a>
-      <a class="node " id="n-i03" data-id="i03" data-branch="i" style="left:1000px;top:966px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:1664px;--c:#7fb6c9" data-branch="i">
         <b>冶金灌注机</b><small>第一台核心机器</small>
         <span class="tip"><em>工业帝国</em><i>收集 mekanism:metallurgic_infuser</i><u>奖励：mekanism:enrichment_chamber</u></span>
       </a>
-      <a class="node " id="n-i04" data-id="i04" data-branch="i" style="left:1000px;top:1036px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:1788px;--c:#7fb6c9" data-branch="i">
         <b>富集仓</b><small>矿石产出翻倍</small>
         <span class="tip"><em>工业帝国</em><i>收集 mekanism:enrichment_chamber</i><u>奖励：minecraft:iron_ingot×16</u></span>
       </a>
-      <a class="node " id="n-i05" data-id="i05" data-branch="i" style="left:1000px;top:1106px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:1912px;--c:#7fb6c9" data-branch="i">
         <b>控制电路</b><small>所有机器的中间件</small>
         <span class="tip"><em>工业帝国</em><i>收集 mekanism:basic_control_circuit</i><u>奖励：minecraft:iron_ingot×16</u></span>
       </a>
-      <a class="node " id="n-i06" data-id="i06" data-branch="i" style="left:1000px;top:1176px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:2036px;--c:#7fb6c9" data-branch="i">
         <b>发电</b><small>热力发电机</small>
         <span class="tip"><em>工业帝国</em><i>收集 mekanismgenerators:heat_generator</i><u>奖励：thermal:machine_furnace</u></span>
       </a>
-      <a class="node " id="n-i07" data-id="i07" data-branch="i" style="left:1000px;top:1246px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:2160px;--c:#7fb6c9" data-branch="i">
         <b>热力机械</b><small>矿石处理链的补充</small>
         <span class="tip"><em>工业帝国</em><i>收集 thermal:machine_furnace</i><u>奖励：minecraft:iron_ingot×16</u></span>
       </a>
-      <a class="node " id="n-i08" data-id="i08" data-branch="i" style="left:1000px;top:1316px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:2284px;--c:#7fb6c9" data-branch="i">
         <b>工程师之锤</b><small>沉浸工程的起点</small>
         <span class="tip"><em>工业帝国</em><i>收集 immersiveengineering:hammer</i><u>奖励：immersiveengineering:ingot_steel×4</u></span>
       </a>
-      <a class="node " id="n-i09" data-id="i09" data-branch="i" style="left:1000px;top:1386px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:2408px;--c:#7fb6c9" data-branch="i">
         <b>焦炉</b><small>烧出焦炭</small>
         <span class="tip"><em>工业帝国</em><i>收集 immersiveengineering:coke_oven</i><u>奖励：minecraft:coal×32</u></span>
       </a>
-      <a class="node " id="n-i10" data-id="i10" data-branch="i" style="left:1000px;top:1456px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:2532px;--c:#7fb6c9" data-branch="i">
         <b>高炉</b><small>出钢，也是多方块的入门</small>
         <span class="tip"><em>工业帝国</em><i>收集 immersiveengineering:blast_furnace</i><u>奖励：immersiveengineering:ingot_steel×8</u></span>
       </a>
-      <a class="node " id="n-i11" data-id="i11" data-branch="i" style="left:1000px;top:1526px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:2656px;--c:#7fb6c9" data-branch="i">
         <b>赛特斯石英</b><small>AE2 从这种水晶开始</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:certus_quartz_crystal ×8</i><u>奖励：ae2:certus_quartz_crystal×8</u></span>
       </a>
-      <a class="node " id="n-i12" data-id="i12" data-branch="i" style="left:1000px;top:1596px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:2780px;--c:#7fb6c9" data-branch="i">
         <b>充能器</b><small>给水晶充能</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:charger</i><u>奖励：ae2:certus_quartz_crystal×8</u></span>
       </a>
-      <a class="node " id="n-i13" data-id="i13" data-branch="i" style="left:1000px;top:1666px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:2904px;--c:#7fb6c9" data-branch="i">
         <b>压印器</b><small>把电路图案压到硅片上</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:inscriber</i><u>奖励：ae2:printed_silicon×4</u></span>
       </a>
-      <a class="node " id="n-i14" data-id="i14" data-branch="i" style="left:1000px;top:1736px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:3028px;--c:#7fb6c9" data-branch="i">
         <b>硅片</b><small>所有处理器的底子</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:printed_silicon</i><u>奖励：minecraft:iron_ingot×16</u></span>
       </a>
-      <a class="node " id="n-i15" data-id="i15" data-branch="i" style="left:1000px;top:1806px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:3152px;--c:#7fb6c9" data-branch="i">
         <b>逻辑处理器</b><small>三种处理器之一</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:logic_processor</i><u>奖励：ae2:printed_logic_processor×4</u></span>
       </a>
-      <a class="node " id="n-i16" data-id="i16" data-branch="i" style="left:1000px;top:1876px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:3276px;--c:#7fb6c9" data-branch="i">
         <b>运算处理器</b><small>之三</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:calculation_processor</i><u>奖励：ae2:printed_calculation_processor×4</u></span>
       </a>
-      <a class="node " id="n-i17" data-id="i17" data-branch="i" style="left:1000px;top:1946px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:3400px;--c:#7fb6c9" data-branch="i">
         <b>工程处理器</b><small>高级机器的门票</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:engineering_processor</i><u>奖励：ae2:printed_engineering_processor×4</u></span>
       </a>
-      <a class="node " id="n-i18" data-id="i18" data-branch="i" style="left:1000px;top:2016px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:3524px;--c:#7fb6c9" data-branch="i">
         <b>ME 驱动器</b><small>插进存储元件就有数字仓库</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:drive</i><u>奖励：ae2:item_storage_cell_1k×2</u></span>
       </a>
-      <a class="node " id="n-i19" data-id="i19" data-branch="i" style="left:1000px;top:2086px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:3648px;--c:#7fb6c9" data-branch="i">
         <b>存储元件</b><small>一格装 1024 种物品</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:item_storage_cell_1k</i><u>奖励：ae2:item_storage_cell_4k</u></span>
       </a>
-      <a class="node " id="n-i20" data-id="i20" data-branch="i" style="left:1000px;top:2156px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:3772px;--c:#7fb6c9" data-branch="i">
         <b>样板供应器</b><small>自动合成的关键</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:pattern_provider</i><u>奖励：ae2:engineering_processor×4</u></span>
       </a>
-      <a class="node " id="n-i21" data-id="i21" data-branch="i" style="left:1000px;top:2226px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:3896px;--c:#7fb6c9" data-branch="i">
         <b>ME 合成终端</b><small>一个界面看遍整个仓库</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:crafting_terminal</i><u>奖励：ae2:drive、ae2:item_storage_cell_1k×2</u></span>
       </a>
-      <a class="node " id="n-i22" data-id="i22" data-branch="i" style="left:1000px;top:2296px;--c:#7fb6c9">
+      <a class="node" style="left:1600px;top:4020px;--c:#7fb6c9" data-branch="i">
         <b>自动合成</b><small>让 ME 网络替你干活</small>
         <span class="tip"><em>工业帝国</em><i>收集 ae2:crafting_accelerator</i><u>奖励：ae2:engineering_processor×8</u></span>
       </a>
-      <a class="node " id="n-s01" data-id="s01" data-branch="s" style="left:1944px;top:756px;--c:#c9b458">
+      <a class="node" style="left:3664px;top:1292px;--c:#c9b458" data-branch="s">
         <b>储物抽屉</b><small>一格装海量同类物品</small>
         <span class="tip"><em>收纳与物流</em><i>收集 storagedrawers:oak_full_drawers_1</i><u>奖励：minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node " id="n-s02" data-id="s02" data-branch="s" style="left:1944px;top:826px;--c:#c9b458">
+      <a class="node" style="left:3664px;top:1416px;--c:#c9b458" data-branch="s">
         <b>抽屉升级</b><small>扩容与压缩</small>
         <span class="tip"><em>收纳与物流</em><i>收集 storagedrawers:upgrade_template</i><u>奖励：minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node " id="n-s03" data-id="s03" data-branch="s" style="left:1944px;top:896px;--c:#c9b458">
+      <a class="node" style="left:3664px;top:1540px;--c:#c9b458" data-branch="s">
         <b>铁箱子</b><small>比木箱大</small>
         <span class="tip"><em>收纳与物流</em><i>收集 minecraft:chest ×8</i><u>奖励：minecraft:oak_planks×32</u></span>
       </a>
-      <a class="node " id="n-s04" data-id="s04" data-branch="s" style="left:1944px;top:966px;--c:#c9b458">
+      <a class="node" style="left:3664px;top:1664px;--c:#c9b458" data-branch="s">
         <b>潜影盒</b><small>移动仓库</small>
         <span class="tip"><em>收纳与物流</em><i>收集 minecraft:shulker_box</i><u>奖励：minecraft:shulker_shell×2</u></span>
       </a>
-      <a class="node " id="n-s05" data-id="s05" data-branch="s" style="left:1944px;top:1036px;--c:#c9b458">
+      <a class="node" style="left:3664px;top:1788px;--c:#c9b458" data-branch="s">
         <b>精致存储</b><small>升级版容器</small>
         <span class="tip"><em>收纳与物流</em><i>收集 sophisticatedstorage:iron_chest</i><u>奖励：minecraft:iron_ingot×16</u></span>
       </a>
-      <a class="node " id="n-s06" data-id="s06" data-branch="s" style="left:1944px;top:1106px;--c:#c9b458">
+      <a class="node" style="left:3664px;top:1912px;--c:#c9b458" data-branch="s">
         <b>漏斗流水线</b><small>自动搬运</small>
         <span class="tip"><em>收纳与物流</em><i>收集 minecraft:hopper ×4</i><u>奖励：minecraft:iron_ingot×16</u></span>
       </a>
-      <a class="node " id="n-s07" data-id="s07" data-branch="s" style="left:1944px;top:1176px;--c:#c9b458">
+      <a class="node" style="left:3664px;top:2036px;--c:#c9b458" data-branch="s">
         <b>分类仓库</b><small>每种矿物一个抽屉</small>
         <span class="tip"><em>收纳与物流</em><i>收集 storagedrawers:oak_full_drawers_4</i><u>奖励：minecraft:iron_ingot×16</u></span>
       </a>
-      <a class="node " id="n-s08" data-id="s08" data-branch="s" style="left:1944px;top:1246px;--c:#c9b458">
+      <a class="node" style="left:3664px;top:2160px;--c:#c9b458" data-branch="s">
         <b>末影箱</b><small>随身仓库</small>
         <span class="tip"><em>收纳与物流</em><i>收集 minecraft:ender_chest</i><u>奖励：minecraft:ender_pearl×8</u></span>
       </a>
-      <a class="node " id="n-s09" data-id="s09" data-branch="s" style="left:1944px;top:1316px;--c:#c9b458">
+      <a class="node" style="left:3664px;top:2284px;--c:#c9b458" data-branch="s">
         <b>物流之始</b><small>用 Create 传动带运物品</small>
         <span class="tip"><em>收纳与物流</em><i>收集 create:belt_connector ×4</i><u>奖励：create:andesite_alloy×16</u></span>
       </a>
-      <a class="node " id="n-s10" data-id="s10" data-branch="s" style="left:1944px;top:1386px;--c:#c9b458">
+      <a class="node" style="left:3664px;top:2408px;--c:#c9b458" data-branch="s">
         <b>井井有条</b><small>仓库彻底分好类</small>
         <span class="tip"><em>收纳与物流</em><i>手动确认</i><u>奖励：minecraft:netherite_scrap</u></span>
       </a>
-      <a class="node trunk" id="n-t01" data-id="t01" data-branch="t" style="left:56px;top:56px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:52px;--c:#dcb56a" data-branch="t">
         <b>徒手起步</b><small>打 16 个原木</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:oak_log ×16</i><u>奖励：minecraft:apple×4、minecraft:torch×8</u></span>
       </a>
-      <a class="node trunk" id="n-t02" data-id="t02" data-branch="t" style="left:56px;top:126px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:176px;--c:#dcb56a" data-branch="t">
         <b>工作台</b><small>合成时代的开始</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:crafting_table</i><u>奖励：minecraft:oak_planks×16</u></span>
       </a>
-      <a class="node trunk" id="n-t03" data-id="t03" data-branch="t" style="left:56px;top:196px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:300px;--c:#dcb56a" data-branch="t">
         <b>木制工具</b><small>木镐与木斧</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:wooden_pickaxe</i><u>奖励：minecraft:stick×8</u></span>
       </a>
-      <a class="node trunk" id="n-t04" data-id="t04" data-branch="t" style="left:56px;top:266px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:424px;--c:#dcb56a" data-branch="t">
         <b>石器时代</b><small>石镐能挖铁矿了</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:stone_pickaxe</i><u>奖励：minecraft:coal×16、minecraft:torch×16</u></span>
       </a>
-      <a class="node trunk" id="n-t05" data-id="t05" data-branch="t" style="left:56px;top:336px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:548px;--c:#dcb56a" data-branch="t">
         <b>生火</b><small>八块圆石围一个熔炉</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:furnace</i><u>奖励：minecraft:coal×8</u></span>
       </a>
-      <a class="node trunk" id="n-t06" data-id="t06" data-branch="t" style="left:56px;top:406px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:672px;--c:#dcb56a" data-branch="t">
         <b>铁器时代</b><small>攒 8 个铁锭</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:iron_ingot ×8</i><u>奖励：minecraft:iron_pickaxe、minecraft:bread×4</u></span>
       </a>
-      <a class="node trunk" id="n-t07" data-id="t07" data-branch="t" style="left:56px;top:476px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:796px;--c:#dcb56a" data-branch="t">
         <b>安全第一</b><small>盾牌能挡下大部分正面伤害</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:shield</i><u>奖励：minecraft:iron_ingot×4</u></span>
       </a>
-      <a class="node trunk" id="n-t08" data-id="t08" data-branch="t" style="left:56px;top:546px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:920px;--c:#dcb56a" data-branch="t">
         <b>铁甲护身</b><small>穿着它再下矿</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:iron_chestplate</i><u>奖励：minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node trunk" id="n-t09" data-id="t09" data-branch="t" style="left:56px;top:616px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:1044px;--c:#dcb56a" data-branch="t">
         <b>过夜</b><small>做张床，跳过夜晚</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:red_bed</i><u>奖励：minecraft:white_wool×8</u></span>
       </a>
-      <a class="node trunk" id="n-t10" data-id="t10" data-branch="t" style="left:56px;top:686px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:1168px;--c:#dcb56a" data-branch="t">
         <b>储粮</b><small>16 个熟牛肉</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:cooked_beef ×16</i><u>奖励：minecraft:bread×8</u></span>
       </a>
-      <a class="node trunk" id="n-t11" data-id="t11" data-branch="t" style="left:56px;top:756px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:1292px;--c:#dcb56a" data-branch="t">
         <b>背包与收纳</b><small>出门采矿不用来回跑</small>
         <span class="tip"><em>前期主线</em><i>收集 sophisticatedbackpacks:backpack</i><u>奖励：storagedrawers:oak_full_drawers_1×2、minecraft:iron_ingot×8</u></span>
       </a>
-      <a class="node trunk" id="n-t12" data-id="t12" data-branch="t" style="left:56px;top:826px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:1416px;--c:#dcb56a" data-branch="t">
         <b>钻石！</b><small>挖到第一颗钻石</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:diamond</i><u>奖励：minecraft:diamond_pickaxe</u></span>
       </a>
-      <a class="node trunk" id="n-t13" data-id="t13" data-branch="t" style="left:56px;top:896px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:1540px;--c:#dcb56a" data-branch="t">
         <b>附魔入门</b><small>附魔台 + 书架</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:enchanting_table</i><u>奖励：minecraft:bookshelf×4、minecraft:lapis_lazuli×16</u></span>
       </a>
-      <a class="node trunk" id="n-t14" data-id="t14" data-branch="t" style="left:56px;top:966px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:1664px;--c:#dcb56a" data-branch="t">
         <b>铁砧与修复</b><small>合并附魔、修复耐久</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:anvil</i><u>奖励：minecraft:iron_block×2</u></span>
       </a>
-      <a class="node trunk" id="n-t15" data-id="t15" data-branch="t" style="left:56px;top:1036px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:1788px;--c:#dcb56a" data-branch="t">
         <b>黑曜石</b><small>水浇岩浆</small>
         <span class="tip"><em>前期主线</em><i>收集 minecraft:obsidian</i><u>奖励：minecraft:diamond×2</u></span>
       </a>
-      <a class="node trunk" id="n-t16" data-id="t16" data-branch="t" style="left:56px;top:1106px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:1912px;--c:#dcb56a" data-branch="t">
         <b>传送网络</b><small>常去的地方都放一个</small>
         <span class="tip"><em>前期主线</em><i>收集 waystones:waystone</i><u>奖励：minecraft:stone_bricks×32、waystones:return_scroll×2</u></span>
       </a>
-      <a class="node trunk" id="n-t17" data-id="t17" data-branch="t" style="left:56px;top:1176px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:2036px;--c:#dcb56a" data-branch="t">
         <b>认出任务书</b><small>按 U 打开，右键任务书也行</small>
         <span class="tip"><em>前期主线</em><i>使用 heracles:quest_book</i><u>奖励：minecraft:golden_apple×2</u></span>
       </a>
-      <a class="node trunk" id="n-t18" data-id="t18" data-branch="t" style="left:56px;top:1246px;--c:#dcb56a">
+      <a class="node trunk" style="left:52px;top:2160px;--c:#dcb56a" data-branch="t">
         <b>扎下根来</b><small>基地、装备、食物、交通都齐了</small>
         <span class="tip"><em>前期主线</em><i>手动确认</i><u>奖励：minecraft:netherite_scrap、minecraft:diamond×4</u></span>
       </a>
-      <a class="node " id="n-z01" data-id="z01" data-branch="z" style="left:2416px;top:1176px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:2036px;--c:#d96a6a" data-branch="z">
         <b>变异开始</b><small>僵尸突变体</small>
         <span class="tip"><em>强者之路</em><i>击败 mutantmonsters:mutant_zombie</i><u>奖励：minecraft:golden_apple×2</u></span>
       </a>
-      <a class="node " id="n-z02" data-id="z02" data-branch="z" style="left:2416px;top:1246px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:2160px;--c:#d96a6a" data-branch="z">
         <b>苦力怕突变体</b><small>炸得又远又疼</small>
         <span class="tip"><em>强者之路</em><i>击败 mutantmonsters:mutant_creeper</i><u>奖励：minecraft:gunpowder×16</u></span>
       </a>
-      <a class="node " id="n-z03" data-id="z03" data-branch="z" style="left:2416px;top:1316px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:2284px;--c:#d96a6a" data-branch="z">
         <b>骷髅突变体</b><small>会拆成骨头再拼回来</small>
         <span class="tip"><em>强者之路</em><i>击败 mutantmonsters:mutant_skeleton</i><u>奖励：minecraft:bone×16</u></span>
       </a>
-      <a class="node " id="n-z04" data-id="z04" data-branch="z" style="left:2416px;top:1386px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:2408px;--c:#d96a6a" data-branch="z">
         <b>末影人突变体</b><small>会分裂出克隆体</small>
         <span class="tip"><em>强者之路</em><i>击败 mutantmonsters:mutant_enderman</i><u>奖励：minecraft:enchanted_golden_apple</u></span>
       </a>
-      <a class="node " id="n-z05" data-id="z05" data-branch="z" style="left:2416px;top:1456px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:2532px;--c:#d96a6a" data-branch="z">
         <b>钢铁守护者</b><small>矿井深处的钢铁巨像</small>
         <span class="tip"><em>强者之路</em><i>击败 mowziesmobs:ferrous_wroughtnaut</i><u>奖励：minecraft:iron_block×8</u></span>
       </a>
-      <a class="node " id="n-z06" data-id="z06" data-branch="z" style="left:2416px;top:1526px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:2656px;--c:#d96a6a" data-branch="z">
         <b>霜冻巨兽</b><small>会把你按在地上</small>
         <span class="tip"><em>强者之路</em><i>击败 mowziesmobs:frostmaw</i><u>奖励：minecraft:blue_ice×16</u></span>
       </a>
-      <a class="node " id="n-z07" data-id="z07" data-branch="z" style="left:2416px;top:1596px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:2780px;--c:#d96a6a" data-branch="z">
         <b>太阳鸟</b><small>会召唤族人群殴你</small>
         <span class="tip"><em>强者之路</em><i>击败 mowziesmobs:umvuthi</i><u>奖励：minecraft:gold_block×4</u></span>
       </a>
-      <a class="node " id="n-z08" data-id="z08" data-branch="z" style="left:2416px;top:1666px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:2904px;--c:#d96a6a" data-branch="z">
         <b>霜冻雪怪</b><small>Bosses'Rise 的雪原 Boss</small>
         <span class="tip"><em>强者之路</em><i>击败 block_factorys_bosses:yeti</i><u>奖励：minecraft:blue_ice×16</u></span>
       </a>
-      <a class="node " id="n-z09" data-id="z09" data-branch="z" style="left:2416px;top:1736px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:3028px;--c:#d96a6a" data-branch="z">
         <b>深渊巨口</b><small>沉船墓场的海怪</small>
         <span class="tip"><em>强者之路</em><i>击败 aquamirae:maw</i><u>奖励：minecraft:prismarine_shard×16</u></span>
       </a>
-      <a class="node " id="n-z10" data-id="z10" data-branch="z" style="left:2416px;top:1806px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:3152px;--c:#d96a6a" data-branch="z">
         <b>船长科妮莉亚</b><small>亡灵船长</small>
         <span class="tip"><em>强者之路</em><i>击败 aquamirae:captain_cornelia</i><u>奖励：minecraft:heart_of_the_sea</u></span>
       </a>
-      <a class="node " id="n-z11" data-id="z11" data-branch="z" style="left:2416px;top:1876px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:3276px;--c:#d96a6a" data-branch="z">
         <b>赫尔瓦，冥界骑士</b><small>Bosses'Rise 的第一场硬仗</small>
         <span class="tip"><em>强者之路</em><i>击败 block_factorys_bosses:underworld_knight</i><u>奖励：minecraft:netherite_scrap×2</u></span>
       </a>
-      <a class="node " id="n-z12" data-id="z12" data-branch="z" style="left:2416px;top:1946px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:3400px;--c:#d96a6a" data-branch="z">
         <b>阿什洛德，炼狱飞龙</b><small>火球带范围灼烧</small>
         <span class="tip"><em>强者之路</em><i>击败 block_factorys_bosses:infernal_dragon</i><u>奖励：minecraft:netherite_ingot</u></span>
       </a>
-      <a class="node " id="n-z13" data-id="z13" data-branch="z" style="left:2416px;top:2016px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:3524px;--c:#d96a6a" data-branch="z">
         <b>斯洛克，巨型沙虫</b><small>从地底突然窜出</small>
         <span class="tip"><em>强者之路</em><i>击败 block_factorys_bosses:sandworm</i><u>奖励：minecraft:netherite_ingot</u></span>
       </a>
-      <a class="node " id="n-z14" data-id="z14" data-branch="z" style="left:2416px;top:2086px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:3648px;--c:#d96a6a" data-branch="z">
         <b>先驱者</b><small>亡灵法师首领</small>
         <span class="tip"><em>强者之路</em><i>击败 cataclysm:the_harbinger</i><u>奖励：minecraft:netherite_scrap×3</u></span>
       </a>
-      <a class="node " id="n-z15" data-id="z15" data-branch="z" style="left:2416px;top:2156px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:3772px;--c:#d96a6a" data-branch="z">
         <b>下界合金巨兽</b><small>正面硬刚不划算</small>
         <span class="tip"><em>强者之路</em><i>击败 cataclysm:netherite_monstrosity</i><u>奖励：minecraft:netherite_ingot</u></span>
       </a>
-      <a class="node " id="n-z16" data-id="z16" data-branch="z" style="left:2416px;top:2226px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:3896px;--c:#d96a6a" data-branch="z">
         <b>末影守卫</b><small>灾变的第一位 Boss</small>
         <span class="tip"><em>强者之路</em><i>击败 cataclysm:ender_guardian</i><u>奖励：minecraft:netherite_scrap×4</u></span>
       </a>
-      <a class="node " id="n-z17" data-id="z17" data-branch="z" style="left:2416px;top:2296px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:4020px;--c:#d96a6a" data-branch="z">
         <b>焰魔</b><small>近战与火焰两个阶段</small>
         <span class="tip"><em>强者之路</em><i>击败 cataclysm:ignis</i><u>奖励：minecraft:blaze_rod×16</u></span>
       </a>
-      <a class="node " id="n-z18" data-id="z18" data-branch="z" style="left:2416px;top:2366px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:4144px;--c:#d96a6a" data-branch="z">
         <b>咒翼灵骸</b><small>骑亡灵马的法师</small>
         <span class="tip"><em>强者之路</em><i>击败 cataclysm:maledictus</i><u>奖励：minecraft:netherite_ingot</u></span>
       </a>
-      <a class="node " id="n-z19" data-id="z19" data-branch="z" style="left:2416px;top:2436px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:4268px;--c:#d96a6a" data-branch="z">
         <b>远古遗魂</b><small>会掀起沙暴</small>
         <span class="tip"><em>强者之路</em><i>击败 cataclysm:ancient_remnant</i><u>奖励：minecraft:gold_block×4</u></span>
       </a>
-      <a class="node " id="n-z20" data-id="z20" data-branch="z" style="left:2416px;top:2506px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:4392px;--c:#d96a6a" data-branch="z">
         <b>暝煌龙</b><small>Alex's Caves 的顶级掠食者</small>
         <span class="tip"><em>强者之路</em><i>击败 alexscaves:luxtructosaurus</i><u>奖励：minecraft:netherite_ingot×2</u></span>
       </a>
-      <a class="node " id="n-z21" data-id="z21" data-branch="z" style="left:2416px;top:2576px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:4516px;--c:#d96a6a" data-branch="z">
         <b>撼地斯拉</b><small>会喷核弹的巨型恐龙</small>
         <span class="tip"><em>强者之路</em><i>击败 alexscaves:tremorzilla</i><u>奖励：minecraft:netherite_ingot</u></span>
       </a>
-      <a class="node " id="n-z22" data-id="z22" data-branch="z" style="left:2416px;top:2646px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:4640px;--c:#d96a6a" data-branch="z">
         <b>死者之王</b><small>魔法线的期末考</small>
         <span class="tip"><em>强者之路</em><i>击败 irons_spellbooks:dead_king</i><u>奖励：minecraft:netherite_ingot×2</u></span>
       </a>
-      <a class="node " id="n-z23" data-id="z23" data-branch="z" style="left:2416px;top:2716px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:4764px;--c:#d96a6a" data-branch="z">
         <b>幽咽蛛王</b><small>永夜之地的巨蛛</small>
         <span class="tip"><em>强者之路</em><i>击败 blue_skies:arachnarch</i><u>奖励：minecraft:netherite_ingot</u></span>
       </a>
-      <a class="node " id="n-z24" data-id="z24" data-branch="z" style="left:2416px;top:2786px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:4888px;--c:#d96a6a" data-branch="z">
         <b>潜行者</b><small>会追着你穿墙</small>
         <span class="tip"><em>强者之路</em><i>击败 deeperdarker:stalker</i><u>奖励：minecraft:netherite_ingot</u></span>
       </a>
-      <a class="node " id="n-z25" data-id="z25" data-branch="z" style="left:2416px;top:2856px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:5012px;--c:#d96a6a" data-branch="z">
         <b>噬命者</b><small>混沌降生的恐怖存在</small>
         <span class="tip"><em>强者之路</em><i>击败 born_in_chaos_v1:lifestealer</i><u>奖励：minecraft:golden_apple×8</u></span>
       </a>
-      <a class="node " id="n-z26" data-id="z26" data-branch="z" style="left:2416px;top:2926px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:5136px;--c:#d96a6a" data-branch="z">
         <b>凋灵（强化后）</b><small>每杀一次它都会更强</small>
         <span class="tip"><em>强者之路</em><i>击败 minecraft:wither</i><u>奖励：minecraft:nether_star</u></span>
       </a>
-      <a class="node " id="n-z27" data-id="z27" data-branch="z" style="left:2416px;top:2996px;--c:#d96a6a">
+      <a class="node" style="left:4696px;top:5260px;--c:#d96a6a" data-branch="z">
         <b>终章 · 利维坦</b><small>水外无敌，必须水下作战</small>
         <span class="tip"><em>强者之路</em><i>击败 cataclysm:the_leviathan</i><u>奖励：minecraft:netherite_ingot×3、minecraft:enchanted_golden_apple×4</u></span>
       </a>
   </div>
 </div>
+</main>
+<footer>由脚本从整合包内的实际任务数据反向生成，与游戏里完全一致。<br>
+整合包与本站由 <strong>大肥鱼(deepseek)</strong>制作 ｜ <a href="index.html">← 返回首页</a></footer>
 <script>
 const nodes=[...document.querySelectorAll('.node')];
-const wires=[...document.querySelectorAll('.wire')];
-// 悬停：高亮同支线，其余淡出
-document.querySelector('.tree').addEventListener('mouseover',e=>{
-  const n=e.target.closest('.node'); if(!n) return;
-  const br=n.dataset.branch;
-  nodes.forEach(x=>{const on=x.dataset.branch===br;x.classList.toggle('dim',!on);x.classList.toggle('hot',on&&x===n);});
-  wires.forEach(w=>w.classList.toggle('hot',w.dataset.b===''));});
+document.querySelector('.tree').addEventListener('mouseover',e=>{const n=e.target.closest('.node');if(!n)return;
+  const b=n.dataset.branch;nodes.forEach(x=>{const on=x.dataset.branch===b;x.classList.toggle('dim',!on);x.classList.toggle('hot',on&&x===n);});});
 document.querySelector('.tree').addEventListener('mouseout',e=>{
   if(e.relatedTarget&&e.relatedTarget.closest&&e.relatedTarget.closest('.node'))return;
-  nodes.forEach(x=>x.classList.remove('dim','hot'));wires.forEach(w=>w.classList.remove('hot'));});
+  nodes.forEach(x=>x.classList.remove('dim','hot'));});
 </script>
-<footer>
-  由脚本从整合包内的实际数据反向生成，与游戏里完全一致。<br>
-  整合包与本站由 <strong>大肥鱼(deepseek)</strong>制作 ｜ <a href="index.html">← 返回首页</a>
-</footer>
 </body>
 </html>
