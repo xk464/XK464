@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0e0c">
+<title>匠造与奥术 · 键位总表</title>
+<style>
+:root{
+  --bg:#0b0e0c; --bg2:#10140f; --panel:#151a14; --panel2:#1b211a;
+  --ink:#eef1e6; --muted:#9aa392; --faint:#6b7364; --line:rgba(226,219,190,.13);
+  --gold:#dcb56a; --gold2:#f0d79b; --green:#9dbb79; --blue:#7fb6c9; --purple:#b39ddb; --red:#d98b6a;
+  --serif:"Noto Serif SC","Songti SC",Georgia,serif;
+  --sans:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);font-family:var(--sans);line-height:1.75;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%,rgba(220,181,106,.09),transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 15%,rgba(127,182,201,.06),transparent 55%),
+    radial-gradient(ellipse 70% 50% at 5% 80%,rgba(157,187,121,.05),transparent 60%),
+    linear-gradient(180deg,var(--bg2),var(--bg) 40%);
+  background-attachment:fixed;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
+  background-image:radial-gradient(circle at 1px 1px,#fff 1px,transparent 0);
+  background-size:4px 4px;
+}
+header.top{
+  position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);
+  background:rgba(11,14,12,.82);border-bottom:1px solid var(--line);
+}
+.top-in{max-width:1400px;margin:0 auto;padding:14px 26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.back{
+  display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);
+  border:1px solid var(--line);border-radius:999px;padding:6px 15px 6px 11px;font-size:13.5px;transition:.18s;
+}
+.back:hover{border-color:var(--gold);color:var(--gold2);background:rgba(220,181,106,.08)}
+.brand{font-family:var(--serif);font-size:16px;letter-spacing:.05em}
+.brand b{color:var(--gold)}
+.spacer{flex:1}
+.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+main{max-width:1400px;margin:0 auto;padding:30px 26px 90px;position:relative;z-index:1}
+h1{font-family:var(--serif);font-size:clamp(24px,3.4vw,38px);margin:0 0 8px;letter-spacing:.02em}
+h1 em{font-style:normal;color:var(--gold)}
+.lead{color:var(--muted);margin:0 0 6px;font-size:14.5px}
+.stats{display:flex;gap:26px;flex-wrap:wrap;margin:20px 0 8px}
+.stat b{display:block;font-family:var(--serif);font-size:26px;color:var(--gold2);line-height:1.2}
+.stat span{font-size:12.5px;color:var(--muted)}
+.legend{display:flex;flex-wrap:wrap;gap:9px 18px;margin:18px 0 14px;font-size:13px}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:7px;vertical-align:middle}
+.hint{color:var(--faint);font-size:12.5px;margin:8px 0 16px}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 26px 60px;color:var(--faint);font-size:13px;max-width:1400px;margin-left:auto;margin-right:auto}
+footer a{color:var(--gold);text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+.kbd-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));margin:12px 0 26px}
+.kbd-card{border:1px solid var(--line);border-radius:12px;padding:11px 14px;background:linear-gradient(180deg,rgba(24,30,23,.75),rgba(15,19,15,.75))}
+.kbd-card h4{margin:0 0 4px;font-size:14.5px;font-weight:600}
+.kbd-card p{margin:0;color:var(--muted);font-size:12.5px}
+kbd{display:inline-block;min-width:30px;text-align:center;padding:3px 9px;border-radius:7px;font-family:var(--sans);
+  font-size:12.5px;color:var(--gold2);background:rgba(220,181,106,.1);border:1px solid rgba(220,181,106,.35);
+  box-shadow:0 1px 0 rgba(0,0,0,.4),inset 0 -1px 0 rgba(255,255,255,.06)}
+h2.sec{font-family:var(--serif);font-size:20px;margin:34px 0 6px;display:flex;align-items:baseline;gap:11px}
+h2.sec span{font-size:12.5px;color:var(--muted);font-weight:400;font-family:var(--sans)}
+table.kb{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0 22px}
+table.kb th{text-align:left;color:var(--faint);font-weight:500;font-size:12px;padding:7px 10px;border-bottom:1px solid var(--line)}
+table.kb td{padding:7px 10px;border-bottom:1px solid rgba(226,219,190,.07)}
+table.kb tr:hover td{background:rgba(220,181,106,.05)}
+table.kb td.mod{color:var(--gold);white-space:nowrap}
+table.kb td.dim{color:var(--faint)}
+.search{width:100%;padding:11px 15px;border-radius:11px;border:1px solid var(--line);
+  background:rgba(11,14,11,.8);color:var(--ink);font-size:14px;font-family:var(--sans);margin:6px 0 4px}
+.search:focus{outline:none;border-color:var(--gold)}
+.count{color:var(--faint);font-size:12.5px}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="back" href="index.html">← 返回首页</a>
+  <div class="brand">匠造与奥术 · <b>键位总表</b></div>
+  <div class="spacer"></div>
+  <span class="tag">共 220 个键位</span>
+</div></header>
+<main>
+<h1>键位 <em>总表</em></h1>
+<p class="lead">整合包里有 220 个键位，来自 40 个模组。我已经把 <b>31</b> 个常用键位固定成互不冲突的一套，并把 <b>113</b> 个冷门键位解绑，剩下的保持模组默认。</p>
+<div class="stats">
+  <div class="stat"><b>31</b><span>已固定按键</span></div>
+  <div class="stat"><b>113</b><span>已解绑精简</span></div>
+  <div class="stat"><b>76</b><span>保持模组默认</span></div>
+  <div class="stat"><b>0</b><span>重复按键</span></div>
+</div>
+
+<h2 class="sec">已固定的按键 <span>这 31 个键位由整合包预设，互不冲突</span></h2>
+<div class="kbd-grid">
+<div class="kbd-card"><h4><kbd>O</kbd> 显示/隐藏JEI叠加层</h4><p>JEI 物品管理器</p></div>
+<div class="kbd-card"><h4><kbd>PageUp</kbd> 上一页</h4><p>JEI 物品管理器</p></div>
+<div class="kbd-card"><h4><kbd>PageDown</kbd> 下一页</h4><p>JEI 物品管理器</p></div>
+<div class="kbd-card"><h4><kbd>-</kbd> 上一配方类别</h4><p>JEI 物品管理器</p></div>
+<div class="kbd-card"><h4><kbd>=</kbd> 下一配方类别</h4><p>JEI 物品管理器</p></div>
+<div class="kbd-card"><h4><kbd>Esc</kbd> 关闭配方界面</h4><p>JEI 物品管理器</p></div>
+<div class="kbd-card"><h4><kbd>A</kbd> 添加/移除书签</h4><p>JEI 物品管理器</p></div>
+<div class="kbd-card"><h4><kbd>R</kbd> 显示配方</h4><p>JEI 物品管理器</p></div>
+<div class="kbd-card"><h4><kbd>U</kbd> 显示用途</h4><p>JEI 物品管理器</p></div>
+<div class="kbd-card"><h4><kbd>Del</kbd> 清除搜索过滤器</h4><p>JEI 物品管理器</p></div>
+<div class="kbd-card"><h4><kbd>左 Ctrl</kbd> Modifier Menu</h4><p>Effortless Building</p></div>
+<div class="kbd-card"><h4><kbd>左 Shift</kbd> Toggle QuickReplace</h4><p>Effortless Building</p></div>
+<div class="kbd-card"><h4><kbd>左 Alt</kbd> Radial Menu</h4><p>Effortless Building</p></div>
+<div class="kbd-card"><h4><kbd>Z</kbd> Undo</h4><p>Effortless Building</p></div>
+<div class="kbd-card"><h4><kbd>H</kbd> Redo</h4><p>Effortless Building</p></div>
+<div class="kbd-card"><h4><kbd>小键盘 0</kbd> 打开配置</h4><p>Jade 信息显示</p></div>
+<div class="kbd-card"><h4><kbd>小键盘 1</kbd> 显示叠加层</h4><p>Jade 信息显示</p></div>
+<div class="kbd-card"><h4><kbd>小键盘 2</kbd> 切换流体</h4><p>Jade 信息显示</p></div>
+<div class="kbd-card"><h4><kbd>小键盘 3</kbd> 显示细节</h4><p>Jade 信息显示</p></div>
+<div class="kbd-card"><h4><kbd>V</kbd> 施放选定咒语</h4><p>铁魔法与法术书</p></div>
+<div class="kbd-card"><h4><kbd>X</kbd> 打开法术轮盘</h4><p>铁魔法与法术书</p></div>
+<div class="kbd-card"><h4><kbd>小键盘 4</kbd> 快捷施法槽位 01</h4><p>铁魔法与法术书</p></div>
+<div class="kbd-card"><h4><kbd>J</kbd> （法术书）打开法术书</h4><p>新生魔艺</p></div>
+<div class="kbd-card"><h4><kbd>小键盘 5</kbd> 快速施法槽 01</h4><p>新生魔艺</p></div>
+<div class="kbd-card"><h4><kbd>B</kbd> 打开背包</h4><p>精妙背包</p></div>
+<div class="kbd-card"><h4><kbd>`</kbd> 整理容器/背包</h4><p>精妙核心</p></div>
+<div class="kbd-card"><h4><kbd>K</kbd> 打开/关闭饰品栏</h4><p>饰品栏</p></div>
+<div class="kbd-card"><h4><kbd>/</kbd> Open Guide for Items</h4><p>GuideME 指南</p></div>
+<div class="kbd-card"><h4><kbd>'</kbd> 打开死亡历史</h4><p>尸体</p></div>
+<div class="kbd-card"><h4><kbd>小键盘 Enter</kbd> 命令按键（CommandKeys）</h4><p>CommandKeys</p></div>
+<div class="kbd-card"><h4><kbd>L</kbd> 打开任务</h4><p>任务书</p></div>
+</div>
+
+<h2 class="sec">完整键位表 <span>可搜索 · 220 条</span></h2>
+<input class="search" id="q" type="search" placeholder="搜索模组或功能，例如“地图”“整理”“JEI”…">
+<p class="count" id="cnt"></p>
+<table class="kb"><thead><tr><th style="width:90px">按键</th><th style="width:120px">模组</th><th>功能</th><th style="width:88px">状态</th></tr></thead>
+<tbody id="tb">
+<tr data-k="精妙背包打开/关闭第一个插槽中的升级卡key.sophisticatedbackpacks.toggle_upgrade_1"><td><span style="color:var(--faint)">默认</span></td><td class="mod">精妙背包</td><td class="">打开/关闭第一个插槽中的升级卡</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="精妙核心转移至容器key.sophisticatedcore.transfer_to_storage"><td><span style="color:var(--faint)">默认</span></td><td class="mod">精妙核心</td><td class="">转移至容器</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="精妙核心转移至物品栏key.sophisticatedcore.transfer_to_inventory"><td><span style="color:var(--faint)">默认</span></td><td class="mod">精妙核心</td><td class="">转移至物品栏</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="精妙背包打开背包key.sophisticatedbackpacks.open_backpack"><td><kbd>B</kbd></td><td class="mod">精妙背包</td><td class="">打开背包</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="精妙核心整理容器/背包key.sophisticatedcore.sort"><td><kbd>`</kbd></td><td class="mod">精妙核心</td><td class="">整理容器/背包</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jei 物品管理器显示配方key.jei.showrecipe2"><td><span style="color:var(--faint)">默认</span></td><td class="mod">JEI 物品管理器</td><td class="">显示配方</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="饰品栏打开/关闭饰品栏key.curios.open"><td><kbd>K</kbd></td><td class="mod">饰品栏</td><td class="">打开/关闭饰品栏</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="铁魔法与法术书施放选定咒语key.irons_spellbooks.spellbook_cast"><td><kbd>V</kbd></td><td class="mod">铁魔法与法术书</td><td class="">施放选定咒语</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="铁魔法与法术书打开法术轮盘key.irons_spellbooks.spell_wheel"><td><kbd>X</kbd></td><td class="mod">铁魔法与法术书</td><td class="">打开法术轮盘</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 01key.irons_spellbooks.spell_quick_cast_1"><td><kbd>小键盘 4</kbd></td><td class="mod">铁魔法与法术书</td><td class="">快捷施法槽位 01</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="新生魔艺（法术书）打开法术书key.ars_nouveau.open_book"><td><kbd>J</kbd></td><td class="mod">新生魔艺</td><td class="">（法术书）打开法术书</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="新生魔艺快速施法槽 01key.ars_nouveau.qc1"><td><kbd>小键盘 5</kbd></td><td class="mod">新生魔艺</td><td class="">快速施法槽 01</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="effortless buildingmodifier menukey.effortlessbuilding.hud"><td><kbd>左 Ctrl</kbd></td><td class="mod">Effortless Building</td><td class="">Modifier Menu</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="effortless buildingtoggle quickreplacekey.effortlessbuilding.replace"><td><kbd>左 Shift</kbd></td><td class="mod">Effortless Building</td><td class="">Toggle QuickReplace</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="effortless buildingradial menukey.effortlessbuilding.mode"><td><kbd>左 Alt</kbd></td><td class="mod">Effortless Building</td><td class="">Radial Menu</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="effortless buildingundokey.effortlessbuilding.undo"><td><kbd>Z</kbd></td><td class="mod">Effortless Building</td><td class="">Undo</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="effortless buildingredokey.effortlessbuilding.redo"><td><kbd>H</kbd></td><td class="mod">Effortless Building</td><td class="">Redo</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jei 物品管理器显示/隐藏jei叠加层key.jei.toggleoverlay"><td><kbd>O</kbd></td><td class="mod">JEI 物品管理器</td><td class="">显示/隐藏JEI叠加层</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jei 物品管理器上一页key.jei.previouspage"><td><kbd>PageUp</kbd></td><td class="mod">JEI 物品管理器</td><td class="">上一页</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jei 物品管理器下一页key.jei.nextpage"><td><kbd>PageDown</kbd></td><td class="mod">JEI 物品管理器</td><td class="">下一页</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jei 物品管理器上一配方类别key.jei.previouscategory"><td><kbd>-</kbd></td><td class="mod">JEI 物品管理器</td><td class="">上一配方类别</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="（其他）在合适的时候可启用坐骑或盔甲的特殊能力key.special_ability"><td><span style="color:var(--faint)">默认</span></td><td class="mod">（其他）</td><td class="">在合适的时候可启用坐骑或盔甲的特殊能力</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="（其他）开关搜索框自动聚焦key.toggle_focus"><td><span style="color:var(--faint)">默认</span></td><td class="mod">（其他）</td><td class="">开关搜索框自动聚焦</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="沉浸工程切换化学流体罐key.immersiveengineering.chemthrowerswitch"><td><span style="color:var(--faint)">默认</span></td><td class="mod">沉浸工程</td><td class="">切换化学流体罐</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="工业先锋工业先锋key.industrialforegoing.category"><td><span style="color:var(--faint)">默认</span></td><td class="mod">工业先锋</td><td class="">工业先锋</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="工业先锋打开无限背包key.industrialforegoing.backpack"><td><span style="color:var(--faint)">默认</span></td><td class="mod">工业先锋</td><td class="">打开无限背包</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="合成台调整旋转网格key.craftingtweaks.rotate"><td><span style="color:var(--faint)">默认</span></td><td class="mod">合成台调整</td><td class="">旋转网格</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="合成台调整清空网格key.craftingtweaks.clear"><td><span style="color:var(--faint)">默认</span></td><td class="mod">合成台调整</td><td class="">清空网格</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="合成台调整均分网格key.craftingtweaks.balance"><td><span style="color:var(--faint)">默认</span></td><td class="mod">合成台调整</td><td class="">均分网格</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="合成台调整平铺网格key.craftingtweaks.spread"><td><span style="color:var(--faint)">默认</span></td><td class="mod">合成台调整</td><td class="">平铺网格</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="合成台调整压缩物品key.craftingtweaks.compress_one"><td><span style="color:var(--faint)">默认</span></td><td class="mod">合成台调整</td><td class="">压缩物品</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="合成台调整解压物品key.craftingtweaks.decompress_one"><td><span style="color:var(--faint)">默认</span></td><td class="mod">合成台调整</td><td class="">解压物品</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="合成台调整最后重填key.craftingtweaks.refill_last"><td><span style="color:var(--faint)">默认</span></td><td class="mod">合成台调整</td><td class="">最后重填</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="合成台调整最后重填(一组)key.craftingtweaks.refill_last_stack"><td><span style="color:var(--faint)">默认</span></td><td class="mod">合成台调整</td><td class="">最后重填(一组)</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="合成台调整转移到工作台网格key.craftingtweaks.transfer_stack"><td><span style="color:var(--faint)">默认</span></td><td class="mod">合成台调整</td><td class="">转移到工作台网格</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="机械动力：火炮机械动力：火炮key.createbigcannons.category"><td><span style="color:var(--faint)">默认</span></td><td class="mod">机械动力：火炮</td><td class="">机械动力：火炮</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="机械动力：火炮开火所控制的火炮key.createbigcannons.fire_controlled_cannon"><td><span style="color:var(--faint)">默认</span></td><td class="mod">机械动力：火炮</td><td class="">开火所控制的火炮</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="精致存储跳转终端搜索条key.refinedstorage.focussearchbar"><td><span style="color:var(--faint)">默认</span></td><td class="mod">精致存储</td><td class="">跳转终端搜索条</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="精致存储清空合成网格key.refinedstorage.cleargridcraftingmatrix"><td><span style="color:var(--faint)">默认</span></td><td class="mod">精致存储</td><td class="">清空合成网格</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="精致存储打开无线面板key.refinedstorage.openwirelessgrid"><td><span style="color:var(--faint)">默认</span></td><td class="mod">精致存储</td><td class="">打开无线面板</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="精致存储打开无线流体面板key.refinedstorage.openwirelessfluidgrid"><td><span style="color:var(--faint)">默认</span></td><td class="mod">精致存储</td><td class="">打开无线流体面板</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="精致存储打开便携面板key.refinedstorage.openportablegrid"><td><span style="color:var(--faint)">默认</span></td><td class="mod">精致存储</td><td class="">打开便携面板</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="精致存储打开无线合成监控面板key.refinedstorage.openwirelesscraftingmonitor"><td><span style="color:var(--faint)">默认</span></td><td class="mod">精致存储</td><td class="">打开无线合成监控面板</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="垃圾桶删除物品key.trashslot.delete"><td><span style="color:var(--faint)">默认</span></td><td class="mod">垃圾桶</td><td class="">删除物品</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="连锁采集连锁采集key.veinmining.category"><td><span style="color:var(--faint)">默认</span></td><td class="mod">连锁采集</td><td class="">连锁采集</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="神秘学打开挎包key.occultism.backpack"><td><span style="color:var(--faint)">默认</span></td><td class="mod">神秘学</td><td class="">打开挎包</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="神秘学神秘学key.occultism.category"><td><span style="color:var(--faint)">默认</span></td><td class="mod">神秘学</td><td class="">神秘学</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="神秘学打开存储访问器key.occultism.storage_remote"><td><span style="color:var(--faint)">默认</span></td><td class="mod">神秘学</td><td class="">打开存储访问器</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="screenshot_viewer打开屏幕截图浏览器key.screenshot_viewer.open_screenshots_screen"><td><span style="color:var(--faint)">默认</span></td><td class="mod">screenshot_viewer</td><td class="">打开屏幕截图浏览器</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="guideme 指南open guide for itemskey.guideme.guide"><td><kbd>/</kbd></td><td class="mod">GuideME 指南</td><td class="">Open Guide for Items</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jei 物品管理器下一配方类别key.jei.nextcategory"><td><kbd>=</kbd></td><td class="mod">JEI 物品管理器</td><td class="">下一配方类别</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jei 物品管理器关闭配方界面key.jei.closerecipegui"><td><kbd>Esc</kbd></td><td class="mod">JEI 物品管理器</td><td class="">关闭配方界面</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jei 物品管理器添加/移除书签key.jei.bookmark"><td><kbd>A</kbd></td><td class="mod">JEI 物品管理器</td><td class="">添加/移除书签</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jei 物品管理器显示配方key.jei.showrecipe"><td><kbd>R</kbd></td><td class="mod">JEI 物品管理器</td><td class="">显示配方</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jei 物品管理器显示用途key.jei.showuses"><td><kbd>U</kbd></td><td class="mod">JEI 物品管理器</td><td class="">显示用途</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jei 物品管理器清除搜索过滤器key.jei.clearsearchbar"><td><kbd>Del</kbd></td><td class="mod">JEI 物品管理器</td><td class="">清除搜索过滤器</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="饰品栏饰品key.curios.category"><td><span style="color:var(--faint)">默认</span></td><td class="mod">饰品栏</td><td class="">饰品</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="eidolon打开秘仪教典key.eidolon.open_docs"><td><span style="color:var(--faint)">默认</span></td><td class="mod">eidolon</td><td class="">打开秘仪教典</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="firstperson切换第一人称key.firstperson.toggle"><td><span style="color:var(--faint)">默认</span></td><td class="mod">firstperson</td><td class="">切换第一人称</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="guideme 指南guidemekey.guideme.category"><td><span style="color:var(--faint)">默认</span></td><td class="mod">GuideME 指南</td><td class="">GuideME</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="jei 物品管理器选中搜索框key.jei.focussearch"><td><span style="color:var(--faint)">默认</span></td><td class="mod">JEI 物品管理器</td><td class="">选中搜索框</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="jei 物品管理器显示用途key.jei.showuses2"><td><span style="color:var(--faint)">默认</span></td><td class="mod">JEI 物品管理器</td><td class="">显示用途</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="modernfix打开配置屏幕key.modernfix.config"><td><span style="color:var(--faint)">默认</span></td><td class="mod">modernfix</td><td class="">打开配置屏幕</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="尸体打开死亡历史key.corpse.death_history"><td><kbd>'</kbd></td><td class="mod">尸体</td><td class="">打开死亡历史</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="commandkeys命令按键（commandkeys）key.commandkeys.main"><td><kbd>小键盘 Enter</kbd></td><td class="mod">CommandKeys</td><td class="">命令按键（CommandKeys）</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="通用机械加速key.mekanism.key_boost"><td><span style="color:var(--faint)">默认</span></td><td class="mod">通用机械</td><td class="">加速</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="通用机械显示 hudkey.mekanism.key_hud"><td><span style="color:var(--faint)">默认</span></td><td class="mod">通用机械</td><td class="">显示 HUD</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="通用机械物品模式切换key.mekanism.mode"><td><span style="color:var(--faint)">默认</span></td><td class="mod">通用机械</td><td class="">物品模式切换</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺召唤/驱散使魔key.ars_nouveau.familiar_toggle"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">召唤/驱散使魔</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺头部 curio 饰品菜单key.ars_nouveau.head_curio_hotkey"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">头部 Curio 饰品菜单</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺（法术书）下一格key.ars_nouveau.next_slot"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">（法术书）下一格</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺（法术书）上一格key.ars_nouveau.previous_slot"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">（法术书）上一格</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺快速施法槽 10key.ars_nouveau.qc10"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">快速施法槽 10</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺快速施法槽 02key.ars_nouveau.qc2"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">快速施法槽 02</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺快速施法槽 03key.ars_nouveau.qc3"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">快速施法槽 03</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺快速施法槽 04key.ars_nouveau.qc4"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">快速施法槽 04</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺快速施法槽 05key.ars_nouveau.qc5"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">快速施法槽 05</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺快速施法槽 06key.ars_nouveau.qc6"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">快速施法槽 06</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺快速施法槽 07key.ars_nouveau.qc7"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">快速施法槽 07</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺快速施法槽 08key.ars_nouveau.qc8"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">快速施法槽 08</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺快速施法槽 09key.ars_nouveau.qc9"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">快速施法槽 09</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="新生魔艺（法术书）打开法术选取界面key.ars_nouveau.selection_hud"><td><span style="color:var(--faint)">默认</span></td><td class="mod">新生魔艺</td><td class="">（法术书）打开法术选取界面</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="应用能源 2打开样板管理终端key.ae2.wireless_pattern_access_terminal"><td><span style="color:var(--faint)">默认</span></td><td class="mod">应用能源 2</td><td class="">打开样板管理终端</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="应用能源 2打开无线样板终端key.ae2.wireless_pattern_encoding_terminal"><td><span style="color:var(--faint)">默认</span></td><td class="mod">应用能源 2</td><td class="">打开无线样板终端</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="应用能源 2切换补货key.ae2.ae2wtlib_restock"><td><span style="color:var(--faint)">默认</span></td><td class="mod">应用能源 2</td><td class="">切换补货</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="应用能源 2切换磁卡key.ae2.ae2wtlib_magnet"><td><span style="color:var(--faint)">默认</span></td><td class="mod">应用能源 2</td><td class="">切换磁卡</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="应用能源 2应用能源2key.ae2.category"><td><span style="color:var(--faint)">默认</span></td><td class="mod">应用能源 2</td><td class="">应用能源2</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="应用能源 2打开便携流体元件key.ae2.portable_fluid_cell"><td><span style="color:var(--faint)">默认</span></td><td class="mod">应用能源 2</td><td class="">打开便携流体元件</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="应用能源 2打开便携物品元件key.ae2.portable_item_cell"><td><span style="color:var(--faint)">默认</span></td><td class="mod">应用能源 2</td><td class="">打开便携物品元件</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="应用能源 2打开无线终端key.ae2.wireless_terminal"><td><span style="color:var(--faint)">默认</span></td><td class="mod">应用能源 2</td><td class="">打开无线终端</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="灾变灾变能力key.cataclysm.ability"><td><span style="color:var(--faint)">默认</span></td><td class="mod">灾变</td><td class="">灾变能力</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="bosses'rise翻滚闪避key.block_factorys_bosses.dodge_roll"><td><span style="color:var(--faint)">默认</span></td><td class="mod">Bosses'Rise</td><td class="">翻滚闪避</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="carry oncarrykey.carry"><td><span style="color:var(--faint)">默认</span></td><td class="mod">Carry On</td><td class="">Carry</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="carry oncarry onkey.carry.category"><td><span style="color:var(--faint)">默认</span></td><td class="mod">Carry On</td><td class="">Carry On</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="cofh 核心循环至上一个模式key.cofh.mode_change_increment"><td><span style="color:var(--faint)">默认</span></td><td class="mod">CoFH 核心</td><td class="">循环至上一个模式</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="cofh 核心循环至下一个模式key.cofh.mode_change_decrement"><td><span style="color:var(--faint)">默认</span></td><td class="mod">CoFH 核心</td><td class="">循环至下一个模式</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="commandkeys编辑活动配置文件key.commandkeys.main.edit"><td><span style="color:var(--faint)">默认</span></td><td class="mod">CommandKeys</td><td class="">编辑活动配置文件</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="create 蒸汽动力飞行key.create_sa.flying"><td><span style="color:var(--faint)">默认</span></td><td class="mod">Create 蒸汽动力</td><td class="">飞行</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="create_stuff_additions飞行key.create_stuff_additions.flying"><td><span style="color:var(--faint)">默认</span></td><td class="mod">create_stuff_additions</td><td class="">飞行</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="effortless buildingeffortless buildingkey.effortlessbuilding.category"><td><span style="color:var(--faint)">默认</span></td><td class="mod">Effortless Building</td><td class="">Effortless Building</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="toast 控制toast controlkey.toastcontrol.category"><td><span style="color:var(--faint)">默认</span></td><td class="mod">Toast 控制</td><td class="">Toast Control</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="任务书打开任务key.heracles.open_quests"><td><kbd>L</kbd></td><td class="mod">任务书</td><td class="">打开任务</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jade 信息显示打开配置key.jade.config"><td><kbd>小键盘 0</kbd></td><td class="mod">Jade 信息显示</td><td class="">打开配置</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jade 信息显示显示叠加层key.jade.show_overlay"><td><kbd>小键盘 1</kbd></td><td class="mod">Jade 信息显示</td><td class="">显示叠加层</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jade 信息显示切换流体key.jade.toggle_liquid"><td><kbd>小键盘 2</kbd></td><td class="mod">Jade 信息显示</td><td class="">切换流体</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="jade 信息显示显示细节key.jade.show_details"><td><kbd>小键盘 3</kbd></td><td class="mod">Jade 信息显示</td><td class="">显示细节</td><td><span style="color:var(--gold)">已固定</span></td></tr>
+<tr data-k="血魔法blood magickey.bloodmagic.category"><td><span style="color:var(--faint)">默认</span></td><td class="mod">血魔法</td><td class="">Blood Magic</td><td><span style="color:var(--muted)">模组默认</span></td></tr>
+<tr data-k="（其他）鼠标滚轮向上key.mouse.9"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">（其他）</td><td class="dim">鼠标滚轮向上</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="（其他）鼠标滚轮向下key.mouse.10"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">（其他）</td><td class="dim">鼠标滚轮向下</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="沉浸工程磁力护盾手套（双击）key.immersiveengineering.magnetequip"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">沉浸工程</td><td class="dim">磁力护盾手套（双击）</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="沉浸工程磁轨炮缩放key.immersiveengineering.railgunzoom"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">沉浸工程</td><td class="dim">磁轨炮缩放</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="合成台调整旋转网格(逆时针)key.craftingtweaks.rotate_counter_clockwise"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">合成台调整</td><td class="dim">旋转网格(逆时针)</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="合成台调整强制清空网格key.craftingtweaks.force_clear"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">合成台调整</td><td class="dim">强制清空网格</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="合成台调整压缩一组key.craftingtweaks.compress_stack"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">合成台调整</td><td class="dim">压缩一组</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="合成台调整压缩全部key.craftingtweaks.compress_all"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">合成台调整</td><td class="dim">压缩全部</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="合成台调整解压一组key.craftingtweaks.decompress_stack"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">合成台调整</td><td class="dim">解压一组</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="合成台调整解压全部key.craftingtweaks.decompress_all"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">合成台调整</td><td class="dim">解压全部</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="机械动力：火炮切换炮架俯仰模式key.createbigcannons.pitch_mode"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">机械动力：火炮</td><td class="dim">切换炮架俯仰模式</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="集成动力在逻辑编程器中搜索key.integrateddynamics.logic_programmer_focus_search"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">集成动力</td><td class="dim">在逻辑编程器中搜索</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="集成动力在逻辑编程器重命名变量卡key.integrateddynamics.logic_programmer_open_rename"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">集成动力</td><td class="dim">在逻辑编程器重命名变量卡</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="精妙背包运行物品交互升级（如取货/卸货升级）key.sophisticatedbackpacks.inventory_interaction"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">精妙背包</td><td class="dim">运行物品交互升级（如取货/卸货升级）</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="精妙背包基于所指方块/实体替换工具key.sophisticatedbackpacks.tool_swap"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">精妙背包</td><td class="dim">基于所指方块/实体替换工具</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="精妙背包打开/关闭第二个插槽中的升级卡key.sophisticatedbackpacks.toggle_upgrade_2"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">精妙背包</td><td class="dim">打开/关闭第二个插槽中的升级卡</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="精妙背包打开/关闭第三个插槽中的升级卡key.sophisticatedbackpacks.toggle_upgrade_3"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">精妙背包</td><td class="dim">打开/关闭第三个插槽中的升级卡</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="精妙背包打开/关闭第四个插槽中的升级卡key.sophisticatedbackpacks.toggle_upgrade_4"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">精妙背包</td><td class="dim">打开/关闭第四个插槽中的升级卡</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="精妙背包打开/关闭第五个插槽中的升级卡key.sophisticatedbackpacks.toggle_upgrade_5"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">精妙背包</td><td class="dim">打开/关闭第五个插槽中的升级卡</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="垃圾桶显示/隐藏 垃圾桶key.trashslot.toggle"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">垃圾桶</td><td class="dim">显示/隐藏 垃圾桶</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="垃圾桶删除所有此类物品key.trashslot.deleteall"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">垃圾桶</td><td class="dim">删除所有此类物品</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="连锁采集激活key.veinmining.activate"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">连锁采集</td><td class="dim">激活</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神化更改径向挖掘模式key.apotheosis.toggle_radial_mining"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神化</td><td class="dim">更改径向挖掘模式</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：蝙蝠key.occultism.familiar.bat_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：蝙蝠</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：河狸key.occultism.familiar.beaver_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：河狸</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：眼魔key.occultism.familiar.beholder_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：眼魔</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：铁匠key.occultism.familiar.blacksmith_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：铁匠</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：奇美拉key.occultism.familiar.chimera_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：奇美拉</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：克苏鲁key.occultism.familiar.cthulhu_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：克苏鲁</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：小鹿key.occultism.familiar.deer_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：小鹿</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：恶魔key.occultism.familiar.devil_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：恶魔</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：龙key.occultism.familiar.dragon_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：龙</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：妖精key.occultism.familiar.fairy_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：妖精</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：山羊key.occultism.familiar.goat_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：山羊</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：贪婪key.occultism.familiar.greedy_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：贪婪</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：守护者key.occultism.familiar.guardian_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：守护者</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：无头鼠骑士key.occultism.familiar.headless_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：无头鼠骑士</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：木乃伊key.occultism.familiar.mummy_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：木乃伊</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：具翼key.occultism.familiar.otherworld_bird"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：具翼</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="神秘学切换戒指效果：莎布·尼古拉丝key.occultism.familiar.shub_niggurath_familiar"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">神秘学</td><td class="dim">切换戒指效果：莎布·尼古拉丝</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="实体剔除调试切换剔除key.entityculling.toggle"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">实体剔除</td><td class="dim">调试切换剔除</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="实体剔除显示筛选框key.entityculling.toggleboxes"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">实体剔除</td><td class="dim">显示筛选框</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书iron的法术与魔法书 - 常用key.irons_spellbooks.group_1"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">Iron的法术与魔法书 - 常用</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书iron的法术与魔法书 - 快捷施法key.irons_spellbooks.group_2"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">Iron的法术与魔法书 - 快捷施法</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书法术条滚动辅助键位key.irons_spellbooks.spell_bar_modifier"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">法术条滚动辅助键位</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书切换法术轮盘key.irons_spellbooks.spell_wheel_toggle"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">切换法术轮盘</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 02key.irons_spellbooks.spell_quick_cast_2"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 02</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 03key.irons_spellbooks.spell_quick_cast_3"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 03</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 04key.irons_spellbooks.spell_quick_cast_4"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 04</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 05key.irons_spellbooks.spell_quick_cast_5"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 05</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 06key.irons_spellbooks.spell_quick_cast_6"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 06</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 07key.irons_spellbooks.spell_quick_cast_7"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 07</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 08key.irons_spellbooks.spell_quick_cast_8"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 08</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 09key.irons_spellbooks.spell_quick_cast_9"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 09</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 10key.irons_spellbooks.spell_quick_cast_10"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 10</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 11key.irons_spellbooks.spell_quick_cast_11"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 11</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 12key.irons_spellbooks.spell_quick_cast_12"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 12</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 13key.irons_spellbooks.spell_quick_cast_13"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 13</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 14key.irons_spellbooks.spell_quick_cast_14"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 14</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="铁魔法与法术书快捷施法槽位 15key.irons_spellbooks.spell_quick_cast_15"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">铁魔法与法术书</td><td class="dim">快捷施法槽位 15</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="通用机械胸甲模式开关key.mekanism.chest_mode"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">通用机械</td><td class="dim">胸甲模式开关</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="通用机械显示描述key.mekanism.description"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">通用机械</td><td class="dim">显示描述</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="通用机械显示详细信息key.mekanism.details"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">通用机械</td><td class="dim">显示详细信息</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="通用机械脚部模式切换key.mekanism.feet_mode"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">通用机械</td><td class="dim">脚部模式切换</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="通用机械头部模式开关key.mekanism.head_mode"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">通用机械</td><td class="dim">头部模式开关</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="通用机械腿部模式开关key.mekanism.legs_mode"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">通用机械</td><td class="dim">腿部模式开关</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="通用机械模块调节器key.mekanism.module_tweaker"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">通用机械</td><td class="dim">模块调节器</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="通用机械附加语音key.mekanismadditions.voice"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">通用机械附加</td><td class="dim">语音</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="新生魔艺附属[ars additions] activate warp indexkey.ars_additions.open_lectern"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">新生魔艺附属</td><td class="dim">[Ars Additions] Activate Warp Index</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="灾变灾变头盔能力key.cataclysm.helmet_ability"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">灾变</td><td class="dim">灾变头盔能力</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="灾变灾变胸甲能力key.cataclysm.chestplate_ability"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">灾变</td><td class="dim">灾变胸甲能力</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="灾变灾变靴子能力key.cataclysm.boots_ability"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">灾变</td><td class="dim">灾变靴子能力</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="create 蒸汽动力增大无人机可控范围key.create_sa.increase_reach"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Create 蒸汽动力</td><td class="dim">增大无人机可控范围</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="create 蒸汽动力减小无人机可控范围key.create_sa.decrease_reach"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Create 蒸汽动力</td><td class="dim">减小无人机可控范围</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingalternative placementkey.effortlessbuilding.altplacement"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Alternative placement</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingactivate previous build modekey.effortlessbuilding.previous_build_mode"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Activate Previous Build Mode</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingtoggle disabled <> previous build modekey.effortlessbuilding.disable_build_mode_toggle"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Toggle Disabled <> Previous Build Mode</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingright-click to permanently increase your building power level by 1.key.effortlessbuilding.upgrade_power_level"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Right-click to permanently increase your Building Power Level by 1.</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingconsume to increase your building power level to %s.key.effortlessbuilding.use_reach_upgrade"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Consume to increase your Building Power Level to %s.</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingprevious upgrades need to be consumed first.key.effortlessbuilding.require_previous_reach_upgrades"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Previous upgrades need to be consumed first.</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingpower levelkey.effortlessbuilding.power_level"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Power Level</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingplacement reachkey.effortlessbuilding.placement_reach"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Placement reach</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingmax blocks per axiskey.effortlessbuilding.max_blocks_per_axis"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Max blocks per axis</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingmax blocks placed at oncekey.effortlessbuilding.max_blocks_placed_at_once"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Max blocks placed at once</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingmax (radial) mirror radiuskey.effortlessbuilding.max_mirror_radius"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Max (radial) mirror radius</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingnext power levelkey.effortlessbuilding.next_power_level"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Next Power Level</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="effortless buildingincrease your power level by looting power items in dungeons and other structures.key.effortlessbuilding.next_power_level_how"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Effortless Building</td><td class="dim">Increase your Power Level by looting power items in dungeons and other structures.</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jade 信息显示显示细节（切换）key.jade.show_details_alternative"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Jade 信息显示</td><td class="dim">显示细节（切换）</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jade 信息显示显示配方key.jade.show_recipes"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Jade 信息显示</td><td class="dim">显示配方</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jade 信息显示显示用途key.jade.show_uses"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Jade 信息显示</td><td class="dim">显示用途</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jade 信息显示语音复述key.jade.narrate"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Jade 信息显示</td><td class="dim">语音复述</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器显示/隐藏加入书签的原料key.jei.togglebookmarkoverlay"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">显示/隐藏加入书签的原料</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器上一配方key.jei.recipeback"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">上一配方</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器上一配方页key.jei.previousrecipepage"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">上一配方页</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器下一配方页key.jei.nextrecipepage"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">下一配方页</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器暂停配方原料循环key.jei.pauserecipecycling"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">暂停配方原料循环</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器切换作弊模式key.jei.togglecheatmode"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">切换作弊模式</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器作弊获得1个物品key.jei.cheatoneitem"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">作弊获得1个物品</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器作弊获得1个物品key.jei.cheatoneitem2"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">作弊获得1个物品</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器作弊获得1组物品key.jei.cheatitemstack"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">作弊获得1组物品</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器作弊获得1组物品key.jei.cheatitemstack2"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">作弊获得1组物品</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器切换作弊模式key.jei.togglecheatmodeconfigbutton"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">切换作弊模式</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器切换隐藏原料模式key.jei.toggleeditmode"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">切换隐藏原料模式</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器隐藏原料key.jei.togglehideingredient"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">隐藏原料</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器隐藏原料（通配符）key.jei.togglewildcardhideingredient"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">隐藏原料（通配符）</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器合成书签配方 (一次)key.jei.transferrecipebookmark"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">合成书签配方 (一次)</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器合成书签配方 (最大数量)key.jei.maxtransferrecipebookmark"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">合成书签配方 (最大数量)</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器快速移动幽灵物品key.jei.quickmove"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">快速移动幽灵物品</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器分享物品到聊天栏key.jei.sharetochat"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">分享物品到聊天栏</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器上一搜索key.jei.previoussearch"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">上一搜索</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器下一搜索key.jei.nextsearch"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">下一搜索</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="jei 物品管理器复制配方id到剪贴板key.jei.copy.recipe.id"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">JEI 物品管理器</td><td class="dim">复制配方ID到剪贴板</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+<tr data-k="toast 控制clear active toastskey.toastcontrol.clear"><td><span style="color:var(--faint)">未绑定</span></td><td class="mod">Toast 控制</td><td class="dim">Clear Active Toasts</td><td><span style="color:var(--faint)">已解绑</span></td></tr>
+</tbody></table>
+
+<h2 class="sec">说明 <span>怎么改</span></h2>
+<div class="kbd-card" style="margin-bottom:12px"><h4>为什么有 113 个键位显示「已解绑」</h4><p>包里 220 个键位里有很多是同一功能的重复项（比如 15 个快捷施法槽、18 个使魔切换、JEI 的作弊模式）。把它们解绑后，游戏「选项 → 按键设置」里的列表会清爽很多，也不会再互相抢按键。需要时随时可以在那里重新绑定。</p></div>
+<div class="kbd-card" style="margin-bottom:12px"><h4>如果仍然撞键</h4><p>打开「选项 → 按键设置」，右上角搜索框输入模组名（例如 <kbd>地图</kbd>、<kbd>整理</kbd>），把它改成别的键即可。整合包预设的键位在每次启动时不会再被覆盖，你的修改会保留。</p></div>
+<div class="kbd-card"><h4>没有键位的功能</h4><p>下面这些功能<b>没有默认键位</b>，需要自己在按键设置里绑，或者用其它方式触发：</p>
+<p style="margin-top:6px">· <b>CommandKeys 命令宏</b> —— 整合包没有预设宏，可在模组配置界面自行创建<br>
+· <b>连锁挖矿</b> —— 已设为「潜行时触发」，不需要按键<br>
+· <b>一键砍树</b> —— 用斧头砍原木自动触发<br>
+· <b>背包整理</b> —— 整理键是 R，与 JEI 查配方共用（分别在背包界面和配方界面生效）<br>
+· <b>任务书</b> —— 按 <kbd>L</kbd> 打开，也可以用命令 <kbd>/heracles</kbd></p></div>
+
+<script>
+const q=document.getElementById('q'),tb=document.getElementById('tb'),cnt=document.getElementById('cnt');
+const rows=[...tb.querySelectorAll('tr')];
+function upd(){const v=q.value.trim().toLowerCase();let n=0;
+  rows.forEach(r=>{const on=!v||r.dataset.k.includes(v);r.style.display=on?'':'none';if(on)n++;});
+  cnt.textContent=v?('匹配 '+n+' 条'):('共 '+rows.length+' 条');}
+q.addEventListener('input',upd);upd();
+</script>
+<footer>
+  由脚本从整合包内的实际数据反向生成，与游戏里完全一致。<br>
+  整合包与本站由 <strong>大肥鱼(deepseek)</strong>制作 ｜ <a href="index.html">← 返回首页</a>
+</footer>
+</body>
+</html>
