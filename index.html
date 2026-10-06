@@ -43,16 +43,15 @@
     body::after {
       content: "";
       position: fixed;
-      inset: -18% -10% auto auto;
-      width: 42rem;
-      height: 42rem;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(163, 216, 155, 0.22), rgba(163, 216, 155, 0) 62%);
-      filter: blur(72px);
+      inset: 0;
       pointer-events: none;
       z-index: 0;
-      animation: drift 18s ease-in-out infinite alternate;
+      /* 用预渲染的径向渐变代替「大半径 blur + 动画」，不再每帧重绘 */
+      background:
+        radial-gradient(38rem 38rem at 82% 6%, rgba(163, 216, 155, 0.16), transparent 62%),
+        radial-gradient(34rem 34rem at 8% 96%, rgba(229, 189, 116, 0.13), transparent 62%);
     }
+    body::after { display: none; }
     body::after {
       inset: auto auto -10% -8%;
       width: 38rem;
@@ -63,49 +62,24 @@
     .sky-layer,
     .scanlines,
     .glow-orb,
-    .particle-canvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .particle-canvas { width: 100%; height: 100%; opacity: .82; }
+    
+    
     .sky-layer {
       background-image:
-        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.85), transparent 60%),
-        radial-gradient(1.5px 1.5px at 70% 20%, rgba(255,255,255,.75), transparent 60%),
-        radial-gradient(1.8px 1.8px at 80% 60%, rgba(255,255,255,.7), transparent 60%),
-        radial-gradient(1.5px 1.5px at 35% 80%, rgba(255,255,255,.8), transparent 60%),
-        radial-gradient(2px 2px at 55% 45%, rgba(255,255,255,.8), transparent 60%);
-      background-size: 240px 240px;
-      opacity: .75;
-      animation: twinkle 16s linear infinite alternate;
+        radial-gradient(1.6px 1.6px at 20% 30%, rgba(255,255,255,.75), transparent 60%),
+        radial-gradient(1.4px 1.4px at 68% 18%, rgba(255,255,255,.6), transparent 60%),
+        radial-gradient(1.8px 1.8px at 38% 72%, rgba(255,255,255,.65), transparent 60%),
+        radial-gradient(1.2px 1.2px at 86% 58%, rgba(255,255,255,.5), transparent 60%);
+      background-size: 46rem 46rem, 38rem 38rem, 52rem 52rem, 30rem 30rem;
     }
-    .scanlines {
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255,255,255,.04),
-        rgba(255,255,255,.04) 1px,
-        transparent 1px,
-        transparent 4px
-      );
-      mix-blend-mode: screen;
-      opacity: .35;
-    }
-    .glow-orb {
-      background:
-        radial-gradient(circle at 20% 25%, rgba(255,255,255,.12), transparent 24%),
-        radial-gradient(circle at 68% 40%, rgba(142,217,255,.10), transparent 28%),
-        radial-gradient(circle at 52% 75%, rgba(241,198,88,.12), transparent 30%);
-      filter: blur(18px);
-      animation: drift 20s ease-in-out infinite alternate;
-    }
+    .scanlines { display: none; }
+    .glow-orb { display: none; }
     a { color: inherit; }
     .wrap { width: min(1120px, calc(100% - 44px)); margin: 0 auto; }
     header, main, footer { position: relative; z-index: 1; }
 
     /* ===== 顶部导航 ===== */
-    .topbar { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(17,20,17,.88); backdrop-filter: blur(16px); box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18); }
+    .topbar { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: rgba(17,20,17,.88);  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18); }
     .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .brand { display: flex; align-items: center; gap: 11px; font-family: var(--serif); font-size: 18px; letter-spacing: .06em; text-decoration: none; white-space: nowrap; }
     .brand-mark { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid rgba(229,189,116,.6); color: var(--gold); transform: rotate(45deg); box-shadow: 0 0 18px rgba(229,189,116,.12); }
@@ -255,13 +229,24 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
     }
-  </style>
+      /* perf — 过渡只作用于 transform / opacity，避免触发布局重排 */
+    .step, .mod-card, .tip-card, .chapter, .chapter-links a, .button, .nav-cta { transition: transform .18s ease, opacity .18s ease; will-change: auto; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+        /* flow-inline — 任务横行排列 */
+    .flow-inline { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(228px, 1fr)); margin: 14px 0 18px; }
+    .fi { position: relative; border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 11px;
+      padding: 11px 14px; font-size: 13px; line-height: 1.6; background: rgba(255,255,255,.028); }
+    .fi em { color: var(--muted); font-style: normal; }
+    .fi strong { color: var(--gold); }
+    </style>
 
 <style>
 /* drift-polish */
 .section-head h2{background:linear-gradient(100deg,var(--text) 30%,var(--gold) 78%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.chapter,.mod-card,.tip-card,.stat{backdrop-filter:blur(8px)}
+.chapter,.mod-card,.tip-card,.stat{}
 .mod-card:hover,.tip-card:hover,.chapter:hover{transform:translateY(-4px);border-color:var(--gold)!important;
   box-shadow:var(--shadow-soft)}
 .brand-mark{box-shadow:0 0 22px rgba(229,189,116,.35)}
@@ -270,14 +255,13 @@
 <body>
   <div class="sky-layer" aria-hidden="true"></div>
   <div class="glow-orb" aria-hidden="true"></div>
-  <canvas class="particle-canvas" aria-hidden="true"></canvas>
   <div class="scanlines" aria-hidden="true"></div>
   <header class="topbar">
     <nav class="nav wrap" aria-label="主导航">
       <a class="brand" href="#top"><span class="brand-mark"><span>✦</span></span>匠造与奥术</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">菜单</button>
       <div class="nav-links" id="nav-links">
-        <a href="#starter">新手教程</a><a href="#mods">模组介绍</a><a href="#quests">任务线</a><a href="工具/任务线思维导图.html">任务线思维导图</a><a href="工具/键位总表.html">键位总表</a><a href="#tips">实用技巧</a>
+        <a href="#starter">新手教程</a><a href="#mods">模组介绍</a><a href="#quests">任务线</a><a href="工具/键位总表.html">键位总表</a><a href="#tips">实用技巧</a>
         <a class="nav-cta" href="https://github.com/xk464/XK464/raw/refs/heads/main/%E5%8C%A0%E9%80%A0%E4%B8%8E%E5%A5%A5%E6%9C%AF-1.20.1-Forge-v1.10.0.zip">下载整合包</a>
       </div>
     </nav>
@@ -420,27 +404,26 @@
           <article class="chapter"><small>183 QUESTS · 1 TRUNK + 9 BRANCHES + COMMANDS</small><h3>一棵树</h3><p><strong>前期主线 18 个</strong>竖着往下走，从徒手打木头一路到传送网络；<strong>9 条支线</strong>从主线的不同高度分叉出去，各自一列向下延伸，支线之间互不挡路。</p></article>
         </div>
         <div class="actions" style="margin:18px 0 8px">
-          <a class="button" href="工具/任务线思维导图.html">任务线思维导图 ↗</a>
           <a class="button secondary" href="工具/键位总表.html">键位总表 ↗</a>
         </div>
-        <div class="callout"><strong>两个独立页面：</strong><a href="工具/任务线思维导图.html"><strong>任务线思维导图</strong></a> 把全部任务画成中心发散的思维导图，点分支可折叠、悬停看判据与奖励；<a href="工具/键位总表.html"><strong>键位总表</strong></a> 列出包里全部键位，并标明哪些已固定、哪些已解绑。两页左上角都有「← 返回首页」。</div>
+        <div class="callout"><strong>两个独立页面：</strong> 把全部任务画成中心发散的思维导图，点分支可折叠、悬停看判据与奖励；<a href="工具/键位总表.html"><strong>键位总表</strong></a> 列出包里全部键位，并标明哪些已固定、哪些已解绑。两页左上角都有「← 返回首页」。</div>
         <h3 class="route-heading">结构一览</h3>
         <div class="quest-details">
           <details class="quest-detail" open>
             <summary><div><strong>前期主线 + 九条支线 + 命令页</strong><span>18 + 156 + 9 = 183 个任务</span></div></summary>
             <div class="quest-detail-body">
               <p>主线是所有人的必经之路；支线在做完主线的某个节点后解锁，之后可以随时穿插着做。奖励会自动出现在任务书的「奖励」栏，需要手动点一下领取。</p>
-              <ol class="objective-list">
-                <li><strong>前期主线（18）</strong> <em>— 徒手起步 → 工作台 → 木制工具 → 石器时代 → 生火 → 铁器时代 → 安全第一 → 铁甲护身 → 过夜 → 储粮 → 背包与收纳 → 钻石！ → 附魔入门 → 铁砧与修复 → 黑曜石 → 传送网络 → 认出任务书 → 扎下根来</em></li>
-                <li><strong>田园生活（16）</strong> <em>— 从主线第 5 层分叉：农夫乐事的刀、砧板与锅 → 麦浪 → 各色作物 → 肥沃土壤 → 煎锅与灶台 → 傻瓜式厨房 → 冰箱 → 养蜂 → 蛋糕</em></li>
-                <li><strong>机械动力（22）</strong> <em>— 从主线第 6 层分叉：安山合金 → 传动轴/齿轮 → 水车与风车 → 压床/搅拌/锯/钻头/风扇/石磨 → 粉碎轮 → 黄铜 → 电子管 → 精密构件 → 保险库 → 铁轨 → 铁路时代</em></li>
-                <li><strong>蓝图与建造（14）</strong> <em>— 从主线第 9 层分叉：石制建造魔杖 → 铺墙铺地 → 铁制 → 钻石制 → 天使核心/破坏核心/魔杖核心 → 蓝图台 → 蓝图与笔 → 蓝图加农炮 → <b>无限建造魔杖</b> → 建筑大师</em></li>
-                <li><strong>收纳与物流（10）</strong> <em>— 从主线第 11 层分叉：储物抽屉 → 抽屉升级 → 箱子 → 潜影盒 → 精致存储 → 漏斗流水线 → 分类仓库 → 末影箱 → Create 传动带物流</em></li>
-                <li><strong>奥术 · 新生魔艺（16）</strong> <em>— 从主线第 13 层分叉：新手法术书 → 法杖 → 魔源宝石 → 灌注室 → 附魔装置 → 奥术核心 → 魔源罐 → 法师之花 → 法师布 → 法术弓 → 附魔师之剑 → 星斑克 → 德律格米 → 学徒法术书 → 法师铠甲 → 大法师</em></li>
-                <li><strong>奥术 · 植物魔法（14）</strong> <em>— 从主线第 13 层分叉：白雏菊 → 树枝魔杖 → 魔力池 → 发射器 → 火之花 → 水绣球 → 魔力钢 → 魔力钻石 → 魔力珍珠 → 泰拉钢 → 精灵之门 → 精灵钢 → 泰拉装备 → 花之大师</em></li>
-                <li><strong>探索与征服（15）</strong> <em>— 从主线第 14 层分叉：前往下界 → 要塞 → 烈焰棒 → 远古残骸 → 下界合金 → 末影珍珠 → 末影之眼 → 抵达末地 → 终结末影龙 → 末地城 → 信标 → 远古城市 → 直面监守者 → 海底神殿 → 世界尽头</em></li>
-                <li><strong>强者之路（27）</strong> <em>— 从主线第 17 层分叉：四个变异体 → 钢铁守护者/霜冻巨兽/太阳鸟/雪怪/深渊巨口 → 船长科妮莉亚 → 魂系试炼四连 → 灾变八首领 → 暝煌龙/撼地斯拉/死者之王 → 凋灵（强化）→ <b>终章·利维坦</b></em></li>
-              </ol>
+              <div class="flow-inline">
+                <div class="fi"><strong>前期主线（18）</strong> <em>— 徒手起步 → 工作台 → 木制工具 → 石器时代 → 生火 → 铁器时代 → 安全第一 → 铁甲护身 → 过夜 → 储粮 → 背包与收纳 → 钻石！ → 附魔入门 → 铁砧与修复 → 黑曜石 → 传送网络 → 认出任务书 → 扎下根来</em></div>
+                <div class="fi"><strong>田园生活（16）</strong> <em>— 从主线第 5 层分叉：农夫乐事的刀、砧板与锅 → 麦浪 → 各色作物 → 肥沃土壤 → 煎锅与灶台 → 傻瓜式厨房 → 冰箱 → 养蜂 → 蛋糕</em></div>
+                <div class="fi"><strong>机械动力（22）</strong> <em>— 从主线第 6 层分叉：安山合金 → 传动轴/齿轮 → 水车与风车 → 压床/搅拌/锯/钻头/风扇/石磨 → 粉碎轮 → 黄铜 → 电子管 → 精密构件 → 保险库 → 铁轨 → 铁路时代</em></div>
+                <div class="fi"><strong>蓝图与建造（14）</strong> <em>— 从主线第 9 层分叉：石制建造魔杖 → 铺墙铺地 → 铁制 → 钻石制 → 天使核心/破坏核心/魔杖核心 → 蓝图台 → 蓝图与笔 → 蓝图加农炮 → <b>无限建造魔杖</b> → 建筑大师</em></div>
+                <div class="fi"><strong>收纳与物流（10）</strong> <em>— 从主线第 11 层分叉：储物抽屉 → 抽屉升级 → 箱子 → 潜影盒 → 精致存储 → 漏斗流水线 → 分类仓库 → 末影箱 → Create 传动带物流</em></div>
+                <div class="fi"><strong>奥术 · 新生魔艺（16）</strong> <em>— 从主线第 13 层分叉：新手法术书 → 法杖 → 魔源宝石 → 灌注室 → 附魔装置 → 奥术核心 → 魔源罐 → 法师之花 → 法师布 → 法术弓 → 附魔师之剑 → 星斑克 → 德律格米 → 学徒法术书 → 法师铠甲 → 大法师</em></div>
+                <div class="fi"><strong>奥术 · 植物魔法（14）</strong> <em>— 从主线第 13 层分叉：白雏菊 → 树枝魔杖 → 魔力池 → 发射器 → 火之花 → 水绣球 → 魔力钢 → 魔力钻石 → 魔力珍珠 → 泰拉钢 → 精灵之门 → 精灵钢 → 泰拉装备 → 花之大师</em></div>
+                <div class="fi"><strong>探索与征服（15）</strong> <em>— 从主线第 14 层分叉：前往下界 → 要塞 → 烈焰棒 → 远古残骸 → 下界合金 → 末影珍珠 → 末影之眼 → 抵达末地 → 终结末影龙 → 末地城 → 信标 → 远古城市 → 直面监守者 → 海底神殿 → 世界尽头</em></div>
+                <div class="fi"><strong>强者之路（27）</strong> <em>— 从主线第 17 层分叉：四个变异体 → 钢铁守护者/霜冻巨兽/太阳鸟/雪怪/深渊巨口 → 船长科妮莉亚 → 魂系试炼四连 → 灾变八首领 → 暝煌龙/撼地斯拉/死者之王 → 凋灵（强化）→ <b>终章·利维坦</b></em></div>
+              </div>
               <div class="reward-notes">
                 <div><strong>为什么换成任务书</strong>原版进度界面是一张自动布局的大图，任务一多就没法看。Heracles 是手工排版的树状任务书，位置由我逐个数着摆，主线支线一眼分明。</div>
                 <div><strong>蓝图是奖励</strong>「蓝图与建造」这条线的奖励就是建造魔杖本身：石 → 铁 → 钻石 → 无限，外加天使/破坏/魔杖三种核心，以及 Create 的蓝图台与蓝图加农炮。</div>
@@ -497,112 +480,6 @@
       });
     }
 
-    // Canvas 星尘：用少量带尾迹的粒子营造斜向流动的星尘雨。
-    const particleCanvas = document.querySelector(".particle-canvas");
-    const particleContext = particleCanvas?.getContext("2d");
-
-    if (particleCanvas && particleContext) {
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-      const particles = [];
-      let width = 0;
-      let height = 0;
-      let animationFrame = 0;
-      let lastFrame = 0;
-      const frameInterval = 1000 / 30;
-
-      function resizeParticleCanvas() {
-        const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
-        width = window.innerWidth;
-        height = window.innerHeight;
-        particleCanvas.width = Math.round(width * pixelRatio);
-        particleCanvas.height = Math.round(height * pixelRatio);
-        particleContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-        const particleCount = Math.min(110, Math.max(42, Math.round(width / 12)));
-
-        particles.length = 0;
-        for (let index = 0; index < particleCount; index += 1) {
-          particles.push(createParticle(Math.random() * width, Math.random() * height));
-        }
-        drawParticles();
-      }
-
-      function createParticle(x, y) {
-        const radius = Math.random() * 1.5 + 0.45;
-        const speed = Math.random() * 0.75 + 0.25;
-        return {
-          x,
-          y,
-          radius,
-          speed,
-          tail: Math.random() * 22 + 8,
-          alpha: Math.random() * 0.55 + 0.2,
-          hue: Math.random() > 0.78 ? 42 : 155
-        };
-      }
-
-      function drawParticles() {
-        particleContext.clearRect(0, 0, width, height);
-        particleContext.save();
-        particleContext.globalCompositeOperation = "lighter";
-
-        for (const particle of particles) {
-          const color = `hsla(${particle.hue}, 72%, 78%, ${particle.alpha})`;
-          const trail = particleContext.createLinearGradient(
-            particle.x,
-            particle.y - particle.tail,
-            particle.x + particle.tail * 0.34,
-            particle.y
-          );
-          trail.addColorStop(0, "rgba(210, 230, 220, 0)");
-          trail.addColorStop(1, color);
-          particleContext.strokeStyle = trail;
-          particleContext.lineWidth = particle.radius;
-          particleContext.beginPath();
-          particleContext.moveTo(particle.x, particle.y - particle.tail);
-          particleContext.lineTo(particle.x + particle.tail * 0.34, particle.y);
-          particleContext.stroke();
-
-          particleContext.shadowBlur = 12;
-          particleContext.shadowColor = color;
-          particleContext.fillStyle = color;
-          particleContext.beginPath();
-          particleContext.arc(particle.x + particle.tail * 0.34, particle.y, particle.radius, 0, Math.PI * 2);
-          particleContext.fill();
-
-          if (!reducedMotion.matches) {
-            particle.x += particle.speed * 0.42;
-            particle.y += particle.speed * 1.8;
-            if (particle.y - particle.tail > height || particle.x > width + 30) {
-              Object.assign(particle, createParticle(Math.random() * (width + 50) - 50, -particle.tail));
-            }
-          }
-        }
-
-        particleContext.restore();
-      }
-
-      function animateParticles(timestamp) {
-        if (timestamp - lastFrame >= frameInterval) {
-          drawParticles();
-          lastFrame = timestamp;
-        }
-        animationFrame = window.requestAnimationFrame(animateParticles);
-      }
-
-      function startParticleAnimation() {
-        window.cancelAnimationFrame(animationFrame);
-        drawParticles();
-        if (!reducedMotion.matches && !document.hidden) {
-          animationFrame = window.requestAnimationFrame(animateParticles);
-        }
-      }
-
-      resizeParticleCanvas();
-      startParticleAnimation();
-      window.addEventListener("resize", resizeParticleCanvas, { passive: true });
-      document.addEventListener("visibilitychange", startParticleAnimation);
-      reducedMotion.addEventListener("change", startParticleAnimation);
-    }
-  </script>
+</script>
 </body>
 </html>
