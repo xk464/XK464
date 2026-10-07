@@ -1,31 +1,39 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0c110d"><title>01 安家落户 · 匠造纪元任务线</title><style>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0c110d">
+<title>01 安家落户 · 匠造纪元任务线</title><style>
 :root{--bg:#0c110d;--a:#a6bb82;--b:#e5bd74;--ink:#f1eee3;--muted:#a9aca0;--faint:#6d7167;--line:rgba(231,225,199,.14);--serif:Georgia,"Noto Serif SC","Songti SC",serif;--sans:"Inter","Noto Sans SC","Microsoft YaHei",sans-serif}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 18% 6%,rgba(120,170,110,.30),transparent 60%),radial-gradient(ellipse 60% 46% at 88% 84%,rgba(229,189,116,.16),transparent 60%)}
 body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.9;background-image:radial-gradient(circle at 18% 22%, rgba(166,187,130,.10), transparent 34%)}
-.wrap{position:relative;z-index:1;width:min(1500px,calc(100% - 40px));margin:0 auto}
-header.top{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(0,0,0,.35);backdrop-filter:blur(12px)}
-.top-in{width:min(1500px,calc(100% - 40px));margin:0 auto;min-height:60px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.wrap{position:relative;z-index:1;width:min(1600px,calc(100% - 40px));margin:0 auto}
+header.top{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(0,0,0,.42);backdrop-filter:blur(12px)}
+.top-in{width:min(1600px,calc(100% - 40px));margin:0 auto;min-height:60px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:15px;text-decoration:none;color:inherit}
 .brand i{width:10px;height:10px;border-radius:3px;background:var(--a);display:inline-block;box-shadow:0 0 13px var(--a)}.brand b{color:var(--a)}.spacer{flex:1}
 .chip{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px;white-space:nowrap}
 .hero{padding:40px 0 18px}.eyebrow{font-size:12px;letter-spacing:.22em;color:var(--a);text-transform:uppercase;font-weight:600}
 .hero h1{font-family:var(--serif);font-size:clamp(26px,4vw,42px);margin:9px 0 7px}.hero h1 em{font-style:normal;color:var(--a)}
 .hero p{color:var(--muted);margin:0;font-size:14px}
-.flow{display:flex;gap:16px;align-items:flex-start;overflow-x:auto;padding:8px 4px 20px;margin-top:16px}
-.col{flex:1 1 300px;min-width:272px;display:flex;flex-direction:column;gap:9px}.col.main{flex:1.25 1 340px}
+.flow{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;padding:8px 4px 20px;margin-top:16px}
+.col{flex:1 1 250px;min-width:236px;display:flex;flex-direction:column;gap:8px}.col.main{flex:1.2 1 290px}
 .colhead{display:flex;align-items:baseline;justify-content:space-between;padding:0 4px 8px;border-bottom:1px dashed var(--line);margin-bottom:2px}
-.colhead span{font-size:12px;letter-spacing:.14em;color:var(--faint)}.col.main .colhead span{color:var(--a)}
-.colhead b{font-family:var(--serif);font-size:17px;color:var(--b)}
-.card{display:flex;gap:10px;border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:rgba(255,255,255,.035);transition:transform .16s,border-color .16s}
+.colhead span{font-size:11.5px;letter-spacing:.12em;color:var(--faint)}.col.main .colhead span{color:var(--a)}
+.colhead b{font-family:var(--serif);font-size:16px;color:var(--b)}
+.card{display:flex;gap:9px;border:1px solid var(--line);border-radius:11px;padding:9px 12px;background:rgba(255,255,255,.035);transition:transform .16s,border-color .16s}
 .card:hover{transform:translateY(-3px);border-color:var(--a);background:rgba(255,255,255,.07)}
 .col.main .card{border-left:3px solid var(--a)}
-.ix{font-family:var(--serif);font-size:12px;color:var(--a);opacity:.85;flex:0 0 auto;padding-top:2px}
-.bd{min-width:0;flex:1}.bd b{display:block;font-size:14.5px;font-weight:600;line-height:1.4}
-.bd small{display:block;color:var(--b);font-size:11.5px;margin-top:1px}
-.bd code{display:inline-block;margin-top:5px;font-size:10.5px;color:var(--muted);word-break:break-all}
-nav.pager{display:flex;gap:11px;margin:30px 0 0;flex-wrap:wrap}
+.ix{font-family:var(--serif);font-size:11.5px;color:var(--a);opacity:.85;flex:0 0 auto;padding-top:2px}
+.bd{min-width:0;flex:1}.bd b{display:block;font-size:14px;font-weight:600;line-height:1.4}
+.bd small{display:block;color:var(--b);font-size:11px;margin-top:1px}
+.bd code{display:inline-block;margin-top:4px;font-size:10.5px;color:var(--muted);word-break:break-all}
+.cmdgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));margin-top:18px}
+.cmd{position:relative;border:1px solid var(--line);border-radius:13px;padding:14px 16px;background:rgba(255,255,255,.04);transition:.16s}
+.cmd:hover{border-color:var(--a);transform:translateY(-3px)}
+.cmd b{display:block;font-size:15px}
+.cmd small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.cmd code{display:inline-block;margin-top:8px;font-size:12px;color:var(--b);background:rgba(255,255,255,.06);border-radius:6px;padding:2px 9px;font-family:ui-monospace,Consolas,monospace}
+.cmd .tag{position:absolute;right:12px;top:12px;font-size:10.5px;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:1px 8px}
+nav.pager{display:flex;gap:11px;margin:32px 0 0;flex-wrap:wrap}
 nav.pager a{flex:1 1 200px;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:13px;padding:12px 17px;background:rgba(255,255,255,.035);transition:.16s}
 nav.pager a:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
 nav.pager a small{display:block;font-size:11px;color:var(--faint);letter-spacing:.1em}nav.pager a b{display:block;font-size:14.5px}
@@ -39,59 +47,94 @@ h2.sec{font-family:var(--serif);font-size:19px;margin:34px 0 3px}
 footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 62px;color:var(--faint);font-size:12.5px}footer a{color:var(--a);text-decoration:none}
 </style></head><body>
 <header class="top"><div class="top-in"><a class="brand" href="../index.html"><i></i>匠造纪元 · <b>任务线</b></a><div class="spacer"></div>
-<span class="chip">第 01 章</span><span class="chip">主线 18 + 支线 12</span></div></header>
+<span class="chip">第 01 章</span><span class="chip">52 个任务</span></div></header>
 <div class="wrap"><section class="hero"><div class="eyebrow">Chapter 01</div>
 <h1><em>安家落户</em></h1>
-<p>中间一列是主线（必经），左右两列是从主线延伸出去的支线 —— 不做也能通关，但奖励可以顺手拿。</p></section>
+<p>主线在中间一列（必经），两侧是向外发散的支线：一级支线从主线延伸，二级支线再挂在一级支线上。支线不做也能通关，但奖励可以顺手拿。</p></section>
 <div class="flow">
-<div class="col"><div class="colhead"><span>支线（可选）</span><b>6</b></div>
-<div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 安家必备</b><small>从「木制工具」延伸</small><code>点击确认</code></div></div>
-<div class="card"><span class="ix">02</span><div class="bd"><b>一张床</b><code>需要 minecraft:red_bed</code></div></div>
-<div class="card"><span class="ix">03</span><div class="bd"><b>储物箱</b><code>需要 minecraft:chest</code></div></div>
-<div class="card"><span class="ix">04</span><div class="bd"><b>熔炉</b><code>需要 minecraft:furnace</code></div></div>
-<div class="card"><span class="ix">05</span><div class="bd"><b>梯子</b><code>需要 minecraft:ladder</code></div></div>
-<div class="card"><span class="ix">06</span><div class="bd"><b>火把</b><code>需要 minecraft:torch</code></div></div></div>
-<div class="col main"><div class="colhead"><span>主线（必经）</span><b>18</b></div>
-<div class="card"><span class="ix">01</span><div class="bd"><b>徒手起步</b><small>打 16 个原木</small><code>需要 minecraft:oak_log / minecraft:apple ×16</code></div></div>
-<div class="card"><span class="ix">02</span><div class="bd"><b>工作台</b><small>合成时代的开始</small><code>需要 minecraft:crafting_table / minecraft:oak_planks</code></div></div>
-<div class="card"><span class="ix">03</span><div class="bd"><b>木制工具</b><small>木镐与木斧</small><code>需要 minecraft:wooden_pickaxe / minecraft:stick</code></div></div>
-<div class="card"><span class="ix">04</span><div class="bd"><b>石器时代</b><small>石镐能挖铁矿了</small><code>需要 minecraft:stone_pickaxe / minecraft:coal</code></div></div>
-<div class="card"><span class="ix">05</span><div class="bd"><b>生火</b><small>八块圆石围一个熔炉</small><code>需要 minecraft:furnace / minecraft:coal</code></div></div>
-<div class="card"><span class="ix">06</span><div class="bd"><b>铁器时代</b><small>攒 8 个铁锭</small><code>需要 minecraft:iron_ingot / minecraft:iron_pickaxe ×8</code></div></div>
-<div class="card"><span class="ix">07</span><div class="bd"><b>安全第一</b><small>盾牌能挡下大部分正面伤害</small><code>需要 minecraft:shield / minecraft:iron_ingot</code></div></div>
-<div class="card"><span class="ix">08</span><div class="bd"><b>铁甲护身</b><small>穿着它再下矿</small><code>需要 minecraft:iron_chestplate / minecraft:iron_ingot</code></div></div>
-<div class="card"><span class="ix">09</span><div class="bd"><b>过夜</b><small>做张床，跳过夜晚</small><code>需要 minecraft:red_bed / minecraft:white_wool</code></div></div>
-<div class="card"><span class="ix">10</span><div class="bd"><b>储粮</b><small>16 个熟牛肉</small><code>需要 minecraft:cooked_beef / minecraft:bread ×16</code></div></div>
-<div class="card"><span class="ix">11</span><div class="bd"><b>背包与收纳</b><small>出门采矿不用来回跑</small><code>需要 sophisticatedbackpacks:backpack / storagedrawers:oak_full_drawers_1</code></div></div>
-<div class="card"><span class="ix">12</span><div class="bd"><b>钻石！</b><small>挖到第一颗钻石</small><code>需要 minecraft:diamond / minecraft:diamond_pickaxe</code></div></div>
-<div class="card"><span class="ix">13</span><div class="bd"><b>附魔入门</b><small>附魔台 + 书架</small><code>需要 minecraft:enchanting_table / minecraft:bookshelf</code></div></div>
-<div class="card"><span class="ix">14</span><div class="bd"><b>铁砧与修复</b><small>合并附魔、修复耐久</small><code>需要 minecraft:anvil / minecraft:iron_block</code></div></div>
-<div class="card"><span class="ix">15</span><div class="bd"><b>黑曜石</b><small>水浇岩浆</small><code>需要 minecraft:obsidian / minecraft:diamond</code></div></div>
-<div class="card"><span class="ix">16</span><div class="bd"><b>传送网络</b><small>常去的地方都放一个</small><code>需要 waystones:waystone / minecraft:stone_bricks</code></div></div>
-<div class="card"><span class="ix">17</span><div class="bd"><b>认出任务书</b><small>按 U 打开，右键任务书也行</small><code>需要 minecraft:golden_apple</code></div></div>
-<div class="card"><span class="ix">18</span><div class="bd"><b>扎下根来</b><small>基地、装备、食物、交通都齐了</small><code>需要 minecraft:netherite_scrap / minecraft:diamond</code></div></div></div>
-<div class="col"><div class="colhead"><span>支线（可选）</span><b>6</b></div>
-<div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 基础工具</b><small>从「铁器时代」延伸</small><code>点击确认</code></div></div>
-<div class="card"><span class="ix">02</span><div class="bd"><b>石镐</b><code>需要 minecraft:stone_pickaxe</code></div></div>
-<div class="card"><span class="ix">03</span><div class="bd"><b>盾牌</b><code>需要 minecraft:shield</code></div></div>
-<div class="card"><span class="ix">04</span><div class="bd"><b>弓</b><code>需要 minecraft:bow</code></div></div>
-<div class="card"><span class="ix">05</span><div class="bd"><b>箭</b><code>需要 minecraft:arrow</code></div></div>
-<div class="card"><span class="ix">06</span><div class="bd"><b>铁镐</b><code>需要 minecraft:iron_pickaxe</code></div></div></div>
-</div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 二级</span><b>5</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>灵魂火把</b><code>需要 minecraft:soul_torch</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>营火</b><code>需要 minecraft:campfire</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>木炭</b><code>需要 minecraft:charcoal</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>煤炭</b><code>需要 minecraft:coal</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>二级 · 火把量产</b><small>从上级支线延伸</small><code>点击打勾完成</code></div></div>
+    </div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 一级</span><b>12</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>工作台</b><code>需要 minecraft:crafting_table</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>梯子</b><code>需要 minecraft:ladder</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>熔炉</b><code>需要 minecraft:furnace</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>储物箱</b><code>需要 minecraft:chest</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>一张床</b><code>需要 minecraft:red_bed</code></div></div>
+      <div class="card"><span class="ix">06</span><div class="bd"><b>支线 · 安家必备</b><small>从「木制工具」延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">07</span><div class="bd"><b>支线 · 照明与安全</b><small>从「储粮」延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">08</span><div class="bd"><b>火把</b><code>需要 minecraft:torch</code></div></div>
+      <div class="card"><span class="ix">09</span><div class="bd"><b>灯笼</b><code>需要 minecraft:lantern</code></div></div>
+      <div class="card"><span class="ix">10</span><div class="bd"><b>铁门</b><code>需要 minecraft:iron_door</code></div></div>
+      <div class="card"><span class="ix">11</span><div class="bd"><b>栅栏</b><code>需要 minecraft:oak_fence</code></div></div>
+      <div class="card"><span class="ix">12</span><div class="bd"><b>石墙</b><code>需要 minecraft:cobblestone_wall</code></div></div>
+    </div>
+    <div class="col main">
+      <div class="colhead"><span>主线 · 必经</span><b>18</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>徒手起步</b><small>打 16 个原木</small><code>需要 minecraft:oak_log / minecraft:apple ×16</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>工作台</b><small>合成时代的开始</small><code>需要 minecraft:crafting_table / minecraft:oak_planks</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>木制工具</b><small>木镐与木斧</small><code>需要 minecraft:wooden_pickaxe / minecraft:stick</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>石器时代</b><small>石镐能挖铁矿了</small><code>需要 minecraft:stone_pickaxe / minecraft:coal</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>生火</b><small>八块圆石围一个熔炉</small><code>需要 minecraft:furnace / minecraft:coal</code></div></div>
+      <div class="card"><span class="ix">06</span><div class="bd"><b>铁器时代</b><small>攒 8 个铁锭</small><code>需要 minecraft:iron_ingot / minecraft:iron_pickaxe ×8</code></div></div>
+      <div class="card"><span class="ix">07</span><div class="bd"><b>安全第一</b><small>盾牌能挡下大部分正面伤害</small><code>需要 minecraft:shield / minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">08</span><div class="bd"><b>铁甲护身</b><small>穿着它再下矿</small><code>需要 minecraft:iron_chestplate / minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">09</span><div class="bd"><b>过夜</b><small>做张床，跳过夜晚</small><code>需要 minecraft:red_bed / minecraft:white_wool</code></div></div>
+      <div class="card"><span class="ix">10</span><div class="bd"><b>储粮</b><small>16 个熟牛肉</small><code>需要 minecraft:cooked_beef / minecraft:bread ×16</code></div></div>
+      <div class="card"><span class="ix">11</span><div class="bd"><b>背包与收纳</b><small>出门采矿不用来回跑</small><code>需要 sophisticatedbackpacks:backpack / storagedrawers:oak_full_drawers_1</code></div></div>
+      <div class="card"><span class="ix">12</span><div class="bd"><b>钻石！</b><small>挖到第一颗钻石</small><code>需要 minecraft:diamond / minecraft:diamond_pickaxe</code></div></div>
+      <div class="card"><span class="ix">13</span><div class="bd"><b>附魔入门</b><small>附魔台 + 书架</small><code>需要 minecraft:enchanting_table / minecraft:bookshelf</code></div></div>
+      <div class="card"><span class="ix">14</span><div class="bd"><b>铁砧与修复</b><small>合并附魔、修复耐久</small><code>需要 minecraft:anvil / minecraft:iron_block</code></div></div>
+      <div class="card"><span class="ix">15</span><div class="bd"><b>黑曜石</b><small>水浇岩浆</small><code>需要 minecraft:obsidian / minecraft:diamond</code></div></div>
+      <div class="card"><span class="ix">16</span><div class="bd"><b>传送网络</b><small>常去的地方都放一个</small><code>需要 waystones:waystone / minecraft:stone_bricks</code></div></div>
+      <div class="card"><span class="ix">17</span><div class="bd"><b>认出任务书</b><small>按 U 打开，右键任务书也行</small><code>需要 minecraft:golden_apple</code></div></div>
+      <div class="card"><span class="ix">18</span><div class="bd"><b>扎下根来</b><small>基地、装备、食物、交通都齐了</small><code>需要 minecraft:netherite_scrap / minecraft:diamond</code></div></div>
+    </div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 一级</span><b>12</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 基础工具</b><small>从「铁器时代」延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>石镐</b><code>需要 minecraft:stone_pickaxe</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>盾牌</b><code>需要 minecraft:shield</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>弓</b><code>需要 minecraft:bow</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>经验瓶</b><code>需要 minecraft:experience_bottle</code></div></div>
+      <div class="card"><span class="ix">06</span><div class="bd"><b>箭</b><code>需要 minecraft:arrow</code></div></div>
+      <div class="card"><span class="ix">07</span><div class="bd"><b>铁砧</b><code>需要 minecraft:anvil</code></div></div>
+      <div class="card"><span class="ix">08</span><div class="bd"><b>铁镐</b><code>需要 minecraft:iron_pickaxe</code></div></div>
+      <div class="card"><span class="ix">09</span><div class="bd"><b>青金石</b><code>需要 minecraft:lapis_lazuli</code></div></div>
+      <div class="card"><span class="ix">10</span><div class="bd"><b>书架</b><code>需要 minecraft:bookshelf</code></div></div>
+      <div class="card"><span class="ix">11</span><div class="bd"><b>附魔台</b><code>需要 minecraft:enchanting_table</code></div></div>
+      <div class="card"><span class="ix">12</span><div class="bd"><b>支线 · 附魔准备</b><small>从「铁砧与修复」延伸</small><code>点击打勾完成</code></div></div>
+    </div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 二级</span><b>5</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>二级 · 远程武器</b><small>从上级支线延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>弩</b><code>需要 minecraft:crossbow</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>光灵箭</b><code>需要 minecraft:spectral_arrow</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>烟花火箭</b><code>需要 minecraft:firework_rocket</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>三叉戟</b><code>需要 minecraft:trident</code></div></div>
+    </div>
+  </div>
 <h2 class="sec">全部章节</h2><div class="grid">
-  <a href="01-安家落户.html" class="cur"><b>01 安家落户</b><span>30 个任务</span></a>
-  <a href="02-田园生活.html"><b>02 田园生活</b><span>28 个任务</span></a>
-  <a href="03-机械动力.html"><b>03 机械动力</b><span>34 个任务</span></a>
-  <a href="04-工业帝国.html"><b>04 工业帝国</b><span>34 个任务</span></a>
-  <a href="05-蓝图与建造.html"><b>05 蓝图与建造</b><span>26 个任务</span></a>
-  <a href="06-奥术·新生魔艺.html"><b>06 奥术·新生魔艺</b><span>28 个任务</span></a>
-  <a href="07-奥术·植物魔法.html"><b>07 奥术·植物魔法</b><span>26 个任务</span></a>
-  <a href="08-收纳与物流.html"><b>08 收纳与物流</b><span>22 个任务</span></a>
-  <a href="09-探索与征服.html"><b>09 探索与征服</b><span>27 个任务</span></a>
-  <a href="10-强者之路.html"><b>10 强者之路</b><span>39 个任务</span></a>
+  <a href="00-快捷命令.html"><b>快捷命令</b><span>8 个任务</span></a>
+  <a href="01-安家落户.html" class="cur"><b>01 安家落户</b><span>52 个任务</span></a>
+  <a href="02-田园生活.html"><b>02 田园生活</b><span>50 个任务</span></a>
+  <a href="03-机械动力.html"><b>03 机械动力</b><span>56 个任务</span></a>
+  <a href="04-工业帝国.html"><b>04 工业帝国</b><span>56 个任务</span></a>
+  <a href="05-蓝图与建造.html"><b>05 蓝图与建造</b><span>48 个任务</span></a>
+  <a href="06-奥术·新生魔艺.html"><b>06 奥术·新生魔艺</b><span>50 个任务</span></a>
+  <a href="07-奥术·植物魔法.html"><b>07 奥术·植物魔法</b><span>48 个任务</span></a>
+  <a href="08-收纳与物流.html"><b>08 收纳与物流</b><span>44 个任务</span></a>
+  <a href="09-探索与征服.html"><b>09 探索与征服</b><span>49 个任务</span></a>
+  <a href="10-强者之路.html"><b>10 强者之路</b><span>61 个任务</span></a>
 </div>
 <nav class="pager">
-<a class="dis"><small>← 上一章</small><b>已是第一章</b></a>
+<a href="00-快捷命令.html"><small>← 上一章</small><b>快捷命令</b></a>
 <a class="home" href="../index.html"><small>HOME</small><b>返回首页</b></a>
 <a href="02-田园生活.html"><small>下一章 →</small><b>田园生活</b></a>
 </nav></div>

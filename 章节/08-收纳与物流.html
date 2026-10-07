@@ -1,31 +1,39 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#120d08"><title>08 收纳与物流 · 匠造纪元任务线</title><style>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#120d08">
+<title>08 收纳与物流 · 匠造纪元任务线</title><style>
 :root{--bg:#120d08;--a:#c9a227;--b:#a97c50;--ink:#f1eee3;--muted:#a9aca0;--faint:#6d7167;--line:rgba(231,225,199,.14);--serif:Georgia,"Noto Serif SC","Songti SC",serif;--sans:"Inter","Noto Sans SC","Microsoft YaHei",sans-serif}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 18% 6%,rgba(201,162,39,.26),transparent 60%),radial-gradient(ellipse 60% 46% at 88% 84%,rgba(169,124,80,.16),transparent 60%)}
 body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.9;background-image:repeating-linear-gradient(0deg, rgba(201,162,39,.045) 0 2px, transparent 2px 26px)}
-.wrap{position:relative;z-index:1;width:min(1500px,calc(100% - 40px));margin:0 auto}
-header.top{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(0,0,0,.35);backdrop-filter:blur(12px)}
-.top-in{width:min(1500px,calc(100% - 40px));margin:0 auto;min-height:60px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.wrap{position:relative;z-index:1;width:min(1600px,calc(100% - 40px));margin:0 auto}
+header.top{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(0,0,0,.42);backdrop-filter:blur(12px)}
+.top-in{width:min(1600px,calc(100% - 40px));margin:0 auto;min-height:60px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:15px;text-decoration:none;color:inherit}
 .brand i{width:10px;height:10px;border-radius:3px;background:var(--a);display:inline-block;box-shadow:0 0 13px var(--a)}.brand b{color:var(--a)}.spacer{flex:1}
 .chip{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px;white-space:nowrap}
 .hero{padding:40px 0 18px}.eyebrow{font-size:12px;letter-spacing:.22em;color:var(--a);text-transform:uppercase;font-weight:600}
 .hero h1{font-family:var(--serif);font-size:clamp(26px,4vw,42px);margin:9px 0 7px}.hero h1 em{font-style:normal;color:var(--a)}
 .hero p{color:var(--muted);margin:0;font-size:14px}
-.flow{display:flex;gap:16px;align-items:flex-start;overflow-x:auto;padding:8px 4px 20px;margin-top:16px}
-.col{flex:1 1 300px;min-width:272px;display:flex;flex-direction:column;gap:9px}.col.main{flex:1.25 1 340px}
+.flow{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;padding:8px 4px 20px;margin-top:16px}
+.col{flex:1 1 250px;min-width:236px;display:flex;flex-direction:column;gap:8px}.col.main{flex:1.2 1 290px}
 .colhead{display:flex;align-items:baseline;justify-content:space-between;padding:0 4px 8px;border-bottom:1px dashed var(--line);margin-bottom:2px}
-.colhead span{font-size:12px;letter-spacing:.14em;color:var(--faint)}.col.main .colhead span{color:var(--a)}
-.colhead b{font-family:var(--serif);font-size:17px;color:var(--b)}
-.card{display:flex;gap:10px;border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:rgba(255,255,255,.035);transition:transform .16s,border-color .16s}
+.colhead span{font-size:11.5px;letter-spacing:.12em;color:var(--faint)}.col.main .colhead span{color:var(--a)}
+.colhead b{font-family:var(--serif);font-size:16px;color:var(--b)}
+.card{display:flex;gap:9px;border:1px solid var(--line);border-radius:11px;padding:9px 12px;background:rgba(255,255,255,.035);transition:transform .16s,border-color .16s}
 .card:hover{transform:translateY(-3px);border-color:var(--a);background:rgba(255,255,255,.07)}
 .col.main .card{border-left:3px solid var(--a)}
-.ix{font-family:var(--serif);font-size:12px;color:var(--a);opacity:.85;flex:0 0 auto;padding-top:2px}
-.bd{min-width:0;flex:1}.bd b{display:block;font-size:14.5px;font-weight:600;line-height:1.4}
-.bd small{display:block;color:var(--b);font-size:11.5px;margin-top:1px}
-.bd code{display:inline-block;margin-top:5px;font-size:10.5px;color:var(--muted);word-break:break-all}
-nav.pager{display:flex;gap:11px;margin:30px 0 0;flex-wrap:wrap}
+.ix{font-family:var(--serif);font-size:11.5px;color:var(--a);opacity:.85;flex:0 0 auto;padding-top:2px}
+.bd{min-width:0;flex:1}.bd b{display:block;font-size:14px;font-weight:600;line-height:1.4}
+.bd small{display:block;color:var(--b);font-size:11px;margin-top:1px}
+.bd code{display:inline-block;margin-top:4px;font-size:10.5px;color:var(--muted);word-break:break-all}
+.cmdgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));margin-top:18px}
+.cmd{position:relative;border:1px solid var(--line);border-radius:13px;padding:14px 16px;background:rgba(255,255,255,.04);transition:.16s}
+.cmd:hover{border-color:var(--a);transform:translateY(-3px)}
+.cmd b{display:block;font-size:15px}
+.cmd small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.cmd code{display:inline-block;margin-top:8px;font-size:12px;color:var(--b);background:rgba(255,255,255,.06);border-radius:6px;padding:2px 9px;font-family:ui-monospace,Consolas,monospace}
+.cmd .tag{position:absolute;right:12px;top:12px;font-size:10.5px;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:1px 8px}
+nav.pager{display:flex;gap:11px;margin:32px 0 0;flex-wrap:wrap}
 nav.pager a{flex:1 1 200px;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:13px;padding:12px 17px;background:rgba(255,255,255,.035);transition:.16s}
 nav.pager a:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
 nav.pager a small{display:block;font-size:11px;color:var(--faint);letter-spacing:.1em}nav.pager a b{display:block;font-size:14.5px}
@@ -39,48 +47,83 @@ h2.sec{font-family:var(--serif);font-size:19px;margin:34px 0 3px}
 footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 62px;color:var(--faint);font-size:12.5px}footer a{color:var(--a);text-decoration:none}
 </style></head><body>
 <header class="top"><div class="top-in"><a class="brand" href="../index.html"><i></i>匠造纪元 · <b>任务线</b></a><div class="spacer"></div>
-<span class="chip">第 08 章</span><span class="chip">主线 10 + 支线 12</span></div></header>
+<span class="chip">第 08 章</span><span class="chip">44 个任务</span></div></header>
 <div class="wrap"><section class="hero"><div class="eyebrow">Chapter 08</div>
 <h1><em>收纳与物流</em></h1>
-<p>中间一列是主线（必经），左右两列是从主线延伸出去的支线 —— 不做也能通关，但奖励可以顺手拿。</p></section>
+<p>主线在中间一列（必经），两侧是向外发散的支线：一级支线从主线延伸，二级支线再挂在一级支线上。支线不做也能通关，但奖励可以顺手拿。</p></section>
 <div class="flow">
-<div class="col"><div class="colhead"><span>支线（可选）</span><b>6</b></div>
-<div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 抽屉升级</b><small>从「潜影盒」延伸</small><code>点击确认</code></div></div>
-<div class="card"><span class="ix">02</span><div class="bd"><b>橡木抽屉</b><code>需要 functionalstorage:dark_oak_1</code></div></div>
-<div class="card"><span class="ix">03</span><div class="bd"><b>抽屉升级</b><code>需要 functionalstorage:netherite_upgrade</code></div></div>
-<div class="card"><span class="ix">04</span><div class="bd"><b>红石升级</b><code>需要 functionalstorage:redstone_upgrade</code></div></div>
-<div class="card"><span class="ix">05</span><div class="bd"><b>收集器升级</b><code>需要 functionalstorage:collector_upgrade</code></div></div>
-<div class="card"><span class="ix">06</span><div class="bd"><b>压缩抽屉</b><code>需要 functionalstorage:framed_simple_compacting_drawer</code></div></div></div>
-<div class="col main"><div class="colhead"><span>主线（必经）</span><b>10</b></div>
-<div class="card"><span class="ix">01</span><div class="bd"><b>储物抽屉</b><small>一格装海量同类物品</small><code>需要 storagedrawers:oak_full_drawers_1 / minecraft:iron_ingot</code></div></div>
-<div class="card"><span class="ix">02</span><div class="bd"><b>抽屉升级</b><small>扩容与压缩</small><code>需要 storagedrawers:upgrade_template / minecraft:iron_ingot</code></div></div>
-<div class="card"><span class="ix">03</span><div class="bd"><b>铁箱子</b><small>比木箱大</small><code>需要 minecraft:chest / minecraft:oak_planks ×8</code></div></div>
-<div class="card"><span class="ix">04</span><div class="bd"><b>潜影盒</b><small>移动仓库</small><code>需要 minecraft:shulker_box / minecraft:shulker_shell</code></div></div>
-<div class="card"><span class="ix">05</span><div class="bd"><b>精致存储</b><small>升级版容器</small><code>需要 sophisticatedstorage:iron_chest / minecraft:iron_ingot</code></div></div>
-<div class="card"><span class="ix">06</span><div class="bd"><b>漏斗流水线</b><small>自动搬运</small><code>需要 minecraft:hopper / minecraft:iron_ingot ×4</code></div></div>
-<div class="card"><span class="ix">07</span><div class="bd"><b>分类仓库</b><small>每种矿物一个抽屉</small><code>需要 storagedrawers:oak_full_drawers_4 / minecraft:iron_ingot</code></div></div>
-<div class="card"><span class="ix">08</span><div class="bd"><b>末影箱</b><small>随身仓库</small><code>需要 minecraft:ender_chest / minecraft:ender_pearl</code></div></div>
-<div class="card"><span class="ix">09</span><div class="bd"><b>物流之始</b><small>用 Create 传动带运物品</small><code>需要 create:belt_connector / create:andesite_alloy ×4</code></div></div>
-<div class="card"><span class="ix">10</span><div class="bd"><b>井井有条</b><small>仓库彻底分好类</small><code>需要 minecraft:netherite_scrap</code></div></div></div>
-<div class="col"><div class="colhead"><span>支线（可选）</span><b>6</b></div>
-<div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 背包升级</b><small>从「分类仓库」延伸</small><code>点击确认</code></div></div>
-<div class="card"><span class="ix">02</span><div class="bd"><b>背包</b><code>需要 sophisticatedbackpacks:advanced_alchemy_upgrade</code></div></div>
-<div class="card"><span class="ix">03</span><div class="bd"><b>背包升级</b><code>需要 sophisticatedbackpacks:advanced_alchemy_upgrade</code></div></div>
-<div class="card"><span class="ix">04</span><div class="bd"><b>堆叠升级</b><code>需要 sophisticatedbackpacks:stack_downgrade_tier_1</code></div></div>
-<div class="card"><span class="ix">05</span><div class="bd"><b>拾取升级</b><code>需要 sophisticatedbackpacks:advanced_pickup_upgrade</code></div></div>
-<div class="card"><span class="ix">06</span><div class="bd"><b>喂食升级</b><code>需要 sophisticatedbackpacks:advanced_feeding_upgrade</code></div></div></div>
-</div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 二级</span><b>5</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>铁锭</b><code>需要 minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>箱子</b><code>需要 minecraft:chest</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>红石升级</b><code>需要 functionalstorage:redstone_upgrade</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>虚空升级</b><code>需要 functionalstorage:void_upgrade</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>二级 · 虚空与过滤</b><small>从上级支线延伸</small><code>点击打勾完成</code></div></div>
+    </div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 一级</span><b>12</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>压缩抽屉</b><code>需要 functionalstorage:framed_simple_compacting_drawer</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>收集器升级</b><code>需要 functionalstorage:collector_upgrade</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>红石升级</b><code>需要 functionalstorage:redstone_upgrade</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>抽屉升级</b><code>需要 functionalstorage:netherite_upgrade</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>橡木抽屉</b><code>需要 functionalstorage:dark_oak_1</code></div></div>
+      <div class="card"><span class="ix">06</span><div class="bd"><b>支线 · 抽屉升级</b><small>从「潜影盒」延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">07</span><div class="bd"><b>支线 · 漏斗流水线</b><small>从「物流之始」延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">08</span><div class="bd"><b>漏斗</b><code>需要 minecraft:hopper</code></div></div>
+      <div class="card"><span class="ix">09</span><div class="bd"><b>漏斗矿车</b><code>需要 minecraft:hopper_minecart</code></div></div>
+      <div class="card"><span class="ix">10</span><div class="bd"><b>投掷器</b><code>需要 minecraft:dropper</code></div></div>
+      <div class="card"><span class="ix">11</span><div class="bd"><b>发射器</b><code>需要 minecraft:dispenser</code></div></div>
+      <div class="card"><span class="ix">12</span><div class="bd"><b>侦测器</b><code>需要 minecraft:observer</code></div></div>
+    </div>
+    <div class="col main">
+      <div class="colhead"><span>主线 · 必经</span><b>10</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>储物抽屉</b><small>一格装海量同类物品</small><code>需要 storagedrawers:oak_full_drawers_1 / minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>抽屉升级</b><small>扩容与压缩</small><code>需要 storagedrawers:upgrade_template / minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>铁箱子</b><small>比木箱大</small><code>需要 minecraft:chest / minecraft:oak_planks ×8</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>潜影盒</b><small>移动仓库</small><code>需要 minecraft:shulker_box / minecraft:shulker_shell</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>精致存储</b><small>升级版容器</small><code>需要 sophisticatedstorage:iron_chest / minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">06</span><div class="bd"><b>漏斗流水线</b><small>自动搬运</small><code>需要 minecraft:hopper / minecraft:iron_ingot ×4</code></div></div>
+      <div class="card"><span class="ix">07</span><div class="bd"><b>分类仓库</b><small>每种矿物一个抽屉</small><code>需要 storagedrawers:oak_full_drawers_4 / minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">08</span><div class="bd"><b>末影箱</b><small>随身仓库</small><code>需要 minecraft:ender_chest / minecraft:ender_pearl</code></div></div>
+      <div class="card"><span class="ix">09</span><div class="bd"><b>物流之始</b><small>用 Create 传动带运物品</small><code>需要 create:belt_connector / create:andesite_alloy ×4</code></div></div>
+      <div class="card"><span class="ix">10</span><div class="bd"><b>井井有条</b><small>仓库彻底分好类</small><code>需要 minecraft:netherite_scrap</code></div></div>
+    </div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 一级</span><b>12</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>铁锭</b><code>需要 minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>原木箱</b><code>需要 sophisticatedstorage:chest</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>支线 · 背包升级</b><small>从「分类仓库」延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>存储升级</b><code>需要 sophisticatedstorage:advanced_alchemy_upgrade</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>背包</b><code>需要 sophisticatedbackpacks:advanced_alchemy_upgrade</code></div></div>
+      <div class="card"><span class="ix">06</span><div class="bd"><b>木桶</b><code>需要 sophisticatedstorage:barrel</code></div></div>
+      <div class="card"><span class="ix">07</span><div class="bd"><b>背包升级</b><code>需要 sophisticatedbackpacks:advanced_alchemy_upgrade</code></div></div>
+      <div class="card"><span class="ix">08</span><div class="bd"><b>存储控制器</b><code>需要 sophisticatedstorage:controller</code></div></div>
+      <div class="card"><span class="ix">09</span><div class="bd"><b>堆叠升级</b><code>需要 sophisticatedbackpacks:stack_downgrade_tier_1</code></div></div>
+      <div class="card"><span class="ix">10</span><div class="bd"><b>支线 · 精妙存储</b><small>从「井井有条」延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">11</span><div class="bd"><b>拾取升级</b><code>需要 sophisticatedbackpacks:advanced_pickup_upgrade</code></div></div>
+      <div class="card"><span class="ix">12</span><div class="bd"><b>喂食升级</b><code>需要 sophisticatedbackpacks:advanced_feeding_upgrade</code></div></div>
+    </div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 二级</span><b>5</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>二级 · 潜影盒</b><small>从上级支线延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>潜影壳</b><code>需要 minecraft:shulker_shell</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>潜影盒</b><code>需要 minecraft:shulker_box</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>末影箱</b><code>需要 minecraft:ender_chest</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>钻石</b><code>需要 minecraft:diamond</code></div></div>
+    </div>
+  </div>
 <h2 class="sec">全部章节</h2><div class="grid">
-  <a href="01-安家落户.html"><b>01 安家落户</b><span>30 个任务</span></a>
-  <a href="02-田园生活.html"><b>02 田园生活</b><span>28 个任务</span></a>
-  <a href="03-机械动力.html"><b>03 机械动力</b><span>34 个任务</span></a>
-  <a href="04-工业帝国.html"><b>04 工业帝国</b><span>34 个任务</span></a>
-  <a href="05-蓝图与建造.html"><b>05 蓝图与建造</b><span>26 个任务</span></a>
-  <a href="06-奥术·新生魔艺.html"><b>06 奥术·新生魔艺</b><span>28 个任务</span></a>
-  <a href="07-奥术·植物魔法.html"><b>07 奥术·植物魔法</b><span>26 个任务</span></a>
-  <a href="08-收纳与物流.html" class="cur"><b>08 收纳与物流</b><span>22 个任务</span></a>
-  <a href="09-探索与征服.html"><b>09 探索与征服</b><span>27 个任务</span></a>
-  <a href="10-强者之路.html"><b>10 强者之路</b><span>39 个任务</span></a>
+  <a href="00-快捷命令.html"><b>快捷命令</b><span>8 个任务</span></a>
+  <a href="01-安家落户.html"><b>01 安家落户</b><span>52 个任务</span></a>
+  <a href="02-田园生活.html"><b>02 田园生活</b><span>50 个任务</span></a>
+  <a href="03-机械动力.html"><b>03 机械动力</b><span>56 个任务</span></a>
+  <a href="04-工业帝国.html"><b>04 工业帝国</b><span>56 个任务</span></a>
+  <a href="05-蓝图与建造.html"><b>05 蓝图与建造</b><span>48 个任务</span></a>
+  <a href="06-奥术·新生魔艺.html"><b>06 奥术·新生魔艺</b><span>50 个任务</span></a>
+  <a href="07-奥术·植物魔法.html"><b>07 奥术·植物魔法</b><span>48 个任务</span></a>
+  <a href="08-收纳与物流.html" class="cur"><b>08 收纳与物流</b><span>44 个任务</span></a>
+  <a href="09-探索与征服.html"><b>09 探索与征服</b><span>49 个任务</span></a>
+  <a href="10-强者之路.html"><b>10 强者之路</b><span>61 个任务</span></a>
 </div>
 <nav class="pager">
 <a href="07-奥术·植物魔法.html"><small>← 上一章</small><b>奥术·植物魔法</b></a>

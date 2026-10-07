@@ -1,31 +1,39 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0b0f14"><title>04 工业帝国 · 匠造纪元任务线</title><style>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0f14">
+<title>04 工业帝国 · 匠造纪元任务线</title><style>
 :root{--bg:#0b0f14;--a:#7fb6c9;--b:#c9d1d9;--ink:#f1eee3;--muted:#a9aca0;--faint:#6d7167;--line:rgba(231,225,199,.14);--serif:Georgia,"Noto Serif SC","Songti SC",serif;--sans:"Inter","Noto Sans SC","Microsoft YaHei",sans-serif}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 18% 6%,rgba(127,182,201,.28),transparent 60%),radial-gradient(ellipse 60% 46% at 88% 84%,rgba(201,209,217,.10),transparent 60%)}
 body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.9;background-image:linear-gradient(rgba(127,182,201,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(127,182,201,.055) 1px, transparent 1px)}
-.wrap{position:relative;z-index:1;width:min(1500px,calc(100% - 40px));margin:0 auto}
-header.top{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(0,0,0,.35);backdrop-filter:blur(12px)}
-.top-in{width:min(1500px,calc(100% - 40px));margin:0 auto;min-height:60px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.wrap{position:relative;z-index:1;width:min(1600px,calc(100% - 40px));margin:0 auto}
+header.top{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(0,0,0,.42);backdrop-filter:blur(12px)}
+.top-in{width:min(1600px,calc(100% - 40px));margin:0 auto;min-height:60px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:15px;text-decoration:none;color:inherit}
 .brand i{width:10px;height:10px;border-radius:3px;background:var(--a);display:inline-block;box-shadow:0 0 13px var(--a)}.brand b{color:var(--a)}.spacer{flex:1}
 .chip{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px;white-space:nowrap}
 .hero{padding:40px 0 18px}.eyebrow{font-size:12px;letter-spacing:.22em;color:var(--a);text-transform:uppercase;font-weight:600}
 .hero h1{font-family:var(--serif);font-size:clamp(26px,4vw,42px);margin:9px 0 7px}.hero h1 em{font-style:normal;color:var(--a)}
 .hero p{color:var(--muted);margin:0;font-size:14px}
-.flow{display:flex;gap:16px;align-items:flex-start;overflow-x:auto;padding:8px 4px 20px;margin-top:16px}
-.col{flex:1 1 300px;min-width:272px;display:flex;flex-direction:column;gap:9px}.col.main{flex:1.25 1 340px}
+.flow{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;padding:8px 4px 20px;margin-top:16px}
+.col{flex:1 1 250px;min-width:236px;display:flex;flex-direction:column;gap:8px}.col.main{flex:1.2 1 290px}
 .colhead{display:flex;align-items:baseline;justify-content:space-between;padding:0 4px 8px;border-bottom:1px dashed var(--line);margin-bottom:2px}
-.colhead span{font-size:12px;letter-spacing:.14em;color:var(--faint)}.col.main .colhead span{color:var(--a)}
-.colhead b{font-family:var(--serif);font-size:17px;color:var(--b)}
-.card{display:flex;gap:10px;border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:rgba(255,255,255,.035);transition:transform .16s,border-color .16s}
+.colhead span{font-size:11.5px;letter-spacing:.12em;color:var(--faint)}.col.main .colhead span{color:var(--a)}
+.colhead b{font-family:var(--serif);font-size:16px;color:var(--b)}
+.card{display:flex;gap:9px;border:1px solid var(--line);border-radius:11px;padding:9px 12px;background:rgba(255,255,255,.035);transition:transform .16s,border-color .16s}
 .card:hover{transform:translateY(-3px);border-color:var(--a);background:rgba(255,255,255,.07)}
 .col.main .card{border-left:3px solid var(--a)}
-.ix{font-family:var(--serif);font-size:12px;color:var(--a);opacity:.85;flex:0 0 auto;padding-top:2px}
-.bd{min-width:0;flex:1}.bd b{display:block;font-size:14.5px;font-weight:600;line-height:1.4}
-.bd small{display:block;color:var(--b);font-size:11.5px;margin-top:1px}
-.bd code{display:inline-block;margin-top:5px;font-size:10.5px;color:var(--muted);word-break:break-all}
-nav.pager{display:flex;gap:11px;margin:30px 0 0;flex-wrap:wrap}
+.ix{font-family:var(--serif);font-size:11.5px;color:var(--a);opacity:.85;flex:0 0 auto;padding-top:2px}
+.bd{min-width:0;flex:1}.bd b{display:block;font-size:14px;font-weight:600;line-height:1.4}
+.bd small{display:block;color:var(--b);font-size:11px;margin-top:1px}
+.bd code{display:inline-block;margin-top:4px;font-size:10.5px;color:var(--muted);word-break:break-all}
+.cmdgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));margin-top:18px}
+.cmd{position:relative;border:1px solid var(--line);border-radius:13px;padding:14px 16px;background:rgba(255,255,255,.04);transition:.16s}
+.cmd:hover{border-color:var(--a);transform:translateY(-3px)}
+.cmd b{display:block;font-size:15px}
+.cmd small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.cmd code{display:inline-block;margin-top:8px;font-size:12px;color:var(--b);background:rgba(255,255,255,.06);border-radius:6px;padding:2px 9px;font-family:ui-monospace,Consolas,monospace}
+.cmd .tag{position:absolute;right:12px;top:12px;font-size:10.5px;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:1px 8px}
+nav.pager{display:flex;gap:11px;margin:32px 0 0;flex-wrap:wrap}
 nav.pager a{flex:1 1 200px;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:13px;padding:12px 17px;background:rgba(255,255,255,.035);transition:.16s}
 nav.pager a:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
 nav.pager a small{display:block;font-size:11px;color:var(--faint);letter-spacing:.1em}nav.pager a b{display:block;font-size:14.5px}
@@ -39,60 +47,95 @@ h2.sec{font-family:var(--serif);font-size:19px;margin:34px 0 3px}
 footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 62px;color:var(--faint);font-size:12.5px}footer a{color:var(--a);text-decoration:none}
 </style></head><body>
 <header class="top"><div class="top-in"><a class="brand" href="../index.html"><i></i>匠造纪元 · <b>任务线</b></a><div class="spacer"></div>
-<span class="chip">第 04 章</span><span class="chip">主线 22 + 支线 12</span></div></header>
+<span class="chip">第 04 章</span><span class="chip">56 个任务</span></div></header>
 <div class="wrap"><section class="hero"><div class="eyebrow">Chapter 04</div>
 <h1><em>工业帝国</em></h1>
-<p>中间一列是主线（必经），左右两列是从主线延伸出去的支线 —— 不做也能通关，但奖励可以顺手拿。</p></section>
+<p>主线在中间一列（必经），两侧是向外发散的支线：一级支线从主线延伸，二级支线再挂在一级支线上。支线不做也能通关，但奖励可以顺手拿。</p></section>
 <div class="flow">
-<div class="col"><div class="colhead"><span>支线（可选）</span><b>6</b></div>
-<div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 通用机械流水线</b><small>从「控制电路」延伸</small><code>点击确认</code></div></div>
-<div class="card"><span class="ix">02</span><div class="bd"><b>富集仓</b><code>需要 mekanism:enrichment_chamber</code></div></div>
-<div class="card"><span class="ix">03</span><div class="bd"><b>冶金灌注机</b><code>需要 mekanism:metallurgic_infuser</code></div></div>
-<div class="card"><span class="ix">04</span><div class="bd"><b>粉碎机</b><code>需要 mekanism:crusher</code></div></div>
-<div class="card"><span class="ix">05</span><div class="bd"><b>电力熔炉</b><code>需要 mekanism:energized_smelter</code></div></div>
-<div class="card"><span class="ix">06</span><div class="bd"><b>基础控制电路</b><code>需要 mekanism:basic_control_circuit</code></div></div></div>
-<div class="col main"><div class="colhead"><span>主线（必经）</span><b>22</b></div>
-<div class="card"><span class="ix">01</span><div class="bd"><b>锇</b><small>通用机械的基础金属</small><code>需要 mekanism:ingot_osmium / minecraft:iron_ingot ×8</code></div></div>
-<div class="card"><span class="ix">02</span><div class="bd"><b>炼钢</b><small>钢锭是骨架材料</small><code>需要 mekanism:ingot_steel / minecraft:iron_ingot ×4</code></div></div>
-<div class="card"><span class="ix">03</span><div class="bd"><b>冶金灌注机</b><small>第一台核心机器</small><code>需要 mekanism:metallurgic_infuser / mekanism:enrichment_chamber</code></div></div>
-<div class="card"><span class="ix">04</span><div class="bd"><b>富集仓</b><small>矿石产出翻倍</small><code>需要 mekanism:enrichment_chamber / minecraft:iron_ingot</code></div></div>
-<div class="card"><span class="ix">05</span><div class="bd"><b>控制电路</b><small>所有机器的中间件</small><code>需要 mekanism:basic_control_circuit / minecraft:iron_ingot</code></div></div>
-<div class="card"><span class="ix">06</span><div class="bd"><b>发电</b><small>热力发电机</small><code>需要 mekanismgenerators:heat_generator / thermal:machine_furnace</code></div></div>
-<div class="card"><span class="ix">07</span><div class="bd"><b>热力机械</b><small>矿石处理链的补充</small><code>需要 thermal:machine_furnace / minecraft:iron_ingot</code></div></div>
-<div class="card"><span class="ix">08</span><div class="bd"><b>工程师之锤</b><small>沉浸工程的起点</small><code>需要 immersiveengineering:hammer / immersiveengineering:ingot_steel</code></div></div>
-<div class="card"><span class="ix">09</span><div class="bd"><b>焦炉</b><small>烧出焦炭</small><code>需要 immersiveengineering:coke_oven / minecraft:coal</code></div></div>
-<div class="card"><span class="ix">10</span><div class="bd"><b>高炉</b><small>出钢，也是多方块的入门</small><code>需要 immersiveengineering:blast_furnace / immersiveengineering:ingot_steel</code></div></div>
-<div class="card"><span class="ix">11</span><div class="bd"><b>赛特斯石英</b><small>AE2 从这种水晶开始</small><code>需要 ae2:certus_quartz_crystal / ae2:certus_quartz_crystal ×8</code></div></div>
-<div class="card"><span class="ix">12</span><div class="bd"><b>充能器</b><small>给水晶充能</small><code>需要 ae2:charger / ae2:certus_quartz_crystal</code></div></div>
-<div class="card"><span class="ix">13</span><div class="bd"><b>压印器</b><small>把电路图案压到硅片上</small><code>需要 ae2:inscriber / ae2:printed_silicon</code></div></div>
-<div class="card"><span class="ix">14</span><div class="bd"><b>硅片</b><small>所有处理器的底子</small><code>需要 ae2:printed_silicon / minecraft:iron_ingot</code></div></div>
-<div class="card"><span class="ix">15</span><div class="bd"><b>逻辑处理器</b><small>三种处理器之一</small><code>需要 ae2:logic_processor / ae2:printed_logic_processor</code></div></div>
-<div class="card"><span class="ix">16</span><div class="bd"><b>运算处理器</b><small>之三</small><code>需要 ae2:calculation_processor / ae2:printed_calculation_processor</code></div></div>
-<div class="card"><span class="ix">17</span><div class="bd"><b>工程处理器</b><small>高级机器的门票</small><code>需要 ae2:engineering_processor / ae2:printed_engineering_processor</code></div></div>
-<div class="card"><span class="ix">18</span><div class="bd"><b>ME 驱动器</b><small>插进存储元件就有数字仓库</small><code>需要 ae2:drive / ae2:item_storage_cell_1k</code></div></div>
-<div class="card"><span class="ix">19</span><div class="bd"><b>存储元件</b><small>一格装 1024 种物品</small><code>需要 ae2:item_storage_cell_1k / ae2:item_storage_cell_4k</code></div></div>
-<div class="card"><span class="ix">20</span><div class="bd"><b>样板供应器</b><small>自动合成的关键</small><code>需要 ae2:pattern_provider / ae2:engineering_processor</code></div></div>
-<div class="card"><span class="ix">21</span><div class="bd"><b>ME 合成终端</b><small>一个界面看遍整个仓库</small><code>需要 ae2:crafting_terminal / ae2:drive</code></div></div>
-<div class="card"><span class="ix">22</span><div class="bd"><b>自动合成</b><small>让 ME 网络替你干活</small><code>需要 ae2:crafting_accelerator / ae2:engineering_processor</code></div></div></div>
-<div class="col"><div class="colhead"><span>支线（可选）</span><b>6</b></div>
-<div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 沉浸工程与 AE2</b><small>从「逻辑处理器」延伸</small><code>点击确认</code></div></div>
-<div class="card"><span class="ix">02</span><div class="bd"><b>工程师锤</b><code>需要 immersiveengineering:bannerpattern_hammer</code></div></div>
-<div class="card"><span class="ix">03</span><div class="bd"><b>线圈</b><code>需要 immersiveengineering:wirecoil_copper</code></div></div>
-<div class="card"><span class="ix">04</span><div class="bd"><b>电容</b><code>需要 immersiveengineering:capacitor_creative</code></div></div>
-<div class="card"><span class="ix">05</span><div class="bd"><b>ME 控制器</b><code>需要 ae2:controller</code></div></div>
-<div class="card"><span class="ix">06</span><div class="bd"><b>ME 驱动器</b><code>需要 ae2:drive</code></div></div></div>
-</div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 二级</span><b>5</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>粉碎机</b><code>需要 mekanism:crusher</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>金矿石</b><code>需要 minecraft:gold_ore</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>铜矿石</b><code>需要 minecraft:copper_ore</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>铁矿石</b><code>需要 minecraft:iron_ore</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>二级 · 矿石三倍</b><small>从上级支线延伸</small><code>点击打勾完成</code></div></div>
+    </div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 一级</span><b>12</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>基础控制电路</b><code>需要 mekanism:basic_control_circuit</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>电力熔炉</b><code>需要 mekanism:energized_smelter</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>粉碎机</b><code>需要 mekanism:crusher</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>冶金灌注机</b><code>需要 mekanism:metallurgic_infuser</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>富集仓</b><code>需要 mekanism:enrichment_chamber</code></div></div>
+      <div class="card"><span class="ix">06</span><div class="bd"><b>支线 · 通用机械流水线</b><small>从「控制电路」延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">07</span><div class="bd"><b>支线 · AE2 网络</b><small>从「逻辑处理器」延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">08</span><div class="bd"><b>ME 控制器</b><code>需要 ae2:controller</code></div></div>
+      <div class="card"><span class="ix">09</span><div class="bd"><b>ME 驱动器</b><code>需要 ae2:drive</code></div></div>
+      <div class="card"><span class="ix">10</span><div class="bd"><b>ME 终端</b><code>需要 ae2:crafting_terminal</code></div></div>
+      <div class="card"><span class="ix">11</span><div class="bd"><b>存储元件</b><code>需要 ae2:cell_component_16k</code></div></div>
+      <div class="card"><span class="ix">12</span><div class="bd"><b>线缆</b><code>需要 ae2:black_covered_cable</code></div></div>
+    </div>
+    <div class="col main">
+      <div class="colhead"><span>主线 · 必经</span><b>22</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>锇</b><small>通用机械的基础金属</small><code>需要 mekanism:ingot_osmium / minecraft:iron_ingot ×8</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>炼钢</b><small>钢锭是骨架材料</small><code>需要 mekanism:ingot_steel / minecraft:iron_ingot ×4</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>冶金灌注机</b><small>第一台核心机器</small><code>需要 mekanism:metallurgic_infuser / mekanism:enrichment_chamber</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>富集仓</b><small>矿石产出翻倍</small><code>需要 mekanism:enrichment_chamber / minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>控制电路</b><small>所有机器的中间件</small><code>需要 mekanism:basic_control_circuit / minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">06</span><div class="bd"><b>发电</b><small>热力发电机</small><code>需要 mekanismgenerators:heat_generator / thermal:machine_furnace</code></div></div>
+      <div class="card"><span class="ix">07</span><div class="bd"><b>热力机械</b><small>矿石处理链的补充</small><code>需要 thermal:machine_furnace / minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">08</span><div class="bd"><b>工程师之锤</b><small>沉浸工程的起点</small><code>需要 immersiveengineering:hammer / immersiveengineering:ingot_steel</code></div></div>
+      <div class="card"><span class="ix">09</span><div class="bd"><b>焦炉</b><small>烧出焦炭</small><code>需要 immersiveengineering:coke_oven / minecraft:coal</code></div></div>
+      <div class="card"><span class="ix">10</span><div class="bd"><b>高炉</b><small>出钢，也是多方块的入门</small><code>需要 immersiveengineering:blast_furnace / immersiveengineering:ingot_steel</code></div></div>
+      <div class="card"><span class="ix">11</span><div class="bd"><b>赛特斯石英</b><small>AE2 从这种水晶开始</small><code>需要 ae2:certus_quartz_crystal / ae2:certus_quartz_crystal ×8</code></div></div>
+      <div class="card"><span class="ix">12</span><div class="bd"><b>充能器</b><small>给水晶充能</small><code>需要 ae2:charger / ae2:certus_quartz_crystal</code></div></div>
+      <div class="card"><span class="ix">13</span><div class="bd"><b>压印器</b><small>把电路图案压到硅片上</small><code>需要 ae2:inscriber / ae2:printed_silicon</code></div></div>
+      <div class="card"><span class="ix">14</span><div class="bd"><b>硅片</b><small>所有处理器的底子</small><code>需要 ae2:printed_silicon / minecraft:iron_ingot</code></div></div>
+      <div class="card"><span class="ix">15</span><div class="bd"><b>逻辑处理器</b><small>三种处理器之一</small><code>需要 ae2:logic_processor / ae2:printed_logic_processor</code></div></div>
+      <div class="card"><span class="ix">16</span><div class="bd"><b>运算处理器</b><small>之三</small><code>需要 ae2:calculation_processor / ae2:printed_calculation_processor</code></div></div>
+      <div class="card"><span class="ix">17</span><div class="bd"><b>工程处理器</b><small>高级机器的门票</small><code>需要 ae2:engineering_processor / ae2:printed_engineering_processor</code></div></div>
+      <div class="card"><span class="ix">18</span><div class="bd"><b>ME 驱动器</b><small>插进存储元件就有数字仓库</small><code>需要 ae2:drive / ae2:item_storage_cell_1k</code></div></div>
+      <div class="card"><span class="ix">19</span><div class="bd"><b>存储元件</b><small>一格装 1024 种物品</small><code>需要 ae2:item_storage_cell_1k / ae2:item_storage_cell_4k</code></div></div>
+      <div class="card"><span class="ix">20</span><div class="bd"><b>样板供应器</b><small>自动合成的关键</small><code>需要 ae2:pattern_provider / ae2:engineering_processor</code></div></div>
+      <div class="card"><span class="ix">21</span><div class="bd"><b>ME 合成终端</b><small>一个界面看遍整个仓库</small><code>需要 ae2:crafting_terminal / ae2:drive</code></div></div>
+      <div class="card"><span class="ix">22</span><div class="bd"><b>自动合成</b><small>让 ME 网络替你干活</small><code>需要 ae2:crafting_accelerator / ae2:engineering_processor</code></div></div>
+    </div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 一级</span><b>12</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 沉浸工程</b><small>从「高炉」延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>工程师锤</b><code>需要 immersiveengineering:bannerpattern_hammer</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>线圈</b><code>需要 immersiveengineering:wirecoil_copper</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>电容</b><code>需要 immersiveengineering:capacitor_creative</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>电弧炉</b><code>需要 immersiveengineering:arc_furnace</code></div></div>
+      <div class="card"><span class="ix">06</span><div class="bd"><b>感应矩阵</b><code>需要 mekanism:advanced_induction_cell</code></div></div>
+      <div class="card"><span class="ix">07</span><div class="bd"><b>金属挤压机</b><code>需要 immersiveengineering:metal_press</code></div></div>
+      <div class="card"><span class="ix">08</span><div class="bd"><b>能量立方</b><code>需要 mekanism:advanced_energy_cube</code></div></div>
+      <div class="card"><span class="ix">09</span><div class="bd"><b>风力发电机</b><code>需要 mekanismgenerators:wind_generator</code></div></div>
+      <div class="card"><span class="ix">10</span><div class="bd"><b>太阳能板</b><code>需要 mekanismgenerators:advanced_solar_generator</code></div></div>
+      <div class="card"><span class="ix">11</span><div class="bd"><b>热力发电机</b><code>需要 mekanismgenerators:heat_generator</code></div></div>
+      <div class="card"><span class="ix">12</span><div class="bd"><b>支线 · 发电设备</b><small>从「存储元件」延伸</small><code>点击打勾完成</code></div></div>
+    </div>
+    <div class="col">
+      <div class="colhead"><span>支线 · 二级</span><b>5</b></div>
+      <div class="card"><span class="ix">01</span><div class="bd"><b>二级 · 高压电网</b><small>从上级支线延伸</small><code>点击打勾完成</code></div></div>
+      <div class="card"><span class="ix">02</span><div class="bd"><b>高压线缆</b><code>需要 immersiveengineering:wirecoil_copper</code></div></div>
+      <div class="card"><span class="ix">03</span><div class="bd"><b>变压器</b><code>需要 immersiveengineering:current_transformer</code></div></div>
+      <div class="card"><span class="ix">04</span><div class="bd"><b>电容</b><code>需要 immersiveengineering:capacitor_creative</code></div></div>
+      <div class="card"><span class="ix">05</span><div class="bd"><b>电弧炉</b><code>需要 immersiveengineering:arc_furnace</code></div></div>
+    </div>
+  </div>
 <h2 class="sec">全部章节</h2><div class="grid">
-  <a href="01-安家落户.html"><b>01 安家落户</b><span>30 个任务</span></a>
-  <a href="02-田园生活.html"><b>02 田园生活</b><span>28 个任务</span></a>
-  <a href="03-机械动力.html"><b>03 机械动力</b><span>34 个任务</span></a>
-  <a href="04-工业帝国.html" class="cur"><b>04 工业帝国</b><span>34 个任务</span></a>
-  <a href="05-蓝图与建造.html"><b>05 蓝图与建造</b><span>26 个任务</span></a>
-  <a href="06-奥术·新生魔艺.html"><b>06 奥术·新生魔艺</b><span>28 个任务</span></a>
-  <a href="07-奥术·植物魔法.html"><b>07 奥术·植物魔法</b><span>26 个任务</span></a>
-  <a href="08-收纳与物流.html"><b>08 收纳与物流</b><span>22 个任务</span></a>
-  <a href="09-探索与征服.html"><b>09 探索与征服</b><span>27 个任务</span></a>
-  <a href="10-强者之路.html"><b>10 强者之路</b><span>39 个任务</span></a>
+  <a href="00-快捷命令.html"><b>快捷命令</b><span>8 个任务</span></a>
+  <a href="01-安家落户.html"><b>01 安家落户</b><span>52 个任务</span></a>
+  <a href="02-田园生活.html"><b>02 田园生活</b><span>50 个任务</span></a>
+  <a href="03-机械动力.html"><b>03 机械动力</b><span>56 个任务</span></a>
+  <a href="04-工业帝国.html" class="cur"><b>04 工业帝国</b><span>56 个任务</span></a>
+  <a href="05-蓝图与建造.html"><b>05 蓝图与建造</b><span>48 个任务</span></a>
+  <a href="06-奥术·新生魔艺.html"><b>06 奥术·新生魔艺</b><span>50 个任务</span></a>
+  <a href="07-奥术·植物魔法.html"><b>07 奥术·植物魔法</b><span>48 个任务</span></a>
+  <a href="08-收纳与物流.html"><b>08 收纳与物流</b><span>44 个任务</span></a>
+  <a href="09-探索与征服.html"><b>09 探索与征服</b><span>49 个任务</span></a>
+  <a href="10-强者之路.html"><b>10 强者之路</b><span>61 个任务</span></a>
 </div>
 <nav class="pager">
 <a href="03-机械动力.html"><small>← 上一章</small><b>机械动力</b></a>
