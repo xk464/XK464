@@ -186,7 +186,7 @@
     .reward-notes { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; margin-top: 14px; }
     .reward-notes div { padding: 11px; border: 1px solid var(--line); color: var(--muted); font-size: 10px; }
     .reward-notes strong { display: block; margin-bottom: 4px; color: var(--text); font-size: 11px; }
-    .verification-note { margin-top: 13px; padding: 13px 15px; border-left: 2px solid var(--blue); background: rgba(145,183,173,.055); color: #c4cec8; font-size: 11px; }
+    .verification-note { margin-top: 13px; padding: 13px 15px; border-left: 2px solid var(--blue); background: rgba(145,522,173,.055); color: #c4cec8; font-size: 11px; }
     @keyframes drift { 0% { transform: translate3d(0, 0, 0) scale(1); } 100% { transform: translate3d(6%, -8%, 0) scale(1.12); } }
     @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
     @keyframes pulse { 0%, 100% { transform: rotate(45deg) scale(1); box-shadow: 0 0 0 rgba(229,189,116,0); } 50% { transform: rotate(45deg) scale(1.06); box-shadow: 0 0 28px rgba(229,189,116,0.2); } }
@@ -281,8 +281,8 @@
         <div class="sigil" aria-hidden="true"><div class="ring"><div class="diamond"><span>✧</span></div></div></div>
       </section>
       <div class="stats">
-        <div class="stat"><strong>246</strong><span>精选模组</span></div><div class="stat"><strong>183 个</strong><span>任务，一棵树装下</span></div>
-        <div class="stat"><strong>183 个</strong><span>带奖励的任务</span></div><div class="stat"><strong>8–10 GB</strong><span>建议分配内存</span></div>
+        <div class="stat"><strong>246</strong><span>精选模组</span></div><div class="stat"><strong>522 个</strong><span>任务，一棵树装下</span></div>
+        <div class="stat"><strong>522 个</strong><span>带奖励的任务</span></div><div class="stat"><strong>8–10 GB</strong><span>建议分配内存</span></div>
       </div>
     </div>
 
@@ -400,23 +400,31 @@
 .chapter-links b{display:block;font-size:15px;margin:2px 0 1px}
 .chapter-links small{color:var(--muted);font-size:12px}
 </style>
-<div><div class="eyebrow">QUEST BOOK</div><h2>任务书：一条主线，长出十条支线</h2></div><p class="intro">v1.7.0 起换成真正的任务书模组 <strong>Odyssey Quests / Heracles</strong>：按 <code>F9</code> 打开（或右键任务书），不再占用原版进度界面。</p></div>
+<div><div class="eyebrow">QUEST BOOK</div><h2>任务书：一条主线，向四面八方长出支线</h2></div><p class="intro">任务书由 <strong>FTB Quests</strong> 提供：<strong>右键任务书物品</strong>即可打开，<strong>不需要任何键位</strong>（这样也彻底避开了输入法冲突）。</p></div>
         <div class="chapters">
-          <article class="chapter"><small>183 QUESTS · 1 TRUNK + 9 BRANCHES + COMMANDS</small><h3>一棵树</h3><p><strong>前期主线 18 个</strong>竖着往下走，从徒手打木头一路到传送网络；<strong>9 条支线</strong>从主线的不同高度分叉出去，各自一列向下延伸，支线之间互不挡路。</p></article>
+          <article class="chapter"><small>522 QUESTS · 1 TRUNK + 40 BRANCHES + 20 SUB-BRANCHES</small><h3>一棵树</h3><p><strong>前期主线 18 个</strong>竖着往下走，从徒手打木头一路到传送网络；<strong>9 条支线</strong>从主线的不同高度分叉出去，各自一列向下延伸，支线之间互不挡路。</p></article>
         </div>
         <div class="actions" style="margin:18px 0 8px">
           <a class="button secondary" href="工具/键位总表.html">键位总表 ↗</a>
         </div>
-        <div class="callout"><strong>按章节看任务：</strong>522 个任务已按 10 条支线拆成 <strong>11 个章节页</strong>，任务横向排列、每章主线 + 左右支线，底部可以「上一页 / 返回首页 / 下一页」一路翻下去。<a href="章节/01-安家落户.html"><strong>从第一章开始 →</strong></a>　｜　<a href="工具/键位总表.html"><strong>键位总表</strong></a></div>
+        <div class="callout"><strong>按章节看任务：</strong>522 个任务拆成 <strong>11 个章节页</strong>（10 章任务 + 1 页快捷命令）。每章都是<strong>五列布局</strong>：主线居中，两侧是一级支线，一级支线外面再挂二级支线 —— 上下左右都会铺开。底部可以「上一章 / 返回首页 / 下一章」一路翻下去。<a href="章节/00-快捷命令.html"><strong>先看快捷命令 →</strong></a>　｜　<a href="工具/键位总表.html"><strong>键位总表</strong></a></div>
         <h3 class="route-heading">结构一览</h3>
         <div class="quest-details">
           <details class="quest-detail" open>
-            <summary><div><strong>前期主线 + 九条支线 + 命令页</strong><span>18 + 156 + 9 = 522 个任务</span></div></summary>
+            <summary><div><strong>十章任务 + 快捷命令页</strong><span>主线 182 + 一级支线 40 条 + 二级支线 20 条 + 命令 8 个 = 522</span></div></summary>
             <div class="quest-detail-body">
               <p>主线是所有人的必经之路；支线在做完主线的某个节点后解锁，之后可以随时穿插着做。奖励会自动出现在任务书的「奖励」栏，需要手动点一下领取。</p>
               <div class="flow-inline">
-                <div class="fi"><strong>前期主线（18）</strong> <em>— 徒手起步 → 工作台 → 木制工具 → 石器时代 → 生火 → 铁器时代 → 安全第一 → 铁甲护身 → 过夜 → 储粮 → 背包与收纳 → 钻石！ → 附魔入门 → 铁砧与修复 → 黑曜石 → 传送网络 → 认出任务书 → 扎下根来</em></div>
-                <div class="fi"><strong>田园生活（16）</strong> <em>— 从主线第 5 层分叉：农夫乐事的刀、砧板与锅 → 麦浪 → 各色作物 → 肥沃土壤 → 煎锅与灶台 → 傻瓜式厨房 → 冰箱 → 养蜂 → 蛋糕</em></div>
+                <div class="fi"><strong>01 安家落户（52）</strong> <em>— 主线 18 + 4 条一级支线 + 2 条二级支线</em></div>
+<div class="fi"><strong>02 田园生活（50）</strong> <em>— 主线 16 + 4 条一级支线 + 2 条二级支线</em></div>
+<div class="fi"><strong>03 机械动力（56）</strong> <em>— 主线 22 + 4 条一级支线 + 2 条二级支线</em></div>
+<div class="fi"><strong>04 工业帝国（56）</strong> <em>— 主线 22 + 4 条一级支线 + 2 条二级支线</em></div>
+<div class="fi"><strong>05 蓝图与建造（48）</strong> <em>— 主线 14 + 4 条一级支线 + 2 条二级支线</em></div>
+<div class="fi"><strong>06 奥术·新生魔艺（50）</strong> <em>— 主线 16 + 4 条一级支线 + 2 条二级支线</em></div>
+<div class="fi"><strong>07 奥术·植物魔法（48）</strong> <em>— 主线 14 + 4 条一级支线 + 2 条二级支线</em></div>
+<div class="fi"><strong>08 收纳与物流（44）</strong> <em>— 主线 10 + 4 条一级支线 + 2 条二级支线</em></div>
+<div class="fi"><strong>09 探索与征服（49）</strong> <em>— 主线 15 + 4 条一级支线 + 2 条二级支线</em></div>
+<div class="fi"><strong>10 强者之路（61）</strong> <em>— 主线 27 + 4 条一级支线 + 2 条二级支线</em></div>                <div class="fi"><strong>田园生活（16）</strong> <em>— 从主线第 5 层分叉：农夫乐事的刀、砧板与锅 → 麦浪 → 各色作物 → 肥沃土壤 → 煎锅与灶台 → 傻瓜式厨房 → 冰箱 → 养蜂 → 蛋糕</em></div>
                 <div class="fi"><strong>机械动力（22）</strong> <em>— 从主线第 6 层分叉：安山合金 → 传动轴/齿轮 → 水车与风车 → 压床/搅拌/锯/钻头/风扇/石磨 → 粉碎轮 → 黄铜 → 电子管 → 精密构件 → 保险库 → 铁轨 → 铁路时代</em></div>
                 <div class="fi"><strong>蓝图与建造（14）</strong> <em>— 从主线第 9 层分叉：石制建造魔杖 → 铺墙铺地 → 铁制 → 钻石制 → 天使核心/破坏核心/魔杖核心 → 蓝图台 → 蓝图与笔 → 蓝图加农炮 → <b>无限建造魔杖</b> → 建筑大师</em></div>
                 <div class="fi"><strong>收纳与物流（10）</strong> <em>— 从主线第 11 层分叉：储物抽屉 → 抽屉升级 → 箱子 → 潜影盒 → 精致存储 → 漏斗流水线 → 分类仓库 → 末影箱 → Create 传动带物流</em></div>
@@ -426,14 +434,14 @@
                 <div class="fi"><strong>强者之路（27）</strong> <em>— 从主线第 17 层分叉：四个变异体 → 钢铁守护者/霜冻巨兽/太阳鸟/雪怪/深渊巨口 → 船长科妮莉亚 → 魂系试炼四连 → 灾变八首领 → 暝煌龙/撼地斯拉/死者之王 → 凋灵（强化）→ <b>终章·利维坦</b></em></div>
               </div>
               <div class="reward-notes">
-                <div><strong>为什么换成任务书</strong>原版进度界面是一张自动布局的大图，任务一多就没法看。Heracles 是手工排版的树状任务书，位置由我逐个数着摆，主线支线一眼分明。</div>
+                <div><strong>为什么用 FTB Quests</strong>它靠<strong>物品</strong>打开而不是快捷键 —— 之前的键位方案一直和输入法、和别的模组抢键，换成物品打开后这类问题一次都不再有。任务的版本数据放在 <code>config/ftbquests/</code>，网页上的章节页就是从这个目录反向生成的。</div>
                 <div><strong>蓝图是奖励</strong>「蓝图与建造」这条线的奖励就是建造魔杖本身：石 → 铁 → 钻石 → 无限，外加天使/破坏/魔杖三种核心，以及 Create 的蓝图台与蓝图加农炮。</div>
-                <div><strong>命令快捷页</strong>任务书左侧还有一个 <b>commands</b> 页，9 个可重复点击的命令按钮（设置家 / 回家 / 家列表 / 返回 / 公共传送点…），点完成再领奖就会执行，不用手打命令。</div>
+                <div><strong>快捷命令章</strong>任务书第一章就是 <b>00 快捷命令</b>，8 个可重复点击的按钮（设置家 / 回家 / 家列表 / 返回 / 公共传送点…）。<b>点一下打勾 → 点领奖 → 命令自动执行</b>，可以反复用，不用手打命令。</div>
               </div>
             </div>
           </details>
         </div>
-        <div class="verification-note"><strong>任务书怎么用？</strong>任务书由 <strong>FTB Quests</strong> 提供 —— 进游戏后<strong>右键任务书物品</strong>即可打开，<strong>不需要任何键位</strong>（这也是为了避开输入法冲突）。共 522 个任务：10 个章节，每章一条主线 + 左右两条支线，支线不做也能通关，但奖励可以顺手拿。全部章节在网页的「章节」目录里可以逐页查看。</div>
+        <div class="verification-note"><strong>任务书怎么用？</strong>任务书由 <strong>FTB Quests</strong> 提供 —— 进游戏后<strong>右键任务书物品</strong>即可打开，<strong>不需要任何键位</strong>（这也是为了避开输入法冲突）。共 522 个任务：10 个章节 + 1 页快捷命令，每章一条主线 + 左右两条支线，支线不做也能通关，但奖励可以顺手拿。全部章节在网页的「章节」目录里可以逐页查看。</div>
       </div>
     </section>
 
@@ -443,8 +451,8 @@
         <div class="section-head"><div><div class="eyebrow">FIELD NOTES</div><h2>出发前记住这些</h2></div><p class="intro">快捷键可能与其他模组或玩家设置冲突；可在选项的按键设置中搜索模组名称并自行调整。</p></div>
         <div class="quick-start">
           <article class="tip-card"><h3>怎么和朋友一起玩？</h3><p>进入世界后按 <code>ESC</code> 点「对局域网开放」，聊天栏会给出一个 <code>xxxx.e4mc.link</code> 形式的<strong>公共域名</strong>。朋友在「多人游戏 → 直接连接」里粘贴即可，<strong>他不需要装 e4mc</strong>。主机退出世界后域名立即失效，下次开世界会换一个新的。</p></article>
-          <article class="tip-card"><h3>常用按键速查（完整版见 <a href="工具/键位总表.html" style="color:var(--gold)">键位总表</a>）</h3><p><code>-</code> 任务书；<code>R</code>/<code>U</code> 查询配方/用途；<code>Ctrl+O</code> 切换 JEI 列表；<code>Ctrl+F</code> 搜索按键；<code>Z</code> 缩放；<code>M</code>/<code>B</code> 地图；<code>K</code> 饰品栏；<code>Tab</code> Jade 信息。</p></article>
-          <article class="tip-card"><h3>命令不用记，任务书里点一下就行</h3><p>任务书左侧有一个「<b>commands</b>」页，里面是 9 个可重复点击的命令按钮：设置家、回家、家的列表、返回上一位置、公共传送点等。<b>点「完成」再点领奖，命令就执行了</b>，不用手打。</p></article>
+          <article class="tip-card"><h3>常用按键速查（完整版见 <a href="工具/键位总表.html" style="color:var(--gold)">键位总表</a>）</h3><p><strong>任务书 = 右键任务书物品</strong>（不占键位）；<code>R</code>/<code>U</code> 查询配方/用途；<code>Ctrl+O</code> 切换 JEI 列表；<code>Ctrl+F</code> 搜索按键；<code>Z</code> 缩放；<code>M</code>/<code>B</code> 地图；<code>K</code> 饰品栏；<code>Tab</code> Jade 信息。</p></article>
+          <article class="tip-card"><h3>命令不用记，任务书里点一下就行</h3><p>任务书第一章「<b>00 快捷命令</b>」里有 8 个可重复点击的按钮：设置家、回家、回第二个家、家的列表、删除家、返回上一位置、公共传送点。<b>点一下打勾，再点领奖，命令就执行了</b>，不用手打。</p></article>
           <article class="tip-card"><h3>老版本升级建议</h3><p>若曾导入过旧版，建议在 PCL2 删除旧的「匠造纪元 1.20.1」实例，再导入 v1.1.1 ZIP。重要存档先备份；不要在旧实例里混装另一加载器的模组。</p></article>
           <article class="tip-card"><h3>仍然崩溃怎么办？</h3><p>先确认 Java 17、内存分配和 Forge 版本；关闭光影后再启动，并查看崩溃助手或日志中的首个错误。不要同时升级多个模组，以免难以定位问题。</p></article>
         </div>
