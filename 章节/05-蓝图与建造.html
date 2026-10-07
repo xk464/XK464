@@ -1,122 +1,95 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#08111e">
-<title>05 蓝图与建造 · 匠造与奥术任务线</title><style>
-:root{--bg:#08111e;--a:#5aa9e6;--b:#a8d8ff;--ink:#f1eee3;--muted:#a9aca0;--faint:#6d7167;--line:rgba(231,225,199,.14);
---serif:Georgia,"Noto Serif SC","Songti SC",serif;--sans:"Inter","Noto Sans SC","Microsoft YaHei",sans-serif}
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08111e"><title>05 蓝图与建造 · 匠造与奥术任务线</title><style>
+:root{--bg:#08111e;--a:#5aa9e6;--b:#a8d8ff;--ink:#f1eee3;--muted:#a9aca0;--faint:#6d7167;--line:rgba(231,225,199,.14);--serif:Georgia,"Noto Serif SC","Songti SC",serif;--sans:"Inter","Noto Sans SC","Microsoft YaHei",sans-serif}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(ellipse 70% 50% at 18% 6%,rgba(90,169,230,.30),transparent 60%),radial-gradient(ellipse 60% 46% at 88% 84%,rgba(168,216,255,.10),transparent 60%)}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 18% 6%,rgba(90,169,230,.30),transparent 60%),radial-gradient(ellipse 60% 46% at 88% 84%,rgba(168,216,255,.10),transparent 60%)}
 body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.9;background-image:linear-gradient(rgba(90,169,230,.10) 1px, transparent 1px), linear-gradient(90deg, rgba(90,169,230,.10) 1px, transparent 1px)}
 .wrap{position:relative;z-index:1;width:min(1500px,calc(100% - 40px));margin:0 auto}
-header.top{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px)}
+header.top{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(0,0,0,.35);backdrop-filter:blur(12px)}
 .top-in{width:min(1500px,calc(100% - 40px));margin:0 auto;min-height:60px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:15px;text-decoration:none;color:inherit}
-.brand i{width:10px;height:10px;border-radius:3px;background:var(--a);display:inline-block;box-shadow:0 0 13px var(--a)}
-.brand b{color:var(--a)}.spacer{flex:1}
+.brand i{width:10px;height:10px;border-radius:3px;background:var(--a);display:inline-block;box-shadow:0 0 13px var(--a)}.brand b{color:var(--a)}.spacer{flex:1}
 .chip{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px;white-space:nowrap}
 .hero{padding:40px 0 18px}.eyebrow{font-size:12px;letter-spacing:.22em;color:var(--a);text-transform:uppercase;font-weight:600}
-.hero h1{font-family:var(--serif);font-size:clamp(26px,4vw,42px);margin:9px 0 7px}
-.hero h1 em{font-style:normal;color:var(--a)}
+.hero h1{font-family:var(--serif);font-size:clamp(26px,4vw,42px);margin:9px 0 7px}.hero h1 em{font-style:normal;color:var(--a)}
 .hero p{color:var(--muted);margin:0;font-size:14px}
 .flow{display:flex;gap:16px;align-items:flex-start;overflow-x:auto;padding:8px 4px 20px;margin-top:16px}
-.col{flex:1 1 300px;min-width:272px;display:flex;flex-direction:column;gap:9px}
-.col.main{flex:1.25 1 340px}
+.col{flex:1 1 300px;min-width:272px;display:flex;flex-direction:column;gap:9px}.col.main{flex:1.25 1 340px}
 .colhead{display:flex;align-items:baseline;justify-content:space-between;padding:0 4px 8px;border-bottom:1px dashed var(--line);margin-bottom:2px}
-.colhead span{font-size:12px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase}
-.col.main .colhead span{color:var(--a)}
+.colhead span{font-size:12px;letter-spacing:.14em;color:var(--faint)}.col.main .colhead span{color:var(--a)}
 .colhead b{font-family:var(--serif);font-size:17px;color:var(--b)}
-.card{display:flex;gap:10px;border:1px solid var(--line);border-radius:12px;padding:11px 13px;
-  background:color-mix(in srgb,var(--bg) 74%,#ffffff 5%);transition:transform .16s,border-color .16s}
-.card:hover{transform:translateY(-3px);border-color:var(--a);background:color-mix(in srgb,var(--bg) 62%,var(--a) 10%)}
+.card{display:flex;gap:10px;border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:rgba(255,255,255,.035);transition:transform .16s,border-color .16s}
+.card:hover{transform:translateY(-3px);border-color:var(--a);background:rgba(255,255,255,.07)}
 .col.main .card{border-left:3px solid var(--a)}
 .ix{font-family:var(--serif);font-size:12px;color:var(--a);opacity:.85;flex:0 0 auto;padding-top:2px}
 .bd{min-width:0;flex:1}.bd b{display:block;font-size:14.5px;font-weight:600;line-height:1.4}
 .bd small{display:block;color:var(--b);font-size:11.5px;margin-top:1px}
 .bd code{display:inline-block;margin-top:5px;font-size:10.5px;color:var(--muted);word-break:break-all}
 nav.pager{display:flex;gap:11px;margin:30px 0 0;flex-wrap:wrap}
-nav.pager a{flex:1 1 200px;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:13px;padding:12px 17px;
-  background:color-mix(in srgb,var(--bg) 74%,#ffffff 4%);transition:.16s}
+nav.pager a{flex:1 1 200px;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:13px;padding:12px 17px;background:rgba(255,255,255,.035);transition:.16s}
 nav.pager a:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
-nav.pager a small{display:block;font-size:11px;color:var(--faint);letter-spacing:.1em}
-nav.pager a b{display:block;font-size:14.5px}
+nav.pager a small{display:block;font-size:11px;color:var(--faint);letter-spacing:.1em}nav.pager a b{display:block;font-size:14.5px}
 nav.pager a.home{flex:0 0 auto;min-width:112px;text-align:center}nav.pager a.home b{color:var(--a);font-size:13.5px}
 nav.pager a.dis{opacity:.32;pointer-events:none}
 .grid{display:grid;gap:9px;grid-template-columns:repeat(auto-fill,minmax(206px,1fr));margin-top:12px}
-.grid a{text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:11px;padding:10px 13px;
-  background:color-mix(in srgb,var(--bg) 74%,#ffffff 4%);display:block;transition:.16s}
-.grid a:hover{border-color:var(--a);transform:translateY(-2px)}
-.grid a b{display:block;font-size:13.5px}.grid a span{font-size:11.5px;color:var(--faint)}
-.grid a.cur{border-color:var(--a);background:color-mix(in srgb,var(--a) 14%,transparent)}.grid a.cur b{color:var(--a)}
+.grid a{text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:11px;padding:10px 13px;background:rgba(255,255,255,.035);display:block;transition:.16s}
+.grid a:hover{border-color:var(--a);transform:translateY(-2px)}.grid a b{display:block;font-size:13.5px}.grid a span{font-size:11.5px;color:var(--faint)}
+.grid a.cur{border-color:var(--a);background:rgba(255,255,255,.09)}.grid a.cur b{color:var(--a)}
 h2.sec{font-family:var(--serif);font-size:19px;margin:34px 0 3px}
-footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 62px;color:var(--faint);font-size:12.5px}
-footer a{color:var(--a);text-decoration:none}
+footer{border-top:1px solid var(--line);margin-top:38px;padding:22px 0 62px;color:var(--faint);font-size:12.5px}footer a{color:var(--a);text-decoration:none}
 </style></head><body>
-<header class="top"><div class="top-in">
-  <a class="brand" href="../index.html"><i></i>匠造与奥术 · <b>任务线</b></a><div class="spacer"></div>
-  <span class="chip">第 05 章</span><span class="chip">3 列 · 26 个任务</span>
-</div></header>
-<div class="wrap">
-  <section class="hero">
-    <div class="eyebrow">Chapter 05</div>
-    <h1><em>蓝图与建造</em></h1>
-    <p>主线在中间一列，左右两侧是从主线延伸出去的支线 —— 支线不做也能通关，但奖励可以拿。</p>
-  </section>
-  <div class="flow">
-<div class="col">
-      <div class="colhead"><span>支线</span><b>6</b></div>
-      <div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 建材储备</b><small>从「钻石建造魔杖」延伸</small></div></div>
-      <div class="card"><span class="ix">02</span><div class="bd"><b>石砖</b><code>minecraft:stone_bricks</code></div></div>
-      <div class="card"><span class="ix">03</span><div class="bd"><b>玻璃</b><code>minecraft:glass</code></div></div>
-      <div class="card"><span class="ix">04</span><div class="bd"><b>橡木木板</b><code>minecraft:oak_planks</code></div></div>
-      <div class="card"><span class="ix">05</span><div class="bd"><b>白色混凝土</b><code>minecraft:white_concrete</code></div></div>
-      <div class="card"><span class="ix">06</span><div class="bd"><b>石英块</b><code>minecraft:quartz_block</code></div></div>
-    </div>
-<div class="col main">
-      <div class="colhead"><span>主线</span><b>14</b></div>
-      <div class="card"><span class="ix">01</span><div class="bd"><b>石制建造魔杖</b><small>一次放 9 个方块</small></div></div>
-      <div class="card"><span class="ix">02</span><div class="bd"><b>石砖墙</b><small>用魔杖铺一面墙</small></div></div>
-      <div class="card"><span class="ix">03</span><div class="bd"><b>玻璃幕墙</b><small>透光的建筑</small></div></div>
-      <div class="card"><span class="ix">04</span><div class="bd"><b>建筑方块</b><small>混凝土或陶瓦都行</small></div></div>
-      <div class="card"><span class="ix">05</span><div class="bd"><b>铁制建造魔杖</b><small>一次 27 个方块，可升级</small></div></div>
-      <div class="card"><span class="ix">06</span><div class="bd"><b>钻石建造魔杖</b><small>一次 128 个</small></div></div>
-      <div class="card"><span class="ix">07</span><div class="bd"><b>建造核心 · 天使</b><small>在空中凭空放方块</small></div></div>
-      <div class="card"><span class="ix">08</span><div class="bd"><b>建造核心 · 破坏</b><small>快速拆一大片</small></div></div>
-      <div class="card"><span class="ix">09</span><div class="bd"><b>魔杖核心</b><small>给魔杖装升级核心</small></div></div>
-      <div class="card"><span class="ix">10</span><div class="bd"><b>蓝图台</b><small>机械动力的图纸系统</small></div></div>
-      <div class="card"><span class="ix">11</span><div class="bd"><b>蓝图与笔</b><small>把建筑存成图纸</small></div></div>
-      <div class="card"><span class="ix">12</span><div class="bd"><b>蓝图加农炮</b><small>让机器替你盖房子</small></div></div>
-      <div class="card"><span class="ix">13</span><div class="bd"><b>无限建造魔杖</b><small>一次 1024 个方块，永不磨损</small></div></div>
-      <div class="card"><span class="ix">14</span><div class="bd"><b>建筑大师</b><small>从石杖到无限杖，全部收入囊中</small></div></div>
-    </div>
-<div class="col">
-      <div class="colhead"><span>支线</span><b>6</b></div>
-      <div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 装饰细节</b><small>从「蓝图与笔」延伸</small></div></div>
-      <div class="card"><span class="ix">02</span><div class="bd"><b>灯笼</b><code>minecraft:lantern</code></div></div>
-      <div class="card"><span class="ix">03</span><div class="bd"><b>花盆</b><code>minecraft:flower_pot</code></div></div>
-      <div class="card"><span class="ix">04</span><div class="bd"><b>盔甲架</b><code>minecraft:armor_stand</code></div></div>
-      <div class="card"><span class="ix">05</span><div class="bd"><b>画</b><code>minecraft:painting</code></div></div>
-      <div class="card"><span class="ix">06</span><div class="bd"><b>旗帜</b><code>minecraft:banner</code></div></div>
-    </div>
-  </div>
-  <h2 class="sec">全部章节</h2>
-  <div class="grid">
-    <a href="01-安家落户.html"><b>01 安家落户</b><span>30 个任务</span></a>
-    <a href="02-田园生活.html"><b>02 田园生活</b><span>28 个任务</span></a>
-    <a href="03-机械动力.html"><b>03 机械动力</b><span>34 个任务</span></a>
-    <a href="04-工业帝国.html"><b>04 工业帝国</b><span>34 个任务</span></a>
-    <a href="05-蓝图与建造.html" class="cur"><b>05 蓝图与建造</b><span>26 个任务</span></a>
-    <a href="06-奥术·新生魔艺.html"><b>06 奥术·新生魔艺</b><span>28 个任务</span></a>
-    <a href="07-奥术·植物魔法.html"><b>07 奥术·植物魔法</b><span>26 个任务</span></a>
-    <a href="08-收纳与物流.html"><b>08 收纳与物流</b><span>22 个任务</span></a>
-    <a href="09-探索与征服.html"><b>09 探索与征服</b><span>27 个任务</span></a>
-    <a href="10-强者之路.html"><b>10 强者之路</b><span>39 个任务</span></a>
-  </div>
-  <nav class="pager">
-    <a href="04-工业帝国.html"><small>← 上一章</small><b>工业帝国</b></a>
-    <a class="home" href="../index.html"><small>HOME</small><b>返回首页</b></a>
-    <a href="06-奥术·新生魔艺.html"><small>下一章 →</small><b>奥术·新生魔艺</b></a>
-  </nav>
+<header class="top"><div class="top-in"><a class="brand" href="../index.html"><i></i>匠造与奥术 · <b>任务线</b></a><div class="spacer"></div>
+<span class="chip">第 05 章</span><span class="chip">主线 14 + 支线 12</span></div></header>
+<div class="wrap"><section class="hero"><div class="eyebrow">Chapter 05</div>
+<h1><em>蓝图与建造</em></h1>
+<p>中间一列是主线（必经），左右两列是从主线延伸出去的支线 —— 不做也能通关，但奖励可以顺手拿。</p></section>
+<div class="flow">
+<div class="col"><div class="colhead"><span>支线（可选）</span><b>6</b></div>
+<div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 建材储备</b><small>从「钻石建造魔杖」延伸</small><code>点击确认</code></div></div>
+<div class="card"><span class="ix">02</span><div class="bd"><b>石砖</b><code>需要 minecraft:stone_bricks</code></div></div>
+<div class="card"><span class="ix">03</span><div class="bd"><b>玻璃</b><code>需要 minecraft:glass</code></div></div>
+<div class="card"><span class="ix">04</span><div class="bd"><b>橡木木板</b><code>需要 minecraft:oak_planks</code></div></div>
+<div class="card"><span class="ix">05</span><div class="bd"><b>白色混凝土</b><code>需要 minecraft:white_concrete</code></div></div>
+<div class="card"><span class="ix">06</span><div class="bd"><b>石英块</b><code>需要 minecraft:quartz_block</code></div></div></div>
+<div class="col main"><div class="colhead"><span>主线（必经）</span><b>14</b></div>
+<div class="card"><span class="ix">01</span><div class="bd"><b>石制建造魔杖</b><small>一次放 9 个方块</small><code>需要 constructionwand:stone_wand / minecraft:stone</code></div></div>
+<div class="card"><span class="ix">02</span><div class="bd"><b>石砖墙</b><small>用魔杖铺一面墙</small><code>需要 minecraft:stone_bricks / minecraft:stone ×64</code></div></div>
+<div class="card"><span class="ix">03</span><div class="bd"><b>玻璃幕墙</b><small>透光的建筑</small><code>需要 minecraft:glass / minecraft:glass ×64</code></div></div>
+<div class="card"><span class="ix">04</span><div class="bd"><b>建筑方块</b><small>混凝土或陶瓦都行</small><code>需要 minecraft:smooth_stone / minecraft:white_concrete ×64</code></div></div>
+<div class="card"><span class="ix">05</span><div class="bd"><b>铁制建造魔杖</b><small>一次 27 个方块，可升级</small><code>需要 constructionwand:iron_wand / minecraft:iron_ingot</code></div></div>
+<div class="card"><span class="ix">06</span><div class="bd"><b>钻石建造魔杖</b><small>一次 128 个</small><code>需要 constructionwand:diamond_wand / minecraft:diamond</code></div></div>
+<div class="card"><span class="ix">07</span><div class="bd"><b>建造核心 · 天使</b><small>在空中凭空放方块</small><code>需要 constructionwand:core_angel / minecraft:feather</code></div></div>
+<div class="card"><span class="ix">08</span><div class="bd"><b>建造核心 · 破坏</b><small>快速拆一大片</small><code>需要 constructionwand:core_destruction / minecraft:diamond_pickaxe</code></div></div>
+<div class="card"><span class="ix">09</span><div class="bd"><b>魔杖核心</b><small>给魔杖装升级核心</small><code>需要 constructionwand:diamond_wand_core / minecraft:diamond</code></div></div>
+<div class="card"><span class="ix">10</span><div class="bd"><b>蓝图台</b><small>机械动力的图纸系统</small><code>需要 create:schematic_table / create:empty_schematic</code></div></div>
+<div class="card"><span class="ix">11</span><div class="bd"><b>蓝图与笔</b><small>把建筑存成图纸</small><code>需要 create:empty_schematic / minecraft:paper</code></div></div>
+<div class="card"><span class="ix">12</span><div class="bd"><b>蓝图加农炮</b><small>让机器替你盖房子</small><code>需要 create:schematicannon / create:empty_schematic</code></div></div>
+<div class="card"><span class="ix">13</span><div class="bd"><b>无限建造魔杖</b><small>一次 1024 个方块，永不磨损</small><code>需要 constructionwand:infinity_wand / minecraft:nether_star</code></div></div>
+<div class="card"><span class="ix">14</span><div class="bd"><b>建筑大师</b><small>从石杖到无限杖，全部收入囊中</small><code>需要 minecraft:netherite_ingot / constructionwand:core_angel</code></div></div></div>
+<div class="col"><div class="colhead"><span>支线（可选）</span><b>6</b></div>
+<div class="card"><span class="ix">01</span><div class="bd"><b>支线 · 装饰细节</b><small>从「蓝图与笔」延伸</small><code>点击确认</code></div></div>
+<div class="card"><span class="ix">02</span><div class="bd"><b>灯笼</b><code>需要 minecraft:lantern</code></div></div>
+<div class="card"><span class="ix">03</span><div class="bd"><b>花盆</b><code>需要 minecraft:flower_pot</code></div></div>
+<div class="card"><span class="ix">04</span><div class="bd"><b>盔甲架</b><code>需要 minecraft:armor_stand</code></div></div>
+<div class="card"><span class="ix">05</span><div class="bd"><b>画</b><code>需要 minecraft:painting</code></div></div>
+<div class="card"><span class="ix">06</span><div class="bd"><b>旗帜</b><code>需要 minecraft:white_banner</code></div></div></div>
 </div>
-<footer><div class="wrap">任务数据由脚本从整合包内的 <code>config/ftbquests/</code> 反向生成，与游戏里完全一致。<br>
-整合包与本站由 <strong>大肥鱼(deepseek)</strong>制作 ｜ <a href="../index.html">← 返回首页</a></div></footer>
-</body></html>
+<h2 class="sec">全部章节</h2><div class="grid">
+  <a href="01-安家落户.html"><b>01 安家落户</b><span>30 个任务</span></a>
+  <a href="02-田园生活.html"><b>02 田园生活</b><span>28 个任务</span></a>
+  <a href="03-机械动力.html"><b>03 机械动力</b><span>34 个任务</span></a>
+  <a href="04-工业帝国.html"><b>04 工业帝国</b><span>34 个任务</span></a>
+  <a href="05-蓝图与建造.html" class="cur"><b>05 蓝图与建造</b><span>26 个任务</span></a>
+  <a href="06-奥术·新生魔艺.html"><b>06 奥术·新生魔艺</b><span>28 个任务</span></a>
+  <a href="07-奥术·植物魔法.html"><b>07 奥术·植物魔法</b><span>26 个任务</span></a>
+  <a href="08-收纳与物流.html"><b>08 收纳与物流</b><span>22 个任务</span></a>
+  <a href="09-探索与征服.html"><b>09 探索与征服</b><span>27 个任务</span></a>
+  <a href="10-强者之路.html"><b>10 强者之路</b><span>39 个任务</span></a>
+</div>
+<nav class="pager">
+<a href="04-工业帝国.html"><small>← 上一章</small><b>工业帝国</b></a>
+<a class="home" href="../index.html"><small>HOME</small><b>返回首页</b></a>
+<a href="06-奥术·新生魔艺.html"><small>下一章 →</small><b>奥术·新生魔艺</b></a>
+</nav></div>
+<footer><div class="wrap">任务数据由脚本从整合包内的 <code>config/ftbquests/</code> 反向生成，与游戏完全一致。<br>
+整合包与本站由 <strong>大肥鱼(deepseek)</strong>制作 ｜ <a href="../index.html">← 返回首页</a></div></footer></body></html>
